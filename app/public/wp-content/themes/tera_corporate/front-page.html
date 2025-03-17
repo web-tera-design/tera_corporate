@@ -23,11 +23,53 @@
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Google Fonts（必要なら追加） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header__logo">
+          <a href="" class="header__logo-link"></a>
+        </h1>
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a href="" class="header__nav-link"></a><span class="header__nav-item-text"></span></li>
+            <li><a href="" class="header__nav-link"></a><span class="header__nav-item-text"></span></li>
+            <li><a href="" class="header__nav-link"></a><span class="header__nav-item-text"></span></li>
+            <li><a href="" class="header__nav-link"></a><span class="header__nav-item-text"></span></li>
+            <li><a href="" class="header__nav-link"></a><span class="header__nav-item-text"></span></li>
+            <li><a href="" class="header__nav-link"></a><span class="header__nav-item-text"></span></li>
+          </ul>
+          <button href="" class="header__nav-button"></button>
+        </nav>
+      </div>
+    </header>
+    
+    <!-- ハンバーガーメニューのアイコンを header 外に移動 -->
+    <button class="drawer-icon">
+      <div class="drawer-icon__bar"></div>
+      <div class="drawer-icon__bar"></div>
+      <div class="drawer-icon__bar"></div>
+    </button>
+    
+    <!-- ハンバーガーメニューの本体 -->
+    <div class="drawer">
+      <div class="drawer__content">
+        <ul class="drawer__nav-list">
+          <li><a href="" class="drawer__item-link"></a><span class="drawer__item-text"></span></li>
+          <li><a href="" class="drawer__item-link"></a><span class="drawer__item-text"></span></li>
+          <li><a href="" class="drawer__item-link"></a><span class="drawer__item-text"></span></li>
+          <li><a href="" class="drawer__item-link"></a><span class="drawer__item-text"></span></li>
+          <li><a href="" class="drawer__item-link"></a><span class="drawer__item-text"></span></li>
+          <li><a href="" class="drawer__item-link"></a><span class="drawer__item-text"></span></li>
+        </ul>
+        <button href="" class="drawer__toggle-button"></button>
+      </div>
+    </div>
     <!-- jQuery & Swiperのスクリプト -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
