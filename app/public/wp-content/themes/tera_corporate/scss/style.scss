@@ -1,0 +1,53 @@
+@use "sass:map";
+
+// 色の定義（基本カラーとUI用）
+$color-primary: #1391E6; // メインカラー
+$color-secondary: #0060A0; // サブカラー
+$color-accent: #EE5A6D; // アクセントカラー
+
+// UI用のカラーパレット
+$color-bg: #FFF; // 背景色
+$color-bg-sub: #DFF1FD; // サブ背景色
+$color-text: #393939; // テキストカラー
+
+
+// ブレイクポイント設定
+$breakpoints: (
+    sm: "screen and (min-width: 600px)",
+    md: "screen and (min-width: 768px)",
+    lg: "screen and (min-width: 900px)",
+    xl: "screen and (min-width: 1200px)"
+);
+
+// メディアクエリのmixin
+@mixin mq($breakpoint: sm) {
+    @media #{map.get($breakpoints, $breakpoint)} {
+      @content;
+    }
+}
+
+// rclamp 関数
+@function rclamp($min, $max, $minViewport, $maxViewport) {
+  $vwScale: ($max - $min) / ($maxViewport - $minViewport);
+  $baseOffset: $min - $minViewport * $vwScale;
+
+  $minRem: $min / 16;
+  $maxRem: $max / 16;
+  $baseOffsetRem: $baseOffset / 16;
+  $vwScaleRem: $vwScale * 100;
+
+  @return clamp(#{$minRem}rem, #{$baseOffsetRem}rem + #{$vwScaleRem}vw, #{$maxRem}rem);
+}
+
+// リセットCSS
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    color: $color-text;
+    background-color: $color-bg;
+}

@@ -1,3 +1,12 @@
-/*
-Theme Name: Teracorporate
-*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  color: #393939;
+  background-color: #FFF;
+}
