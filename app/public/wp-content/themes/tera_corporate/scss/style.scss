@@ -1,6 +1,4 @@
-// main.scss などのメインSCSSファイルにインポート
 @import 'reset';
-
 
 // 色の定義（基本カラーとUI用）
 $color-primary: #1391E6; // メインカラー
@@ -23,29 +21,22 @@ $breakpoints: (
 
 // メディアクエリのmixin
 @mixin mq($breakpoint: sm) {
-    @media #{map.get($breakpoints, $breakpoint)} {
+    @media #{$breakpoints[$breakpoint]} {
       @content;
     }
 }
 
 // rclamp 関数
 @function rclamp($min, $max, $minViewport, $maxViewport) {
-  $vwScale: ($max - $min) / ($maxViewport - $minViewport);
+  $vwScale: math.div($max - $min, $maxViewport - $minViewport);
   $baseOffset: $min - $minViewport * $vwScale;
 
-  $minRem: $min / 16;
-  $maxRem: $max / 16;
-  $baseOffsetRem: $baseOffset / 16;
+  $minRem: math.div($min, 16);
+  $maxRem: math.div($max, 16);
+  $baseOffsetRem: math.div($baseOffset, 16);
   $vwScaleRem: $vwScale * 100;
 
   @return clamp(#{$minRem}rem, #{$baseOffsetRem}rem + #{$vwScaleRem}vw, #{$maxRem}rem);
-}
-
-// リセットCSS
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 body {
