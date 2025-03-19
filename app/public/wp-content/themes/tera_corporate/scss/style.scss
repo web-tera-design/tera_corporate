@@ -20,23 +20,38 @@ $breakpoints: (
 );
 
 // メディアクエリのmixin
+// @mixin mq($breakpoint: sm) {
+//     @media #{$breakpoints[$breakpoint]} {
+//       @content;
+//     }
+// }
+
 @mixin mq($breakpoint: sm) {
-    @media #{$breakpoints[$breakpoint]} {
-      @content;
-    }
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
 }
 
-// rclamp 関数
-@function rclamp($min, $max, $minViewport, $maxViewport) {
-  $vwScale: math.div($max - $min, $maxViewport - $minViewport);
-  $baseOffset: $min - $minViewport * $vwScale;
+@function rem($px) {
+  @return ($px / 16) * 1rem; // `px` を `rem` に変換
+}
 
-  $minRem: math.div($min, 16);
-  $maxRem: math.div($max, 16);
-  $baseOffsetRem: math.div($baseOffset, 16);
-  $vwScaleRem: $vwScale * 100;
+
+@function rclamp($min, $max, $minViewport, $maxViewport) {
+  $vwScale: ($max - $min) / ($maxViewport - $minViewport);  // vw単位でのスケールを計算
+  $baseOffset: $min - $minViewport * $vwScale;  // 基準となる最小値からのオフセットを計算
+
+  $minRem: $min / 16;  // 最小値をremに変換
+  $maxRem: $max / 16;  // 最大値をremに変換
+  $baseOffsetRem: $baseOffset / 16;  // オフセットをremに変換
+  $vwScaleRem: $vwScale * 100;  // vwスケールを調整
 
   @return clamp(#{$minRem}rem, #{$baseOffsetRem}rem + #{$vwScaleRem}vw, #{$maxRem}rem);
+}
+
+// 使用例
+.example {
+  font-size: rclamp(24, 64, 375, 1200);
 }
 
 body {
@@ -49,53 +64,62 @@ body {
 .header {
   position: fixed;
   z-index: 100;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: auto;
+  min-block-size: rem(80);
   background: #fff;
   opacity: 0.85;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 }
 .header__inner {
-  padding: 0 40px;
+  padding-inline-start:  rclamp(20, 40, 375, 1280);
+  padding-inline-end: rclamp(17, 40, 375, 1280);
   display: flex;
   justify-content: space-between;
 }
 
 .header__logo {
-  padding-block: 20px;
+  padding-block: rclamp(15, 20, 375, 1280);
 }
 
 .header__logo-link {
-  width: 270px;
+  inline-size: rem(270);
 }
 
 .header__nav {
   // spの場合非表示
-  // display: none;
-  display: flex;
+  display: none;
+  @include mq(md) {
+    display: flex;
+  }
 }
 
 .header__nav-list {
+  // display: grid;
+  // grid-template-columns: repeat(3, 1fr); // 3列レイアウト
+  // gap: rem(12); // 適宜調整
   display: flex;
-  gap: 24px;
-  padding-block: 16px 10px;
+  gap: rclamp(12, 24, 768, 1280);
+  padding-block: rclamp(12, 18, 375, 1280);
+  
+  @include mq(xl) {
+  }
 }
 
 .header__nav-link {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 6px;
 }
 
 .header__nav-item-text {
   color: #393939;
   text-align: center;
-  font-size: 11px;
+  font-size: rem(11);
   font-weight: 700;
-  line-height: 18px; /* 163.636% */
+  line-height: rem(18); /* 163.636% */
 }
 
 
@@ -108,13 +132,17 @@ body {
 }
 
 .header__suv-list {
-  margin-left: 32px;
-  padding-block: 9px 8px;
+  display: none;
+  @include mq(xl) {
+    display: block;
+    margin-inline-start: rem(32);
+    padding-block: rem(9);
+  }
 }
 
 .header__suv-item-text {
   color: #393939;
-  font-size: 12px;
+  font-size: rem(12);
   font-weight: 500;
   text-align: right;
 }
@@ -128,9 +156,11 @@ body {
 }
 
 .header__suv-item {
+  display: flex;
+  gap: rem(6);
   color: #1391E6;
   text-align: center;
-  font-size: 32px;
+  font-size: rem(32);
   font-weight: 700;
   letter-spacing: -0.64px;
 }
@@ -143,60 +173,79 @@ body {
 .drawer-icon {
   position: fixed;
   z-index: 102;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
+  inset-block-start: rem(14);
+  inset-inline-end: rem(14);
+  inline-size: rem(32);
+  block-size: rem(32);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: transparent;
+  cursor: pointer;
+
+  @include mq(md) {
+    display: none;
+  }
 }
+
 .drawer-icon__bar {
-  width: 100%;
-  height: 1px;
-  background: #fff;
+  inline-size: rem(27);
+  block-size: 2px;
+  background: $color-primary;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
+
 // メニューが開いている時 ========
 .drawer-icon.js-show {
   .drawer-icon__bar:nth-of-type(1) {
-    rotate: 45deg;
-    translate: 0 7.5px;
+    transform: translate(2px, 7px) rotate(45deg);
   }
   .drawer-icon__bar:nth-of-type(2) {
-    display: none;
+    opacity: 0; // display: none; ではなく、フェードアウトするように変更
   }
   .drawer-icon__bar:nth-of-type(3) {
-    rotate: -45deg;
-    translate: 0 -7.5px;
+    transform: translate(2px, -7px) rotate(-45deg);
   }
 }
+
+// メニューが開いた時のアイコン色変更
+.drawer-icon.js-show .drawer-icon__bar {
+  background: #ffffff;
+}
+
 // ドロワーメニュー ==========================
 .drawer {
   position: fixed;
   z-index: 101;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  height: 100svh;
-  background: #fff;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inline-size: 100%;
+  block-size: 100svh;
+  background: $color-primary;
   overflow-y: scroll;
 }
-.drawer__content {
-  width: 100%;
-  height: fit-content;
-  padding-block: 0;
-  padding-left: 0;
+
+.drawer.js-show {
 }
+
+.drawer__content {
+  inline-size: 100%;
+  block-size: fit-content;
+  padding-block: 0;
+  padding-inline-start: 0;
+}
+
 .drawer__nav-list {
   display: flex;
   flex-direction: column;
-  row-gap: 0;
-  margin-bottom: 0;
 }
+
 .drawer__item-link {
   // スタイルを追加する
 }
+
 .drawer__toggle-button {
   display: inline-block;
   padding: 0;
