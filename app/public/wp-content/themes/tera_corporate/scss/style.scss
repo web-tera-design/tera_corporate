@@ -52,16 +52,93 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 80px;
   background: #fff;
+  opacity: 0.85;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 }
 .header__inner {
-  padding: 0;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
 }
+
+.header__logo {
+  padding-block: 20px;
+}
+
+.header__logo-link {
+  width: 270px;
+}
+
 .header__nav {
   // spの場合非表示
-  display: none;
+  // display: none;
+  display: flex;
 }
+
+.header__nav-list {
+  display: flex;
+  gap: 24px;
+  padding-block: 16px 10px;
+}
+
+.header__nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.header__nav-item-text {
+  color: #393939;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px; /* 163.636% */
+}
+
+
+.header__nav-link-icon path {
+  fill: $color-text; /* デフォルトの色 */
+}
+
+.header__nav-link-icon:hover path {
+  fill: $color-primary; /* ホバー時の色 */
+}
+
+.header__suv-list {
+  margin-left: 32px;
+  padding-block: 9px 8px;
+}
+
+.header__suv-item-text {
+  color: #393939;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.header__suv-list {
+
+}
+
+.header__suv-item-text {
+
+}
+
+.header__suv-item {
+  color: #1391E6;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.64px;
+}
+
+.header__suv-item-icon {
+
+}
+
 // アイコン ====================
 .drawer-icon {
   position: fixed;
