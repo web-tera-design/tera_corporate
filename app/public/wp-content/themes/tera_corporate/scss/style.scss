@@ -1,17 +1,37 @@
 @import 'reset';
 
-// 色の定義（基本カラーとUI用）
-$color-primary: #1391E6; // メインカラー
-$color-secondary: #0060A0; // サブカラー
-$color-accent: #EE5A6D; // アクセントカラー
+// テキストカラー
+$text-primary: #393939; // 通常のテキスト
+$text-light: #FFFFFF; // 明るい背景でのテキスト
+$text-link: #1391E6; // リンク・強調テキスト
+$text-sub: #888888; // サブテキスト
 
-// UI用のカラーパレット
-$color-bg: #FFF; // 背景色
-$color-bg-sub: #DFF1FD; // サブ背景色
-$color-text: #393939; // テキストカラー
+// 背景カラー
+$bg-primary: #FFFFFF; // メイン背景
+$bg-secondary: #DFF1FD; // サブ背景
+
+// ボタン/UIカラー
+$btn-primary: #1391E6; // 主要ボタン
+$btn-primary-hover: #EE5A6D; // 主要ボタンのホバー時
+$btn-secondary: #FFFFFF; // サブボタン
+$btn-secondary-hover: #DFF1FD; // サブボタンのホバー時
+
+// ボーダーカラー
+$border-primary: #CCCCCC; // 基本的なボーダー
+$border-primary-hover: #B3B3B3; // 基本的なボーダーのホバー時
+$border-secondary: #E0E0E0; // サブボーダー（薄め）
+$border-secondary-hover: #D0D0D0; // サブボーダーのホバー時
+
+// ホバー時のカラー設定
+$hover-white: #ffffff; // ホワイト系ホバー
+$hover-light: #1391E6; // ライト系ホバー
+$hover-accent: #0060A0; // アクセントホバー
+
+// フォント
+$font-main: "M PLUS Rounded 1c", sans-serif; // 本文用フォント
 
 
-// ブレイクポイント設定
+// ブレイクポイント
 $breakpoints: (
     sm: "screen and (min-width: 600px)",
     md: "screen and (min-width: 768px)",
@@ -56,8 +76,8 @@ $breakpoints: (
 
 body {
     font-family: "M PLUS Rounded 1c", sans-serif;
-    color: $color-text;
-    background-color: $color-bg;
+    color: $font-main;
+    background-color: $bg-primary;
 }
 
 // ヘッダー ========================
@@ -69,15 +89,18 @@ body {
   inline-size: 100%;
   block-size: auto;
   min-block-size: rem(80);
-  background: #fff;
+  background: $bg-primary;
   opacity: 0.85;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 }
 .header__inner {
+  // display: grid;
+  // grid-template-columns: 100px 1fr;
   padding-inline-start:  rclamp(20, 40, 375, 1280);
   padding-inline-end: rclamp(17, 40, 375, 1280);
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .header__logo {
@@ -124,11 +147,11 @@ body {
 
 
 .header__nav-link-icon path {
-  fill: $color-text; /* デフォルトの色 */
+  fill: $text-primary; /* デフォルトの色 */
 }
 
 .header__nav-link-icon:hover path {
-  fill: $color-primary; /* ホバー時の色 */
+  fill: $text-link; /* ホバー時の色 */
 }
 
 .header__suv-list {
@@ -169,14 +192,24 @@ body {
 
 }
 
+.header__btn {
+  transition: all 0.3s ease;
+
+  @media(any-hover: hover) {
+    &:hover {
+
+    }
+  }
+}
+
 // アイコン ====================
 .drawer-icon {
   position: fixed;
   z-index: 102;
-  inset-block-start: rem(14);
-  inset-inline-end: rem(14);
-  inline-size: rem(32);
-  block-size: rem(32);
+  inset-block-start: 22px;
+  inset-inline-end: 14px;
+  inline-size: 27px;
+  block-size: 27px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -193,7 +226,7 @@ body {
 .drawer-icon__bar {
   inline-size: rem(27);
   block-size: 2px;
-  background: $color-primary;
+  background: $btn-primary;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
@@ -212,7 +245,7 @@ body {
 
 // メニューが開いた時のアイコン色変更
 .drawer-icon.js-show .drawer-icon__bar {
-  background: #ffffff;
+  background: $btn-secondary;
 }
 
 // ドロワーメニュー ==========================
@@ -223,8 +256,7 @@ body {
   inset-inline-end: 0;
   inline-size: 100%;
   block-size: 100svh;
-  background: $color-primary;
-  overflow-y: scroll;
+  background: $hover-accent
 }
 
 .drawer.js-show {
@@ -233,17 +265,50 @@ body {
 .drawer__content {
   inline-size: 100%;
   block-size: fit-content;
-  padding-block: 0;
-  padding-inline-start: 0;
+  padding-block: rclamp(99.5, 155, 375, 768);
+  margin-inline: auto;
+  position: relative;
 }
+
+.drawer__logo {
+  position: absolute;
+  inset-block-start: 17.78px;
+  inset-inline-start: 22.94px;
+  display: flex;
+  gap: 11px;
+}
+
 
 .drawer__nav-list {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.drawer-nav-item {
+  display: flex;
+  align-items: center;
+  inline-size: calc(255px / 375px * 100%);
+  border-block-start: 1px dashed #fff ;
+}
+
+// 最後の要素だけ `border-bottom` を適用
+.drawer-nav-item:last-child {
+  border-block-end: 1px dashed #fff;
 }
 
 .drawer__item-link {
-  // スタイルを追加する
+  display: flex;
+}
+
+.drawer__item-text {
+  margin-inline-start: rclamp(14, 24, 375, 768);
+  padding-block-start: rclamp(16.5, 24.5, 375, 768);
+  padding-block-end: rclamp(17.5, 25, 375, 768);
+  color: $bg-primary;
+  font-size: rclamp(14, 24, 375, 768);
+  font-weight: 500;
 }
 
 .drawer__toggle-button {
@@ -252,3 +317,10 @@ body {
   background: #fff;
   border-radius: 100vmax;
 }
+
+
+
+
+
+
+

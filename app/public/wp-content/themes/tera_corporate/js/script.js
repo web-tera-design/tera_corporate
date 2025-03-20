@@ -76,3 +76,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
+  document.addEventListener("DOMContentLoaded", () => {
+    function scaleContent() {
+        const minWidth = 375;
+        if (window.innerWidth < minWidth) {
+            const scale = window.innerWidth / minWidth;
+            document.body.style.transform = `scale(${scale})`;
+            document.body.style.transformOrigin = "top left";
+            document.body.style.width = `${minWidth}px`; // レイアウト維持
+        } else {
+            document.body.style.transform = ""; // 拡大・縮小を無効化
+            document.body.style.width = ""; // デフォルトの幅に戻す
+        }
+    }
+  
+    scaleContent();
+    window.addEventListener("resize", scaleContent);
+  });
