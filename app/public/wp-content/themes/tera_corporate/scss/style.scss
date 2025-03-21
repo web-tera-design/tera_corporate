@@ -76,7 +76,7 @@ $breakpoints: (
 
 body {
     font-family: "M PLUS Rounded 1c", sans-serif;
-    color: $font-main;
+    color: $text-primary;
     background-color: $bg-primary;
 }
 
@@ -87,10 +87,8 @@ body {
   inset-block-start: 0;
   inset-inline-start: 0;
   inline-size: 100%;
-  block-size: auto;
-  min-block-size: rem(80);
+  block-size: rclamp(60, 80, 375, 1280);
   background: $bg-primary;
-  opacity: 0.85;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 }
 .header__inner {
@@ -318,9 +316,116 @@ body {
   border-radius: 100vmax;
 }
 
+.card {
+ padding-block-start: rclamp(75, 160, 375, 1280);
+ padding-block-end: 50px;//ページネーション用の余白。要調整
+ overflow: hidden;
+}
+.card__inner {
+ padding-inline: rclamp(20, 60, 375, 1280);
+ position: relative;
+}
+.card__swiper-container  {
+  position: relative;
+}
+.card__swiper {
+  position: relative;
+}
+.card__swiper-wrapper {
+  position: relative;
+}
+.card__swiper-slide {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: calc(1160px / 1280px * 100%);
+   object-fit: cover;
+   height: auto;
+   aspect-ratio: 1160 / 520;
+   background: #d9d9d9;
+   p {
+   font-size: 30px;
+   font-weight: 700;
+   }
+}
 
+//位置のreset
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination-bullets.swiper-pagination-horizontal  {
+  inset-block-start: unset;
+  inset-block-end: unset;
+  inset-inline-start: unset;
+  inset-inline-end: unset;
+  margin: 0;
+  padding: 0;
+}
+// =============================
+// ナビゲーションボタン
+// =============================
+//デフォルトのボタンを初期化
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  //content: "";デフォルトの矢印を初期化
+}
+//各ボタンのカスタマイズ
+.swiper-button-prev,
+.swiper-button-next {
+  inset-block-start: 50%;
+  translate: 0 -50%;
+  inline-size: 0;
+  block-size: 0;
+  svg {
+       inline-size: 100%;
+       block-size: 100%;
+  }
+}
+.swiper-button-prev {
+   inset-inline-start: 0;
 
+}
+.swiper-button-next {
+   inset-inline-end: 0;
 
+}
 
+// =============================
+// ページネーション (bullets)
+// =============================
+//位置の設定 (枠組み)
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  inset-block-start: calc(100% + 20px);//ここで位置調整今は要素の一番下にある
+}
+//それぞれのページネーション
+.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet {
+  opacity: 1;
+  inline-size: 12px;
+  block-size: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #d9d9d9;
+  margin-inline: calc(11px / 2);
+  &:first-of-type {
+   margin-left: 0;
+  }
+  // inline-size: 40px;円でなく横に伸びる棒状
+  // block-size: 5px;
+  // border-radius: 0;
+}
+//activeな部分
+.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet-active {
+  background: #000;
+}
 
+// =============================
+// ページネーション (progressbar)
+// =============================
+//位置の設定と外枠
+.swiper-pagination-progressbar.swiper-pagination-horizontal {
 
+}
+//activeな部分
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+
+}
