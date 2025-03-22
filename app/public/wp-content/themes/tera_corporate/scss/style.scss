@@ -330,6 +330,7 @@ body {
 }
 .card__swiper {
   position: relative;
+  border-radius: rclamp(6, 20, 375, 1280);//imgのborder-radius
 }
 .card__swiper-wrapper {
   position: relative;
@@ -339,21 +340,65 @@ body {
    display: flex;
    align-items: center;
    justify-content: center;
-   width: calc(1160px / 1280px * 100%);
-   object-fit: cover;
+   inline-size: calc(1160px / 1280px * 100%);
    height: auto;
    aspect-ratio: 1160 / 520;
-   background: #d9d9d9;
-   p {
-   font-size: 30px;
-   font-weight: 700;
+   img {
+     object-fit: cover;
    }
+}
+
+//画面内に文言入れる
+.swiper-slide__text {
+   display: block;
+   position: absolute;
+   bottom: 10%;
+   left: 5%;
+}
+
+.swiper-slide__heading,
+.swiper-slide__sub {
+   position: relative;
+   inline-size: fit-content;
+   color: #FFF;
+   text-shadow: 4px 6px 6px rgba(0, 0, 0, 0.20);
+   font-size: rclamp(20, 32, 375, 1280);
+   font-weight: 700;
+   letter-spacing: 2.56px;
+}
+
+.swiper-slide__heading::after,
+.swiper-slide__sub::after {
+   content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; // ちょっと下げる
+  inline-size: 100%; // fit-contentの効果でテキスト長にピッタリ
+  height: 2px;
+  border-bottom: 2px dotted #fff;
+}
+
+.swiper-slide__heading {
+
+}
+
+.swiper-slide__sub {
+   margin-block-start: rclamp(13, 17, 375, 1280);
+}
+
+.card__swiper-bottom {
+  //display: flex;画面下に矢印・ページネーション・矢印用セット
+  //align-items: center;
+  //justify-content: center;
+  //margin-block-start: rem(33);
+  //column-gap: rem(34.5);
 }
 
 //位置のreset
 .swiper-button-prev,
 .swiper-button-next,
 .swiper-pagination-bullets.swiper-pagination-horizontal  {
+// position: relative;矢印・ページネーション・矢印にしたい時
   inset-block-start: unset;
   inset-block-end: unset;
   inset-inline-start: unset;
@@ -372,8 +417,9 @@ body {
 //各ボタンのカスタマイズ
 .swiper-button-prev,
 .swiper-button-next {
-  inset-block-start: 50%;
+  inset-block-start: 50%;//左右両端配置の場合
   translate: 0 -50%;
+  //bottom: calc(100% + 20px);画面右上配置の場合
   inline-size: 0;
   block-size: 0;
   svg {
@@ -382,7 +428,8 @@ body {
   }
 }
 .swiper-button-prev {
-   inset-inline-start: 0;
+   inset-inline-start: 0;//左右両端配置の場合
+   //right: 54px;画面右上配置の場合
 
 }
 .swiper-button-next {
@@ -395,7 +442,11 @@ body {
 // =============================
 //位置の設定 (枠組み)
 .swiper-pagination-bullets.swiper-pagination-horizontal {
-  inset-block-start: calc(100% + 20px);//ここで位置調整今は要素の一番下にある
+  inset-block-start: calc(100% + 20px);//画面下に中央配置
+  //inset-block-start: calc(90% + 20px);画面左に縦配置
+  //inset-inline-start: -52%;
+  //transform: rotate(90deg);
+  //inline-size: fit-content;矢印・ページネーション・矢印用
 }
 //それぞれのページネーション
 .swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet {

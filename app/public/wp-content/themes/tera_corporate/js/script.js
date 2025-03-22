@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
  const cardSwiper = new Swiper('.card__swiper', { //swiperの名前
    //切り替えのモーション
-   speed: 3000, //表示切り替えのスピード
+   speed: 1000, //表示切り替えのスピード
    effect: "slide", //切り替えのmotion (※1)
    allowTouchMove: true, // スワイプで表示の切り替えを有効に
  
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
    loop: true,
    //自動スライドについて
    autoplay: { 
-     delay: 3000, //何秒ごとにスライドを動かすか
+     delay: 1000, //何秒ごとにスライドを動かすか
      stopOnLastSlide: false, //最後のスライドで自動再生を終了させるか
      disableOnInteraction: true, //ユーザーの操作時に止める
      reverseDirection: false, //自動再生を逆向きにする
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
  
     //表示について
    centeredSlides: true, //中央寄せにする
-   slidesPerView: 1, 
+   slidesPerView: 1,
    spaceBetween: 0,
  
    //ページネーション
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
      crossFade: true
    },
  cube：スライドが立方体になり、3D回転を繰り返す
- coverflow：写真やアルバムジャケットをめくるようなアニメーション
+ coverFlow：写真やアルバムジャケットをめくるようなアニメーション
  flip：平面が回転するようなアニメーション
  cards：カードを順番にみていくようなアニメーション
  creative：カスタマイズしたアニメーションを使うときに使用します
