@@ -133,23 +133,56 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative; // 下線のために必要
+  transition: color 0.3s ease;
+  color: inherit;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    inline-size: 100%;
+    height: 3px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.1s ease;
+  }
+
+  // アクティブ・現在ページ
+  &.is-active,
+  &[aria-current="page"] {
+    color: $text-link;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
 }
 
-.header__nav-item-text {
-  color: #393939;
-  text-align: center;
-  font-size: rem(11);
-  font-weight: 700;
-  line-height: rem(18); /* 163.636% */
+// ホバーは hover 対応デバイスに限定
+@media (any-hover: hover) {
+  .header__nav-link:hover {
+    color: $text-link;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
 }
 
 
 .header__nav-link-icon path {
-  fill: $text-primary; /* デフォルトの色 */
+  fill: currentColor;//親要素と色を合わせる
 }
 
-.header__nav-link-icon:hover path {
-  fill: $text-link; /* ホバー時の色 */
+.header__nav-item-text {
+  text-align: center;
+  font-size: rem(11);
+  font-weight: 700;
+  line-height: rem(18); /* 163.636% */
+  color: inherit;
 }
 
 .header__suv-list {
@@ -369,13 +402,13 @@ body {
 
 .swiper-slide__heading::after,
 .swiper-slide__sub::after {
-   content: '';
+  content: '';
   position: absolute;
   left: 0;
   bottom: -5px; // ちょっと下げる
   inline-size: 100%; // fit-contentの効果でテキスト長にピッタリ
   height: 2px;
-  border-bottom: 2px dotted #fff;
+  border-bottom: 4px dotted #fff;
 }
 
 .swiper-slide__heading {
@@ -442,10 +475,10 @@ body {
 // =============================
 //位置の設定 (枠組み)
 .swiper-pagination-bullets.swiper-pagination-horizontal {
-  inset-block-start: calc(100% + 20px);//画面下に中央配置
-  //inset-block-start: calc(90% + 20px);画面左に縦配置
-  //inset-inline-start: -52%;
-  //transform: rotate(90deg);
+  // inset-block-start: calc(100% + 20px);//画面下に中央配置
+  inset-block-start: calc(90% + 20px);
+  inset-inline-start: -52%;
+  transform: rotate(90deg);
   //inline-size: fit-content;矢印・ページネーション・矢印用
 }
 //それぞれのページネーション
