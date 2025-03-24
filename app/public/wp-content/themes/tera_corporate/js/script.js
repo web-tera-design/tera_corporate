@@ -131,13 +131,13 @@ const cardSwiper = new Swiper('.card__swiper', { //swiperの名前
   autoplay: { 
     delay: 2000, //何秒ごとにスライドを動かすか
     stopOnLastSlide: false, //最後のスライドで自動再生を終了させるか
-    disableOnInteraction: false, //ユーザーの操作時に止める
+    disableOnInteraction: true, //ユーザーの操作時に止める
     reverseDirection: false, //自動再生を逆向きにする
   },
 
   //表示について
   centeredSlides: true, //中央寄せにする
-  slidesPerView: 1,
+  slidesPerView: 2,
   spaceBetween: 0,
 
   //ページネーション

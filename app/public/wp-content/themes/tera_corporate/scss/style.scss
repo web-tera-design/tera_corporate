@@ -445,7 +445,7 @@ body {
 //デフォルトのボタンを初期化
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  //content: "";デフォルトの矢印を初期化
+  content: "";
 }
 //各ボタンのカスタマイズ
 .swiper-button-prev,
@@ -453,20 +453,20 @@ body {
   inset-block-start: 50%;//左右両端配置の場合
   translate: 0 -50%;
   //bottom: calc(100% + 20px);画面右上配置の場合
-  inline-size: 0;
-  block-size: 0;
+  inline-size: rclamp(32, 48, 375, 1280);
+  // block-size: rclamp(32, 48, 375, 1280);
   svg {
        inline-size: 100%;
        block-size: 100%;
   }
 }
 .swiper-button-prev {
-   inset-inline-start: 0;//左右両端配置の場合
+   inset-inline-start: rem(-20);//左右両端配置の場合
    //right: 54px;画面右上配置の場合
 
 }
 .swiper-button-next {
-   inset-inline-end: 0;
+   inset-inline-end: rem(-20);
 
 }
 
@@ -476,7 +476,7 @@ body {
 //位置の設定 (枠組み)
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   // inset-block-start: calc(100% + 20px);//画面下に中央配置
-  inset-block-start: calc(90% + 20px);
+  inset-block-end: 3%;
   inset-inline-start: -52%;
   transform: rotate(90deg);
   //inline-size: fit-content;矢印・ページネーション・矢印用
@@ -484,7 +484,7 @@ body {
 //それぞれのページネーション
 .swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet {
   opacity: 1;
-  inline-size: 12px;
+  inline-size: rclamp(10, 10, 375, 1280);
   block-size: auto;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -499,7 +499,7 @@ body {
 }
 //activeな部分
 .swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet-active {
-  background: #000;
+  background: $btn-primary;
 }
 
 // =============================

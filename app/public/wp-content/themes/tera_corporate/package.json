@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "@markuplint/config-presets": "^4.5.12",
     "markuplint": "^4.11.8"
   }
 }
