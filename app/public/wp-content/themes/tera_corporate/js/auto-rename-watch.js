@@ -4,9 +4,9 @@ const sharp = require('sharp');
 const chokidar = require('chokidar');
 
 // 📁 パス設定
-const inputDir = './img'; // 画像を入れる場所（imgフォルダ）
-const outputDir = './dist-img'; // 画像を出力する場所（dist-imgフォルダ）
-const logPath = path.join(__dirname, 'rename-log.json'); // ログファイル（jsフォルダ内）
+const inputDir = './img'; // 入力フォルダ
+const outputDir = './dist-img'; // 出力フォルダ
+const logPath = path.join(__dirname, 'rename-log.json'); // 命名履歴ファイル
 
 // 📘 ログを読み込む関数
 const loadRenameLog = () => {
@@ -24,7 +24,7 @@ const saveRenameLog = (log) => {
 // 🧠 ログを読み込む
 const renameLog = loadRenameLog();
 
-// 🧼 命名処理（履歴＋連番つき）
+// 🧼 命名処理（履歴＋連番対応）
 const sanitizeWithLog = (originalName, ext) => {
   if (renameLog[originalName]) {
     return renameLog[originalName];
@@ -32,15 +32,15 @@ const sanitizeWithLog = (originalName, ext) => {
 
   const nameWithoutExt = originalName.replace(/\.[^/.]+$/, '');
   const base = nameWithoutExt
-    .replace(/[（）()]/g, '')
-    .replace(/[\s_]+/g, '-')
-    .replace(/[^a-zA-Z0-9\-]/g, '')
-    .toLowerCase();
+    .replace(/[（）()]/g, '')             // カッコを除去
+    .replace(/[\s_]+/g, '-')              // 空白やアンダーバーをハイフンに
+    .replace(/[^a-zA-Z0-9\-]/g, '')       // 記号など除去
+    .toLowerCase();                      // 小文字化
 
   let finalName = base;
   let count = 1;
 
-  // 同名ファイルがあったら連番をつける
+  // 同名がすでに dist-img にある場合は連番をつける
   while (
     fs.existsSync(path.join(outputDir, `${finalName}${ext}`)) ||
     fs.existsSync(path.join(outputDir, `${finalName}.webp`)) ||
@@ -57,30 +57,31 @@ const sanitizeWithLog = (originalName, ext) => {
 
 // 🔧 画像を処理する関数
 const processImage = async (filePath) => {
-  const ext = path.extname(filePath).toLowerCase(); // 例: .png
-  const originalName = path.basename(filePath);     // 例: Main Visual.png
+  const ext = path.extname(filePath).toLowerCase();
+  const originalName = path.basename(filePath);
   const cleanName = sanitizeWithLog(originalName, ext);
   const outputBase = path.join(outputDir, cleanName);
 
   try {
     if (ext === '.png') {
-      // ✅ PNG → WebP のみ出力
+      // ✅ PNG → WebP 変換
       await sharp(filePath)
         .webp({ quality: 75 })
         .toFile(`${outputBase}.webp`);
       console.log(`🌟 PNG→WebP変換: ${cleanName}.webp`);
 
     } else if (ext === '.svg') {
-      // ✅ SVG → 変換なしでそのまま保存
+      // ✅ SVG → そのままコピー
       await fs.copy(filePath, `${outputBase}.svg`);
       console.log(`📄 SVGコピー: ${cleanName}.svg`);
 
     } else if (ext === '.webp') {
-      // ✅ WebPファイルもそのままコピー
+      // ✅ WebP → 命名してそのままコピー
       await fs.copy(filePath, `${outputBase}.webp`);
       console.log(`📄 WebPコピー: ${cleanName}.webp`);
 
     } else {
+      // ❌ 未対応形式
       console.log(`⏭️ 未対応形式: ${originalName}`);
     }
 
@@ -89,10 +90,10 @@ const processImage = async (filePath) => {
   }
 };
 
-// 📁 dist-img フォルダがなければ作る
+// 📁 出力フォルダがなければ作成
 fs.ensureDirSync(outputDir);
 
-// 👀 フォルダを監視スタート！
+// 👀 img フォルダの監視を開始
 console.log('👀 img フォルダを監視中… 画像を入れるだけで変換＆保存されます');
 
 chokidar.watch(inputDir).on('add', (filePath) => {
