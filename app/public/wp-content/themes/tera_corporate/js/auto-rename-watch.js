@@ -75,6 +75,11 @@ const processImage = async (filePath) => {
       await fs.copy(filePath, `${outputBase}.svg`);
       console.log(`📄 SVGコピー: ${cleanName}.svg`);
 
+    } else if (ext === '.webp') {
+      // ✅ WebPファイルもそのままコピー
+      await fs.copy(filePath, `${outputBase}.webp`);
+      console.log(`📄 WebPコピー: ${cleanName}.webp`);
+
     } else {
       console.log(`⏭️ 未対応形式: ${originalName}`);
     }
