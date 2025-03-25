@@ -331,6 +331,8 @@ body {
 
 .drawer__item-link {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .drawer__item-text {
@@ -377,6 +379,7 @@ body {
    height: auto;
    aspect-ratio: 1160 / 520;
    img {
+    inline-size: 100%;
      object-fit: cover;
    }
 }
