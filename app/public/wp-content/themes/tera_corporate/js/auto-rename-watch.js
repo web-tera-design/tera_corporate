@@ -7,40 +7,63 @@ const chokidar = require('chokidar');
 const inputDir = './img'; // 入力フォルダ
 const outputDir = './dist-img'; // 出力フォルダ
 const logPath = path.join(__dirname, 'rename-log.json'); // 命名履歴ファイル
+const mapPath = path.join(__dirname, 'section-map.json'); // セクションマップファイル
 
-// 📘 ログを読み込む関数
-const loadRenameLog = () => {
-  if (fs.existsSync(logPath)) {
-    return JSON.parse(fs.readFileSync(logPath, 'utf-8'));
+// 📘 JSON を読み込む関数（ログにもマップにも使える）
+const loadJson = (filePath) => {
+  if (fs.existsSync(filePath)) {
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
   }
   return {};
 };
+
+// 🧠 データを読み込む
+const renameLog = loadJson(logPath);
+const sectionMap = loadJson(mapPath);
 
 // 💾 ログを保存する関数
 const saveRenameLog = (log) => {
   fs.writeFileSync(logPath, JSON.stringify(log, null, 2), 'utf-8');
 };
 
-// 🧠 ログを読み込む
-const renameLog = loadRenameLog();
-
-// 🧼 命名処理（履歴＋連番対応）
+// 🧼 命名処理（履歴＋セクションマップ＋連番）
 const sanitizeWithLog = (originalName, ext) => {
   if (renameLog[originalName]) {
     return renameLog[originalName];
   }
 
+  // ✅ セクションマップに命名ルールがあれば、それを優先
+  if (sectionMap[originalName]) {
+    const { section, name } = sectionMap[originalName];
+    const base = name ? `${section}-${name}` : section;
+    let finalName = base;
+    let count = 1;
+
+    while (
+      fs.existsSync(path.join(outputDir, `${finalName}${ext}`)) ||
+      fs.existsSync(path.join(outputDir, `${finalName}.webp`)) ||
+      fs.existsSync(path.join(outputDir, `${finalName}.svg`))
+    ) {
+      finalName = `${base}-${String(count).padStart(2, '0')}`;
+      count++;
+    }
+
+    renameLog[originalName] = finalName;
+    saveRenameLog(renameLog);
+    return finalName;
+  }
+
+  // 🔁 通常の命名処理
   const nameWithoutExt = originalName.replace(/\.[^/.]+$/, '');
   const base = nameWithoutExt
-    .replace(/[（）()]/g, '')             // カッコを除去
-    .replace(/[\s_]+/g, '-')              // 空白やアンダーバーをハイフンに
-    .replace(/[^a-zA-Z0-9\-]/g, '')       // 記号など除去
+    .replace(/[（）()]/g, '')             // カッコ除去
+    .replace(/[\s_]+/g, '-')              // 空白・アンダーバー → ハイフン
+    .replace(/[^a-zA-Z0-9\-]/g, '')       // 記号除去
     .toLowerCase();                      // 小文字化
 
   let finalName = base;
   let count = 1;
 
-  // 同名がすでに dist-img にある場合は連番をつける
   while (
     fs.existsSync(path.join(outputDir, `${finalName}${ext}`)) ||
     fs.existsSync(path.join(outputDir, `${finalName}.webp`)) ||
@@ -90,10 +113,10 @@ const processImage = async (filePath) => {
   }
 };
 
-// 📁 出力フォルダがなければ作成
+// 📁 dist-img フォルダを作成（なければ）
 fs.ensureDirSync(outputDir);
 
-// 👀 img フォルダの監視を開始
+// 👀 img フォルダの監視開始
 console.log('👀 img フォルダを監視中… 画像を入れるだけで変換＆保存されます');
 
 chokidar.watch(inputDir).on('add', (filePath) => {
