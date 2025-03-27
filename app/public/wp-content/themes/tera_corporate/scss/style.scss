@@ -56,18 +56,54 @@ $breakpoints: (
   @return ($px / 16) * 1rem; // `px` を `rem` に変換
 }
 
-
 @function rclamp($min, $max, $minViewport, $maxViewport) {
-  $vwScale: ($max - $min) / ($maxViewport - $minViewport);  // vw単位でのスケールを計算
-  $baseOffset: $min - $minViewport * $vwScale;  // 基準となる最小値からのオフセットを計算
+  $vwScale: ($max - $min) / ($maxViewport - $minViewport);
+  $baseOffset: $min - $minViewport * $vwScale;
 
-  $minRem: $min / 16;  // 最小値をremに変換
-  $maxRem: $max / 16;  // 最大値をremに変換
-  $baseOffsetRem: $baseOffset / 16;  // オフセットをremに変換
-  $vwScaleRem: $vwScale * 100;  // vwスケールを調整
+  // clamp() が壊れないよう min/max 順を正す
+  $minValue: min($min, $max);
+  $maxValue: max($min, $max);
+
+  $minRem: $minValue / 16;
+  $maxRem: $maxValue / 16;
+  $baseOffsetRem: $baseOffset / 16;
+  $vwScaleRem: $vwScale * 100;
 
   @return clamp(#{$minRem}rem, #{$baseOffsetRem}rem + #{$vwScaleRem}vw, #{$maxRem}rem);
 }
+
+@function rclamp3($min-size, $min-px, $mid-size, $mid-px, $max-vw) {
+  // rem 変換（px → rem）
+  $min-size-rem: ($min-size / 16) * 1rem;
+  $mid-size-rem: ($mid-size / 16) * 1rem;
+  $min-px-rem: ($min-px / 16) * 1rem;
+  $mid-px-rem: ($mid-px / 16) * 1rem;
+
+  // max-size を自動計算（比率維持）
+  $slope1: ($mid-size - $min-size) / ($mid-px - $min-px);
+  $max-size: $mid-size + ($max-vw - $mid-px) * $slope1;
+  $max-size-rem: ($max-size / 16) * 1rem;
+
+  // min/max の順序自動補正
+  $min-size: min($min-size-rem, $mid-size-rem, $max-size-rem);
+  $max-size: max($min-size-rem, $mid-size-rem, $max-size-rem);
+  $mid-size: max(min($mid-size-rem, $max-size-rem), $min-size-rem);
+
+  // 第一区間の傾き（slope1）
+  $slope1: ($mid-size - $min-size) / ($mid-px - $min-px);
+  $fluid1: calc((100vw - #{$min-px}px) * #{$slope1} + #{$min-size});
+
+  // 第二区間の傾き（slope2）
+  $slope2: ($max-size - $mid-size) / ($max-vw - $mid-px);
+  $fluid2: calc((100vw - #{$mid-px}px) * #{$slope2} + #{$mid-size});
+
+  // clamp() で順序補正＆安全化
+  @return clamp(#{$min-size}, #{$fluid1}, clamp(#{$mid-size}, #{$fluid2}, #{$max-size}));
+}
+
+
+
+
 
 // 使用例
 .example {
@@ -320,7 +356,7 @@ body {
 .drawer-nav-item {
   display: flex;
   align-items: center;
-  inline-size: calc(255px / 375px * 100%);
+  inline-size: calc(255 / 375 * 100%);
   border-block-start: 1px dashed #fff ;
 }
 
@@ -353,7 +389,7 @@ body {
 
 .card {
  padding-block-start: rclamp(75, 160, 375, 1280);
- padding-block-end: 50px;//ページネーション用の余白。要調整
+//  padding-block-end: 50px;//ページネーション用の余白。要調整
  overflow: hidden;
 }
 .card__inner {
@@ -370,17 +406,27 @@ body {
 .card__swiper-wrapper {
   position: relative;
 }
+
 .card__swiper-slide {
    position: relative;
    display: flex;
    align-items: center;
    justify-content: center;
-   inline-size: calc(1160px / 1280px * 100%);
-   height: auto;
-   aspect-ratio: 1160 / 520;
+   height: rem(447);
+   
+   @include mq(md) {
+     inline-size: calc(1160 / 1280 * 100%);
+     aspect-ratio: 1160 / 520;
+     height: auto;
+   }
+
+
    img {
     inline-size: 100%;
+    block-size: 100%;
     object-fit: cover;
+    object-position: left bottom;
+    // display: block;
    }
 }
 
@@ -516,3 +562,113 @@ body {
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
 
 }
+
+.mv__info {
+  padding-inline: rclamp(20, 100, 375, 1280);
+  @include mq(lg) {
+    display: grid;
+    gap: rclamp(10, 60, 768, 1280);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "content image";
+    align-items: center;
+  }
+}
+
+.mv__info-image {
+  position: relative;
+  z-index: 2;
+  margin-block-start: rem(-20);
+  inline-size: rclamp3(335, 477, 375, 1280, 1920);
+
+  border-radius: 12px;
+  background: #FFF;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+
+  @include mq(lg) {
+    inset-inline-end: 0;
+    grid-area: image;
+  }
+}
+
+.mv__info-content {
+  margin-block-start: rem(20);
+  inline-size: rclamp(335, 477, 375, 1280);
+
+  @include mq(lg) {
+    grid-area: content;
+    inline-size: 100%;
+  }
+}
+
+.mv__info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $text-primary;
+}
+
+.mv__info-title-container {
+  display: flex;
+  align-items: center;
+  gap: rem(16);
+}
+
+.mv__info-title {
+  font-size: rem(20);
+  font-weight: 700;
+  letter-spacing: rclamp(1.6, 2, 375, 1280);
+  padding-block-end: rclamp(6, 7, 375, 1280);
+}
+
+.mv__info-subtitle {
+  color: $btn-primary;
+  font-size: rclamp(11, 12, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(1.1, 1.2, 375, 1280);
+}
+
+.mv__info-link-group {
+  color: #888;
+  font-size: rclamp(11, 12, 375, 1280);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.mv__info-link {
+
+}
+
+.mv__info-news {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: rem(23);
+  border-block-end: 1px solid $text-primary;
+  position: relative;
+
+  ::after {
+    content: "";
+    position: absolute;
+    background: url(../img/mv_icon-right.svg) no-repeat center center / cover;
+    inline-size: rem(14);
+    block-size: rem(14);
+    color: $text-primary;
+    inset-inline-end: 8px;
+    inset-block-start: 14px;
+  }
+}
+
+.mv__info-news-time {
+  font-size: rem(12);
+  font-weight: 500;
+}
+
+.mv__info-news-text {
+  padding-block-start: rclamp(13, 10, 375, 1280);
+  padding-block-end: rclamp(12, 10, 375, 1280);
+  font-size: rem(14);
+  font-weight: 500;
+}
+
