@@ -1,4 +1,6 @@
-@import 'reset';
+@use "sass:map";
+@use "sass:math";
+@use 'reset';
 
 // テキストカラー
 $text-primary: #393939; // 通常のテキスト
@@ -46,8 +48,11 @@ $breakpoints: (
 //     }
 // }
 
+
+
+
 @mixin mq($breakpoint: sm) {
-  @media #{map-get($breakpoints, $breakpoint)} {
+  @media #{map.get($breakpoints, $breakpoint)} {
     @content;
   }
 }
@@ -72,38 +77,24 @@ $breakpoints: (
   @return clamp(#{$minRem}rem, #{$baseOffsetRem}rem + #{$vwScaleRem}vw, #{$maxRem}rem);
 }
 
-@function rclamp3($min-size, $min-px, $mid-size, $mid-px, $max-vw) {
-  // rem 変換（px → rem）
-  $min-size-rem: ($min-size / 16) * 1rem;
-  $mid-size-rem: ($mid-size / 16) * 1rem;
-  $min-px-rem: ($min-px / 16) * 1rem;
-  $mid-px-rem: ($mid-px / 16) * 1rem;
+@function rclamp3($min-size, $mid-size, $min-px, $mid-px) {
+  // ✅ rem 変換
+  $min-size-rem: math.div($min-size, 16) * 1rem;
+  $mid-size-rem: math.div($mid-size, 16) * 1rem;
 
-  // max-size を自動計算（比率維持）
-  $slope1: ($mid-size - $min-size) / ($mid-px - $min-px);
-  $max-size: $mid-size + ($max-vw - $mid-px) * $slope1;
-  $max-size-rem: ($max-size / 16) * 1rem;
+  // ✅ 1920px での比率維持
+  $ratio: math.div($mid-size, $mid-px);
+  $max-size-rem: math.div(1920 * $ratio, 16) * 1rem;
 
-  // min/max の順序自動補正
-  $min-size: min($min-size-rem, $mid-size-rem, $max-size-rem);
-  $max-size: max($min-size-rem, $mid-size-rem, $max-size-rem);
-  $mid-size: max(min($mid-size-rem, $max-size-rem), $min-size-rem);
+  // ✅ 傾き（slope1）計算
+  $slope1: math.div(($mid-size - $min-size), ($mid-px - $min-px));
 
-  // 第一区間の傾き（slope1）
-  $slope1: ($mid-size - $min-size) / ($mid-px - $min-px);
-  $fluid1: calc((100vw - #{$min-px}px) * #{$slope1} + #{$min-size});
+  // ✅ fluid1 の計算（100vw でもOK）
+  $fluid1: calc((100vw - #{$min-px}px) * #{$slope1} + #{$min-size-rem});
 
-  // 第二区間の傾き（slope2）
-  $slope2: ($max-size - $mid-size) / ($max-vw - $mid-px);
-  $fluid2: calc((100vw - #{$mid-px}px) * #{$slope2} + #{$mid-size});
-
-  // clamp() で順序補正＆安全化
-  @return clamp(#{$min-size}, #{$fluid1}, clamp(#{$mid-size}, #{$fluid2}, #{$max-size}));
+  // ✅ clamp() でサイズ制御
+  @return clamp(#{$min-size-rem}, #{$fluid1}, #{$max-size-rem});
 }
-
-
-
-
 
 // 使用例
 .example {
@@ -123,7 +114,7 @@ body {
   inset-block-start: 0;
   inset-inline-start: 0;
   inline-size: 100%;
-  block-size: rclamp(60, 80, 375, 1280);
+  block-size: rclamp3(60, 80, 375, 1280);
   background: $bg-primary;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 }
@@ -148,7 +139,7 @@ body {
 .header__nav {
   // spの場合非表示
   display: none;
-  @include mq(md) {
+  @include mq(lg) {
     display: flex;
   }
 }
@@ -164,6 +155,8 @@ body {
   @include mq(xl) {
   }
 }
+
+
 
 .header__nav-link {
   display: flex;
@@ -285,7 +278,7 @@ body {
   border: transparent;
   cursor: pointer;
 
-  @include mq(md) {
+  @include mq(lg) {
     display: none;
   }
 }
@@ -388,8 +381,7 @@ body {
 }
 
 .card {
- padding-block-start: rclamp(75, 160, 375, 1280);
-//  padding-block-end: 50px;//ページネーション用の余白。要調整
+ padding-block-start: rclamp(140, 160, 375, 1280);
  overflow: hidden;
 }
 .card__inner {
@@ -401,7 +393,7 @@ body {
 }
 .card__swiper {
   position: relative;
-  border-radius: rclamp(6, 20, 375, 1280);//imgのborder-radius
+  border-radius: rclamp(20, 20, 375, 1280);//imgのborder-radius
 }
 .card__swiper-wrapper {
   position: relative;
@@ -413,20 +405,19 @@ body {
    align-items: center;
    justify-content: center;
    height: rem(447);
-   
-   @include mq(md) {
+  
+   @include mq(lg) {
      inline-size: calc(1160 / 1280 * 100%);
      aspect-ratio: 1160 / 520;
      height: auto;
    }
 
-
    img {
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
-    object-position: left bottom;
-    // display: block;
+    object-position: -23px center;
+    display: block;
    }
 }
 
@@ -526,14 +517,14 @@ body {
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   // inset-block-start: calc(100% + 20px);//画面下に中央配置
   inset-block-end: 3%;
-  inset-inline-start: -52%;
+  inset-inline-start: -51%;
   transform: rotate(90deg);
   //inline-size: fit-content;矢印・ページネーション・矢印用
 }
 //それぞれのページネーション
 .swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet {
   opacity: 1;
-  inline-size: rclamp(10, 10, 375, 1280);
+  inline-size: rclamp(6, 8, 375, 1280);
   block-size: auto;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -564,11 +555,13 @@ body {
 }
 
 .mv__info {
+  // max-width: 1440px;
+  margin: 0 auto;
   padding-inline: rclamp(20, 100, 375, 1280);
   @include mq(lg) {
     display: grid;
     gap: rclamp(10, 60, 768, 1280);
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
     "content image";
     align-items: center;
@@ -579,14 +572,20 @@ body {
   position: relative;
   z-index: 2;
   margin-block-start: rem(-20);
-  inline-size: rclamp3(335, 477, 375, 1280, 1920);
-
+  inline-size: min(100%, rem(640));
+  margin-inline: auto;
   border-radius: 12px;
   background: #FFF;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   background: url(<path-to-image>) lightgray 50% / cover no-repeat;
 
+   img {
+    inline-size: 100%;
+    display: block;
+   }
   @include mq(lg) {
+    inline-size: rclamp(336, 715, 900, 1920);
+    // inline-size: 37%;
     inset-inline-end: 0;
     grid-area: image;
   }
@@ -594,11 +593,14 @@ body {
 
 .mv__info-content {
   margin-block-start: rem(20);
-  inline-size: rclamp(335, 477, 375, 1280);
-
+  inline-size: min(100%, rem(640));
+  margin-inline: auto;
+  
   @include mq(lg) {
     grid-area: content;
-    inline-size: 100%;
+    // inline-size: min(100%, rem(740));
+    inline-size: rclamp(380, 810, 900, 1920);
+    // max-inline-size: rem(700);
   }
 }
 
