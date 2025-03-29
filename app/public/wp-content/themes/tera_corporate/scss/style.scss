@@ -380,6 +380,11 @@ body {
   border-radius: 100vmax;
 }
 
+.mv {
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
 .card {
  padding-block-start: rclamp(140, 160, 375, 1280);
  overflow: hidden;
@@ -393,19 +398,20 @@ body {
 }
 .card__swiper {
   position: relative;
-  border-radius: rclamp(20, 20, 375, 1280);//imgのborder-radius
 }
 .card__swiper-wrapper {
   position: relative;
 }
 
 .card__swiper-slide {
-   position: relative;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   height: rem(447);
-  
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: rem(447);
+  overflow: hidden;
+  border-radius: rclamp(20, 20, 375, 1280);//imgのborder-radius
+
    @include mq(lg) {
      inline-size: calc(1160 / 1280 * 100%);
      aspect-ratio: 1160 / 520;
@@ -416,7 +422,7 @@ body {
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
-    object-position: -23px center;
+    object-position: left;
     display: block;
    }
 }
@@ -639,7 +645,7 @@ body {
 }
 
 .mv__info-link {
-
+  padding-block: rem(10);
 }
 
 .mv__info-news {
@@ -674,3 +680,190 @@ body {
   font-weight: 500;
 }
 
+.concept {
+  position: relative;
+  margin-block-start: rclamp(65, 60, 375, 1280);
+}
+
+.concept__content {
+  padding-inline: rclamp(20, 0, 375, 1280);
+  padding-block-start: rclamp(106, 180, 375, 1280);
+}
+
+.concept__heading-group {
+
+}
+
+.concept__subheading {
+  color: $text-link;
+  font-size: rclamp(11, 14, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(1.1, 1.4, 375, 1280);
+}
+
+.concept__heading {
+
+}
+
+.concept__text {
+
+}
+
+.concept__link {
+
+}
+
+.concept__button {
+
+}
+
+.button {
+
+}
+
+.concept__image {
+
+}
+
+.sample {
+  overflow: hidden;
+  margin-block-start: rem(200);
+  position: relative;
+}
+.sample__inner {
+  inline-size: min(1580px, 100%);
+  position: relative;
+  margin-inline: auto;
+}
+.sample__swiper-container {
+  position: relative;
+  inline-size: 100%;
+}
+.sample__swiper {
+  position: relative;
+  overflow: visible; /* 横スクロール防止 */
+}
+.sample__swiper-wrapper {
+  border-radius: rclamp(6, 20, 375, 1280);
+  position: relative;
+  display: flex;
+  transition-timing-function: linear; /* 一定スピード */
+}
+.sample__swiper-slide {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 287px;
+  max-inline-size: 100%; /* 横スクロール防止 */
+  height: 387px;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* 波エフェクト */
+.wave-top,
+.wave-bottom {
+  content: "";
+  inline-size: 100%; /* 修正 */
+  block-size: 34px;
+  display: block;
+  position: absolute;
+  inset-inline-start: 0;
+  background: url("https://parasailing.okinawa/wp-content/themes/tokashiki/assets/img/sunset/bg_wave_white.svg")
+    repeat-x top center / 1280px 100%;
+  z-index: 2;
+}
+.wave-top {
+  inset-block-start: 0; /* 上の波の位置を固定 */ /* 微調整 */
+  background-position: 0px 0;
+}
+
+.wave-bottom {
+  inset-block-end: 0; /* 下の波の位置を固定 */
+  transform: scale(1, -1); /* 上下反転して位置調整 */
+  background-position: 500px 0;
+}
+
+.wave-top,
+.wave-bottom {
+  animation: waveMove 1s linear infinite;
+}
+
+@keyframes waveMoveTop {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1280px 0; /* 波の画像の幅と同じ距離 */
+  }
+}
+
+@keyframes waveMoveBottom {
+  0% {
+    background-position: 200px 0; /* 200px ずらしてスタート */
+  }
+  100% {
+    background-position: -1080px 0; /* 1280 - 200 = 1080px の移動距離 */
+  }
+}
+
+
+// .samples {
+//   margin-block-start: rem(200);
+//   overflow: hidden;
+//   position: relative;
+// }
+// .samples__inner {
+//  inline-size: min(100%, rem(1280));
+//  position: relative;
+// }
+// .samples__swiper-container  {
+//   position: relative;
+// }
+// .samples__swiper {
+//   position: relative;
+//   border-radius: rclamp(6, 20, 375, 1280);//imgのborder-radius
+// }
+// .samples__swiper-wrapper {
+//   position: relative;
+//   transition-timing-function: linear; /* 一定スピード */
+
+// }
+// .samples__swiper-slide {
+//    position: relative;
+//    display: flex;
+//    align-items: center;
+//    justify-content: center;
+//    inline-size: 287px;
+//    height: 287px;
+//    img {
+//      object-fit: cover;
+//      height: 100%;
+//    }
+// }
+
+// .top2 {
+//   position: absolute;
+//   block-size: rem(20);
+  
+// }
+
+// .bottom2 {
+//   position: absolute;
+//   block-size: rem(20);
+// }
+
+
+
+
+
+
+
+
+.sampleimage {
+  margin-block-start: 100vh;
+}
