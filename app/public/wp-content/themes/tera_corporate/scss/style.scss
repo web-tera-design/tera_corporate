@@ -764,50 +764,53 @@ body {
   }
 }
 
+
+.wave-container {
+  // position: relative;
+  inline-size: 100%;
+  block-size: 50px;
+  overflow: hidden;
+}
 /* 波エフェクト */
 .wave-top,
 .wave-bottom {
-  content: "";
-  inline-size: 100%; /* 修正 */
-  block-size: 34px;
-  display: block;
+  // content: "";
   position: absolute;
+  inline-size: 100%;
+  block-size: 100px;
   inset-inline-start: 0;
-  background: url("https://parasailing.okinawa/wp-content/themes/tokashiki/assets/img/sunset/bg_wave_white.svg")
-    repeat-x top center / 1280px 100%;
   z-index: 2;
 }
 .wave-top {
-  inset-block-start: 0; /* 上の波の位置を固定 */ /* 微調整 */
+  inset-block-start: 0;
+  transform: scale(1, -1) translateY(1px);
+  background-position: 0 0;
+  animation: waveMoveTop 20s linear infinite; /* 個別に適用 */
+}
+
+.wave-bottom {
+  inset-block-end: 50px;
   background-position: 0px 0;
+  animation: waveMoveBottom 20s linear infinite; /* 個別に適用 */
 }
 
-.wave-bottom {
-  inset-block-end: 0; /* 下の波の位置を固定 */
-  transform: scale(1, -1); /* 上下反転して位置調整 */
-  background-position: 500px 0;
-}
-
-.wave-top,
-.wave-bottom {
-  animation: waveMove 1s linear infinite;
-}
-
+/* 上の波のアニメーション */
 @keyframes waveMoveTop {
   0% {
-    background-position: 0 0;
+    transform: scale(1, -1) translateY(1px) translateX(0);
   }
   100% {
-    background-position: -1280px 0; /* 波の画像の幅と同じ距離 */
+    transform: scale(1, -1) translateY(1px) translateX(50%); /* ← 左に移動 */
   }
 }
 
+/* 下の波のアニメーション */
 @keyframes waveMoveBottom {
   0% {
-    background-position: 200px 0; /* 200px ずらしてスタート */
+    transform: translateX(0);
   }
   100% {
-    background-position: -1080px 0; /* 1280 - 200 = 1080px の移動距離 */
+    transform: translateX(50%); /* ← 左に移動 */
   }
 }
 
