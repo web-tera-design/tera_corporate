@@ -683,11 +683,26 @@ body {
 .concept {
   position: relative;
   margin-block-start: rclamp(65, 60, 375, 1280);
+  overflow: hidden;
+  padding-block-end: 300px;
+
+  @include mq(lg) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row-reverse;
+  }
 }
 
 .concept__content {
   padding-inline: rclamp(20, 0, 375, 1280);
   padding-block-start: rclamp(106, 180, 375, 1280);
+
+  @include mq(lg) {
+    // padding-block-start: 0;
+    order: 2;
+    align-self: center;
+
+  }
 }
 
 .concept__heading-group {
@@ -702,19 +717,38 @@ body {
 }
 
 .concept__heading {
-
+  margin-block-start: rclamp(14, 24, 375, 1280);
+  font-size: rem(20);
+  font-weight: 700;
+  line-height: rclamp(32, 44, 375, 1280); /* 160% */
+  letter-spacing: rclamp(1.6, 2.24, 375, 1280);
 }
 
 .concept__text {
-
+  margin-block-start: rclamp(27, 36, 375, 1280);
+  color: #393939;
+  font-size: rem(14);
+  font-weight: 500;
+  line-height: rem(24); /* 171.429% */
 }
 
 .concept__link {
-
+  margin-block-start: rem(37);
+  text-align: center;
 }
 
 .concept__button {
-
+  color: $text-link;
+  text-align: center;
+  font-size: rem(14);
+  font-weight: 500;
+  border-radius: 24px;
+  border: 1px solid #1391E6;
+  background: #FFF;
+  display: inline-block;
+  padding-block: rclamp(9, 11, 375, 1280);
+  padding-inline: rclamp(40, 46, 375, 1280);
+  inline-size: fit-content;
 }
 
 .button {
@@ -722,151 +756,31 @@ body {
 }
 
 .concept__image {
+  margin-block-start: rem(40);
+  inline-size: calc(335 / 375 * 100%);
 
-}
-
-.sample {
-  overflow: hidden;
-  margin-block-start: rem(200);
-  position: relative;
-}
-.sample__inner {
-  inline-size: min(1580px, 100%);
-  position: relative;
-  margin-inline: auto;
-}
-.sample__swiper-container {
-  position: relative;
-  inline-size: 100%;
-}
-.sample__swiper {
-  position: relative;
-  overflow: visible; /* 横スクロール防止 */
-}
-.sample__swiper-wrapper {
-  border-radius: rclamp(6, 20, 375, 1280);
-  position: relative;
-  display: flex;
-  transition-timing-function: linear; /* 一定スピード */
-}
-.sample__swiper-slide {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  inline-size: 287px;
-  max-inline-size: 100%; /* 横スクロール防止 */
-  height: 387px;
   img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+    margin-block-start: rem(180);
+    border-radius: 0px 20px 20px 0px;
+    background: url(<path-to-image>) lightgray 361.924px -30.529px / -116.721% 112.999% no-repeat;
   }
 }
 
-
-.wave-container {
-  // position: relative;
-  inline-size: 100%;
-  block-size: 50px;
-  overflow: hidden;
-}
-/* 波エフェクト */
-.wave-top,
-.wave-bottom {
-  // content: "";
+.concept__bg-image {
+  // overflow: hidden;
   position: absolute;
-  inline-size: 100%;
-  block-size: 100px;
-  inset-inline-start: 0;
-  z-index: 2;
-}
-.wave-top {
   inset-block-start: 0;
-  transform: scale(1, -1) translateY(1px);
-  background-position: 0 0;
-  animation: waveMoveTop 20s linear infinite; /* 個別に適用 */
-}
-
-.wave-bottom {
-  inset-block-end: 50px;
-  background-position: 0px 0;
-  animation: waveMoveBottom 20s linear infinite; /* 個別に適用 */
-}
-
-/* 上の波のアニメーション */
-@keyframes waveMoveTop {
-  0% {
-    transform: scale(1, -1) translateY(1px) translateX(0);
-  }
-  100% {
-    transform: scale(1, -1) translateY(1px) translateX(50%); /* ← 左に移動 */
-  }
-}
-
-/* 下の波のアニメーション */
-@keyframes waveMoveBottom {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(50%); /* ← 左に移動 */
-  }
-}
-
-
-// .samples {
-//   margin-block-start: rem(200);
-//   overflow: hidden;
-//   position: relative;
-// }
-// .samples__inner {
-//  inline-size: min(100%, rem(1280));
-//  position: relative;
-// }
-// .samples__swiper-container  {
-//   position: relative;
-// }
-// .samples__swiper {
-//   position: relative;
-//   border-radius: rclamp(6, 20, 375, 1280);//imgのborder-radius
-// }
-// .samples__swiper-wrapper {
-//   position: relative;
-//   transition-timing-function: linear; /* 一定スピード */
-
-// }
-// .samples__swiper-slide {
-//    position: relative;
-//    display: flex;
-//    align-items: center;
-//    justify-content: center;
-//    inline-size: 287px;
-//    height: 287px;
-//    img {
-//      object-fit: cover;
-//      height: 100%;
-//    }
-// }
-
-// .top2 {
-//   position: absolute;
-//   block-size: rem(20);
+  inset-inline-end: 0;
+  z-index: -1;
+  padding-inline-start: rem(10);
   
-// }
-
-// .bottom2 {
-//   position: absolute;
-//   block-size: rem(20);
-// }
-
-
-
-
-
-
-
-
-.sampleimage {
-  margin-block-start: 100vh;
+  @include mq(lg) {
+    inset-block-start: rclamp(50, -10, 1280, 2560);
+    inset-inline-start: 30%;
+    width: 100%;
+    img {
+      inline-size: 100%;
+      block-size: auto;
+    }
+  }
 }
