@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const cardSwiper = new Swiper('.card__swiper', { //swiperの名前
   //切り替えのモーション
-  speed: 500, //表示切り替えのスピード
+  speed: 1000, //表示切り替えのスピード
   effect: "fade", //切り替えのmotion (※1)
   allowTouchMove: true, // スワイプで表示の切り替えを有効に
 
@@ -129,7 +129,7 @@ const cardSwiper = new Swiper('.card__swiper', { //swiperの名前
   loop: true,
   //自動スライドについて
   autoplay: { 
-    delay: 2000, //何秒ごとにスライドを動かすか
+    delay: 7000, //何秒ごとにスライドを動かすか
     stopOnLastSlide: false, //最後のスライドで自動再生を終了させるか
     disableOnInteraction: true, //ユーザーの操作時に止める
     reverseDirection: false, //自動再生を逆向きにする
@@ -195,78 +195,33 @@ custom：自由にカスタマイズ
 =====================================================*/
 
 
-//swiper
-const sampleSwiper2 = new Swiper('.sample__swiper.--swiper2', { //swiperの名前 変数末尾にも.--swiperと同等の数字
-  //切り替えのモーション
-  speed: 10000, //表示切り替えのスピード
-  effect: "slide", //切り替えのmotion (※1)
-  allowTouchMove: true, // スワイプで表示の切り替えを有効に
+// ✅ ページ読み込み時に即発火
+document.addEventListener("DOMContentLoaded", () => {
+  const swiperTexts = document.querySelectorAll(".swiper-slide__text");
 
-  //最後→最初に戻るループ再生を有効に
-  loop: true,
-  //自動スライドについて
-  autoplay: { 
-    delay: 0, //何秒ごとにスライドを動かすか
-    stopOnLastSlide: false, //最後のスライドで自動再生を終了させるか
-    disableOnInteraction: false, //ユーザーの操作時に止める
-    reverseDirection: false, //自動再生を逆向きにする
-  },
+  // ✅ 一文字ずつ出現の関数
+  function startTypingAnimation(target, delay = 0) {
+    const headings = target.querySelectorAll(".swiper-slide__heading, .swiper-slide__sub");
 
-   //表示について
-  centeredSlides: true, //中央寄せにする
-  slidesPerView: "auto",//スライド枚数指定
-  spaceBetween: 0,//スライドの右側に余白px
+    headings.forEach((heading, index) => {
+      const text = heading.innerText; // ✅ 元のテキストを取得
+      heading.innerHTML = ""; // ✅ 文字をクリアしてから挿入
+      text.split("").forEach((char, charIndex) => {
+        const span = document.createElement("span");
+        span.innerText = char;
 
-  //ページネーション
-  pagination: {
-    el: ".swiper-pagination.--swiper1", //paginationのclass
-    clickable: true, //クリックでの切り替えを有効に
-    type: "bullets" //paginationのタイプ (※2)
-  },
-  //ナビゲーション
-  navigation: {
-    prevEl: ".swiper-button-prev.--swiper1", //戻るボタンのclass
-    nextEl: ".swiper-button-next.--swiper1" //進むボタンのclass
-  },
-  //スクロールバー
-  scrollbar: { //スクロールバーを表示したいとき
-    el: ".swiper-scrollbar", //スクロールバーのclass
-    hide: true, //操作時のときのみ表示
-    draggable: true //スクロールバーを直接表示できるようにする
-  },
+        // ✅ heading と sub にラグを入れる
+        const extraDelay = index === 1 ? 2 : 0; // ✅ sub だけ 0.4 秒遅延
+        span.style.animationDelay = `${charIndex * 0.2 + extraDelay}s`; // ✅ 0.1秒ごとに遅延
+        heading.appendChild(span);
+      });
+    });
+  }
 
-  //ブレイクポイントによって変える
-  // breakpoints: { 
-  //   768: {
-  //     slidesPerView: 1.2,
-  //     spaceBetween: 15,
-  //   },
-  //   1500: {
-  //     slidesPerView: 3,
-  //     spaceBetween: 40,
-  //   },
-  // }
+  // ✅ トップビジュアルの全テキストに適用
+  swiperTexts.forEach((text) => {
+    startTypingAnimation(text);
+  });
 });
 
-/* =================================================== 
-※1 effectについて
-slide：左から次のスライドが流れてくる
-fade：次のスライドがふわっと表示
-■ fadeの場合は下記を記述
-  fadeEffect: {
-    crossFade: true
-  },
-cube：スライドが立方体になり、3D回転を繰り返す
-coverflow：写真やアルバムジャケットをめくるようなアニメーション
-flip：平面が回転するようなアニメーション
-cards：カードを順番にみていくようなアニメーション
-creative：カスタマイズしたアニメーションを使うときに使用します
 
-=======================================================
-※2 paginationのタイプ
-bullets：スライド枚数と同じ数のドットが表示
-fraction：分数で表示（例：1 / 3）
-progressbar：スライドの進捗に応じてプログレスバーが伸びる
-custom：自由にカスタマイズ
-
-=====================================================*/

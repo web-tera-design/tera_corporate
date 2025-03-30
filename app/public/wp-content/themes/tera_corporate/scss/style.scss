@@ -114,7 +114,7 @@ body {
   inset-block-start: 0;
   inset-inline-start: 0;
   inline-size: 100%;
-  block-size: rclamp3(60, 80, 375, 1280);
+  block-size: rclamp(60, 80, 375, 1280);
   background: $bg-primary;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 }
@@ -139,6 +139,8 @@ body {
 .header__nav {
   // spの場合非表示
   display: none;
+  align-items: center;
+  justify-content: center;
   @include mq(lg) {
     display: flex;
   }
@@ -165,6 +167,7 @@ body {
   position: relative; // 下線のために必要
   transition: color 0.3s ease;
   color: inherit;
+  padding-block: 3px;
 
   &::after {
     content: '';
@@ -198,9 +201,28 @@ body {
     &::after {
       transform: scaleX(1);
     }
+
+    .header__nav-link-icon {
+      transform: scale(1.5) translateY(-4px); // ✅ 20%拡大して上に移動
+      transform-origin: bottom center; // ✅ 基準を下に
+      transition: transform 0.3s ease-in-out; // ✅ なめらかに変化
+    }
+
+    // ✅ テキストも拡大
+    .header__nav-item-text {
+      transform: scale(1.5) translateY(-2px); // ✅ 10%拡大して上に移動
+      transform-origin: bottom center; // ✅ 基準を下に
+      transition: transform 0.3s ease-in-out;
+    }
   }
 }
 
+// ✅ SVGアイコンの初期スタイル
+.header__nav-link-icon {
+  // inline-size: rem(19); // ✅ アイコン初期サイズ
+  // block-size: rem(24);
+  transition: transform 0.3s ease-in-out;
+}
 
 .header__nav-link-icon path {
   fill: currentColor;//親要素と色を合わせる
@@ -212,6 +234,10 @@ body {
   font-weight: 700;
   line-height: rem(18); /* 163.636% */
   color: inherit;
+  transition: transform 0.3s ease-in-out; // ✅ スムーズな変化
+  @include mq(lg) {
+    margin-block-start: 2px;
+  }
 }
 
 .header__suv-list {
@@ -444,6 +470,35 @@ body {
    font-size: rclamp(20, 32, 375, 1280);
    font-weight: 700;
    letter-spacing: 2.56px;
+
+   @include mq(lg) {
+     font-size: rclamp(32, 40, 1280, 1920);
+   }
+}
+
+/* ✅ 一文字ずつ出現のベース設定（バウンドエフェクト追加） */
+.swiper-slide__heading span,
+.swiper-slide__sub span {
+  display: inline-block;
+  opacity: 0; /* ✅ 初期は非表示 */
+  transform: translateY(20px) scale(0.8); /* ✅ 初期位置（下から＆縮小） */
+  animation: bounceFade 0.6s ease-out forwards;
+}
+
+/* ✅ バウンド＆フェードイン アニメーション */
+@keyframes bounceFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8); /* 下から小さく */
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.05); /* 少し上に弾む */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* 元の位置に戻る */
+  }
 }
 
 .swiper-slide__heading::after,
@@ -615,6 +670,7 @@ body {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid $text-primary;
+  transition: border-bottom 0.3s ease;
 }
 
 .mv__info-title-container {
@@ -628,6 +684,10 @@ body {
   font-weight: 700;
   letter-spacing: rclamp(1.6, 2, 375, 1280);
   padding-block-end: rclamp(6, 7, 375, 1280);
+
+  @include mq(lg) {
+    font-size: rclamp(20, 40, 1280, 1920);
+  }
 }
 
 .mv__info-subtitle {
@@ -635,6 +695,10 @@ body {
   font-size: rclamp(11, 12, 375, 1280);
   font-weight: 700;
   letter-spacing: rclamp(1.1, 1.2, 375, 1280);
+
+  @include mq(lg) {
+    font-size: rclamp(12, 24, 1280, 1920);
+  }
 }
 
 .mv__info-link-group {
@@ -642,35 +706,98 @@ body {
   font-size: rclamp(11, 12, 375, 1280);
   font-weight: 500;
   text-decoration: underline;
+
+  @include mq(lg) {
+    font-size: rclamp(12, 24, 1280, 1920);
+  }
 }
 
 .mv__info-link {
   padding-block: rem(10);
+  display: inline-block;
+  color: $text-primary;
+  transition: color 0.3s ease, transform 0.3s ease,;
+  text-decoration: underline;
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: $btn-primary-hover;
+      border-radius: 6px;
+      transform: scale(1.1);
+    }
+  }
 }
 
+
+
 .mv__info-news {
-  display: inline-block;
   display: flex;
   align-items: center;
   gap: rem(23);
   border-block-end: 1px solid $text-primary;
   position: relative;
+  transition: background-color 0.5s ease, color 0.3s ease, transform 0.3s ease;
 
-  ::after {
+  &::after {
     content: "";
     position: absolute;
     background: url(../img/mv_icon-right.svg) no-repeat center center / cover;
-    inline-size: rem(14);
+    inline-size: rem(14); // ✅ 初期サイズ
     block-size: rem(14);
     color: $text-primary;
     inset-inline-end: 8px;
     inset-block-start: 14px;
+    transition: inline-size 0.3s ease, block-size 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+
+    @include mq(lg) {
+      inline-size: rem(28); // ✅ PC時の大きさ
+      block-size: rem(28);
+    }
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: $btn-primary-hover;
+      transform: scale(1.1);
+      border: none;
+
+      &::after {
+        inline-size: rem(28); // ✅ ホバー時に大きく
+        block-size: rem(28);
+        filter: brightness(0) saturate(100%) invert(18%) sepia(98%) saturate(6000%) hue-rotate(-5deg) brightness(90%) contrast(110%);
+        animation: arrowSlide 0.3s ease-in-out alternate; // ✅ ホバー中アニメーション
+      }
+    }
+
+    // ✅ ホバー解除時にリセット
+    &:not(:hover) &::after {
+      inline-size: rem(14);
+      block-size: rem(14);
+      animation: none; // ✅ アニメーション停止
+    }
+  }
+}
+
+// ✅ 矢印の左右スライドアニメーション
+@keyframes arrowSlide {
+  0% {
+    transform: translateX(0); // ✅ 元の位置
+  }
+  50% {
+    transform: translateX(-12px); // ✅ 左にスライド
+  }
+  100% {
+    transform: translateX(0); // ✅ 元に戻る
   }
 }
 
 .mv__info-news-time {
   font-size: rem(12);
   font-weight: 500;
+
+  @include mq(lg) {
+    font-size: rclamp(12, 24, 1280, 1920);
+  }
 }
 
 .mv__info-news-text {
@@ -678,18 +805,24 @@ body {
   padding-block-end: rclamp(12, 10, 375, 1280);
   font-size: rem(14);
   font-weight: 500;
+
+  @include mq(lg) {
+    font-size: rclamp(14, 28, 1280, 1920);
+  }
 }
 
 .concept {
   position: relative;
   margin-block-start: rclamp(65, 60, 375, 1280);
   overflow: hidden;
-  padding-block-end: 300px;
 
   @include mq(lg) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: calc(640 / 1280 * 100%) calc(407 / 1280 * 100%);
     grid-auto-flow: row-reverse;
+    gap: rem(90);
+    margin-block-start: 100px;
+    padding-block-end: rem(150);
   }
 }
 
@@ -701,7 +834,6 @@ body {
     // padding-block-start: 0;
     order: 2;
     align-self: center;
-
   }
 }
 
@@ -714,6 +846,10 @@ body {
   font-size: rclamp(11, 14, 375, 1280);
   font-weight: 700;
   letter-spacing: rclamp(1.1, 1.4, 375, 1280);
+
+  @include mq(lg) {
+    font-size: rclamp(14, 28, 1280, 1920);
+  }
 }
 
 .concept__heading {
@@ -722,6 +858,10 @@ body {
   font-weight: 700;
   line-height: rclamp(32, 44, 375, 1280); /* 160% */
   letter-spacing: rclamp(1.6, 2.24, 375, 1280);
+
+  @include mq(lg) {
+    font-size: rclamp(24, 40, 1280, 1920);
+  }
 }
 
 .concept__text {
@@ -730,28 +870,53 @@ body {
   font-size: rem(14);
   font-weight: 500;
   line-height: rem(24); /* 171.429% */
+
+  @include mq(lg) {
+    font-size: rclamp(14, 28, 1280, 1920);
+    line-height: 1.5;
+  }
 }
 
 .concept__link {
   margin-block-start: rem(37);
   text-align: center;
+
+  @include mq(lg) {
+    text-align: left;
+  }
 }
 
 .concept__button {
-  color: $text-link;
-  text-align: center;
-  font-size: rem(14);
-  font-weight: 500;
-  border-radius: 24px;
-  border: 1px solid #1391E6;
-  background: #FFF;
-  display: inline-block;
-  padding-block: rclamp(9, 11, 375, 1280);
-  padding-inline: rclamp(40, 46, 375, 1280);
-  inline-size: fit-content;
+  position: relative;
+  inset-inline-end: 22px;
+  &::after {
+    content: "";
+    position: absolute;
+    background: url(../img/mv_icon-right.svg) no-repeat center / cover;
+    inline-size: 12px;
+    block-size: 12px;
+    inset-inline-end: 16px;
+    inset-block-start: 50%;   // ✅ 上下中央位置
+    transform: translateY(-50%); 
+  }
 }
 
 .button {
+  color: $text-link;
+  font-size: rem(14);
+  font-weight: 500;
+  border-radius: rem(24);
+  border: 1px solid #1391E6;
+  background: #FFF;
+  display: inline-block;
+  inline-size: fit-content;
+  padding-block: rclamp(9, 11, 375, 1280);
+  padding-inline: rclamp(40, 46, 375, 1280);
+  
+  @include mq(lg) {
+    font-size: rclamp(14, 28, 1280, 1920);
+    border-radius: rem(36);
+  }
 
 }
 
@@ -759,10 +924,20 @@ body {
   margin-block-start: rem(40);
   inline-size: calc(335 / 375 * 100%);
 
+  @include mq(lg) {
+    inline-size: 100%;
+    margin-block-start: 0;
+  }
+
   img {
-    margin-block-start: rem(180);
     border-radius: 0px 20px 20px 0px;
     background: url(<path-to-image>) lightgray 361.924px -30.529px / -116.721% 112.999% no-repeat;
+    
+    @include mq(lg) {
+      margin-block-start: rem(180);
+      block-size: rclamp(438, 638, 1280, 1920);
+      object-fit: cover;
+    }
   }
 }
 
@@ -770,12 +945,16 @@ body {
   // overflow: hidden;
   position: absolute;
   inset-block-start: 0;
-  inset-inline-end: 0;
+  inset-inline-start: 0;
   z-index: -1;
   padding-inline-start: rem(10);
+  inline-size: max(100%, rem(554));
+  img {
+    width: 100%;
+  }
   
   @include mq(lg) {
-    inset-block-start: rclamp(50, -10, 1280, 2560);
+    inset-block-start: rclamp(50, 0, 1280, 2560);
     inset-inline-start: 30%;
     width: 100%;
     img {
@@ -783,4 +962,56 @@ body {
       block-size: auto;
     }
   }
+}
+
+.recommend {
+  margin-block-start: rclamp(96, 117, 375, 1280);
+  padding-block-end: 400px;
+}
+
+.recommend__inner {
+  padding-inline: rclamp(47, 60, 375, 1280);
+  margin-inline: auto;
+  width: min(100%, 1920px);
+}
+
+.recommend__heading {
+  text-align: center;
+}
+
+.recommend__heading-title {
+
+}
+
+.recommend__items {
+  margin-block-start: rclamp(39, 60, 375, 1280);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(rem(281), 1fr));
+  gap: rclamp(50, 50, 375, 1280);
+  place-items: center;
+
+  @include mq(lg) {
+    gap: rclamp(50, 50, 1280, 1920);
+  }
+}
+
+.recommend__item {
+  inline-size: rclamp(281, 400, 1280, 1920);
+  img {
+    inline-size: 100%;
+  }
+}
+
+
+
+.recommend__text {
+  inline-size: 100%;
+  margin-block-start: rclamp(20, 19, 375, 1280);
+}
+
+.text__accent {
+  color: #EE5A6D;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
 }
