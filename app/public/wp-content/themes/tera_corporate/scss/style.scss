@@ -107,6 +107,66 @@ body {
     background-color: $bg-primary;
 }
 
+/* ✅ 画面全体に白背景＆ロゴ */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #fff; /* ✅ 最初は白 */
+  z-index: 9999; /* ✅ 最前面に配置 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  animation: logoFadeOut 1s ease-in-out 5s forwards; /* ✅ 5秒後フェードアウト開始 */
+}
+
+/* ✅ ロゴのスタイル */
+#overlay img {
+  inline-size: rem(270); /* ✅ ロゴの幅（調整可能） */
+  block-size: auto;
+  animation: 
+    logoFadeIn 3s ease-in-out forwards, /* ✅ 3秒かけてフェードイン */
+    logoHold 2s ease-in-out 3s forwards; /* ✅ 2秒保持 → 3秒遅延で開始 */
+  transform-origin: center; /* ✅ 中央から拡大 */
+}
+
+/* ✅ ロゴフェードインアニメーション */
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(2); /* ✅ 拡大状態で開始 */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(2); /* ✅ そのまま維持 */
+  }
+}
+
+/* ✅ ロゴ保持アニメーション */
+@keyframes logoHold {
+  0% {
+    opacity: 1;
+    transform: scale(2); /* ✅ 拡大したまま維持 */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(2); /* ✅ サイズ維持 */
+  }
+}
+
+/* ✅ ロゴフェードアウトアニメーション */
+@keyframes logoFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden; /* ✅ 完全に非表示 */
+  }
+}
+
+
+
 // ヘッダー ========================
 .header {
   position: fixed;
@@ -724,6 +784,7 @@ body {
       color: $btn-primary-hover;
       border-radius: 6px;
       transform: scale(1.1);
+      text-decoration: none;
     }
   }
 }

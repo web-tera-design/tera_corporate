@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const cardSwiper = new Swiper('.card__swiper', { //swiperの名前
   //切り替えのモーション
-  speed: 1000, //表示切り替えのスピード
+  speed: 2000, //表示切り替えのスピード
   effect: "fade", //切り替えのmotion (※1)
   allowTouchMove: true, // スワイプで表示の切り替えを有効に
 
@@ -223,5 +223,21 @@ document.addEventListener("DOMContentLoaded", () => {
     startTypingAnimation(text);
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById("overlay");
+
+  // ✅ 5秒後にフェードアウト開始（3秒フェードイン + 2秒保持）
+  setTimeout(() => {
+    overlay.style.transition = "opacity 1s ease-in-out";
+    overlay.style.opacity = "0";
+
+    // ✅ 1秒後に完全非表示（サイトの動き開始）
+    setTimeout(() => {
+      overlay.style.display = "none";
+    }, 1000); // ✅ 1秒フェードアウト後
+  }, 5000); // ✅ 5秒でフェードアウト開始
+});
+
 
 
