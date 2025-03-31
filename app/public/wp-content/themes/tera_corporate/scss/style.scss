@@ -107,38 +107,39 @@ body {
     background-color: $bg-primary;
 }
 
-/* ✅ 画面全体に白背景＆ロゴ */
+/* ✅ 画面全体に黒から白背景＆ロゴ */
 #overlay {
   position: fixed;
   inset: 0;
-  background-color: #fff; /* ✅ 最初は白 */
-  z-index: 9999; /* ✅ 最前面 */
+  background-color: #000; /* ✅ 初期状態：黒 */
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 1;
-  animation: logoFadeOut 2s ease-in-out 5s forwards; /* ✅ 5秒後にフェードアウト（2秒で消える） */
+  animation: logoFadeOut 2s ease-in-out 5s forwards, backgroundFadeIn 1.5s ease-in-out forwards; /* ✅ 背景色のフェードイン追加 */
 }
 
 /* ✅ ロゴのスタイル */
 #overlay img {
   inline-size: rem(270); /* ✅ ロゴの幅（調整可能） */
   block-size: auto;
-  animation: 
-    logoFadeIn 3s ease-in-out forwards, /* ✅ 3秒かけてフェードイン */
-    logoHold 2s ease-in-out 3s forwards; /* ✅ 2秒保持 → 3秒遅延で開始 */
   transform-origin: center; /* ✅ 中央から拡大 */
+  animation:
+    logoFadeIn 3s ease-out forwards, /* ✅ 3秒かけてフェードイン */
+    logoHold 2s ease-in-out 3s forwards, /* ✅ 2秒保持 → フェードアウト準備 */
+    logoFadeOut 2s ease-in-out 5s forwards; /* ✅ 2秒でフェードアウトのみ */
 }
 
 /* ✅ ロゴフェードインアニメーション */
 @keyframes logoFadeIn {
   0% {
     opacity: 0;
-    transform: scale(2); /* ✅ 拡大状態で開始 */
+    transform: translateZ(-300px) scale(3); /* ✅ 画面の奥から登場 */
   }
   100% {
     opacity: 1;
-    transform: scale(2); /* ✅ そのまま維持 */
+    transform: translateZ(0) scale(4); /* ✅ 正面でズームイン完了 */
   }
 }
 
@@ -146,26 +147,34 @@ body {
 @keyframes logoHold {
   0% {
     opacity: 1;
-    transform: scale(2); /* ✅ 拡大したまま維持 */
+    transform: translateZ(0) scale(4); /* ✅ 正面でキープ */
   }
   100% {
     opacity: 1;
-    transform: scale(2); /* ✅ サイズ維持 */
+    transform: translateZ(0) scale(4); /* ✅ 変化なしでキープ */
   }
 }
 
-/* ✅ ロゴフェードアウトアニメーション */
+/* ✅ ロゴフェードアウト：ズームなしで自然にフェードアウト */
 @keyframes logoFadeOut {
   0% {
     opacity: 1;
   }
   100% {
-    opacity: 0;
+    opacity: 0; /* ✅ ふわっとフェードアウト */
     visibility: hidden; /* ✅ 完全に非表示 */
   }
 }
 
-
+/* ✅ 背景のフェードイン：黒から白に変化 */
+@keyframes backgroundFadeIn {
+  0% {
+    background-color: #fff; /* ✅ 初期状態：黒 */
+  }
+  100% {
+    background-color: #fff; /* ✅ フェードイン後に白 */
+  }
+}
 
 
 // ヘッダー ========================
@@ -558,7 +567,7 @@ body {
   display: inline-block;
   opacity: 0; /* ✅ 初期は非表示 */
   transform: translateY(20px) scale(0.8); /* ✅ 初期位置（下から＆縮小） */
-  animation: bounceFade 0.6s ease-out forwards;
+  animation: bounceFade 0.5s ease-out forwards;
 }
 
 /* ✅ バウンド＆フェードイン アニメーション */
@@ -569,7 +578,7 @@ body {
   }
   50% {
     opacity: 1;
-    transform: translateY(-10px) scale(1.05); /* 少し上に弾む */
+    transform: translateY(-20px) scale(1.05); /* 少し上に弾む */
   }
   100% {
     opacity: 1;
