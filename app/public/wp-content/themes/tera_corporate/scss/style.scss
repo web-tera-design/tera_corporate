@@ -112,12 +112,12 @@ body {
   position: fixed;
   inset: 0;
   background-color: #fff; /* ✅ 最初は白 */
-  z-index: 9999; /* ✅ 最前面に配置 */
+  z-index: 9999; /* ✅ 最前面 */
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 1;
-  animation: logoFadeOut 1s ease-in-out 5s forwards; /* ✅ 5秒後フェードアウト開始 */
+  animation: logoFadeOut 2s ease-in-out 5s forwards; /* ✅ 5秒後にフェードアウト（2秒で消える） */
 }
 
 /* ✅ ロゴのスタイル */
@@ -164,6 +164,7 @@ body {
     visibility: hidden; /* ✅ 完全に非表示 */
   }
 }
+
 
 
 
@@ -220,6 +221,7 @@ body {
 
 
 
+
 .header__nav-link {
   display: flex;
   flex-direction: column;
@@ -238,8 +240,8 @@ body {
     height: 3px;
     background-color: currentColor;
     transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.1s ease;
+    transform-origin: center;
+    transition: transform 0.3s ease;
   }
 
   // アクティブ・現在ページ
@@ -260,6 +262,8 @@ body {
 
     &::after {
       transform: scaleX(1);
+      transform-origin: center;
+      transition: transform 0.3s linear;
     }
 
     .header__nav-link-icon {
@@ -279,13 +283,25 @@ body {
 
 // ✅ SVGアイコンの初期スタイル
 .header__nav-link-icon {
-  // inline-size: rem(19); // ✅ アイコン初期サイズ
-  // block-size: rem(24);
   transition: transform 0.3s ease-in-out;
 }
 
 .header__nav-link-icon path {
   fill: currentColor;//親要素と色を合わせる
+  stroke: currentColor; // ✅ 線の色を親要素に合わせる
+  stroke-width: .8; // ✅ 線の太さ
+  stroke-dasharray: 0; // ✅ JSで自動セット
+  stroke-dashoffset: 0; // ✅ 初期値は0
+  transition: stroke-dashoffset 0.5s ease-in-out; // ✅ スムーズに線をなぞる
+}
+
+// ✅ ホバー時にSVGパスのみなぞる
+@media (any-hover: hover) {
+  .header__nav-link:hover {
+    .header__nav-link-icon path {
+      stroke-dashoffset: 0; // ✅ ホバー時になぞる
+    }
+  }
 }
 
 .header__nav-item-text {

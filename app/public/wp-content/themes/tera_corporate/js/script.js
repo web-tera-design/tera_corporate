@@ -229,14 +229,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ 5秒後にフェードアウト開始（3秒フェードイン + 2秒保持）
   setTimeout(() => {
-    overlay.style.transition = "opacity 1s ease-in-out";
+    overlay.style.transition = "opacity 2s ease-in-out";
     overlay.style.opacity = "0";
 
-    // ✅ 1秒後に完全非表示（サイトの動き開始）
+    // ✅ 2秒後に完全非表示（サイトの動き開始）
     setTimeout(() => {
       overlay.style.display = "none";
-    }, 1000); // ✅ 1秒フェードアウト後
-  }, 5000); // ✅ 5秒でフェードアウト開始
+    }, 2000); // ✅ 2秒フェードアウト後に完全非表示
+  }, 5000); // ✅ 5秒後にフェードアウト開始
+});
+
+
+// ✅ SVGパスの長さを自動セット
+document.querySelectorAll('.header__nav-link-icon path').forEach((path) => {
+  const length = path.getTotalLength(); // パスの長さを取得
+  path.style.strokeDasharray = length; // ✅ 線の長さをセット
+  path.style.strokeDashoffset = length; // ✅ 初期状態で線を隠す
+});
+
+// ✅ ホバー時のアニメーション（パスのみ）
+document.querySelectorAll('.header__nav-link').forEach((link) => {
+  link.addEventListener('mouseenter', () => {
+    const path = link.querySelector('.header__nav-link-icon path');
+    path.style.transition = 'none'; // ✅ アニメーションなしで初期化
+    path.style.strokeDashoffset = path.getTotalLength(); // ✅ 初期状態をリセット
+
+    // ✅ 次のフレームでstroke-dashoffsetを0にしてアニメーション
+    requestAnimationFrame(() => {
+      path.style.transition = 'stroke-dashoffset 1.5s ease-in-out';
+      path.style.strokeDashoffset = '0'; // ✅ なぞるアニメーション
+    });
+  });
+
+  link.addEventListener('mouseleave', () => {
+    const path = link.querySelector('.header__nav-link-icon path');
+    const length = path.getTotalLength();
+    path.style.strokeDashoffset = length; // ✅ ホバー解除時に元に戻す
+  });
 });
 
 
