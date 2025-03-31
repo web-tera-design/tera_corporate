@@ -119,44 +119,114 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-const cardSwiper = new Swiper('.card__swiper', { //swiperの名前
-  //切り替えのモーション
-  speed: 2000, //表示切り替えのスピード
-  effect: "fade", //切り替えのmotion (※1)
-  allowTouchMove: true, // スワイプで表示の切り替えを有効に
 
-  //最後→最初に戻るループ再生を有効に
-  loop: true,
-  //自動スライドについて
-  autoplay: { 
-    delay: 7000, //何秒ごとにスライドを動かすか
-    stopOnLastSlide: false, //最後のスライドで自動再生を終了させるか
-    disableOnInteraction: true, //ユーザーの操作時に止める
-    reverseDirection: false, //自動再生を逆向きにする
-  },
+// ✅ ページ読み込み時にすべての処理をまとめる
+document.addEventListener("DOMContentLoaded", () => {
+  // ✅ Swiperスライド内のテキストを取得
+  const swiperTexts = document.querySelectorAll(".swiper-slide__text");
 
-  //表示について
-  centeredSlides: true, //中央寄せにする
-  slidesPerView: 1,
-  spaceBetween: 0,
+  // ✅ 一文字ずつ出現の関数
+  function startTypingAnimation(target, delay = 0) {
+    const headings = target.querySelectorAll(".swiper-slide__heading, .swiper-slide__sub");
 
-  //ページネーション
-  pagination: {
-    el: ".swiper-pagination", //paginationのclass
-    clickable: true, //クリックでの切り替えを有効に
-    type: "bullets" //paginationのタイプ (※2)
-  },
-  //ナビゲーション
-  navigation: {
-    prevEl: ".swiper-button-prev", //戻るボタンのclass
-    nextEl: ".swiper-button-next" //進むボタンのclass
-  },
-  //スクロールバー
-  scrollbar: { //スクロールバーを表示したいとき
-    el: ".swiper-scrollbar", //スクロールバーのclass
-    hide: true, //操作時のときのみ表示
-    draggable: true //スクロールバーを直接表示できるようにする
-  },
+    headings.forEach((heading, index) => {
+      const text = heading.innerText; // ✅ 元のテキストを取得
+      heading.innerHTML = ""; // ✅ 文字をクリアしてから挿入
+      text.split("").forEach((char, charIndex) => {
+        const span = document.createElement("span");
+        span.innerText = char;
+
+        // ✅ heading と sub にラグを入れる
+        const extraDelay = index === 1 ? 2 : 0; // ✅ sub だけ 0.4 秒遅延
+        span.style.animationDelay = `${charIndex * 0.2 + extraDelay}s`; // ✅ 0.2秒ごとに遅延
+        heading.appendChild(span);
+      });
+    });
+  }
+
+  // ✅ トップビジュアルの全テキストに適用
+  swiperTexts.forEach((text) => {
+    startTypingAnimation(text);
+  });
+
+  // ✅ Swiper の初期化（カードスライダー）
+  const cardSwiper = new Swiper(".card__swiper", {
+    // ✅ スワイプ切り替えのモーション
+    speed: 2000, // 表示切り替えのスピード
+    effect: "fade", // 切り替えのmotion
+    allowTouchMove: true, // スワイプで表示の切り替えを有効に
+
+    // ✅ ループ再生
+    loop: true,
+
+    // ✅ 自動スライド
+    autoplay: {
+      delay: 7000, // 何秒ごとにスライドを動かすか
+      stopOnLastSlide: false, // 最後のスライドで自動再生を終了させるか
+      disableOnInteraction: true, // ユーザーの操作時に止める
+      reverseDirection: false, // 自動再生を逆向きにする
+    },
+
+    // ✅ 表示について
+    centeredSlides: true, // 中央寄せにする
+    slidesPerView: 1, // 一度に表示するスライド数
+    spaceBetween: 0, // スライド間の余白
+
+    // ✅ ページネーション
+    pagination: {
+      el: ".swiper-pagination", // paginationのclass
+      clickable: true, // クリックでの切り替えを有効に
+      type: "bullets", // paginationのタイプ
+    },
+
+    // ✅ ナビゲーション
+    navigation: {
+      prevEl: ".swiper-button-prev", // 戻るボタンのclass
+      nextEl: ".swiper-button-next", // 進むボタンのclass
+    },
+
+    // ✅ スクロールバー
+    scrollbar: {
+      el: ".swiper-scrollbar", // スクロールバーのclass
+      hide: true, // 操作時のときのみ表示
+      draggable: true, // スクロールバーを直接表示できるようにする
+    },
+
+    // ✅ スライド切り替え時のアニメーション再発火
+    on: {
+      // ✅ Swiper 初期化時に最初のスライドでアニメーション発火
+      init: () => {
+        const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
+        if (activeSlide) {
+          startTypingAnimation(activeSlide); // ✅ 初回スライドのアニメーション発火
+        }
+      },
+      // ✅ スライド切り替え時に再度アニメーションを発火
+      slideChangeTransitionStart: () => {
+        const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
+        if (activeSlide) {
+          startTypingAnimation(activeSlide); // ✅ スライド切り替え時にも再発火
+        }
+      },
+    },
+  });
+
+  // ✅ オーバーレイのフェードアウト制御
+  const overlay = document.getElementById("overlay");
+
+  // ✅ 5秒後にフェードアウト開始
+  setTimeout(() => {
+    overlay.style.transition = "opacity 2s ease-in-out";
+    overlay.style.opacity = "0";
+
+    // ✅ フェードアウト後に完全非表示
+    overlay.addEventListener("transitionend", () => {
+      overlay.style.display = "none"; // ✅ フェードアウト完了後に非表示
+      console.log("✅ オーバーレイが非表示になりました");
+    });
+  }, 5000); // ✅ 5秒後にフェードアウト開始
+});
+
 
   //ブレイクポイントによって変える
   // breakpoints: { 
@@ -169,7 +239,7 @@ const cardSwiper = new Swiper('.card__swiper', { //swiperの名前
   //     spaceBetween: 40,
   //   },
   // }
-});
+
 
 /* =================================================== 
 ※1 effectについて
@@ -193,52 +263,6 @@ progressbar：スライドの進捗に応じてプログレスバーが伸びる
 custom：自由にカスタマイズ
 
 =====================================================*/
-
-
-// ✅ ページ読み込み時に即発火
-document.addEventListener("DOMContentLoaded", () => {
-  const swiperTexts = document.querySelectorAll(".swiper-slide__text");
-
-  // ✅ 一文字ずつ出現の関数
-  function startTypingAnimation(target, delay = 0) {
-    const headings = target.querySelectorAll(".swiper-slide__heading, .swiper-slide__sub");
-
-    headings.forEach((heading, index) => {
-      const text = heading.innerText; // ✅ 元のテキストを取得
-      heading.innerHTML = ""; // ✅ 文字をクリアしてから挿入
-      text.split("").forEach((char, charIndex) => {
-        const span = document.createElement("span");
-        span.innerText = char;
-
-        // ✅ heading と sub にラグを入れる
-        const extraDelay = index === 1 ? 2 : 0; // ✅ sub だけ 0.4 秒遅延
-        span.style.animationDelay = `${charIndex * 0.2 + extraDelay}s`; // ✅ 0.1秒ごとに遅延
-        heading.appendChild(span);
-      });
-    });
-  }
-
-  // ✅ トップビジュアルの全テキストに適用
-  swiperTexts.forEach((text) => {
-    startTypingAnimation(text);
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const overlay = document.getElementById("overlay");
-
-  // ✅ 5秒後にフェードアウト開始（3秒フェードイン + 2秒保持）
-  setTimeout(() => {
-    overlay.style.transition = "opacity 2s ease-in-out";
-    overlay.style.opacity = "0";
-
-    // ✅ 2秒後に完全非表示（サイトの動き開始）
-    setTimeout(() => {
-      overlay.style.display = "none";
-    }, 2000); // ✅ 2秒フェードアウト後に完全非表示
-  }, 5000); // ✅ 5秒後にフェードアウト開始
-});
-
 
 // ✅ SVGパスの長さを自動セット
 document.querySelectorAll('.header__nav-link-icon path').forEach((path) => {
