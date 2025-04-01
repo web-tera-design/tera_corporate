@@ -107,74 +107,77 @@ body {
     background-color: $bg-primary;
 }
 
-/* ✅ 画面全体に黒から白背景＆ロゴ */
-#overlay {
-  position: fixed;
-  inset: 0;
-  background-color: #000; /* ✅ 初期状態：黒 */
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  animation: logoFadeOut 2s ease-in-out 5s forwards, backgroundFadeIn 1.5s ease-in-out forwards; /* ✅ 背景色のフェードイン追加 */
-}
+// /* ✅ 画面全体に黒から白背景＆ロゴ */
+// #overlay {
+//   position: fixed;
+//   inset: 0;
+//   background-color: #000; /* ✅ 初期状態：黒 */
+//   z-index: 9999;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   opacity: 1;
+//   perspective: 1000px; /* 視差効果を加えて3D空間を明確に */
+//   animation: logoFadeOut 2s ease-in-out 5s forwards, backgroundFadeIn 1.5s ease-in-out forwards; /* ✅ 背景色のフェードイン追加 */
+// }
 
-/* ✅ ロゴのスタイル */
-#overlay img {
-  inline-size: rem(270); /* ✅ ロゴの幅（調整可能） */
-  block-size: auto;
-  transform-origin: center; /* ✅ 中央から拡大 */
-  animation:
-    logoFadeIn 3s ease-out forwards, /* ✅ 3秒かけてフェードイン */
-    logoHold 2s ease-in-out 3s forwards, /* ✅ 2秒保持 → フェードアウト準備 */
-    logoFadeOut 2s ease-in-out 5s forwards; /* ✅ 2秒でフェードアウトのみ */
-}
+// /* ✅ ロゴのスタイル */
+// #overlay img {
+//   inline-size: max(40%, 270px); /* 画面幅の40%に基づき、最小幅は270px */
+//   height: auto;
+//   transform-origin: center; /* ✅ 中央から拡大 */
+//   animation:
+//     logoFadeIn 3s ease-out forwards, /* ✅ 3秒かけてフェードイン */
+//     logoHold 2s ease-in-out 3s forwards, /* ✅ 2秒保持 → フェードアウト準備 */
+//     logoFadeOut 2s ease-in-out 5s forwards; /* ✅ 2秒でフェードアウトのみ */
+// }
 
-/* ✅ ロゴフェードインアニメーション */
-@keyframes logoFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateZ(-300px) scale(3); /* ✅ 画面の奥から登場 */
-  }
-  100% {
-    opacity: 1;
-    transform: translateZ(0) scale(4); /* ✅ 正面でズームイン完了 */
-  }
-}
+// /* ✅ ロゴフェードインアニメーション */
+// @keyframes logoFadeIn {
+//   0% {
+//     opacity: 0;
+//     transform: translateZ(-300px) scale(0.8); /* ✅ 画面の奥からズームイン */
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateZ(0) scale(1); /* ✅ 正面でズームイン完了 */
+//   }
+// }
 
-/* ✅ ロゴ保持アニメーション */
-@keyframes logoHold {
-  0% {
-    opacity: 1;
-    transform: translateZ(0) scale(4); /* ✅ 正面でキープ */
-  }
-  100% {
-    opacity: 1;
-    transform: translateZ(0) scale(4); /* ✅ 変化なしでキープ */
-  }
-}
+// /* ✅ ロゴ保持アニメーション */
+// @keyframes logoHold {
+//   0% {
+//     opacity: 1;
+//     transform: translateZ(0) scale(1); /* ✅ 正面でキープ */
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateZ(0) scale(1); /* ✅ 変化なしでキープ */
+//   }
+// }
 
-/* ✅ ロゴフェードアウト：ズームなしで自然にフェードアウト */
-@keyframes logoFadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0; /* ✅ ふわっとフェードアウト */
-    visibility: hidden; /* ✅ 完全に非表示 */
-  }
-}
+// /* ✅ ロゴフェードアウト：ズームなしで自然にフェードアウト */
+// @keyframes logoFadeOut {
+//   0% {
+//     opacity: 1;
+//   }
+//   100% {
+//     opacity: 0; /* ✅ ふわっとフェードアウト */
+//     visibility: hidden; /* ✅ 完全に非表示 */
+//   }
+// }
 
-/* ✅ 背景のフェードイン：黒から白に変化 */
-@keyframes backgroundFadeIn {
-  0% {
-    background-color: #fff; /* ✅ 初期状態：黒 */
-  }
-  100% {
-    background-color: #fff; /* ✅ フェードイン後に白 */
-  }
-}
+// /* ✅ 背景のフェードイン：黒から白に変化 */
+// @keyframes backgroundFadeIn {
+//   0% {
+//     background-color: #f4f4f4; /* ✅ 初期状態：黒 */
+//   }
+//   100% {
+//     background-color: #f4f4f4; /* ✅ フェードイン後に白 */
+//   }
+// }
+
+
 
 
 // ヘッダー ========================
@@ -217,9 +220,6 @@ body {
 }
 
 .header__nav-list {
-  // display: grid;
-  // grid-template-columns: repeat(3, 1fr); // 3列レイアウト
-  // gap: rem(12); // 適宜調整
   display: flex;
   gap: rclamp(12, 24, 768, 1280);
   padding-block: rclamp(12, 18, 375, 1280);
@@ -535,6 +535,7 @@ body {
     object-fit: cover;
     object-position: left;
     display: block;
+    
    }
 }
 
@@ -817,12 +818,13 @@ body {
 
 
 .mv__info-news {
+  position: relative;
+  display: block;
   display: flex;
   align-items: center;
   gap: rem(23);
   border-block-end: 1px solid $text-primary;
-  position: relative;
-  transition: background-color 0.5s ease, color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.5s ease, color 0.3s ease, transform 0.5s ease,;
 
   &::after {
     content: "";
@@ -832,50 +834,48 @@ body {
     block-size: rem(14);
     color: $text-primary;
     inset-inline-end: 8px;
-    inset-block-start: 14px;
-    transition: inline-size 0.3s ease, block-size 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+    inset-block-start: 50%; // 垂直中央位置
+    transform: translateY(-50%); // 真ん中に揃える
+    transition: filter 0.5s ease, transform 0.3s ease,;
 
     @include mq(lg) {
-      inline-size: rem(28); // ✅ PC時の大きさ
-      block-size: rem(28);
+      inline-size: rclamp(14, 28, 1280, 1920); // ✅ PC時の大きさ
+      block-size: rclamp(14, 28, 1280, 1920);
     }
   }
 
   @media (any-hover: hover) {
     &:hover {
       color: $btn-primary-hover;
-      transform: scale(1.1);
+      transform: scale(1.2) ; /* 50pxは要素の幅の半分 */
       border: none;
 
       &::after {
-        inline-size: rem(28); // ✅ ホバー時に大きく
-        block-size: rem(28);
+        display: none;
         filter: brightness(0) saturate(100%) invert(18%) sepia(98%) saturate(6000%) hue-rotate(-5deg) brightness(90%) contrast(110%);
-        animation: arrowSlide 0.3s ease-in-out alternate; // ✅ ホバー中アニメーション
+        animation: arrowSlide 0.3s ease-in-out; // ✅ ホバー中アニメーション
       }
     }
 
     // ✅ ホバー解除時にリセット
     &:not(:hover) &::after {
-      inline-size: rem(14);
-      block-size: rem(14);
       animation: none; // ✅ アニメーション停止
     }
   }
 }
 
-// ✅ 矢印の左右スライドアニメーション
-@keyframes arrowSlide {
-  0% {
-    transform: translateX(0); // ✅ 元の位置
-  }
-  50% {
-    transform: translateX(-12px); // ✅ 左にスライド
-  }
-  100% {
-    transform: translateX(0); // ✅ 元に戻る
-  }
-}
+// // ✅ 矢印の左右スライドアニメーション
+// @keyframes arrowSlide {
+//   0% {
+//     transform: translateX(0); // ✅ 元の位置
+//   }
+//   50% {
+//     transform: translateX(-12px); // ✅ 左にスライド
+//   }
+//   100% {
+//     transform: translateX(0); // ✅ 元に戻る
+//   }
+// }
 
 .mv__info-news-time {
   font-size: rem(12);
@@ -913,11 +913,11 @@ body {
 }
 
 .concept__content {
-  padding-inline: rclamp(20, 0, 375, 1280);
+  padding-inline: rem(20);
   padding-block-start: rclamp(106, 180, 375, 1280);
 
   @include mq(lg) {
-    // padding-block-start: 0;
+    padding-inline: 0;
     order: 2;
     align-self: center;
   }
@@ -1008,7 +1008,7 @@ body {
 
 .concept__image {
   margin-block-start: rem(40);
-  inline-size: calc(335 / 375 * 100%);
+  inline-size: min(calc(335 / 375 * 100%),rem(770));
 
   @include mq(lg) {
     inline-size: 100%;

@@ -150,11 +150,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ Swiper の初期化（カードスライダー）
   const cardSwiper = new Swiper(".card__swiper", {
-    speed: 2000, // ✅ 表示切り替えのスピード
+    speed: 1000, // ✅ 表示切り替えのスピード
     effect: "fade", // ✅ 切り替えのmotion
     loop: true, // ✅ ループ再生
     autoplay: {
-      delay: 7000, // ✅ 自動スライドの時間
+      delay: 5000, // ✅ 自動スライドの時間
     },
     pagination: {
       el: ".swiper-pagination",
@@ -273,3 +273,21 @@ document.querySelectorAll('.header__nav-link').forEach((link) => {
 // ================header__nav-link
 
 
+const newsElement = document.querySelector('.mv__info-news');
+
+// ホバー時に計算してtranslateXを適用
+newsElement.addEventListener('mouseenter', () => {
+  const parentWidth = newsElement.offsetWidth; // 親要素の幅
+  const childWidth = newsElement.querySelector('.mv__info-news-time').offsetWidth + newsElement.querySelector('.mv__info-news-text').offsetWidth + parseFloat(window.getComputedStyle(newsElement).gap); // 子要素の合計幅
+
+  // 中央位置を計算
+  const translateXValue = (parentWidth - childWidth) / 2;
+
+  // transformで位置を動かす
+  newsElement.style.transform = `scale(1.2) translateX(${translateXValue}px)`;
+});
+
+// ホバー解除時にリセット
+newsElement.addEventListener('mouseleave', () => {
+  newsElement.style.transform = 'scale(1) translateX(0)';
+});
