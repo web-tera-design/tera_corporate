@@ -896,17 +896,19 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    inline-size: 0%;
+    inline-size: 100%;
     block-size: 100%;
-    background-color: $btn-primary;
+    background-color: $btn-secondary;
     z-index: -1;
-    transition: inline-size 0.5s ease;
+    transition: inline-size 0.5s ease, left 0.5s ease;
   }
   
   svg{
     inline-size: rem(12);
     block-size: rem(12);
     margin-inline-end: rem(-20);
+    opacity: 0.7;
+    transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
     @include mq(lg) {
       inline-size: rclamp(12, 24, 1280, 1920);
       block-size: rclamp(12, 24, 1280, 1920);
@@ -919,16 +921,19 @@ body {
   }
 
   &:hover {
-    background-color: $btn-primary;
+    background-color: $btn-primary; // ← これが "見えてくる" 色
     color: $btn-secondary;
     border-color: $btn-primary;
     transform: scale(1.1);
 
     &::before {
-      inline-size: 100%;
+      inline-size: 0;
+      left: 50%;
     }
 
     svg {
+      filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
+      opacity: 1;
     }
   }
 }
@@ -975,7 +980,6 @@ body {
 
 .recommend {
   margin-block-start: rclamp(96, 117, 375, 1280);
-  padding-block-end: rem(400);
 }
 
 .recommend__inner {
@@ -1002,14 +1006,16 @@ body {
 .recommend__items {
   margin-block-start: rclamp(39, 60, 375, 1280);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(rem(276), 1fr));
   gap: rclamp(50, 50, 375, 1280);
   place-items: center;
   justify-content: center;
   align-items: flex-start;
-
+  
+  @include mq(md) {
+    grid-template-columns: repeat(auto-fit, minmax(rem(276), 1fr));
+  }
   @include mq(lg) {
-    gap: rclamp(50, 50, 1280, 1920);
+    display: flex;
   }
 }
 
@@ -1049,3 +1055,269 @@ body {
   font-weight: 500;
   line-height: 24px;
 }
+
+.medical {
+  margin-block-start: rclamp(214, 335, 375, 1280);
+  position: relative;
+  padding-block-start: rclamp(29, 104, 375, 1280);
+  margin-inline: auto;;
+  background: #dff1fd;
+  z-index: 1;
+  padding-block-end: rclamp(62, 83, 375, 1280);
+  margin-block-end: 300px;
+}
+
+.medical__bg-top {
+  position: absolute;
+  z-index: -1;
+  inset-block-start: rclamp(-85, -201, 375, 1280);
+  inset-inline: 0;
+  block-size: rclamp(85, 201, 375, 1280);
+
+  img {
+    width: 100%;
+    block-size: 100%;
+  }
+}
+
+.medical__bg-bottom {
+  position: absolute;
+  z-index:-1;
+  inset-inline: 0;
+  inset-block-end: -28px;
+  block-size: 28px;
+  @include mq(md) {
+    inset-block-end: -97px;
+    block-size: 97px;
+  }
+
+  img {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    background: url(../img/deco-kirakira2-w.png) no-repeat center center / cover;
+    inset-inline-start: 6px;
+    inset-block-start: -40px;
+    inline-size: 24px;
+    block-size: 25px;
+    @include mq(md) {
+      inline-size: 57px;
+      block-size: 56px;
+      inset-inline-start: 40px;
+      inset-block-start: -50px;
+    }
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    background: url(../img/deco-kirakira-w.png) no-repeat center center / cover;
+    inset-inline-end: 0px;
+    inset-block-start: -60px;
+    inline-size: 56px;
+    block-size: 60px;
+
+    @include mq(md) {
+      inline-size: 125px;
+      block-size: 138px;
+      inset-inline-end: 25px;
+      inset-block-start: -120px;
+    }
+  }
+}
+
+
+.medical__heading {
+  
+}
+
+.medical__heading-title {
+  line-height: rclamp(1.4, 1.2, 375, 1280)
+}
+
+.--heading {
+  
+}
+
+.medical__container {
+  // inline-size: min(rem(1000), 100%);
+  // inline-size: min(rem(335), 100%);
+  // margin-inline: auto;
+  padding-inline: rem(20);
+  // margin-block-start: 50px;
+}
+
+.medical__services {
+  // max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 40px;
+  margin: 60px auto 0;
+  width: 100%;
+  max-width: 1000px;
+  gap: rclamp(20, 80, 375, 1280);
+  // padding-inline: rem(20);
+  @include mq(lg) {
+    grid-template-columns: repeat(2, 1fr);
+    
+}
+  }
+
+
+.medical__service {
+  // margin-inline: auto;
+  // // margin-block-start: rem(20);
+  // inline-size: rem(335);
+  // // height: rclamp(210, 290, 375, 1280);
+  aspect-ratio: 335 / 210;
+  width: 100%;
+  // height: 210px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-radius: 20px;
+  
+  @include mq(md) {
+    // inline-size: rem(441);
+    // margin-block-start: 0;
+    // height: 288px;
+  }
+
+  &:hover::before {
+    transform: scale(1.1);
+  }
+  
+  &:hover {
+    // box-shadow: inset 0 0 0 2px #fff;
+  }
+  
+  &:hover::after {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    border-radius: 20px;
+    transform: scale(1);
+    transition: transform 0.3s ease-out;
+    }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 0;
+    transition: 0.4s ease-out;
+  }
+
+}
+
+.--service1 {
+  &::before {
+    background: url(../img/medical-image1.png) no-repeat center / cover;
+  }
+}
+
+.--service2 {
+  &::before {
+    background: url(../img/medical__bg-image2.webp) no-repeat center / cover;
+  }
+}
+
+.medical__service-link-line {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  inset: 10px;
+  border-radius: 20px;
+  z-index: 1;
+  border: 3px solid transparent;
+  transition: border-color 0.3s ease-out;
+  
+  &:hover {
+    border-color: #fff;
+  }
+}
+
+.medical__link-container {
+  text-align: center;
+  z-index: 2;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+
+  @include mq(md) {
+    
+  }
+}
+
+.medical__service-title {
+  font-size: 20px;
+  line-height: 1;
+  padding-bottom: 42px;
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  z-index: 1;
+
+  @include mq(md) {
+    font-size: 28px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    border-radius: 20px;
+    bottom: 16px;
+    height: 2px;
+    width: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.medical__service-description {
+  color: $btn-secondary;
+  // font-size: rclamp(12, 16, 375, 1280);
+  // font-weight: 700;
+  // letter-spacing: rclamp(0.96, 1.28, 375, 1280);
+  // margin-block-start: rem(20);
+}
+
+.medical__text {
+  // inline-size: 100%;
+  // background: $btn-secondary;
+  // color: $text-primary;
+  // font-size: rem(14);
+  // font-weight: 500;
+  // line-height: rclamp(24, 28, 375, 1280); /* 171.429% */
+  // margin-block-start: rclamp(20, 60, 375, 1280);
+  // padding-block-start: rclamp(18, 36, 375, 1280);
+  // padding-inline: rclamp(20, 40, 375, 1280);
+  // padding-block-end: rclamp(17, 35, 375, 1280);
+  // @include mq(md) {
+  //   // inline-size: min(rem(1000), calc(100% - rem(40)));
+  //   // margin-inline: 20px;
+  // }
+}
+.text__accent--medical {
+  // line-height: rclamp(24, 28, 375, 1280);
+}
+
+
+

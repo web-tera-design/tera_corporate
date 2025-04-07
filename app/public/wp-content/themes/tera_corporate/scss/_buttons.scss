@@ -18,10 +18,15 @@
     }
   }
   
-  .--heading {
+  .heading {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: rclamp(20, 28, 375, 1280);
+    font-weight: 700;
+    letter-spacing: rclamp(1.6, 2.24, 375, 1280);
+
+
     &::before,
     &::after {
       content: "";
