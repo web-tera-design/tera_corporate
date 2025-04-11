@@ -408,10 +408,17 @@ body {
 }
 .card__swiper-container  {
   position: relative;
+  max-inline-size: 1920px;
+  margin-inline: auto;
 }
 .card__swiper {
   position: relative;
+  block-size: rem(447);
+  @include mq(lg) {
+    block-size: rem(520);
+  }
 }
+
 .card__swiper-wrapper {
   position: relative;
 }
@@ -421,14 +428,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: rem(447);
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   border-radius: rclamp(20, 20, 375, 1280);//imgのborder-radius
 
    @include mq(lg) {
-     inline-size: calc(1160 / 1280 * 100%);
+    //  inline-size: calc(1160 / 1280 * 100%);
+    inline-size: 100%;
      aspect-ratio: 1160 / 520;
-     height: auto;
+     height: rem(520);
    }
 
    img {
@@ -437,9 +446,27 @@ body {
     object-fit: cover;
     object-position: left;
     display: block;
-    
+    // //アニメーション用
+    // opacity: 0;
+    // transform: translateY(-50%);
+    // animation: none;
    }
 }
+
+// .card__swiper-slide img.animate-in {
+//   animation: slideDownFade 1.8s ease-out forwards;
+// }
+
+// @keyframes slideDownFade {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(-50px);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
 
 //画面内に文言入れる
 .swiper-slide__text {
@@ -1175,7 +1202,7 @@ body {
   // // height: rclamp(210, 290, 375, 1280);
   aspect-ratio: 335 / 210;
   width: 100%;
-  // height: 210px;
+  height: 210px;
   position: relative;
   overflow: hidden;
   display: block;
@@ -1228,13 +1255,13 @@ body {
 
 .--service1 {
   &::before {
-    background: url(../img/medical-image1.png) no-repeat center / cover;
+    background: url(../img/medical-image1.png) no-repeat center/ cover;
   }
 }
 
 .--service2 {
   &::before {
-    background: url(../img/medical__bg-image2.webp) no-repeat center / cover;
+    background: url(../img/medical__bg-image2.webp) no-repeat center 80%/ cover;
   }
 }
 
