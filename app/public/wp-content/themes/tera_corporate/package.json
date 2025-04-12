@@ -1,7 +1,4 @@
 {
-  "devDependencies": {
-    "markuplint": "^4.11.8"
-  },
   "name": "tera_corporate",
   "version": "1.0.0",
   "main": "index.js",
@@ -11,10 +8,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "chokidar": "^4.0.3",
-    "fs-extra": "^11.3.0",
-    "sharp": "^0.33.5"
-  }
+  "devDependencies": {
+    "del": "^8.0.0",
+    "gulp": "^5.0.0",
+    "gulp-cli": "^3.0.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "sharp": "^0.34.1"
+  },
+  "description": ""
 }
