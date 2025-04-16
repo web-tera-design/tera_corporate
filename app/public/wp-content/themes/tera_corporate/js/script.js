@@ -128,6 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function startTypingAnimation(target, delay = 0) {
     const headings = target.querySelectorAll(".swiper-slide__heading, .swiper-slide__sub");
 
+    const globalStartDelay = 1.5; // ✅← ここ追加（スライド全体に0.5秒の開始ディレイ）
+
+
     headings.forEach((heading, index) => {
       const text = heading.innerText; // ✅ 元のテキストを取得
       heading.innerHTML = ""; // ✅ 文字をクリアしてから挿入
@@ -137,9 +140,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // ✅ heading と sub にラグを入れる
         const extraDelay = index === 1 ? 1.5 : 0; // ✅ sub だけ遅延
-        span.style.animationDelay = `${charIndex * 0.15 + extraDelay}s`; // ✅ 0.2秒ごとに遅延
+        // ✅ 修正：globalStartDelay を加える
+        span.style.animationDelay = `${charIndex * 0.15 + extraDelay + globalStartDelay}s`;
         heading.appendChild(span);
       });
+    });
+  }
+
+  // ✅ ★追加：スライド画像にGSAPアニメーションを適用
+  function animateSlideImage() {
+    const currentImg = document.querySelector('.swiper-slide-active .slide-img');
+    if (!currentImg) return;
+
+    gsap.set(currentImg, {
+      yPercent: -100,
+      opacity: 0,
+    });
+
+    gsap.to(currentImg, {
+      yPercent: 0,
+      opacity: 1,
+      duration: 4.0,
+      ease: 'power2.out',
     });
   }
 
@@ -154,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
     effect: "fade", // ✅ 切り替えのmotion
     loop: true, // ✅ ループ再生
     autoplay: {
-      delay: 5000, // ✅ 自動スライドの時間
+      delay: 6000, // ✅ 自動スライドの時間
     },
     pagination: {
       el: ".swiper-pagination",
@@ -164,20 +186,36 @@ document.addEventListener("DOMContentLoaded", () => {
       prevEl: ".swiper-button-prev",
       nextEl: ".swiper-button-next",
     },
+
+    // ✅ イベント：初期化時とスライド変更時にテキスト＆画像アニメ発火
     on: {
       init: () => {
         const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
         if (activeSlide) {
           startTypingAnimation(activeSlide);
         }
+        animateSlideImage(); // ✅ GSAPアニメも実行
       },
       slideChangeTransitionStart: () => {
         const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
         if (activeSlide) {
           startTypingAnimation(activeSlide);
         }
+        animateSlideImage(); // ✅ GSAPアニメも実行
       },
     },
+
+    // ✅ 必要ならブレイクポイントで表示を変える（任意）
+    // breakpoints: { 
+    //   768: {
+    //     slidesPerView: 1.2,
+    //     spaceBetween: 15,
+    //   },
+    //   1500: {
+    //     slidesPerView: 3,
+    //     spaceBetween: 40,
+    //   },
+    // }
   });
 
   // ✅ オーバーレイのフェードアウト制御
@@ -193,53 +231,158 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.style.display = "none"; // ✅ オーバーレイを非表示
       console.log("✅ オーバーレイが非表示になりました");
 
-      // ✅ サイトコンテンツを表示
-      const siteContent = document.getElementById('siteContent'); // サイトのコンテンツ要素を取得
+      const siteContent = document.getElementById('siteContent');
       if (siteContent) {
-        siteContent.style.display = 'block'; // サイト表示
+        siteContent.style.display = 'block';
       }
     });
-  }, 5000); // ✅ 5秒後にフェードアウト開始
+  }, 5000);
 });
 // サイト表示までのロゴとswiper=================================
 
 
-
-  //ブレイクポイントによって変える
-  // breakpoints: { 
-  //   768: {
-  //     slidesPerView: 1.2,
-  //     spaceBetween: 15,
-  //   },
-  //   1500: {
-  //     slidesPerView: 3,
-  //     spaceBetween: 40,
-  //   },
-  // }
-
-
 /* =================================================== 
 ※1 effectについて
-slide：左から次のスライドが流れてくる
-fade：次のスライドがふわっと表示
-■ fadeの場合は下記を記述
-  fadeEffect: {
-    crossFade: true
-  },
-cube：スライドが立方体になり、3D回転を繰り返す
-coverFlow：写真やアルバムジャケットをめくるようなアニメーション
-flip：平面が回転するようなアニメーション
-cards：カードを順番にみていくようなアニメーション
-creative：カスタマイズしたアニメーションを使うときに使用します
+slide：左から次のスライドが流れてくる  
+fade：次のスライドがふわっと表示  
+  → fadeEffect: { crossFade: true } を加えると滑らか  
+cube：スライドが立方体になり、3D回転を繰り返す  
+coverFlow：写真やアルバムジャケットをめくるような動き  
+flip：平面が回転するような動き  
+cards：カードを順番に見ていくような動き  
+creative：カスタマイズしたアニメーション  
 
 =======================================================
 ※2 paginationのタイプ
-bullets：スライド枚数と同じ数のドットが表示
-fraction：分数で表示（例：1 / 3）
-progressbar：スライドの進捗に応じてプログレスバーが伸びる
-custom：自由にカスタマイズ
+bullets：ドットで表示  
+fraction：分数表示（例：1 / 3）  
+progressbar：進捗バー形式で表示  
+custom：HTMLやJSで自由にカスタマイズ  
 
-=====================================================*/
+===================================================== */
+
+
+// サイト表示までのロゴ制御とswiper==========================================
+// document.addEventListener("DOMContentLoaded", () => {
+//   // ✅ Swiperスライド内のテキストを取得
+//   const swiperTexts = document.querySelectorAll(".swiper-slide__text");
+
+//   // ✅ 一文字ずつ出現の関数
+//   function startTypingAnimation(target, delay = 0) {
+//     const headings = target.querySelectorAll(".swiper-slide__heading, .swiper-slide__sub");
+
+//     headings.forEach((heading, index) => {
+//       const text = heading.innerText; // ✅ 元のテキストを取得
+//       heading.innerHTML = ""; // ✅ 文字をクリアしてから挿入
+//       text.split("").forEach((char, charIndex) => {
+//         const span = document.createElement("span");
+//         span.innerText = char;
+
+//         // ✅ heading と sub にラグを入れる
+//         const extraDelay = index === 1 ? 1.5 : 0; // ✅ sub だけ遅延
+//         span.style.animationDelay = `${charIndex * 0.15 + extraDelay}s`; // ✅ 0.2秒ごとに遅延
+//         heading.appendChild(span);
+//       });
+//     });
+//   }
+
+//   // ✅ トップビジュアルの全テキストに適用
+//   swiperTexts.forEach((text) => {
+//     startTypingAnimation(text);
+//   });
+
+//   // ✅ Swiper の初期化（カードスライダー）
+//   const cardSwiper = new Swiper(".card__swiper", {
+//     speed: 1000, // ✅ 表示切り替えのスピード
+//     effect: "fade", // ✅ 切り替えのmotion
+//     loop: true, // ✅ ループ再生
+//     autoplay: {
+//       delay: 5000, // ✅ 自動スライドの時間
+//     },
+//     pagination: {
+//       el: ".swiper-pagination",
+//       clickable: true,
+//     },
+//     navigation: {
+//       prevEl: ".swiper-button-prev",
+//       nextEl: ".swiper-button-next",
+//     },
+//     on: {
+//       init: () => {
+//         const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
+//         if (activeSlide) {
+//           startTypingAnimation(activeSlide);
+//         }
+//       },
+//       slideChangeTransitionStart: () => {
+//         const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
+//         if (activeSlide) {
+//           startTypingAnimation(activeSlide);
+//         }
+//       },
+//     },
+//   });
+
+//   // ✅ オーバーレイのフェードアウト制御
+//   const overlay = document.getElementById("overlay");
+
+//   // ✅ 5秒後にフェードアウト開始
+//   setTimeout(() => {
+//     overlay.style.transition = "opacity 4s ease-in-out"; // ✅ フェードアウト時間を4秒に修正
+//     overlay.style.opacity = "0";
+
+//     // ✅ フェードアウト後に完全非表示 → サイトのコンテンツを表示
+//     overlay.addEventListener("transitionend", () => {
+//       overlay.style.display = "none"; // ✅ オーバーレイを非表示
+//       console.log("✅ オーバーレイが非表示になりました");
+
+//       // ✅ サイトコンテンツを表示
+//       const siteContent = document.getElementById('siteContent'); // サイトのコンテンツ要素を取得
+//       if (siteContent) {
+//         siteContent.style.display = 'block'; // サイト表示
+//       }
+//     });
+//   }, 5000); // ✅ 5秒後にフェードアウト開始
+// });
+// // サイト表示までのロゴとswiper=================================
+
+
+
+//   //ブレイクポイントによって変える
+//   // breakpoints: { 
+//   //   768: {
+//   //     slidesPerView: 1.2,
+//   //     spaceBetween: 15,
+//   //   },
+//   //   1500: {
+//   //     slidesPerView: 3,
+//   //     spaceBetween: 40,
+//   //   },
+//   // }
+
+
+// /* =================================================== 
+// ※1 effectについて
+// slide：左から次のスライドが流れてくる
+// fade：次のスライドがふわっと表示
+// ■ fadeの場合は下記を記述
+//   fadeEffect: {
+//     crossFade: true
+//   },
+// cube：スライドが立方体になり、3D回転を繰り返す
+// coverFlow：写真やアルバムジャケットをめくるようなアニメーション
+// flip：平面が回転するようなアニメーション
+// cards：カードを順番にみていくようなアニメーション
+// creative：カスタマイズしたアニメーションを使うときに使用します
+
+// =======================================================
+// ※2 paginationのタイプ
+// bullets：スライド枚数と同じ数のドットが表示
+// fraction：分数で表示（例：1 / 3）
+// progressbar：スライドの進捗に応じてプログレスバーが伸びる
+// custom：自由にカスタマイズ
+
+// =====================================================*/
 
 
 // ================header__nav-link
