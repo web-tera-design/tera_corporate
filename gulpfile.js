@@ -35,7 +35,7 @@ const dartSass = require('sass');  // dartSassをrequireでインポート
 //# ブラウザSync動的対応
 //# ローカルサイトのURLを直接設定
 //=============================================== *
-const projectUrl = "http://gulp-douteki.local/";  // ローカルのPHPサーバーのURL
+const projectUrl = "http://tera__corporate.local/";  // ローカルのPHPサーバーのURL
 const browserSyncInstance = browserSync;  // browserSyncのインスタンスを作成
 const sass = gulpSass(dartSass); //Sassコンパイルのための設定
 
