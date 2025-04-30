@@ -1,647 +1,266 @@
-<!doctype html>
-<html lang="ja">
-
-<head>
-  <!-- 文字コード -->
-  <meta charset="UTF-8" />
-
-  <!-- レスポンシブ -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ファビコン -->
-  <link rel="shortcut icon" href="/" type="image/x-icon" />
-
-  <!-- SEO対策・検索非表示 -->
-  <meta name="robots" content="noindex" />
-
-  <!-- タイトル -->
-  <title>/</title>
-
-  <!-- サイト概要 -->
-  <meta name="description" content="/" />
-
-  <!-- OGP設定（SNSシェア用） -->
-  <meta property="og:title" content="/" />
-  <meta property="og:description" content="/" />
-  <meta property="og:image" content="/" />
-  <meta property="og:url" content="/" />
-
-  <!-- フォント読み込み（※できるだけ先に） -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Oooh+Baby&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet" />
-
-  <!-- CSS読み込み -->
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-  <!-- JavaScript読み込み（defer） -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-  <script src="./js/script.js" defer></script>
-  <script src="./js/switch-style.js" defer></script>
-
-</head>
-
-<body>
-  <header class="p-header p-header__inner">
-    <a href="#" class="p-header__logo">
-    </a>
-    <nav class="p-header__nav" aria-label="メインナビゲーション">
-      <ul class="p-header__nav-list">
-        <li class="p-header__nav-item">
-          <a href="#point" class="p-header__nav-link">
-            <p class="p-header__nav-item-En">POINT</p>
-            <p class="p-header__nav-item-ja">特徴</p>
-          </a>
-        </li>
-        <li class="p-header__nav-item">
-          <a href="#color" class="p-header__nav-link">
-            <p class="p-header__nav-item-En">COLOR</p>
-            <p class="p-header__nav-item-ja">カラー</p>
-          </a>
-        </li>
-        <li class="p-header__nav-item">
-          <a href="#voice" class="p-header__nav-link">
-            <p class="p-header__nav-item-En">VOICE</p>
-            <p class="p-header__nav-item-ja">口コミ</p>
-          </a>
-        </li>
-        <li class="p-header__nav-item">
-          <a href="#detail" class="p-header__nav-link">
-            <p class="p-header__nav-item-En">DETAIL</p>
-            <p class="p-header__nav-item-ja">商品詳細</p>
-          </a>
-        </li>
-      </ul>
-      <div class="p-header__nav-btn">
-        <a href="#" class="c-button c-button--header">
-          <p class="c-button__text">CONTACT</p>
-          <div class="c-button__arrow">
-          </div>
-        </a>
-      </div>
-      <div class="p-header__nav-btn2">
-        <a href="#" class="c-button c-button--small p-header__nav-button">
-          <p class="c-button__text">CONTACT</p>
-          <div class="c-button__arrow">
-          </div>
-        </a>
-      </div>
-    </nav>
-
-    <button class="p-drawer" id="js-drawer-icon" aria-label="メニューを開く">
-      <span class="p-drawer__bar"></span>
-      <span class="p-drawer__bar"></span>
-      <span class="p-drawer__bar"></span>
-    </button>
-  </header>
-
-  <div class="p-drawer__contents" id="js-drawer-contents">
-    <nav class="p-drawer__nav" id="js-drawer__nav" aria-label="グローバルナビゲーション">
-      <ul class="p-drawer__nav-list">
-        <li class="p-drawer__nav-item">
-          <a href="#point" class="p-drawer__nav-link">
-            <p class="p-drawer__nav-item-En">POINT</p>
-            <p class="p-drawer__nav-item-ja">特徴</p>
-          </a>
-        </li>
-        <li class="p-drawer__nav-item">
-          <a href="#color" class="p-drawer__nav-link">
-            <p class="p-drawer__nav-item-En">COLOR</p>
-            <p class="p-drawer__nav-item-ja">カラー</p>
-          </a>
-        </li>
-        <li class="p-drawer__nav-item">
-          <a href="#voice" class="p-drawer__nav-link">
-            <p class="p-drawer__nav-item-En">VOICE</p>
-            <p class="p-drawer__nav-item-ja">口コミ</p>
-          </a>
-        </li>
-        <li class="p-drawer__nav-item">
-          <a href="#detail" class="p-drawer__nav-link">
-            <p class="p-drawer__nav-item-En">DETAIL</p>
-            <p class="p-drawer__nav-item-ja">商品詳細</p>
-          </a>
-        </li>
-      </ul>
-      <div class="p-drawer__btn">
-        <a href="#" class="c-button c-button--white">
-          <p class="c-button__text">CONTACT</p>
-          <div class="c-button__arrow">
-          </div>
-        </a>
-      </div>
-    </nav>
-  </div>
-  <!-- /header -->
-
-  <main>
-    <div class="p-fv__bg-woman-1 wow fadeIn" data-wow-duration="1.5s">
-      <!--fvの女性画像は上aboutセクションと重なりあうためmainを基準にabsolute  -->
-    </div>
-
-    <!-- ===============================================
-                      #fv
-===============================================  -->
-
-    <section class="p-fv__bg wow fadeIn" data-wow-duration="2s">
-      <div class="p-fv p-fv__inner">
-        <p class="p-fv__text">
-          仕事もプライベートも<br class="u-hidden-xl" />
-          自由に選べるPCリュック
-        </p>
-        <div class="p-fv__card-cotainer">
-          <div class="p-fv__card">
-            <div class="p-fv__card-logo">
-              <h2 class="p-fv__shop-name">SAORSA</h2>
-              <p class="p-fv__shop-sub">BE MISS WANDERL</p>
-              <div class="p-fv__shop-line"></div>
-            </div>
-            <div class="p-fv__cta">
-              <p class="p-fv__cta-coment">
-                \ 今だけ <span class="p-fv__cta-coment-big">10</span>%OFF /
-              </p>
-              <div class="p-fv__cta-btn">
-                <a href="#" class="c-button c-button--white c-button--small js-cta">
-                  <p class="c-button__text">購入はこちら</p>
-                  <div class="c-button__arrow">
+<?php get_header(); ?>
+    <section class="mv">
+      <div class="card">
+        <div class="card__inner">
+          <div class="card__swiper-container">
+            <div class="swiper card__swiper --swiper1">
+              <div class="swiper-wrapper card__swiper-wrapper">
+                <div class="swiper-slide card__swiper-slide">
+                  <img src="<?php echo get_template_directory_uri(); ?>/img/img.webp" alt="" width="670" height="894" class="slide-img">
+                  <div class="swiper-slide__text">
+                    <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
+                    <p class="swiper-slide__sub">アットホームな歯医者さん</p>
                   </div>
-                </a>
+                </div>
+                <div class="swiper-slide card__swiper-slide">
+                  <img src="<?php echo get_template_directory_uri(); ?>/img/img1.webp" alt="" width="670" height="894" class="slide-img">
+                  <div class="swiper-slide__text">
+                    <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
+                    <p class="swiper-slide__sub">アットホームな歯医者さん</p>
+                  </div>
+                </div>
+                <div class="swiper-slide card__swiper-slide">
+                  <img src="<?php echo get_template_directory_uri(); ?>/img/img2.webp" alt="" width="670" height="894" class="slide-img">
+                  <div class="swiper-slide__text">
+                    <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
+                    <p class="swiper-slide__sub">アットホームな歯医者さん</p>
+                  </div>
+                </div>
               </div>
-              <p class="p-fv__cta-deco">Special Sell</p>
             </div>
-            <!-- <div class="p-fv__bg-woman">
-              </div> -->
+            <!-- <div class="card__swiper-bottom">
+              <div class="swiper-button-prev --swiper1">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/arrow-left.svg" alt="" width="60" height="60">
+              </div>
+              <div class="swiper-pagination --swiper1"></div>
+              <div class="swiper-button-next --swiper1">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/arrow-right.svg" alt="" width="60" height="60">
+              </div>
+            </div> -->
           </div>
         </div>
       </div>
-    </section>
-    <!-- ===============================================
-                    /fv
-===============================================  -->
-
-    <!-- ===============================================
-                    #about
-===============================================  -->
-    <section class="p-about-bg" id="about">
-      <div class="p-about p-about__inner">
-        <div class="p-about__bg-img">
-        </div>
-
-        <div class="p-about__wrap">
-          <h2 class="p-about__title wow fadeIn" data-wow-duration="2s">
-            <span class="p-about__title-bg">SAORSA</span>(シオルサ)は<br />
-            こんな<span class="p-about__title-bg">声</span>から生まれました
-          </h2>
-          <div class="p-about__contents">
-            <div class="p-about__content">
-              <p class="p-about__text">
-                ビジネスリュックにPCは入るけどカジュアル
-                すぎる、もう少しきちんと感がほしい
-              </p>
+        <!-- <div class="card">
+            <div class="card__inner">
+              <div class="card__swiper-container">
+                <div class="swiper card__swiper --swiper1">
+                  <div class="swiper-wrapper card__swiper-wrapper">
+                    <div class="swiper-slide card__swiper-slide">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/img.webp" alt="" width="670" height="894">
+                      <div class="swiper-slide__text">
+                        <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
+                        <p class="swiper-slide__sub">アットホームな歯医者さん</p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide card__swiper-slide">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/img1.webp" alt="" width="670" height="894">
+                        <hgroup class="swiper-slide__text">
+                            <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
+                            <p class="swiper-slide__sub">アットホームな歯医者さん</p>
+                        </hgroup>
+                    </div>
+                    <div class="swiper-slide card__swiper-slide">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/img2.webp" alt="" width="670" height="894">
+                        <hgroup class="swiper-slide__text">
+                          <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
+                          <p class="swiper-slide__sub">アットホームな歯医者さん</p>
+                        </hgroup>
+                    </div>
+                  </div>
+                </div>
+                <div class="card__swiper-bottom">
+                    <div class="swiper-button-prev --swiper1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/arrow-left.svg" alt="" width="60" height="60">
+                    </div>
+                    <div class="swiper-pagination --swiper1"></div>
+                    <div class="swiper-button-next --swiper1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/arrow-right.svg" alt="" width="60" height="60">
+                    </div>
+                </div>
+              </div>
             </div>
-            <div class="p-about__content">
-              <p class="p-about__text">
-                お気に入りのリュックにはPCがきれいに入らず別持ちしている
-              </p>
+        </div> -->
+        <div class="mv__info">
+            <div class="mv__info-image">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/medical-time-pc.png" alt="診療時間表" width="670" height="232" >
             </div>
-            <div class="p-about__content">
-              <p class="p-about__text">
-                機能性の高いアイテムは好きだけど、高級感のない安っぽいものが多い。
-              </p>
-            </div>
-            <div class="p-about__content">
-              <p class="p-about__text">
-                仕事とプライベートを両立できるちょうどよいリュックが見つからない。
-              </p>
-            </div>
-            <div class="p-about__content">
-              <p class="p-about__text">
-                荷物が多くて全てリュックにはいると<br class="u-hidden-pc" />重いため肩がこる
-              </p>
+            <div class="mv__info-content">
+              <div class="mv__info-header">
+                <div class="mv__info-title-container">
+                    <h2 class="mv__info-title">お知らせ</h2>
+                    <span class="mv__info-subtitle">NEWS</span>
+                </div>
+                <div class="mv__info-link-group">
+                  <a href="#" class="mv__info-link">過去のお知らせはこちら</a>
+                </div>
+              </div>
+              <a href="#" class="mv__info-news">
+                <time class="mv__info-news-time" datetime="2021-01-01">2021/01/01</time>
+                <p class="mv__info-news-text">年末年始の営業時間のお知らせ</p>
+              </a>
             </div>
           </div>
-        </div>
-      </div>
     </section>
-    <!-- ===============================================
-                    /about
-===============================================  -->
-
-    <!-- tera-section -->
-    <section class="p-tera">
-      <div class="p-tera__inner">
-        <div class="p-tera__title">
-          <h2 class="p-tera__title-ja"></h2>
-        </div>
-      </div>
-    </section>
-    <!-- /tera-section -->
-
-    <!-- <section class="l-tera">
-  <div class="l-tera__inner">
-    <div class="l-tera__title">
-      <h2 class="l-tera__title-ja"></h2>
-    </div>
-  </div>
-</section> -->
-
-    <!-- /about-mr.tera 練習 -->
-    <section class="p-tera">
-      <div class="p-tera__inner">
-        <div class="p-tera__title">
-          <h2 class="p-tera__title-ja">てらさん</h2>
-          <p class="p-tera__title-en">terasan</p>
-        </div>
-      </div>
-
-      <div class="p-tera__card">
-        <p class="p-tera__card-title">gulp勉強会</p>
-        <div class="tera__card-text-contents">
-          <p class="tera__card-text">gulpって便利</p>
-          <p class="tera__card-text">gulpって難しい</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- about-mr.tera -->
-
-    <!-- ===============================================
-                    #point
-===============================================  -->
-    <section class="p-point-bg" id="point">
-      <div class="p-point-bg__arrow">
-      </div>
-      <div class="p-point p-point__inner">
-        <div class="c-title wow fadeIn" data-wow-duration="2s">
-          <h2 class="c-title__main">
-            コーディネートにも合わせやすく、<br />
-            機能性や使いやすさをとことん追求
-          </h2>
-          <div class="c-title__en">Point</div>
-        </div>
-        <div class="p-point__contents">
-          <div class="p-point__cards">
-            <div class="p-point__card">
-              <div class="p-point__card-img">
-              </div>
-              <h3 class="p-point__card-title">PCの出し入れ簡単</h3>
-              <p class="p-point__card-text">
-                14インチMacBook Pro対応<br />
-                ウレタンクッション付き収納ポケット
-              </p>
-              <div class="p-point__card-deco">
-                <p class="p-point__card-num">01</p>
-                <div class="p-point__card-bar"></div>
-              </div>
-            </div>
-            <div class="p-point__card">
-              <div class="p-point__card-img">
-              </div>
-              <h3 class="p-point__card-title">驚きの大容量</h3>
-              <p class="p-point__card-text">
-                PC・A4対応含む計10個のポケット＋水筒ホルダー付き
-              </p>
-              <div class="p-point__card-deco">
-                <p class="p-point__card-num">02</p>
-                <div class="p-point__card-bar"></div>
-              </div>
-            </div>
-            <div class="p-point__card">
-              <div class="p-point__card-img">
-              </div>
-              <h3 class="p-point__card-title">軽量設計</h3>
-              <p class="p-point__card-text">
-                14インチMacBook Pro対応<br />
-                約0.9kgの軽さで荷物が増えても快適
-              </p>
-              <div class="p-point__card-deco">
-                <p class="p-point__card-num">03</p>
-                <div class="p-point__card-bar"></div>
-              </div>
-            </div>
-            <div class="p-point__card">
-              <div class="p-point__card-img">
-              </div>
-              <h3 class="p-point__card-title">オシャレなデザイン</h3>
-              <p class="p-point__card-text">
-                レザーを使用し、<br />
-                大人っぽく高級感のあるデザイン
-              </p>
-              <div class="p-point__card-deco">
-                <p class="p-point__card-num">04</p>
-                <div class="p-point__card-bar"></div>
-              </div>
-            </div>
-            <div class="p-point__card">
-              <div class="p-point__card-img">
-              </div>
-              <h3 class="p-point__card-title">快適なショルダーベルト</h3>
-              <p class="p-point__card-text">
-                厚みのある細めのベルトで肩への負担を軽減、スッキリとした見た目
-              </p>
-              <div class="p-point__card-deco">
-                <p class="p-point__card-num">05</p>
-                <div class="p-point__card-bar"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ===============================================
-                    /point
-===============================================  -->
-    <!-- ===============================================
-                    #cta
-===============================================  -->
-    <section class="p-cta__bg" id="cta">
-      <p class="p-cta__bg-text">Special Sell</p>
-      <div class="p-cta p-cta__inner">
-        <div class="p-cta__contents">
-          <div class="p-cta__text-wrap">
-            <p class="p-cta__text">
-              \ 今なら<span class="p-cta__text-bg">10</span> %OFF /
-            </p>
-            <p class="p-cta__price">
-              22,000<span class="p-cta__price-small">円(税込)</span>⇀<span class="p-cta__price-bg">19,800</span><span class="p-cta__price-small">円(税込)</span>
-            </p>
-          </div>
-          <a href="#" class="p-cta__btn c-button c-button--white js-cta">
-            <p class="c-button__text">購入はこちら</p>
-            <div class="c-button__arrow">
-            </div>
+    <section class="concept">
+      <div class="concept__content">
+        <hgroup class="concept__heading-group">
+          <p class="concept__subheading">CONCEPT</p>
+          <h2 class="concept__heading">健康的で素敵な笑顔あふれる街づくりを目指して</h2>
+        </hgroup>
+        <p class="concept__text">
+          私たちは最新の医療技術を追求すると共に、患者様とのコミュニケーションを大事することで、気軽に通いやすく些細なことでも相談できる「街の掛かり付け医」を目指しております。<br>お子様からご高齢の方まで、快適な空間で治療が受けられる場を作り、地域医療に貢献しきたいと考えております。</p>
+        <div class="concept__link">
+          <a href="#" class="concept__button button">当院について
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 7H13" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.39453 1L13.0001 7L6.39453 13" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </a>
         </div>
       </div>
+      <div class="concept__image">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/concept_img.webp" alt="治療中の画像" width="1280" height="876">
+      </div>
+      <div class="concept__bg-image">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/concept-bg.svg" alt="" width="1310" height="726">
+      </div>
     </section>
-    <!-- ===============================================
-                    /cta
-===============================================  -->
-    <!-- ===============================================
-                    #color
-===============================================  -->
-    <section class="p-color__bg" id="color">
-      <div class="p-color p-color__inner">
-        <div class="c-title wow fadeIn" data-wow-duration="2s">
-          <h2 class="c-title__main">
-            ”仕事もおしゃれも<br />
-            どちらも諦めたくない”女性を応援
-          </h2>
-          <div class="c-title__en">Color</div>
-        </div>
-        <div class="p-color__cards">
-          <div class="p-color__card">
-            <div class="p-color__card-item">
+    <section class="recommend">
+      <div class="recommend__heading-content">
+        <h2 class="recommend__heading-title heading">当院の3つのおすすめ</h2>
+      </div>
+      <div class="recommend__inner">
+        <div class="recommend__heading">
+          <div class="recommend__items">
+            <div class="recommend__item">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/recommend-1.svg" alt="" width="177" height="33">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/recommend-img-01.svg" alt="" width="276" height="258">
+              <p class="recommend__text">歯の治療において、小さな違和感は大きなストレスにつながります。<br>私たちは常に快適な歯科医療技術の研究を行っております。</p>
             </div>
-            <p class="p-color__card-text">
-              深みのあるシックな佇まい<br />
-              大人の品格を宿した、タイムレスなブラック
-            </p>
-            <div class="p-color__bg-frame">
+            <div class="recommend__item">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/recommend-2.svg" alt="" width="182" height="33">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/recommend-img-02.svg" alt="" width="276" height="258">
+              <p class="recommend__text">「通いやすさ」も医院選びの重要なポイントと考え、2019年のリニューアルを期に更に駅の近くへ場所を移しました。</p>
             </div>
-            <div class="p-color__bg-name">
+            <div class="recommend__item">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/recommend-3.svg" alt="" width="182" height="33">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/recommend-img-03.svg" alt="" width="276" height="258">
+              <p class="recommend__text">朝から夜までお仕事をされている方のために、診療時間を見直しました。<br><span class="text__accent">※駆け込みでも対応可能ですが、事前にご連絡いただけるとスムーズです。</span></p>
             </div>
-            <div class="p-color__bg-color p-color__bg-color--black"></div>
-          </div>
-          <div class="p-color__card">
-            <div class="p-color__card-item">
-            </div>
-            <p class="p-color__card-text">
-              くすみがかった青が映し出す、知的な余裕。上品でさりげなく個性を際立たせるブルー
-            </p>
-            <div class="p-color__bg-frame">
-            </div>
-            <div class="p-color__bg-name-blue">
-            </div>
-            <div class="p-color__bg-color p-color__bg-color--blue"></div>
-          </div>
-          <div class="p-color__card">
-            <div class="p-color__card-item">
-            </div>
-            <p class="p-color__card-text">
-              甘さをひかえたニュアンスピンク。優雅さと落ち着きを両立する、洗練のローズトーン
-            </p>
-            <div class="p-color__bg-frame">
-            </div>
-            <div class="p-color__bg-name">
-            </div>
-            <div class="p-color__bg-color p-color__bg-color--pink"></div>
-          </div>
-          <div class="p-color__card">
-            <div class="p-color__card-item">
-            </div>
-            <p class="p-color__card-text">
-              柔らかくも芯のある、エクリュベージュ。ナチュラルな気品が、大人のこなれ感を叶える
-            </p>
-            <div class="p-color__bg-frame">
-            </div>
-            <div class="p-color__bg-name-begie">
-            </div>
-            <div class="p-color__bg-color p-color__bg-color--begie"></div>
           </div>
         </div>
       </div>
     </section>
-    <!-- ===============================================
-                    /color
-===============================================  -->
-    <!-- ===============================================
-                    #voice
-===============================================  -->
-    <section class="p-voice-bg" id="voice">
-      <div class="p-voice p-voice__inner">
-        <div class="c-title wow fadeIn" data-wow-duration="2s">
-          <h2 class="c-title__main">
-            SAORSAだからこそ<br />
-            かなえられる自由な生活スタイル
-          </h2>
-          <div class="c-title__en">Voice</div>
-        </div>
-        <div class="p-voice-cards">
-          <div class="p-voice-card">
-            <div class="p-voice-card__text-contents">
-              <p class="p-voice-card__title">たくさん入るのに、肩がラク！</p>
-              <div class="p-voice-card__body">
-                <p class="p-voice-card__text">
-                  「荷物が多くても肩がこらない！重さを分散してくれるから、長時間背負っても快適◎」
-                </p>
-                <p class="p-voice-card__name">26歳　Sさん</p>
-              </div>
-            </div>
-            <div class="p-voice-card__img">
-            </div>
-            <div class="p-voice-card__bg"></div>
-          </div>
-          <div class="p-voice-card p-voice-card--reverse">
-            <div class="p-voice-card__text-contents">
-              <p class="p-voice-card__title">
-                きちんと感×おしゃれの<br />絶妙バランス！
-              </p>
-              <div class="p-voice-card__body">
-                <p class="p-voice-card__text">
-                  「仕事にもプライベートにも馴染むデザイン！PCリュックだけど、
-                  きちんと感も◎」
-                </p>
-                <p class="p-voice-card__name">36歳　Yさん</p>
-              </div>
-            </div>
-            <div class="p-voice-card__img">
-            </div>
-            <div class="p-voice-card__bg p-voice-card__bg--blue"></div>
-          </div>
-          <div class="p-voice-card">
-            <div class="p-voice-card__text-contents">
-              <p class="p-voice-card__title">PCがスッと入ってストレスゼロ!</p>
-              <div class="p-voice-card__body">
-                <p class="p-voice-card__text">
-                  「今までのリュックにはPCが入らなかったけど、これはスムーズに収納OK！もう別持ちしなくていい♪」
-                </p>
-                <p class="p-voice-card__name">30歳　Hさん</p>
-              </div>
-            </div>
-            <div class="p-voice-card__img">
-            </div>
-            <div class="p-voice-card__bg p-voice-card__bg--begie"></div>
-          </div>
-        </div>
+    <section class="medical">
+      <div class="medical__bg-top">
+        <picture>
+          <source srcset="<?php echo get_template_directory_uri(); ?>/img/bg-top.png" media="(min-width: 900px)">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/bg-top-sp.png" alt="背景画像" loading="lazy" width="750" height="176">
+        </picture>
       </div>
-    </section>
-    <!-- ===============================================
-                    /voice
-===============================================  -->
-    <!-- ===============================================
-                        #detail
-    ===============================================  -->
-    <section class="p-detail-bg" id="detail">
-      <div class="p-detail p-detail__inner">
-        <div class="c-title wow fadeIn" data-wow-duration="2s">
-          <h2 class="c-title__main">
-            「仕事」と「プライベート」を両立させるためのこだわりがこもったSAORSAは、快適な使い心地であなたを応援します。
-          </h2>
-          <div class="c-title__en">Detail</div>
-        </div>
-        <div class="p-detail__contents">
-          <!-- Slider main container -->
-          <div class="swiper p-swiper__main" id="js-main-swiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper p-swiper__main-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide p-swiper__main-slide">
-              </div>
-              <div class="swiper-slide p-swiper__main-slide">
-              </div>
-              <div class="swiper-slide p-swiper__main-slide">
-              </div>
-              <div class="swiper-slide p-swiper__main-slide">
-              </div>
-            </div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev">
-            </div>
-            <div class="swiper-button-next">
-            </div>
-          </div>
-
-          <div class="p-swiper__sub" id="js-sub-swiper">
-            <div class="p-swiper__sub-wrapper">
-              <div class="p-swiper__sub-slide">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-detail__main">
-          <div class="p-detail__btn">
-            <a href="#" class="c-button js-cta">
-              <p class="c-button__text">購入はこちら</p>
-              <div class="c-button__arrow">
-                <img src="./img/icon/arrow.webp" alt="ボタンの矢印" loading="lazy" width="11" height="18" />
+      <div class="medical__bg-bottom">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/bg-bottom-pc1.png" alt="" width="2560" height="194">
+      </div>
+      <div class="medical__heading">
+        <h2 class="medical__heading-title heading">診療案内</h2>
+      </div>
+      <div class="medical__container">
+        <div class="medical__services">
+            <a class="medical__service --service1">
+              <div class="medical__service-link-line">
+                <div class="medical__link-container">
+                  <h3 class="medical__service-title">一般診療</h3>
+                  <p class="medical__service-description">虫歯・入れ歯・小児歯科</p>
+                </div>
               </div>
             </a>
-          </div>
-          <table class="p-detail__table">
-            <caption class="sr-only">
-              商品の詳細情報
-            </caption>
-
-            <tr class="p-detail__item">
-              <th class="p-detail__dt">素材</th>
-              <td class="p-detail__dd">レザー</td>
-            </tr>
-            <tr class="p-detail__item">
-              <th class="p-detail__dt">重さ</th>
-              <td class="p-detail__dd">約0.9kg</td>
-            </tr>
-            <tr class="p-detail__item">
-              <th class="p-detail__dt">外ポケット</th>
-              <td class="p-detail__dd">
-                サイドオープンポケット×２、フロント
-                ファスナー、ポケット×２（中にオープンポケット×１）
-              </td>
-            </tr>
-            <tr class="p-detail__item">
-              <th class="p-detail__dt">内ポケット</th>
-              <td class="p-detail__dd">
-                PCポケット×１、オープンポケット×３、
-                ファスナーポケット×１、サイド収納×２
-              </td>
-            </tr>
-            <tr class="p-detail__item">
-              <th class="p-detail__dt">サイズ</th>
-              <td class="p-detail__dd">
-                横幅 約31cm×高さ 約38cm×マチ幅 約11cm
-              </td>
-            </tr>
-            <tr class="p-detail__item">
-              <th class="p-detail__dt">容量</th>
-              <td class="p-detail__dd">13L</td>
-            </tr>
-            <tr class="p-detail__item">
-              <th class="p-detail__dt">カラー</th>
-              <td class="p-detail__dd-flex">
-                <p class="p-detail__dd-text">全4色</p>
-                <div class="p-detail__dd-color-list">
-                  <span class="p-detail__dd-color-box" style="background: #3c3f4a"></span>
-                  <span class="p-detail__dd-color-box" style="background: #99a1bb"></span>
-                  <span class="p-detail__dd-color-box" style="background: #dbc7cb"></span>
-                  <span class="p-detail__dd-color-box" style="background: #c3b5b4"></span>
+            <a class="medical__service --service2">
+              <div class="medical__service-link-line">
+                <div class="medical__link-container">
+                  <h3 class="medical__service-title">特殊診療</h3>
+                  <p class="medical__service-description">インプラント・ホワイトニング<br>予防歯科・口腔外科・審美歯科</p>
                 </div>
-              </td>
-            </tr>
-          </table>
+              </div>
+            </a>
         </div>
+        <p class="medical__text">当院では、患者さんの歯の健康状態や治療方針を丁寧にカウンセリングし、十分ご理解していただいた上で治療いたします。<br>
+          痛みに配慮することと、可能な限り削らない・抜かない治療に努めております。<br>
+          <span class="text__accent text__accent--medical">※特殊性の高い矯正治療などは保険の適応外となります。 これらの治療を行う際は事前に詳細と費用のご説明いたします。</span></p>
       </div>
     </section>
-    <!-- ===============================================
-                        /detail
-    ===============================================  -->
-  </main>
-
-  <footer class="p-footer-bg">
-    <div class="p-footer">
-      <div class="p-footer__top">
-        <a class="p-footer__logo" href="#"></a>
-        <div class="p-footer__sns">
-          <a href="https://www.instagram.com/" class="p-footer__instagram"></a>
-          <a href="https://www.youtube.com/" class="p-footer__X"></a>
-          <a href="https://www.X.com/" class="p-footer__youtube"></a>
-        </div>
-        <div class="p-footer__link">
-          <a href="#" class="p-footer__privacy">プライバシーポリシー</a>
-          <a href="#" class="p-footer__terms">利用規約</a>
-          <a href="#" class="p-footer__contact">お問い合わせ</a>
+    <section class="blog">
+      <h2 class="blog__heading heading">スタッフブログ</h2>
+      <div class="blog__container">
+        <div class="blog__cards">
+          <a class="blog__card">
+            <div class="blog__image">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202" >
+            </div>
+            <div class="blog__content">
+              <span class="blog__label">お知らせ</span>
+              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
+              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
+            </div>
+          </a>
+          <a class="blog__card">
+            <div class="blog__image">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
+            </div>
+            <div class="blog__content">
+              <span class="blog__label">その他</span>
+              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
+              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
+            </div>
+          </a>
+          <a class="blog__card">
+            <div class="blog__image">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
+            </div>
+            <div class="blog__content">
+              <span class="blog__label">その他</span>
+              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
+              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
+            </div>
+          </a>
+          <a class="blog__card">
+            <div class="blog__image">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
+            </div>
+            <div class="blog__content">
+              <span class="blog__label">その他</span>
+              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
+              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
+            </div>
+          </a>
+          <a class="blog__card">
+            <div class="blog__image">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
+            </div>
+            <div class="blog__content">
+              <span class="blog__label">その他</span>
+              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
+              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
+            </div>
+          </a>
+          <a class="blog__card">
+            <div class="blog__image">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
+            </div>
+            <div class="blog__content">
+              <span class="blog__label">その他</span>
+              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
+              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
+            </div>
+          </a>
         </div>
       </div>
-      <div class="p-footer__copy">
-        <p class="p-footer__copy-text">
-          &copy;2025 SEORSA All Rights Reserved.
-        </p>
+      <div class="blog__link">
+        <a href="" class="blog__button button">スタッフブログ一覧はこちら
+          <svg  width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M1 7H13" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6.39453 1L13.0001 7L6.39453 13" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
-    </div>
-  </footer>
-</body>
-
-</html>
+    </section>
+<?php get_footer(); ?>
