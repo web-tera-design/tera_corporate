@@ -28,7 +28,7 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="card__swiper-bottom">
+            <div class="card__swiper-bottom">
               <div class="swiper-button-prev --swiper1">
                 <img src="<?php echo get_template_directory_uri(); ?>/img/arrow-left.svg" alt="" width="60" height="60">
               </div>
@@ -36,50 +36,10 @@
               <div class="swiper-button-next --swiper1">
                 <img src="<?php echo get_template_directory_uri(); ?>/img/arrow-right.svg" alt="" width="60" height="60">
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
-        <!-- <div class="card">
-            <div class="card__inner">
-              <div class="card__swiper-container">
-                <div class="swiper card__swiper --swiper1">
-                  <div class="swiper-wrapper card__swiper-wrapper">
-                    <div class="swiper-slide card__swiper-slide">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/img.webp" alt="" width="670" height="894">
-                      <div class="swiper-slide__text">
-                        <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
-                        <p class="swiper-slide__sub">アットホームな歯医者さん</p>
-                      </div>
-                    </div>
-                    <div class="swiper-slide card__swiper-slide">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/img1.webp" alt="" width="670" height="894">
-                        <hgroup class="swiper-slide__text">
-                            <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
-                            <p class="swiper-slide__sub">アットホームな歯医者さん</p>
-                        </hgroup>
-                    </div>
-                    <div class="swiper-slide card__swiper-slide">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/img2.webp" alt="" width="670" height="894">
-                        <hgroup class="swiper-slide__text">
-                          <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
-                          <p class="swiper-slide__sub">アットホームな歯医者さん</p>
-                        </hgroup>
-                    </div>
-                  </div>
-                </div>
-                <div class="card__swiper-bottom">
-                    <div class="swiper-button-prev --swiper1">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/arrow-left.svg" alt="" width="60" height="60">
-                    </div>
-                    <div class="swiper-pagination --swiper1"></div>
-                    <div class="swiper-button-next --swiper1">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/arrow-right.svg" alt="" width="60" height="60">
-                    </div>
-                </div>
-              </div>
-            </div>
-        </div> -->
         <div class="mv__info">
             <div class="mv__info-image">
               <img src="<?php echo get_template_directory_uri(); ?>/img/medical-time-pc.png" alt="診療時間表" width="670" height="232" >
@@ -97,6 +57,10 @@
               <a href="#" class="mv__info-news">
                 <time class="mv__info-news-time" datetime="2021-01-01">2021/01/01</time>
                 <p class="mv__info-news-text">年末年始の営業時間のお知らせ</p>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M1 8H15" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8.39453 1L15.0001 8L8.39453 15" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               </a>
             </div>
           </div>
@@ -191,68 +155,40 @@
     <section class="blog">
       <h2 class="blog__heading heading">スタッフブログ</h2>
       <div class="blog__container">
-        <div class="blog__cards">
-          <a class="blog__card">
-            <div class="blog__image">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202" >
-            </div>
-            <div class="blog__content">
-              <span class="blog__label">お知らせ</span>
-              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
-              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
-            </div>
-          </a>
-          <a class="blog__card">
-            <div class="blog__image">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
-            </div>
-            <div class="blog__content">
-              <span class="blog__label">その他</span>
-              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
-              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
-            </div>
-          </a>
-          <a class="blog__card">
-            <div class="blog__image">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
-            </div>
-            <div class="blog__content">
-              <span class="blog__label">その他</span>
-              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
-              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
-            </div>
-          </a>
-          <a class="blog__card">
-            <div class="blog__image">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
-            </div>
-            <div class="blog__content">
-              <span class="blog__label">その他</span>
-              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
-              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
-            </div>
-          </a>
-          <a class="blog__card">
-            <div class="blog__image">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
-            </div>
-            <div class="blog__content">
-              <span class="blog__label">その他</span>
-              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
-              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
-            </div>
-          </a>
-          <a class="blog__card">
-            <div class="blog__image">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
-            </div>
-            <div class="blog__content">
-              <span class="blog__label">その他</span>
-              <p class="blog__text">記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。</p>
-              <time class="blog__datetime entry-date published" datetime="2025-04-12" itemprop="datePublished">2025/04/12</time>
-            </div>
-          </a>
+      <div class="blog__cards">
+          <?php if (have_posts()) : ?>
+            <?php while(have_posts()) : ?>
+              <?php the_post(); ?>
+              <a class="blog__card" href="<?php the_permalink(); ?>">
+                <div class="blog__image">
+                  <!-- アイキャッチ画像 -->
+                  <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('medium', ['alt' => get_the_title()]); ?>
+                  <?php else : ?>
+                    <!-- デフォルト画像 -->
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/page1/blog/pc/blog-image.webp" alt="デフォルト画像" width="266" height="202">
+                  <?php endif; ?>
+                </div>
+                <div class="blog__content">
+                  <!-- カテゴリー -->
+                  <?php
+                  $categories = get_the_category();
+                  if (!empty($categories)) {
+                    echo '<span class="blog__label">' . esc_html($categories[0]->name) . '</span>';
+                  }
+                  ?>
+                  <!-- 本文（抜粋） -->
+                  <p class="blog__text"><?php echo get_the_excerpt(); ?></p>
+                  <!-- 投稿日 -->
+                  <time class="blog__datetime entry-date published" datetime="<?php echo get_the_date('c'); ?>" itemprop="datePublished">
+                    <?php echo get_the_date(); ?>
+                  </time>
+                </div>
+              </a>
+            <?php endwhile; ?>
+          <?php endif; ?>
         </div>
+
       </div>
       <div class="blog__link">
         <a href="" class="blog__button button">スタッフブログ一覧はこちら

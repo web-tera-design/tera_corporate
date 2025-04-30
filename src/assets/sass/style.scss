@@ -13,77 +13,77 @@ body {
     background-color: $bg-primary;
 }
 
-/* ✅ 画面全体に黒から白背景＆ロゴ */
-#overlay {
-  position: fixed;
-  inset: 0;
-  background-color: #fff; /* ✅ 初期状態：黒 */
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  perspective: 1000px; /* 視差効果を加えて3D空間を明確に */
-  animation: logoFadeOut 2s ease-in-out 5s forwards, backgroundFadeIn 1.5s ease-in-out forwards; /* ✅ 背景色のフェードイン追加 */
-}
+// /* ✅ 画面全体に黒から白背景＆ロゴ */
+// #overlay {
+//   position: fixed;
+//   inset: 0;
+//   background-color: #fff; /* ✅ 初期状態：黒 */
+//   z-index: 9999;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   opacity: 1;
+//   perspective: 1000px; /* 視差効果を加えて3D空間を明確に */
+//   animation: logoFadeOut 2s ease-in-out 5s forwards, backgroundFadeIn 1.5s ease-in-out forwards; /* ✅ 背景色のフェードイン追加 */
+// }
 
 
 
-/* ✅ ロゴのスタイル */
-#overlay img {
-  inline-size: max(40%, 270px); /* 画面幅の40%に基づき、最小幅は270px */
-  height: auto;
-  transform-origin: center; /* ✅ 中央から拡大 */
-  animation:
-    logoFadeIn 3s ease-out forwards, /* ✅ 3秒かけてフェードイン */
-    logoHold 2s ease-in-out 3s forwards, /* ✅ 2秒保持 → フェードアウト準備 */
-    logoFadeOut 2s ease-in-out 5s forwards; /* ✅ 2秒でフェードアウトのみ */
-}
+// /* ✅ ロゴのスタイル */
+// #overlay img {
+//   inline-size: max(40%, 270px); /* 画面幅の40%に基づき、最小幅は270px */
+//   height: auto;
+//   transform-origin: center; /* ✅ 中央から拡大 */
+//   animation:
+//     logoFadeIn 3s ease-out forwards, /* ✅ 3秒かけてフェードイン */
+//     logoHold 2s ease-in-out 3s forwards, /* ✅ 2秒保持 → フェードアウト準備 */
+//     logoFadeOut 2s ease-in-out 5s forwards; /* ✅ 2秒でフェードアウトのみ */
+// }
 
-/* ✅ ロゴフェードインアニメーション */
-@keyframes logoFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateZ(-300px) scale(0.8); /* ✅ 画面の奥からズームイン */
-  }
-  100% {
-    opacity: 1;
-    transform: translateZ(0) scale(1); /* ✅ 正面でズームイン完了 */
-  }
-}
+// /* ✅ ロゴフェードインアニメーション */
+// @keyframes logoFadeIn {
+//   0% {
+//     opacity: 0;
+//     transform: translateZ(-300px) scale(0.8); /* ✅ 画面の奥からズームイン */
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateZ(0) scale(1); /* ✅ 正面でズームイン完了 */
+//   }
+// }
 
-/* ✅ ロゴ保持アニメーション */
-@keyframes logoHold {
-  0% {
-    opacity: 1;
-    transform: translateZ(0) scale(1); /* ✅ 正面でキープ */
-  }
-  100% {
-    opacity: 1;
-    transform: translateZ(0) scale(1); /* ✅ 変化なしでキープ */
-  }
-}
+// /* ✅ ロゴ保持アニメーション */
+// @keyframes logoHold {
+//   0% {
+//     opacity: 1;
+//     transform: translateZ(0) scale(1); /* ✅ 正面でキープ */
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateZ(0) scale(1); /* ✅ 変化なしでキープ */
+//   }
+// }
 
-/* ✅ ロゴフェードアウト：ズームなしで自然にフェードアウト */
-@keyframes logoFadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0; /* ✅ ふわっとフェードアウト */
-    visibility: hidden; /* ✅ 完全に非表示 */
-  }
-}
+// /* ✅ ロゴフェードアウト：ズームなしで自然にフェードアウト */
+// @keyframes logoFadeOut {
+//   0% {
+//     opacity: 1;
+//   }
+//   100% {
+//     opacity: 0; /* ✅ ふわっとフェードアウト */
+//     visibility: hidden; /* ✅ 完全に非表示 */
+//   }
+// }
 
-/* ✅ 背景のフェードイン：黒から白に変化 */
-@keyframes backgroundFadeIn {
-  0% {
-    background-color: #f4f4f4; /* ✅ 初期状態：黒 */
-  }
-  100% {
-    background-color: #f4f4f4; /* ✅ フェードイン後に白 */
-  }
-}
+// /* ✅ 背景のフェードイン：黒から白に変化 */
+// @keyframes backgroundFadeIn {
+//   0% {
+//     background-color: #f4f4f4; /* ✅ 初期状態：黒 */
+//   }
+//   100% {
+//     background-color: #f4f4f4; /* ✅ フェードイン後に白 */
+//   }
+// }
 
 // ヘッダー ========================
 .header {
@@ -693,7 +693,6 @@ body {
   border-radius: 12px;
   background: #FFF;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-  background: url(<path-to-image>) lightgray 50% / cover no-repeat;
 
    img {
     inline-size: 100%;
@@ -776,10 +775,10 @@ body {
 
   @media (any-hover: hover) {
     &:hover {
-      color: $btn-primary-hover;
-      border-radius: 6px;
-      transform: scale(1.1);
-      text-decoration: none;
+      // color: $btn-primary-hover;
+      // border-radius: 6px;
+      // transform: scale(1.1);
+      // text-decoration: none;
     }
   }
 }
@@ -788,63 +787,31 @@ body {
 
 .mv__info-news {
   position: relative;
-  display: block;
   display: flex;
   align-items: center;
   gap: rem(23);
   border-block-end: 1px solid $text-primary;
-  transition: background-color 0.5s ease, color 0.3s ease, transform 0.5s ease,;
+  transition: all 0.3s ease;
 
-  &::after {
-    content: "";
+  svg {
     position: absolute;
-    background: url(../img/mv_icon-right.svg) no-repeat center center / cover;
-    inline-size: rem(14); // ✅ 初期サイズ
-    block-size: rem(14);
-    color: $text-primary;
-    inset-inline-end: 8px;
-    inset-block-start: 50%; // 垂直中央位置
-    transform: translateY(-50%); // 真ん中に揃える
-    transition: filter 0.5s ease, transform 0.3s ease,;
-
-    @include mq(lg) {
-      inline-size: rclamp(14, 28, 1280, 1920); // ✅ PC時の大きさ
-      block-size: rclamp(14, 28, 1280, 1920);
-    }
+    inset-inline-end: rem(10);
+    transition: all 0.3s ease;
+    stroke: currentColor;
   }
 
   @media (any-hover: hover) {
     &:hover {
-      color: $btn-primary-hover;
-      transform: scale(1.2) ; /* 50pxは要素の幅の半分 */
-      border: none;
+      color: $text-link;
 
-      &::after {
-        display: none;
-        filter: brightness(0) saturate(100%) invert(18%) sepia(98%) saturate(6000%) hue-rotate(-5deg) brightness(90%) contrast(110%);
-        animation: arrowSlide 0.3s ease-in-out; // ✅ ホバー中アニメーション
+      svg {
+        transform: translateX(rem(10));
       }
-    }
-
-    // ✅ ホバー解除時にリセット
-    &:not(:hover) &::after {
-      animation: none; // ✅ アニメーション停止
     }
   }
 }
 
-// // ✅ 矢印の左右スライドアニメーション
-// @keyframes arrowSlide {
-//   0% {
-//     transform: translateX(0); // ✅ 元の位置
-//   }
-//   50% {
-//     transform: translateX(-12px); // ✅ 左にスライド
-//   }
-//   100% {
-//     transform: translateX(0); // ✅ 元に戻る
-//   }
-// }
+
 
 .mv__info-news-time {
   font-size: rem(12);
@@ -946,61 +913,27 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: rem(22);
   inline-size: fit-content;
-  overflow: hidden;
-  z-index: 0;
-  transition:
-  background-color 0.5s ease,
-  color 0.5s ease,
-  border-color 0.5s ease,
-  transform 0.5s ease;
 
-  // 背景スライド用の擬似要素
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    inline-size: 100%;
-    block-size: 100%;
-    background-color: $btn-secondary;
-    z-index: -1;
-    transition: inline-size 0.5s ease, left 0.5s ease;
-  }
-  
   svg{
-    inline-size: rem(12);
-    block-size: rem(12);
     margin-inline-end: rem(-20);
-    opacity: 0.7;
-    transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
-    @include mq(lg) {
-      inline-size: rclamp(12, 24, 1280, 1920);
-      block-size: rclamp(12, 24, 1280, 1920);
-    }
-  }
-
-  path {
     stroke: currentColor;
-    // fill: currentColor;
+    transition: all 0.3s ease;
+
+
+    @include mq(lg) {
+    }
   }
 
-  &:hover {
-    background-color: $btn-primary; // ← これが "見えてくる" 色
-    color: $btn-secondary;
-    border-color: $btn-primary;
-    transform: scale(1.1);
+  @media (any-hover: hover) {
+    &:hover {
+      color: $text-light;
+      background: $text-link;
 
-    &::before {
-      inline-size: 0;
-      left: 50%;
-    }
-
-    svg {
-      filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
-      opacity: 1;
+      svg {
+        transform: translateX(10px);
+      }
     }
   }
 }
@@ -1079,7 +1012,7 @@ body {
   align-items: flex-start;
   
   @include mq(md) {
-    grid-template-columns: repeat(auto-fit, minmax(rem(276), 1fr));
+    // grid-template-columns: repeat(auto-fit, minmax(rem(276), 1fr));
   }
   @include mq(lg) {
     display: flex;

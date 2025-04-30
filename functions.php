@@ -15,5 +15,27 @@ function my_script_init() {
 }
 add_action("wp_enqueue_scripts", "my_script_init");
 
+// WebPとAVIFのMIMEタイプを許可
+function allow_webp_avif_upload( $mime_types ) {
+    // WebPとAVIFのMIMEタイプを追加
+    $mime_types['webp'] = 'image/webp';
+    $mime_types['avif'] = 'image/avif';
+    return $mime_types;
+}
+add_filter( 'upload_mimes', 'allow_webp_avif_upload' );
+
+/**
+* 画像タイトルを自動的にALTに入れる
+*/
+// function custom_auto_alt($response, $attachment) {
+// 	// 代替テキストを自動入力
+// 	if (empty($response['alt'])) {
+// 		$response['alt'] = $response['title'];
+// 	}
+// 	$response['caption'] = '';
+// 	return $response;
+// }
+// add_filter('wp_prepare_attachment_for_js', 'custom_auto_alt', 10, 2);
+
 ?>
 

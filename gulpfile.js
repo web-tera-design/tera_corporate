@@ -49,9 +49,43 @@ function browserInit(done) {
     notify: false,
     open: true,          // ブラウザを自動で開く
     // https: process.env.HTTPS === 'true' ? true : false // ★HTTPS環境変数 trueならhttps化
+    injectChanges: true, // 変更をページに注入
+    reloadOnRestart: true, // 再起動時にもリロード
+    cache: false, // キャッシュ無効化
   });
   done();
 }
+
+function watchFiles() {
+  // SCSSの変更時にリロード
+  watch(
+    [baseDir + "**/*.scss", "!" + baseDir + "**/index.scss"],
+    { events: ['add', 'change', 'unlink'] },
+    gulp.series(generateIndexScss, compileSass)
+  ).on('change', function(path) {
+    console.log(`SCSS file changed: ${path}`);  // SCSSファイルが変更されたことをログで確認
+    browserSync.reload();  // SCSS変更後にブラウザをリロード
+  });
+  watch(
+    "./src/assets/js/**/*.js",
+    { events: ['add', 'change', 'unlink'] },
+    gulp.series(formatJS)
+  );
+  watch(
+    "./src/assets/img/**/*",
+    { events: ['add', 'change', 'unlink'] },
+    gulp.series(copyImage)
+  );
+  watch(
+    "./**/*.php",
+    { events: ['add', 'change', 'unlink'] }
+  ).on("change", browserSync.reload); // PHPファイルの変更時にリロード
+  watch(
+    "./**/*.html",
+    { events: ['add', 'change', 'unlink'] }
+  ).on("change", browserSync.reload); // HTMLファイルの変更時にリロード
+}
+
 
 
 // ===============================================
@@ -185,34 +219,6 @@ async function copyImage() {
 }
 
 
-// ===============================================
-// # ファイル監視
-// ===============================================
-function watchFiles() {
-  watch(
-    [baseDir + "**/*.scss", "!" + baseDir + "**/index.scss"],
-    { events: ['add', 'change', 'unlink'] }, // ★ファイル追加・変更・削除を全部検知
-    gulp.series(generateIndexScss, compileSass)
-  );
-  watch(
-    "./src/assets/js/**/*.js",
-    { events: ['add', 'change', 'unlink'] },
-    gulp.series(formatJS)
-  );
-  watch(
-    "./src/assets/img/**/*",
-    { events: ['add', 'change', 'unlink'] },
-    gulp.series(copyImage)
-  );
-  watch(
-    "./**/*.php",
-    { events: ['add', 'change', 'unlink'] }
-  ).on("change", browserSync.reload);
-  watch(
-    "./**/*.html",
-    { events: ['add', 'change', 'unlink'] }
-  ).on("change", browserSync.reload);
-}
 
 
 // ===============================================
