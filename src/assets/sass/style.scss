@@ -141,82 +141,117 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative; // 下線のために必要
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   color: inherit;
   padding-block: 3px;
+  text-align: center; // アイコンを中央に配置
 
   &::after {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 0;
-    inline-size: 100%;
+    bottom: -5px; // アイコンの下に表示
+    left: 50%;
+    translate: -50%;
+    width: 20px; // アイコンと同じ幅
     height: 3px;
-    background-color: currentColor;
-    transform: scaleX(0);
+    background-color: currentColor; // テキストと同じ色
+    transform: scaleX(0); // 初期状態では非表示
     transform-origin: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; // アニメーション
   }
 
-  // アクティブ・現在ページ
-  &.is-active,
-  &[aria-current="page"] {
-    color: $text-link;
+  // ホバー時
+  &:hover {
+    color: $text-link; // ホバー時の色変更（リンク自体の色）
+
+    svg {
+      path {
+        fill: currentColor; // svgのpath色も親要素の色を継承
+      }
+    }
 
     &::after {
-      transform: scaleX(1);
+      transform: scaleX(1); // 下線を表示
+    }
+  }
+
+  // アクティブ状態でも下線を表示
+  &.active {
+    color: $text-link; // アクティブなリンクの色変更（リンク自体の色）
+
+    svg {
+      path {
+        fill: currentColor; // svgのpath色も親要素の色を継承
+      }
+    }
+
+    &::after {
+      transform: scaleX(1); // アクティブ時も下線表示
     }
   }
 }
 
-// ホバーは hover 対応デバイスに限定
-@media (any-hover: hover) {
-  .header__nav-link:hover {
-    color: $text-link;
 
-    &::after {
-      transform: scaleX(1);
-      transform-origin: center;
-      transition: transform 0.3s linear;
-    }
 
-    .header__nav-link-icon {
-      transform: scale(1.5) translateY(-4px); // ✅ 20%拡大して上に移動
-      transform-origin: bottom center; // ✅ 基準を下に
-      transition: transform 0.3s ease-in-out; // ✅ なめらかに変化
-    }
 
-    // ✅ テキストも拡大
-    .header__nav-item-text {
-      transform: scale(1.5) translateY(-2px); // ✅ 10%拡大して上に移動
-      transform-origin: bottom center; // ✅ 基準を下に
-      transition: transform 0.3s ease-in-out;
-    }
-  }
-}
+  // // アクティブ・現在ページ
+  // &.is-active,
+  // &[aria-current="page"] {
+  //   color: $text-link;
+
+  //   &::after {
+  //     transform: scaleX(1);
+  //   }
+  // }
+
+// // ホバーは hover 対応デバイスに限定
+// @media (any-hover: hover) {
+//   .header__nav-link:hover {
+//     color: $text-link;
+
+//     &::after {
+//       transform: scaleX(1);
+//       transform-origin: center;
+//       transition: transform 0.3s linear;
+//     }
+
+//     // .header__nav-link-icon {
+//     //   transform: scale(1.5) translateY(-4px); // ✅ 20%拡大して上に移動
+//     //   transform-origin: bottom center; // ✅ 基準を下に
+//     //   transition: transform 0.3s ease-in-out; // ✅ なめらかに変化
+//     // }
+
+//     // // ✅ テキストも拡大
+//     // .header__nav-item-text {
+//     //   transform: scale(1.5) translateY(-2px); // ✅ 10%拡大して上に移動
+//     //   transform-origin: bottom center; // ✅ 基準を下に
+//     //   transition: transform 0.3s ease-in-out;
+//     // }
+//   }
+// }
 
 // ✅ SVGアイコンの初期スタイル
 .header__nav-link-icon {
-  transition: transform 0.3s ease-in-out;
+  // transition: transform 0.3s ease-in-out;
 }
 
-.header__nav-link-icon path {
-  fill: currentColor;//親要素と色を合わせる
-  stroke: currentColor; // ✅ 線の色を親要素に合わせる
-  stroke-width: .8; // ✅ 線の太さ
-  stroke-dasharray: 0; // ✅ JSで自動セット
-  stroke-dashoffset: 0; // ✅ 初期値は0
-  transition: stroke-dashoffset 0.5s ease-in-out; // ✅ スムーズに線をなぞる
-}
+// .header__nav-link-icon path {
+//   fill: currentColor;//親要素と色を合わせる
+//   // stroke: currentColor; // ✅ 線の色を親要素に合わせる
+//   // stroke-width: .8; // ✅ 線の太さ
+//   // stroke-dasharray: 0; // ✅ JSで自動セット
+//   // stroke-dashoffset: 0; // ✅ 初期値は0
+//   // transition: stroke-dashoffset 0.5s ease-in-out; // ✅ スムーズに線をなぞる
+// }
 
-// ✅ ホバー時にSVGパスのみなぞる
-@media (any-hover: hover) {
-  .header__nav-link:hover {
-    .header__nav-link-icon path {
-      stroke-dashoffset: 0; // ✅ ホバー時になぞる
-    }
-  }
-}
+// // ✅ ホバー時にSVGパスのみなぞる
+// @media (any-hover: hover) {
+//   .header__nav-link:hover {
+//     .header__nav-link-icon path {
+//       stroke-dashoffset: 0; // ✅ ホバー時になぞる
+//     }
+//   }
+// }
 
 .header__nav-item-text {
   text-align: center;
@@ -456,7 +491,7 @@ body {
   height: 100%;
   width: 100%;
   border-radius: rclamp(20, 20, 375, 1280);//imgのborder-radius
-
+  
    @include mq(lg) {
     //  inline-size: calc(1160 / 1280 * 100%);
     inline-size: 100%;
@@ -465,7 +500,8 @@ body {
    }
 
    img {
-     display: block;
+    border-radius: rclamp(20, 20, 375, 1280);//imgのborder-radius
+    display: block;
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
@@ -1337,10 +1373,10 @@ body {
   gap: 10px;
   grid-template-columns: rclamp(133, 240, 375, 768) 1fr;
   transition: all 0.3s ease;
+  position: relative;
 
 
   @include mq(md) {
-    position: relative;
     gap: 0;
     grid-template-columns: 1fr;
     inline-size: rclamp(240, 300, 375, 1280);
@@ -1478,15 +1514,16 @@ body {
   position: relative;
   padding-inline: rem(10);
   
+  
   &::before {
     content: "";
     position: absolute;
     inset-block-start: -32px;
     inset-inline-start: 0;
     block-size: 32px;
-    inline-size: 100%;
-    
+    inline-size: 110vw;
     background: url(../img/footer_bg-image.svg) no-repeat top center / cover;
+    transform: translateX(var(--wave-x));
   }
 }
 
@@ -1794,13 +1831,13 @@ body {
   block-size: rem(120);
   border-radius: 20px 0px 0px 20px;
   background: $text-link;
-  // transition: all 0.3s ease;
+  transition: all 0.3s ease;
 
-    // @media (any-hover: hover) {
-    //   &:hover {
-    //     background: $hover-accent;
-    //   }
-    // }
+    @media (any-hover: hover) {
+      &:hover {
+        background: $hover-accent;
+      }
+    }
   }
 }
 

@@ -33,7 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-  
+  const links = document.querySelectorAll('.header__nav-link');
+links.forEach(link => {
+  link.addEventListener('click', function() {
+    links.forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
   
   // ドロワー
   document.addEventListener('DOMContentLoaded', () => {
@@ -149,14 +156,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!currentImg) return;
   
       gsap.set(currentImg, {
-        yPercent: -100,
-        opacity: 0,
+        xPercent: -100,
+        opacity: 1,
       });
   
       gsap.to(currentImg, {
-        yPercent: 0,
+        xPercent: 0,
         opacity: 1,
-        duration: 4.0,
+        duration: 3.0,
         ease: 'power2.out',
       });
     }
@@ -638,12 +645,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   
-  gsap.registerPlugin(ScrollTrigger);
-  
   document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
+    
     const cards = Array.from(document.querySelectorAll('.blog__card'));
   
-    // offsetTopでグループ化（←こっちのが安定！）
+    // offsetTopでグループ化
     const cardGroups = [];
     let lastTop = null;
     let currentGroup = [];
@@ -668,39 +675,42 @@ document.addEventListener("DOMContentLoaded", () => {
     cardGroups.forEach((group, index) => {
       const fromX = index % 2 === 0 ? '-300px' : '300px';
   
-      gsap.fromTo(group,
-        { x: fromX, opacity: 0 },
-        {
-          scrollTrigger: {
-            trigger: group[0],
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-          x: 0,
-          opacity: 1,
-          duration: 0.3,
-          ease: 'power1.out',
-          // stagger: 0.05, // ←グループ内もテンポ良く
-        }
-      );
+      // 1つのグループに対してアニメーションを適用
+      group.forEach((card) => {
+        gsap.fromTo(card,
+          { x: fromX, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+            x: 0,
+            opacity: 1,
+            duration: 0.3,
+            ease: 'power1.out',
+          }
+        );
+      });
     });
   });
   
+  document.addEventListener('DOMContentLoaded', () => {
+
   const footer = document.querySelector('.footer');
-  
   const waveMotion = { x: 0 }; // ← ダミーオブジェクト！
   
-  gsap.to(waveMotion, {
-    x: -50,
-    duration: 4,
-    ease: 'sine.inOut',
-    repeat: -1,
-    yoyo: true,
-    onUpdate: () => {
-      footer.style.setProperty('--wave-x', `${waveMotion.x}px`);
-    }
+    gsap.to(waveMotion, {
+      x: -50,
+      duration: 4,
+      ease: 'sine.inOut',
+      repeat: -1,
+      yoyo: true,
+      onUpdate: () => {
+        footer.style.setProperty('--wave-x', `${waveMotion.x}px`);
+      }
+    });
   });
-  
 //   gsap.registerPlugin(ScrollTrigger);
   
 //   // 🐟 1匹目
