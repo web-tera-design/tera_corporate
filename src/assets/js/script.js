@@ -695,22 +695,22 @@ links.forEach(link => {
     });
   });
   
-  document.addEventListener('DOMContentLoaded', () => {
+  // document.addEventListener('DOMContentLoaded', () => {
 
-  const footer = document.querySelector('.footer');
-  const waveMotion = { x: 0 }; // ← ダミーオブジェクト！
+  // const footer = document.querySelector('.footer');
+  // const waveMotion = { x: 0 }; // ← ダミーオブジェクト！
   
-    gsap.to(waveMotion, {
-      x: -50,
-      duration: 4,
-      ease: 'sine.inOut',
-      repeat: -1,
-      yoyo: true,
-      onUpdate: () => {
-        footer.style.setProperty('--wave-x', `${waveMotion.x}px`);
-      }
-    });
-  });
+  //   gsap.to(waveMotion, {
+  //     x: -50,
+  //     duration: 4,
+  //     ease: 'sine.inOut',
+  //     repeat: -1,
+  //     yoyo: true,
+  //     onUpdate: () => {
+  //       footer.style.setProperty('--wave-x', `${waveMotion.x}px`);
+  //     }
+  //   });
+  // });
 //   gsap.registerPlugin(ScrollTrigger);
   
 //   // 🐟 1匹目
