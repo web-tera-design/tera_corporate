@@ -20,7 +20,7 @@ const replace = require("gulp-replace");
 const { deleteAsync } = require("del");
 const watch = require("gulp-watch");
 const rename = require("gulp-rename");
-const scssDirs = ["layout", "component", "project", "utility", "foundation", "global"];
+const scssDirs = ["layout", "component", "project", "utility", "foundation", "page"];
 const baseDir = "./src/assets/sass/";
 const htmlBeautify = require('gulp-html-beautify'); // ここを上に追加！
 const sharp = require("sharp"); // ← これを最初のインポートに追加！
@@ -233,6 +233,18 @@ function generateIndexScss(done) {
         .filter(file => file.endsWith(".scss") && file !== "index.scss") // index.scssは完全除外
         .sort(); // ソートするのは純粋な子scssファイルだけ
 
+      // 新しく追加されたファイルに @use '../global' を追記
+      files.forEach(file => {
+        const filePath = path.join(fullPath, file);
+        let fileContent = fs.readFileSync(filePath, 'utf8');
+
+        // _second.scss などが追加された場合に @use '../global' を追記
+        if (!fileContent.includes('@use \'../global\' as *;')) {
+          fileContent = `@use '../global' as *;\n${fileContent}`;
+          fs.writeFileSync(filePath, fileContent, 'utf8');
+        }
+      });
+
       const importStatements = files.length > 0
         ? files.map(file => `@use "${file.replace(".scss", "")}";`).join("\n")
         : '';
@@ -245,6 +257,7 @@ function generateIndexScss(done) {
   });
   done();
 }
+
 
 // ===============================================
 // # 共通エラーハンドラ（ブラウザ通知対応版）

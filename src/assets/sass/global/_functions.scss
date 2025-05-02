@@ -1,0 +1,42 @@
+@use 'sass:math';  // mathモジュールを最初にインポート
+
+@function rem($px) {
+    @return math.div($px, 16) * 1rem;  // `px` を `rem` に変換
+  }
+  
+  @function rclamp($min, $max, $minViewport, $maxViewport) {
+    $vwScale: math.div(($max - $min), ($maxViewport - $minViewport));  // 修正
+    $baseOffset: $min - $minViewport * $vwScale;
+  
+    // clamp() が壊れないよう min/max 順を正す
+    $minValue: min($min, $max);
+    $maxValue: max($min, $max);
+  
+    $minRem: math.div($minValue, 16);  // 修正
+    $maxRem: math.div($maxValue, 16);  // 修正
+    $baseOffsetRem: math.div($baseOffset, 16);  // 修正
+    $vwScaleRem: $vwScale * 100;
+  
+    @return clamp(#{$minRem}rem, #{$baseOffsetRem}rem + #{$vwScaleRem}vw, #{$maxRem}rem);
+  }
+  
+  
+  @function rclamp3($min-size, $mid-size, $min-px, $mid-px) {
+    // ✅ rem 変換
+    $min-size-rem: math.div($min-size, 16) * 1rem;
+    $mid-size-rem: math.div($mid-size, 16) * 1rem;
+  
+    // ✅ 1920px での比率維持
+    $ratio: math.div($mid-size, $mid-px);
+    $max-size-rem: math.div(1920 * $ratio, 16) * 1rem;
+  
+    // ✅ 傾き（slope1）計算
+    $slope1: math.div(($mid-size - $min-size), ($mid-px - $min-px));
+  
+    // ✅ fluid1 の計算（100vw でもOK）
+    $fluid1: calc((100vw - #{$min-px}px) * #{$slope1} + #{$min-size-rem});
+  
+    // ✅ clamp() でサイズ制御
+    @return clamp(#{$min-size-rem}, #{$fluid1}, #{$max-size-rem});
+  }
+  

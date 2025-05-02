@@ -1,0 +1,16 @@
+@use 'sass:map';   // mapモジュールをインポート
+
+// ブレイクポイント
+$breakpoints: (
+    sm: "screen and (min-width: 600px)",
+    md: "screen and (min-width: 768px)",
+    lg: "screen and (min-width: 900px)",
+    xl: "screen and (min-width: 1200px)"
+);
+
+// メディアクエリのmixin
+@mixin mq($breakpoint: sm) {
+  @media #{map.get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
