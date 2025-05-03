@@ -259,7 +259,7 @@ body {
   }
 }
 
-.p-index-mv__info-image {
+.p-index-mv__info-clinic-hours {
   position: relative;
   z-index: 2;
   margin-block-start: rem(-20);
@@ -281,7 +281,7 @@ body {
   }
 }
 
-.p-index-mv__info-content {
+.p-index-mv__info-news {
   margin-block-start: rem(20);
   inline-size: min(100%, rem(640));
   margin-inline: auto;
@@ -302,13 +302,17 @@ body {
   transition: border-bottom 0.3s ease;
 }
 
-.p-index-mv__info-title-group {
+.p-index-mv__heading {
+
+}
+
+.c-news__heading {
   display: flex;
   align-items: center;
   gap: rem(16);
 }
 
-.p-index-mv__info-title {
+.c-news-heading__main {
   font-size: rem(20);
   font-weight: 700;
   letter-spacing: rclamp(1.6, 2, 375, 1280);
@@ -319,7 +323,7 @@ body {
   }
 }
 
-.p-index-mv__info-sub {
+.c-news-heading__sub {
   color: $btn-primary;
   font-size: rclamp(11, 12, 375, 1280);
   font-weight: 700;
@@ -367,7 +371,8 @@ body {
   gap: rem(23);
   border-block-end: 1px solid $text-primary;
   transition: all 0.3s ease;
-
+  // Flex-glow: 1;で要素いっぱいに伸びる
+  
   svg {
     position: absolute;
     inset-inline-end: rem(10);
