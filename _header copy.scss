@@ -2,7 +2,7 @@
 
 
 // ヘッダー ========================
-.header {
+.l-header {
     position: fixed;
     z-index: 100;
     inset-block-start: 0;
@@ -12,7 +12,7 @@
     background: $bg-primary;
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   }
-  .header__inner {
+  .l-header__inner {
     // display: grid;
     // grid-template-columns: 100px 1fr;
     padding-inline-start:  rclamp(20, 40, 375, 1280);
@@ -22,15 +22,15 @@
     align-items: center;
   }
   
-  .header__logo {
+  .l-header__logo {
     padding-block: rclamp(15, 20, 375, 1280);
   }
   
-  .header__logo-link {
+  .l-header__logo-link {
     inline-size: rem(270);
   }
   
-  .header__nav {
+  .l-header__nav {
     // spの場合非表示
     display: none;
     align-items: center;
@@ -40,7 +40,7 @@
     }
   }
   
-  .header__nav-list {
+  .l-header__list {
     display: flex;
     gap: rclamp(12, 24, 768, 1280);
     padding-block: rclamp(12, 18, 375, 1280);
@@ -48,11 +48,8 @@
     @include mq(xl) {
     }
   }
-  
-  
-  
-  
-  .header__nav-link {
+
+  .l-header__link {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,70 +103,8 @@
       }
     }
   }
-  
-  
-  
-  
-    // // アクティブ・現在ページ
-    // &.is-active,
-    // &[aria-current="page"] {
-    //   color: $text-link;
-  
-    //   &::after {
-    //     transform: scaleX(1);
-    //   }
-    // }
-  
-  // // ホバーは hover 対応デバイスに限定
-  // @media (any-hover: hover) {
-  //   .header__nav-link:hover {
-  //     color: $text-link;
-  
-  //     &::after {
-  //       transform: scaleX(1);
-  //       transform-origin: center;
-  //       transition: transform 0.3s linear;
-  //     }
-  
-  //     // .header__nav-link-icon {
-  //     //   transform: scale(1.5) translateY(-4px); // ✅ 20%拡大して上に移動
-  //     //   transform-origin: bottom center; // ✅ 基準を下に
-  //     //   transition: transform 0.3s ease-in-out; // ✅ なめらかに変化
-  //     // }
-  
-  //     // // ✅ テキストも拡大
-  //     // .header__nav-item-text {
-  //     //   transform: scale(1.5) translateY(-2px); // ✅ 10%拡大して上に移動
-  //     //   transform-origin: bottom center; // ✅ 基準を下に
-  //     //   transition: transform 0.3s ease-in-out;
-  //     // }
-  // }
-  //   }
-  
-  // ✅ SVGアイコンの初期スタイル
-  .header__nav-link-icon {
-    // transition: transform 0.3s ease-in-out;
-  }
-  
-  // .header__nav-link-icon path {
-  //   fill: currentColor;//親要素と色を合わせる
-  //   // stroke: currentColor; // ✅ 線の色を親要素に合わせる
-  //   // stroke-width: .8; // ✅ 線の太さ
-  //   // stroke-dasharray: 0; // ✅ JSで自動セット
-  //   // stroke-dashoffset: 0; // ✅ 初期値は0
-  //   // transition: stroke-dashoffset 0.5s ease-in-out; // ✅ スムーズに線をなぞる
-  // }
-  
-  // // ✅ ホバー時にSVGパスのみなぞる
-  // @media (any-hover: hover) {
-  //   .header__nav-link:hover {
-  //     .header__nav-link-icon path {
-  //       stroke-dashoffset: 0; // ✅ ホバー時になぞる
-  //     }
-  //   }
-  // }
-  
-  .header__nav-item-text {
+
+  .l-header__text {
     text-align: center;
     font-size: rem(11);
     font-weight: 700;
@@ -180,8 +115,8 @@
       margin-block-start: 2px;
     }
   }
-  
-  .header__suv-list {
+
+  .l-header__suv {
     display: none;
     @include mq(xl) {
       display: block;
@@ -189,23 +124,15 @@
       padding-block: rem(9);
     }
   }
-  
-  .header__suv-item-text {
+
+  .l-header__address {
     color: #393939;
     font-size: rem(12);
     font-weight: 500;
     text-align: right;
   }
-  
-  .header__suv-list {
-  
-  }
-  
-  .header__suv-item-text {
-  
-  }
-  
-  .header__suv-item {
+
+  .l-header__tel {
     display: flex;
     gap: rem(6);
     color: #1391E6;
@@ -214,23 +141,13 @@
     font-weight: 700;
     letter-spacing: -0.64px;
   }
-  
-  .header__suv-item-icon {
-  
+
+  .l-header__tel-icon {
+
   }
-  
-  .header__btn {
-    transition: all 0.3s ease;
-  
-    @media(any-hover: hover) {
-      &:hover {
-  
-      }
-    }
-  }
-  
+
   // アイコン ====================
-  .drawer-icon {
+  .c-drawer-icon {
     position: fixed;
     z-index: 102;
     inset-block-start: 22px;
@@ -251,7 +168,7 @@
   
   }
   
-  .drawer-icon__bar {
+  .c-drawer-icon__bar {
     inline-size: 27px;
     block-size: 2px;
     background: $btn-primary;
@@ -265,25 +182,25 @@
   }
   
   // メニューが開いている時 ========
-  .drawer-icon.js-show {
-    .drawer-icon__bar:nth-of-type(1) {
+  .c-drawer-icon.js-show {
+    .c-drawer-icon__bar:nth-of-type(1) {
       transform: translate(2px, 7px) rotate(45deg);
     }
-    .drawer-icon__bar:nth-of-type(2) {
+    .c-drawer-icon__bar:nth-of-type(2) {
       opacity: 0; // display: none; ではなく、フェードアウトするように変更
     }
-    .drawer-icon__bar:nth-of-type(3) {
+    .c-drawer-icon__bar:nth-of-type(3) {
       transform: translate(2px, -7px) rotate(-45deg);
     }
   }
   
   // メニューが開いた時のアイコン色変更
-  .drawer-icon.js-show .drawer-icon__bar {
+  .c-drawer-icon.js-show .drawer-icon__bar {
     background: $btn-secondary;
   }
   
   // ドロワーメニュー ==========================
-  .drawer {
+  .c-drawer {
     position: fixed;
     z-index: 101;
     inset-block-start: 0;
@@ -294,10 +211,7 @@
     transform: translateX(100%);
   }
   
-  .drawer.js-show {
-  }
-  
-  .drawer__content {
+  .c-drawer__content {
     inline-size: 100%;
     block-size: fit-content;
     padding-block: rclamp(99.5, 155, 375, 768);
@@ -305,7 +219,7 @@
     position: relative;
   }
   
-  .drawer__logo {
+  .c-drawer__logo {
     position: absolute;
     inset-block-start: 17.78px;
     inset-inline-start: 22.94px;
@@ -314,14 +228,14 @@
   }
   
   
-  .drawer__nav-list {
+  .c-drawer__list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   
-  .drawer-nav-item {
+  .c-drawer__item {
     display: flex;
     align-items: center;
     inline-size: calc(255 / 375 * 100%);
@@ -329,11 +243,11 @@
   }
   
   // 最後の要素だけ `border-bottom` を適用
-  .drawer-nav-item:last-child {
+  .c-drawer__item:last-child {
     border-block-end: 1px dashed #fff;
   }
   
-  .drawer__item-link {
+  .c-drawer__link {
     display: flex;
     align-items: center;
     position: relative;
@@ -351,7 +265,7 @@
     }
   }
   
-  .drawer__item-text {
+  .c-drawer__text {
     margin-inline-start: rclamp(14, 24, 375, 768);
     padding-block-start: rclamp(16.5, 24.5, 375, 768);
     padding-block-end: rclamp(17.5, 25, 375, 768);

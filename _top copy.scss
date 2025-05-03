@@ -1,0 +1,1050 @@
+@use '../global' as *;
+
+body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    color: $text-primary;
+    background-color: $bg-primary;
+}
+
+.p-mv {
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
+.p-mv__main {
+ padding-block-start: rclamp(140, 160, 375, 1280);
+ overflow: hidden;
+}
+.p-mv__inner {
+ padding-inline: rclamp(20, 60, 375, 1280);
+ position: relative;
+}
+.p-mv__swiper-container  {
+  position: relative;
+  max-inline-size: 1920px;
+  margin-inline: auto;
+}
+.p-mv__swiper {
+  position: relative;
+  block-size: rem(447);
+  @include mq(lg) {
+    // block-size: rem(520);
+    block-size: 100%;
+  }
+}
+
+.p-mv__swiper-wrapper {
+  position: relative;
+}
+
+.p-mv__slide {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border-radius: rclamp(20, 20, 375, 1280);//imgのborder-radius
+  
+   @include mq(lg) {
+    //  inline-size: calc(1160 / 1280 * 100%);
+    inline-size: 100%;
+     aspect-ratio: 1160 / 520;
+    //  height: rem(520);
+   }
+
+   img {
+    border-radius: rclamp(20, 20, 375, 1280);//imgのborder-radius
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: left;
+    // //アニメーション用
+    // opacity: 0;
+    // transform: translateY(-50%);
+    // animation: none;
+   }
+}
+
+// .card__swiper-slide img.animate-in {
+//   animation: slideDownFade 1.8s ease-out forwards;
+// }
+
+// @keyframes slideDownFade {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(-50px);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+//画面内に文言入れる
+.p-mv__text-group {
+   display: block;
+   position: absolute;
+   bottom: 10%;
+   left: 5%;
+}
+
+.p-mv__heading,
+.p-mv__sub {
+   position: relative;
+   inline-size: fit-content;
+   color: #FFF;
+   text-shadow: 4px 6px 6px rgba(0, 0, 0, 0.20);
+   font-size: rclamp(20, 32, 375, 1280);
+   font-weight: 700;
+   letter-spacing: 2.56px;
+
+   @include mq(lg) {
+     font-size: rclamp(32, 40, 1280, 1920);
+   }
+}
+
+.p-mv__sub {
+   margin-block-start: rclamp(13, 17, 375, 1280);
+}
+
+/* ✅ 一文字ずつ出現のベース設定（バウンドエフェクト追加） */
+.p-mv__heading span,
+.p-mv__sub span {
+  display: inline-block;
+  opacity: 0; /* ✅ 初期は非表示 */
+  transform: translateY(20px) scale(0.8); /* ✅ 初期位置（下から＆縮小） */
+  animation: bounceFade 0.5s ease-out forwards;
+}
+
+/* ✅ バウンド＆フェードイン アニメーション */
+@keyframes bounceFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8); /* 下から小さく */
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1.05); /* 少し上に弾む */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* 元の位置に戻る */
+  }
+}
+
+.p-mv__heading::after,
+.p-mv__sub::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; // ちょっと下げる
+  inline-size: 100%; // fit-contentの効果でテキスト長にピッタリ
+  height: 2px;
+  border-bottom: 4px dotted #fff;
+
+  opacity: 0;
+  // transform: scaleX(0);
+  // transform-origin: left;
+  animation: underlineIn 1.6s ease-out forwards;
+  animation-delay: 1.5s; // ✅ 文字の最後が出る頃に合わせて
+}
+
+@keyframes underlineIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+//位置のreset
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination-bullets.swiper-pagination-horizontal  {
+// position: relative;矢印・ページネーション・矢印にしたい時
+  inset-block-start: unset;
+  inset-block-end: unset;
+  inset-inline-start: unset;
+  inset-inline-end: unset;
+  margin: 0;
+  padding: 0;
+}
+// =============================
+// ナビゲーションボタン
+// =============================
+//デフォルトのボタンを初期化
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: "";
+}
+//各ボタンのカスタマイズ
+.swiper-button-prev,
+.swiper-button-next {
+  inset-block-start: 50%;//左右両端配置の場合
+  translate: 0 -50%;
+  //bottom: calc(100% + 20px);画面右上配置の場合
+  inline-size: rclamp(32, 48, 375, 1280);
+  // block-size: rclamp(32, 48, 375, 1280);
+  svg {
+       inline-size: 100%;
+       block-size: 100%;
+  }
+}
+.swiper-button-prev {
+   inset-inline-start: rem(-20);//左右両端配置の場合
+   //right: 54px;画面右上配置の場合
+
+}
+.swiper-button-next {
+   inset-inline-end: rem(-20);
+
+}
+
+// =============================
+// ページネーション (bullets)
+// =============================
+//位置の設定 (枠組み)
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  // inset-block-start: calc(100% + 20px);//画面下に中央配置
+  inset-block-end: 3%;
+  inset-inline-start: -51%;
+  transform: rotate(90deg);
+  //inline-size: fit-content;矢印・ページネーション・矢印用
+}
+//それぞれのページネーション
+.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet {
+  opacity: 1;
+  inline-size: rclamp(6, 8, 375, 1280);
+  block-size: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #d9d9d9;
+  margin-inline: calc(11px / 2);
+  &:first-of-type {
+   margin-left: 0;
+  }
+  // inline-size: 40px;円でなく横に伸びる棒状
+  // block-size: 5px;
+  // border-radius: 0;
+}
+//activeな部分
+.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet-active {
+  background: $btn-primary;
+}
+
+// =============================
+// ページネーション (progressbar)
+// =============================
+//位置の設定と外枠
+.swiper-pagination-progressbar.swiper-pagination-horizontal {
+
+}
+//activeな部分
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+
+}
+
+.p-mv__info {
+  // max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: rclamp(20, 100, 375, 1280);
+  @include mq(lg) {
+    display: grid;
+    gap: rclamp(10, 60, 768, 1280);
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "content image";
+    align-items: center;
+  }
+}
+
+.p-mv__info-image {
+  position: relative;
+  z-index: 2;
+  margin-block-start: rem(-20);
+  inline-size: min(100%, rem(640));
+  margin-inline: auto;
+  border-radius: 12px;
+  background: #FFF;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+
+   img {
+    inline-size: 100%;
+    display: block;
+   }
+  @include mq(lg) {
+    inline-size: rclamp(336, 715, 900, 1920);
+    // inline-size: 37%;
+    inset-inline-end: 0;
+    grid-area: image;
+  }
+}
+
+.p-mv__info-content {
+  margin-block-start: rem(20);
+  inline-size: min(100%, rem(640));
+  margin-inline: auto;
+  
+  @include mq(lg) {
+    grid-area: content;
+    // inline-size: min(100%, rem(740));
+    inline-size: rclamp(380, 810, 900, 1920);
+    // max-inline-size: rem(700);
+  }
+}
+
+.p-mv__info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $text-primary;
+  transition: border-bottom 0.3s ease;
+}
+
+.p-mv__info-title-group {
+  display: flex;
+  align-items: center;
+  gap: rem(16);
+}
+
+.p-mv__info-title {
+  font-size: rem(20);
+  font-weight: 700;
+  letter-spacing: rclamp(1.6, 2, 375, 1280);
+  padding-block-end: rclamp(6, 7, 375, 1280);
+
+  @include mq(lg) {
+    font-size: rclamp(20, 40, 1280, 1920);
+  }
+}
+
+.p-mv__info-sub {
+  color: $btn-primary;
+  font-size: rclamp(11, 12, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(1.1, 1.2, 375, 1280);
+
+  @include mq(lg) {
+    font-size: rclamp(12, 24, 1280, 1920);
+  }
+}
+
+.p-mv__info-link-group {
+  color: #888;
+  font-size: rclamp(11, 12, 375, 1280);
+  font-weight: 500;
+  text-decoration: underline;
+
+  @include mq(lg) {
+    font-size: rclamp(12, 24, 1280, 1920);
+  }
+}
+
+.p-mv__info-link {
+  padding-block: rem(10);
+  display: inline-block;
+  color: $text-primary;
+  transition: color 0.3s ease, transform 0.3s ease,;
+  text-decoration: underline;
+
+  @media (any-hover: hover) {
+    &:hover {
+      // color: $btn-primary-hover;
+      // border-radius: 6px;
+      // transform: scale(1.1);
+      // text-decoration: none;
+    }
+  }
+}
+
+
+
+.p-mv__info-news {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: rem(23);
+  border-block-end: 1px solid $text-primary;
+  transition: all 0.3s ease;
+
+  svg {
+    position: absolute;
+    inset-inline-end: rem(10);
+    transition: all 0.3s ease;
+    stroke: currentColor;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: $text-link;
+
+      svg {
+        transform: translateX(rem(10));
+      }
+    }
+  }
+}
+
+
+
+.p-mv__info-date {
+  font-size: rem(12);
+  font-weight: 500;
+
+  @include mq(lg) {
+    font-size: rclamp(12, 24, 1280, 1920);
+  }
+}
+
+.p-mv__info-text {
+  padding-block-start: rclamp(13, 10, 375, 1280);
+  padding-block-end: rclamp(12, 10, 375, 1280);
+  font-size: rem(14);
+  font-weight: 500;
+
+  @include mq(lg) {
+    font-size: rclamp(14, 28, 1280, 1920);
+  }
+}
+
+.concept {
+  position: relative;
+  margin-block-start: rclamp(65, 60, 375, 1280);
+  overflow: hidden;
+
+  @include mq(lg) {
+    margin-block-start: 0;
+    padding-block-start: rem(40);
+    padding-block-end: rem(150);
+    display: grid;
+    grid-template-columns: calc(640 / 1280 * 100%) calc(407 / 1280 * 100%);
+    grid-auto-flow: row-reverse;
+    gap: rem(90);
+  }
+}
+
+.concept__content {
+  padding-inline: rem(20);
+  padding-block-start: rclamp(106, 180, 375, 1280);
+
+  @include mq(lg) {
+    padding-inline: 0;
+    order: 2;
+    align-self: center;
+  }
+}
+
+.concept__heading-group {
+
+}
+
+.concept__subheading {
+  color: $text-link;
+  font-size: rclamp(11, 14, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(1.1, 1.4, 375, 1280);
+
+  @include mq(lg) {
+    font-size: rclamp(14, 28, 1280, 1920);
+  }
+}
+
+.concept__heading {
+  margin-block-start: rclamp(14, 24, 375, 1280);
+  font-size: rem(20);
+  font-weight: 700;
+  line-height: rclamp(32, 44, 375, 1280); /* 160% */
+  letter-spacing: rclamp(1.6, 2.24, 375, 1280);
+
+  @include mq(lg) {
+    font-size: rclamp(24, 40, 1280, 1920);
+  }
+}
+
+.concept__text {
+  margin-block-start: rclamp(27, 36, 375, 1280);
+  color: #393939;
+  font-size: rem(14);
+  font-weight: 500;
+  line-height: rem(24); /* 171.429% */
+
+  @include mq(lg) {
+    font-size: rclamp(14, 28, 1280, 1920);
+    line-height: 1.5;
+  }
+}
+
+.concept__link {
+  margin-block-start: rem(37);
+  display: flex;
+  justify-content: center;
+  @include mq(lg) {
+    justify-content: start;
+  }
+}
+
+.concept__button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: rem(22);
+  inline-size: fit-content;
+
+  svg{
+    margin-inline-end: rem(-20);
+    stroke: currentColor;
+    transition: all 0.3s ease;
+
+
+    @include mq(lg) {
+    }
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: $text-light;
+      background: $text-link;
+
+      svg {
+        transform: translateX(10px);
+      }
+    }
+  }
+}
+
+.concept__image {
+  margin-block-start: rem(40);
+  inline-size: min(calc(335 / 375 * 100%),rem(770));
+
+  @include mq(lg) {
+    inline-size: 100%;
+    margin-block-start: 0;
+  }
+
+  img {
+    border-radius: 0px 20px 20px 0px;
+    background: url(<path-to-image>) lightgray 361.924px -30.529px / -116.721% 112.999% no-repeat;
+    
+    @include mq(lg) {
+      margin-block-start: rem(180);
+      block-size: rem(438);
+      object-fit: cover;
+    }
+  }
+}
+
+.concept__bg-image {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: -1;
+  padding-inline-start: rem(10);
+  min-inline-size: rem(554);
+  img {
+    width: 100%;
+    height: auto;
+  }
+  
+  @include mq(lg) {
+    inset-inline-start: 30%;
+    inset-block-start: rclamp(50, 0, 1280, 2560);
+    min-inline-size: rem(1280);
+  }
+}
+
+.recommend {
+  margin-block-start: rclamp(96, 117, 375, 1280);
+}
+
+.recommend__inner {
+  padding-inline: rclamp(47, 60, 375, 1280);
+  margin-inline: auto;
+  width: min(100%, rem(1920));
+}
+
+.recommend__heading-content {
+}
+
+.recommend__heading {
+  // text-align: center;
+  
+}
+
+.recommend__heading-title {
+  inline-size: 100%;
+  font-size: rclamp(20, 28, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(1.16, 2.24, 375, 1280);
+}
+
+.recommend__items {
+  margin-block-start: rclamp(39, 60, 375, 1280);
+  display: grid;
+  gap: rclamp(50, 50, 375, 1280);
+  place-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  
+  @include mq(md) {
+    // grid-template-columns: repeat(auto-fit, minmax(rem(276), 1fr));
+  }
+  @include mq(lg) {
+    display: flex;
+  }
+}
+
+.recommend__item:first-of-type img:first-of-type {
+  inline-size: rem(177);
+}
+
+.recommend__item {
+  inline-size: rclamp(271, 400, 1280, 1920);
+  display: grid;
+  place-items: center;
+
+  img {
+    inline-size: 100%;
+    height: auto;
+  }
+
+  img:first-of-type {
+    inline-size: rem(182);
+    height: auto;
+    margin-block-end: rclamp(12, 15, 375, 1280);
+  }
+}
+
+.recommend__text {
+  inline-size: 100%;
+  margin-block-start: rclamp(20, 19, 375, 1280);
+  text-align: left;
+  font-size: rem(14);
+  font-weight: 500;
+  line-height: rem(24); /* 171.429% */
+}
+
+.text__accent {
+  color: #EE5A6D;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.medical {
+  margin-block-start: rclamp(214, 335, 375, 1280);
+  position: relative;
+  padding-block-start: rclamp(29, 104, 375, 1280);
+  margin-inline: auto;;
+  background: #dff1fd;
+  z-index: 1;
+  padding-block-end: rclamp(62, 83, 375, 1280);
+}
+
+.medical__bg-top {
+  position: absolute;
+  z-index: -1;
+  inset-block-start: rclamp(-85, -201, 375, 1280);
+  inset-inline: 0;
+  block-size: rclamp(85, 201, 375, 1280);
+
+  img {
+    width: 100%;
+    block-size: 100%;
+  }
+}
+
+.medical__bg-bottom {
+  position: absolute;
+  z-index:-1;
+  inset-inline: 0;
+  // inset-block-end: -28px;
+  inset-block-end: rclamp(-28, -97, 375, 1280);
+  block-size: rclamp(28, 97, 375, 1280);
+  // block-size: 28px;
+  @include mq(md) {
+    // inset-block-end: -97px;
+    // block-size: 97px;
+  }
+
+  img {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    background: url(../img/deco-kirakira2-w.png) no-repeat center center / cover;
+    // inset-inline-start: 6px;
+    inset-inline-start: rclamp(6, 40, 375, 1280);
+    inset-block-start: rclamp(-40, -56, 375, 1280);
+    // inset-block-start: -40px;
+    inline-size: rclamp(24, 57, 375, 1280);
+    block-size: rclamp(25, 56, 375, 1280);
+    // inline-size: 24px;
+    // block-size: 25px;
+    @include mq(md) {
+      // inline-size: 57px;
+      // block-size: 56px;
+      // inset-inline-start: 40px;
+      // inset-block-start: -56px;
+    }
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    background: url(../img/deco-kirakira-w.png) no-repeat center center / cover;
+    // inline-size: 56px;
+    // block-size: 60px;
+    // inset-inline-end: 0px;
+    // inset-block-start: -60px;
+    inline-size: rclamp(56, 125, 375, 1280);
+    block-size: rclamp(60, 138, 375, 1280);
+    inset-inline-end: rclamp(0, 25, 375, 1280);
+    inset-block-start: rclamp(-60, -138, 375, 1280);
+
+    @include mq(md) {
+      // inline-size: 125px;
+      // block-size: 138px;
+      // inset-inline-end: 25px;
+      // inset-block-start: -138px;
+    }
+  }
+}
+
+
+.medical__heading {
+  
+}
+
+.medical__heading-title {
+  line-height: rclamp(1.4, 1.2, 375, 1280)
+}
+
+.--heading {
+  
+}
+
+.medical__container {
+  inline-size: min(rem(1000), 100%);
+  margin-inline: auto;
+  padding-inline: rem(20);
+}
+
+.medical__services {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-block-start: rem(40);
+  margin-inline: auto;
+  gap: rclamp(20, 80, 375, 1280);
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+}
+  }
+
+
+.medical__service {
+  inline-size: 100%;
+  block-size: rclamp(210, 290, 375, 1280);
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-radius: rem(20);
+
+  &:hover::before {
+    transform: scale(1.1);
+  }
+
+  &:hover::after {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    border-radius: rem(20);
+    transform: scale(1);
+    transition: transform 0.3s ease-out;
+    }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 0;
+    transition: 0.4s ease-out;
+  }
+
+}
+
+.--service1 {
+  &::before {
+    background: url(../img/medical-image1.png) no-repeat center 40%/ cover;
+  }
+}
+
+.--service2 {
+  &::before {
+    background: url(../img/medical__bg-image2.webp) no-repeat center 10%/ cover;
+  }
+}
+
+.medical__service-link-line {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  inset: rem(10);
+  border-radius: rem(20);
+  z-index: 1;
+  border: 3px solid transparent;
+  transition: border-color 0.3s ease-out;
+  
+  &:hover {
+    border-color: #fff;
+  }
+}
+
+.medical__link-container {
+  text-align: center;
+  z-index: 2;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+}
+
+.medical__service-title {
+  font-size: rclamp(20, 28, 375, 1280);
+  padding-bottom: 42px;
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    border-radius: rem(20);
+    bottom: 16px;
+    height: 2px;
+    width: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.medical__service-description {
+  color: $btn-secondary;
+  font-size: rclamp(12, 16, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(0.96, 1.28, 375, 1280);
+  margin-block-start: rem(20);
+}
+
+.medical__text {
+  inline-size: 100%;
+  margin-inline: auto;
+  background: $btn-secondary;
+  color: $text-primary;
+  font-size: rem(14);
+  font-weight: 500;
+  line-height: rclamp(24, 28, 375, 1280); /* 171.429% */
+  margin-block-start: rclamp(20, 60, 375, 1280);
+  padding-block-start: rclamp(18, 36, 375, 1280);
+  padding-inline: rclamp(20, 40, 375, 1280);
+  padding-block-end: rclamp(17, 35, 375, 1280);
+
+}
+.text__accent--medical {
+  line-height: rclamp(24, 28, 375, 1280);
+}
+
+.blog {
+  margin-block-start: rclamp(128, 158, 375, 1280);
+}
+
+.blog__heading {
+
+}
+
+.heading {
+
+}
+
+.blog__container {
+  margin-block-start: rclamp(48, 80, 375, 1280);
+  max-inline-size: rem(600);
+  margin-inline: auto;;
+  @include mq(md) {
+    max-inline-size: rem(1040);
+    
+  }
+}
+
+.blog__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding-inline: rem(20);
+
+  @include mq(md) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+    place-content: center; // ← これで中央寄せ！
+    gap: rclamp(20, 50, 768, 1280);
+    margin-inline: auto;
+    inline-size: 100%;
+  }
+}
+
+.blog__card {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: rclamp(133, 240, 375, 768) 1fr;
+  transition: all 0.3s ease;
+  position: relative;
+
+
+  @include mq(md) {
+    gap: 0;
+    grid-template-columns: 1fr;
+    inline-size: rclamp(240, 300, 375, 1280);
+    border-radius: rem(20);
+    overflow: hidden;
+    background: #FFF;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  }
+
+  &:hover {
+    .blog__image img{
+      transform: scale(1.1);
+    }
+
+    .blog__text {
+      color: $text-link;
+    }
+  }
+}
+
+.blog__image {
+  block-size: rem(100);
+  object-fit: cover;
+  overflow: hidden;
+  @include mq(md) {
+    block-size: rem(188);
+  }
+  
+  img {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+  }
+}
+
+.blog__content {
+  // display: grid;
+  // grid-template-columns: 1fr;
+  margin-block-start: rem(6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: rem(6);
+  @include mq(md) {
+    justify-content: start;
+    padding: 24px 24px 12px 24px;
+    gap: rem(4);
+  }
+}
+
+.blog__label {
+  display: inline-block;
+  padding: rem(1) rem(8) rem(1);
+  inline-size: fit-content;
+  color: #fff;
+  font-size: rclamp(10, 11, 375, 1280);
+  font-weight: 500;
+  border-radius: rem(10);
+  background: #1391E6;
+
+  @include mq(md) {
+    position: absolute;
+    border-radius: rem(14);
+    margin-block-start: rem(-40);
+    padding: 6.24px 12px 5.76px 12px;
+  }
+}
+
+.blog__text {
+  color: $text-primary;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  padding-inline-end: 8px;
+
+  @include mq(md) {
+    
+  }
+
+}
+
+.blog__datetime {
+  color: #888;
+  font-size: 11px;
+  font-weight: 500;
+
+}
+
+.blog__link {
+  margin-block-start: rclamp(40, 60, 375, 1280);
+  display: flex;
+}
+
+.blog__button {
+  //親もdisplay: flex;
+  //htmlでpathの色削除
+  gap: rem(16);
+  padding-block-start: rclamp(8, 11, 375, 1280);
+  padding-inline-end: rem(12);
+  padding-block-end: rclamp(10, 11, 375, 1280);
+  padding-inline-start: rclamp(40, 46, 375, 1280);
+  color: #1391E6;//svgの色
+  transition: all 0.3s ease;
+
+    svg {
+      inline-size: rem(12);
+      block-size: rem(12);
+      transition: 0.3s ease;
+  
+      path {
+        stroke: currentColor;
+        // fill: currentColor;
+        transition: stroke 0.3s ease;
+      }
+    }
+  
+    &:hover {
+      background-color: #1391E6;
+      color: #fff;
+      border-color: #1391E6;
+
+      svg {
+        transform: translateX(rem(4))
+      }
+    }
+}
