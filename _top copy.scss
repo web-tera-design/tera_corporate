@@ -412,7 +412,7 @@ body {
   }
 }
 
-.concept {
+.p-concept {
   position: relative;
   margin-block-start: rclamp(65, 60, 375, 1280);
   overflow: hidden;
@@ -428,7 +428,7 @@ body {
   }
 }
 
-.concept__content {
+.p-concept__content {
   padding-inline: rem(20);
   padding-block-start: rclamp(106, 180, 375, 1280);
 
@@ -439,11 +439,11 @@ body {
   }
 }
 
-.concept__heading-group {
+.c-heading-group {
 
 }
 
-.concept__subheading {
+.c-subheading {
   color: $text-link;
   font-size: rclamp(11, 14, 375, 1280);
   font-weight: 700;
@@ -454,7 +454,7 @@ body {
   }
 }
 
-.concept__heading {
+.c-heading {
   margin-block-start: rclamp(14, 24, 375, 1280);
   font-size: rem(20);
   font-weight: 700;
@@ -466,7 +466,7 @@ body {
   }
 }
 
-.concept__text {
+.p-concept__text {
   margin-block-start: rclamp(27, 36, 375, 1280);
   color: #393939;
   font-size: rem(14);
@@ -479,7 +479,7 @@ body {
   }
 }
 
-.concept__link {
+.p-concept__link {
   margin-block-start: rem(37);
   display: flex;
   justify-content: center;
@@ -488,7 +488,7 @@ body {
   }
 }
 
-.concept__button {
+.c-concept__button {
   position: relative;
   display: flex;
   align-items: center;
@@ -517,7 +517,7 @@ body {
   }
 }
 
-.concept__image {
+.p-concept__image {
   margin-block-start: rem(40);
   inline-size: min(calc(335 / 375 * 100%),rem(770));
 
@@ -538,7 +538,7 @@ body {
   }
 }
 
-.concept__bg-image {
+.p-concept__bg {
   position: absolute;
   inset-block-start: 0;
   inset-inline-start: 0;
