@@ -303,7 +303,7 @@
     font-weight: 500;
   }
   
-  .reserve__button {
+  .c-reserve__button {
     display: none;
     @include mq(xl) {
     position: fixed;
@@ -329,7 +329,7 @@
     }
   }
   
-  .reserve__text {
+  .c-reserve__text {
     margin-block-start: rem(14);
     color: $text-light;
     font-size: 14px;
@@ -337,7 +337,7 @@
     line-height: 130%; /* 18.2px */
   }
   
-  .button-top {
+  .c-button-top {
     position: fixed;
     z-index: 100;
     inline-size: rem(52);
@@ -354,7 +354,7 @@
     }
   }
   
-  .sp-bottom {
+  .c-sp-bottom {
     position: fixed;
     inset-block-end: 0;
     inset-inline-start: 0;
@@ -372,28 +372,28 @@
     }
   }
   
-  .sp-bottom__item {
+  .c-sp-bottom__item {
     text-align: center;
   }
   
-  .sp-bottom__tel {
+  .c-sp-bottom__tel {
   
   }
   
-  .sp-bottom__label {
+  .c-sp-bottom__label {
     color: $text-link;
     font-size: rem(20);
     font-weight: 700;
   }
   
-  .sp-bottom__time {
+  .c-sp-bottom__time {
     font-size: rem(10);
     font-style: normal;
     font-weight: 500;
     line-height: normal;
   }
   
-  .sp-bottom__link {
+  .c-sp-bottom__link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -403,12 +403,12 @@
     padding: 5px 21px 5px 15px
   }
   
-  .sp-bottom__text {
+  .c-sp-bottom__text {
     display: flex;
     flex-direction: column;
   }
   
-  .label2 {
+  .c-sp-bottom__label--label2 {
     color: #FFF;
     text-align: center;
     font-family: "Rounded M+ 1c";
@@ -418,7 +418,7 @@
     line-height: normal;
   }
   
-  .label3 {
+  .c-sp-bottom__label--label3 {
     color: #FFF;
     text-align: center;
     font-family: "Rounded M+ 1c";
