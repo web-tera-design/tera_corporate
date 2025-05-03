@@ -294,12 +294,16 @@ body {
   }
 }
 
-.p-index-mv__info-header {
+.p-index-mv__info-news-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid $text-primary;
   transition: border-bottom 0.3s ease;
+}
+
+.p-index-mv__info-news-header-heading {
+
 }
 
 .p-index-mv__heading {
@@ -334,10 +338,13 @@ body {
   }
 }
 
-.p-index-mv__info-link-group {
+.p-index-mv__info-link {
   color: #888;
   font-size: rclamp(11, 12, 375, 1280);
   font-weight: 500;
+  text-decoration: underline;
+  padding-block: rem(10);
+  display: inline-block;
   text-decoration: underline;
 
   @include mq(lg) {
@@ -345,26 +352,30 @@ body {
   }
 }
 
-.p-index-mv__info-link {
-  padding-block: rem(10);
-  display: inline-block;
-  color: $text-primary;
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
-  text-decoration: underline;
+// .p-index-mv__info-link {
+//   transition:
+//     color 0.3s ease,
+//     transform 0.3s ease;
 
-  @media (any-hover: hover) {
-    &:hover {
-      // color: $btn-primary-hover;
-      // border-radius: 6px;
-      // transform: scale(1.1);
-      // text-decoration: none;
-    }
-  }
+//   @media (any-hover: hover) {
+//     &:hover {
+//       // color: $btn-primary-hover;
+//       // border-radius: 6px;
+//       // transform: scale(1.1);
+//       // text-decoration: none;
+//     }
+//   }
+// }
+
+.p-index-mv__info-news-list {
+
 }
 
-.p-index-mv__info-news {
+.p-index-mv__info-news-list-item {
+
+}
+
+.c-news-line {
   position: relative;
   display: flex;
   align-items: center;
@@ -391,7 +402,7 @@ body {
   }
 }
 
-.p-index-mv__info-date {
+.c-news-line-date {
   font-size: rem(12);
   font-weight: 500;
 
@@ -400,7 +411,7 @@ body {
   }
 }
 
-.p-index-mv__info-text {
+.c-news-line-title {
   padding-block-start: rclamp(13, 10, 375, 1280);
   padding-block-end: rclamp(12, 10, 375, 1280);
   font-size: rem(14);
@@ -555,6 +566,8 @@ body {
   }
 }
 
+
+
 .p-index-recommend {
   margin-block-start: rclamp(96, 117, 375, 1280);
 }
@@ -639,7 +652,7 @@ body {
   padding-block-end: rclamp(62, 83, 375, 1280);
 }
 
-.p-index-medical__bg-top {
+.c-medical__bg-top {
   position: absolute;
   z-index: -1;
   inset-block-start: rclamp(-85, -201, 375, 1280);
@@ -713,9 +726,10 @@ body {
 }
 
 .c-medical__heading {
+
 }
 
-.medical__heading-title {
+.c-medical__heading-title {
   line-height: rclamp(1.4, 1.2, 375, 1280);
 }
 
@@ -859,17 +873,15 @@ body {
   line-height: rclamp(24, 28, 375, 1280);
 }
 
-.blog {
+
+.p-index-blog {
   margin-block-start: rclamp(128, 158, 375, 1280);
 }
 
-.blog__heading {
+.c-blog__heading {
 }
 
-.heading {
-}
-
-.blog__container {
+.p-index-blog__container {
   margin-block-start: rclamp(48, 80, 375, 1280);
   max-inline-size: rem(600);
   margin-inline: auto;
@@ -878,7 +890,7 @@ body {
   }
 }
 
-.blog__cards {
+.p-index-blog__cards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -893,7 +905,7 @@ body {
   }
 }
 
-.blog__card {
+.c-blog__card {
   display: grid;
   gap: 10px;
   grid-template-columns: rclamp(133, 240, 375, 768) 1fr;
@@ -921,7 +933,7 @@ body {
   }
 }
 
-.blog__image {
+.c-blog__image {
   block-size: rem(100);
   object-fit: cover;
   overflow: hidden;
@@ -938,7 +950,7 @@ body {
   }
 }
 
-.blog__content {
+.c-blog__content {
   // display: grid;
   // grid-template-columns: 1fr;
   margin-block-start: rem(6);
@@ -953,7 +965,7 @@ body {
   }
 }
 
-.blog__label {
+.c-blog__label {
   display: inline-block;
   padding: rem(1) rem(8) rem(1);
   inline-size: fit-content;
@@ -971,7 +983,7 @@ body {
   }
 }
 
-.blog__text {
+.c-blog__text {
   color: $text-primary;
   font-size: 14px;
   font-weight: 500;
@@ -982,18 +994,18 @@ body {
   }
 }
 
-.blog__datetime {
+.c-blog__datetime {
   color: #888;
   font-size: 11px;
   font-weight: 500;
 }
 
-.blog__link {
+.p-index-blog__link {
   margin-block-start: rclamp(40, 60, 375, 1280);
   display: flex;
 }
 
-.blog__button {
+.c-blog__button {
   //親もdisplay: flex;
   //htmlでpathの色削除
   gap: rem(16);
