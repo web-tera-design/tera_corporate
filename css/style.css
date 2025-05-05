@@ -819,8 +819,6 @@ button {
 }
 
 /* Auto-generated index.scss for project */
-/* Auto-generated index.scss for utility */
-/* Auto-generated index.scss for page */
 .p-index-mv {
   margin-inline: auto;
   max-width: 1920px;
@@ -1167,6 +1165,8 @@ button {
   }
 }
 
+/* Auto-generated index.scss for utility */
+/* Auto-generated index.scss for page */
 .c-concept {
   margin-block-start: clamp(3.75rem, 4.1919889503rem + -0.5524861878vw, 4.0625rem);
   overflow: hidden;
@@ -1248,6 +1248,7 @@ button {
 
 .c-concept__button {
   align-items: center;
+  background: #FFFFFF;
   color: #1391E6;
   display: flex;
   gap: 1.375rem;
