@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const links = document.querySelectorAll(".l-header__nav-link");
+  const links = document.querySelectorAll(".l-header__link");
   let currentPath = location.pathname.replace(/\/$/, "");
 
   // Live Server用に"/"を"/index.html"と見なす

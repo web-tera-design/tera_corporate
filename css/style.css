@@ -565,12 +565,12 @@ button {
   }
 }
 
-.l-header__nav-list {
+.l-header__list {
   display: flex;
   gap: clamp(0.75rem, -0.375rem + 2.34375vw, 1.5rem);
   padding-block: clamp(0.75rem, 0.5946132597rem + 0.6629834254vw, 1.125rem);
 }
-.l-header__nav-link {
+.l-header__link {
   align-items: center;
   color: inherit;
   display: flex;
@@ -580,7 +580,7 @@ button {
   text-align: center;
   transition: all 0.3s ease;
 }
-.l-header__nav-link::after {
+.l-header__link::after {
   background-color: currentColor;
   bottom: -5px;
   content: "";
@@ -593,26 +593,26 @@ button {
   translate: -50%;
   width: 20px;
 }
-.l-header__nav-link:hover {
+.l-header__link:hover {
   color: #1391E6;
 }
-.l-header__nav-link:hover svg path {
+.l-header__link:hover svg path {
   fill: currentColor;
 }
-.l-header__nav-link:hover::after {
+.l-header__link:hover::after {
   transform: scaleX(1);
 }
-.l-header__nav-link.is-active {
+.l-header__link.is-active {
   color: #1391E6;
 }
-.l-header__nav-link.is-active svg path {
+.l-header__link.is-active svg path {
   fill: currentColor;
 }
-.l-header__nav-link.is-active::after {
+.l-header__link.is-active::after {
   transform: scaleX(1);
 }
 
-.l-header__nav-item-text {
+.l-header__nav-text {
   color: inherit;
   font-size: 0.6875rem;
   font-weight: 700;
@@ -621,30 +621,30 @@ button {
   transition: transform 0.3s ease-in-out;
 }
 @media screen and (min-width: 900px) {
-  .l-header__nav-item-text {
+  .l-header__nav-text {
     margin-block-start: 2px;
   }
 }
 
-.l-header__suv-list {
+.l-header__sub-list {
   display: none;
 }
 @media screen and (min-width: 1200px) {
-  .l-header__suv-list {
+  .l-header__sub-list {
     display: block;
     margin-inline-start: 2rem;
     padding-block: 0.5625rem;
   }
 }
 
-.l-header__suv-item-text {
+.l-header__sub-text {
   color: #393939;
   font-size: 0.75rem;
   font-weight: 500;
   text-align: right;
 }
 
-.l-header__suv-item {
+.l-header__sub-item {
   color: #1391e6;
   display: flex;
   font-size: 2rem;
@@ -654,9 +654,6 @@ button {
   text-align: center;
 }
 
-.l-header__btn {
-  transition: all 0.3s ease;
-}
 /* Auto-generated index.scss for component */
 .c-blog {
   margin-block-start: clamp(8rem, 7.2230662983rem + 3.3149171271vw, 9.875rem);
