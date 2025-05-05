@@ -1313,8 +1313,6 @@ button {
   }
 }
 
-/* Auto-generated index.scss for utility */
-/* Auto-generated index.scss for page */
 .p-index-recommend {
   margin-block-start: clamp(6rem, 5.4561464088rem + 2.320441989vw, 7.3125rem);
 }
@@ -1374,13 +1372,15 @@ button {
   text-align: left;
 }
 
-.text__accent {
+.p-index-recommend__text__accent {
   color: #ee5a6d;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
 }
 
+/* Auto-generated index.scss for utility */
+/* Auto-generated index.scss for page */
 .p-index-medical {
   background: #dff1fd;
   margin-block-start: clamp(13.375rem, 10.2413674033rem + 13.3701657459vw, 20.9375rem);
