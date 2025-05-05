@@ -103,65 +103,6 @@
   }
 }
 
-// // アクティブ・現在ページ
-// &.is-active,
-// &[aria-current="page"] {
-//   color: $text-link;
-
-//   &::after {
-//     transform: scaleX(1);
-//   }
-// }
-
-// // ホバーは hover 対応デバイスに限定
-// @media (any-hover: hover) {
-//   .l-header__nav-link:hover {
-//     color: $text-link;
-
-//     &::after {
-//       transform: scaleX(1);
-//       transform-origin: center;
-//       transition: transform 0.3s linear;
-//     }
-
-//     // .l-header__nav-link-icon {
-//     //   transform: scale(1.5) translateY(-4px); // ✅ 20%拡大して上に移動
-//     //   transform-origin: bottom center; // ✅ 基準を下に
-//     //   transition: transform 0.3s ease-in-out; // ✅ なめらかに変化
-//     // }
-
-//     // // ✅ テキストも拡大
-//     // .l-header__nav-item-text {
-//     //   transform: scale(1.5) translateY(-2px); // ✅ 10%拡大して上に移動
-//     //   transform-origin: bottom center; // ✅ 基準を下に
-//     //   transition: transform 0.3s ease-in-out;
-//     // }
-// }
-//   }
-
-// ✅ SVGアイコンの初期スタイル
-.l-header__nav-link-icon {
-  // transition: transform 0.3s ease-in-out;
-}
-
-// .l-header__nav-link-icon path {
-//   fill: currentColor;//親要素と色を合わせる
-//   // stroke: currentColor; // ✅ 線の色を親要素に合わせる
-//   // stroke-width: .8; // ✅ 線の太さ
-//   // stroke-dasharray: 0; // ✅ JSで自動セット
-//   // stroke-dashoffset: 0; // ✅ 初期値は0
-//   // transition: stroke-dashoffset 0.5s ease-in-out; // ✅ スムーズに線をなぞる
-// }
-
-// // ✅ ホバー時にSVGパスのみなぞる
-// @media (any-hover: hover) {
-//   .l-header__nav-link:hover {
-//     .l-header__nav-link-icon path {
-//       stroke-dashoffset: 0; // ✅ ホバー時になぞる
-//     }
-//   }
-// }
-
 .l-header__nav-item-text {
   text-align: center;
   font-size: rem(11);
@@ -219,7 +160,7 @@
 }
 
 // アイコン ====================
-.drawer-icon {
+.c-drawer-icon {
   position: fixed;
   z-index: 102;
   inset-block-start: 22px;
@@ -239,7 +180,7 @@
   }
 }
 
-.drawer-icon__bar {
+.c-drawer-icon__bar {
   inline-size: 27px;
   block-size: 2px;
   background: $btn-primary;
@@ -253,25 +194,25 @@
 }
 
 // メニューが開いている時 ========
-.drawer-icon.js-show {
-  .drawer-icon__bar:nth-of-type(1) {
+.c-drawer-icon.js-show {
+  .c-drawer-icon__bar:nth-of-type(1) {
     transform: translate(2px, 7px) rotate(45deg);
   }
-  .drawer-icon__bar:nth-of-type(2) {
+  .c-drawer-icon__bar:nth-of-type(2) {
     opacity: 0; // display: none; ではなく、フェードアウトするように変更
   }
-  .drawer-icon__bar:nth-of-type(3) {
+  .c-drawer-icon__bar:nth-of-type(3) {
     transform: translate(2px, -7px) rotate(-45deg);
   }
 }
 
 // メニューが開いた時のアイコン色変更
-.drawer-icon.js-show .drawer-icon__bar {
+.c-drawer-icon.js-show .c-drawer-icon__bar {
   background: $btn-secondary;
 }
 
 // ドロワーメニュー ==========================
-.drawer {
+.c-drawer {
   position: fixed;
   z-index: 101;
   inset-block-start: 0;
@@ -282,10 +223,10 @@
   transform: translateX(100%);
 }
 
-.drawer.js-show {
+.c-drawer.js-show {
 }
 
-.drawer__content {
+.c-drawer__content {
   inline-size: 100%;
   block-size: fit-content;
   padding-block: rclamp(99.5, 155, 375, 768);
@@ -293,7 +234,7 @@
   position: relative;
 }
 
-.drawer__logo {
+.c-drawer__logo {
   position: absolute;
   inset-block-start: 17.78px;
   inset-inline-start: 22.94px;
@@ -301,14 +242,14 @@
   gap: 11px;
 }
 
-.drawer__nav-list {
+.c-drawer__nav-list {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.drawer-nav-item {
+.c-drawer-nav-item {
   display: flex;
   align-items: center;
   inline-size: calc(255 / 375 * 100%);
@@ -316,11 +257,11 @@
 }
 
 // 最後の要素だけ `border-bottom` を適用
-.drawer-nav-item:last-child {
+.c-drawer-nav-item:last-child {
   border-block-end: 1px dashed #fff;
 }
 
-.drawer__item-link {
+.c-drawer__item-link {
   display: flex;
   align-items: center;
   position: relative;
@@ -338,7 +279,7 @@
   }
 }
 
-.drawer__item-text {
+.c-drawer__item-text {
   margin-inline-start: rclamp(14, 24, 375, 768);
   padding-block-start: rclamp(16.5, 24.5, 375, 768);
   padding-block-end: rclamp(17.5, 25, 375, 768);
@@ -347,7 +288,7 @@
   font-weight: 500;
 }
 
-.drawer__toggle-button {
+.c-drawer__toggle-button {
   display: inline-block;
   padding: 0;
   background: #fff;

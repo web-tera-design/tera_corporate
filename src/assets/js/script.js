@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ドロワー
 document.addEventListener("DOMContentLoaded", () => {
-  const drawer = document.querySelector(".drawer");
-  const drawerIcon = document.querySelector(".drawer-icon");
+  const drawer = document.querySelector(".c-drawer");
+  const drawerIcon = document.querySelector(".c-drawer-icon");
   const body = document.body;
   let isMenuOpen = false;
 
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ページ内リンククリック時のスクロール処理
-  document.querySelectorAll(".drawer__item-link").forEach((link) => {
+  document.querySelectorAll(".c-drawer__item-link").forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
       const target = document.querySelector(link.getAttribute("href"));
@@ -115,6 +115,57 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMenu();
     });
   });
+});
+
+const drawerBtn = document.querySelector(".c-drawer-icon");
+const bars = drawerBtn.querySelectorAll(".c-drawer-icon__bar");
+
+let isOpen = false;
+
+drawerBtn.addEventListener("click", () => {
+  isOpen = !isOpen;
+
+  if (isOpen) {
+    // 🌀くるっと回転しながら交差
+    gsap.to(bars[0], {
+      y: 7,
+      rotate: 405, // ← 360 + 45度くるっと！
+      transformOrigin: "center",
+      duration: 0.6,
+      ease: "power3.out",
+    });
+    gsap.to(bars[1], {
+      opacity: 0,
+      duration: 0.3,
+      ease: "power1.out",
+    });
+    gsap.to(bars[2], {
+      y: -7,
+      rotate: -405, // ← マイナス方向にもくるん！
+      transformOrigin: "center",
+      duration: 0.6,
+      ease: "power3.out",
+    });
+  } else {
+    // 元に戻るときもスムーズに回転戻す
+    gsap.to(bars[0], {
+      y: 0,
+      rotate: 0,
+      duration: 0.6,
+      ease: "power3.inOut",
+    });
+    gsap.to(bars[1], {
+      opacity: 1,
+      duration: 0.3,
+      ease: "power1.in",
+    });
+    gsap.to(bars[2], {
+      y: 0,
+      rotate: 0,
+      duration: 0.6,
+      ease: "power3.inOut",
+    });
+  }
 });
 
 // // サイト表示までのロゴとswiper=================================
@@ -340,57 +391,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const drawerBtn = document.querySelector(".drawer-icon");
-const bars = drawerBtn.querySelectorAll(".drawer-icon__bar");
-
-let isOpen = false;
-
-drawerBtn.addEventListener("click", () => {
-  isOpen = !isOpen;
-
-  if (isOpen) {
-    // 🌀くるっと回転しながら交差
-    gsap.to(bars[0], {
-      y: 7,
-      rotate: 405, // ← 360 + 45度くるっと！
-      transformOrigin: "center",
-      duration: 0.6,
-      ease: "power3.out",
-    });
-    gsap.to(bars[1], {
-      opacity: 0,
-      duration: 0.3,
-      ease: "power1.out",
-    });
-    gsap.to(bars[2], {
-      y: -7,
-      rotate: -405, // ← マイナス方向にもくるん！
-      transformOrigin: "center",
-      duration: 0.6,
-      ease: "power3.out",
-    });
-  } else {
-    // 元に戻るときもスムーズに回転戻す
-    gsap.to(bars[0], {
-      y: 0,
-      rotate: 0,
-      duration: 0.6,
-      ease: "power3.inOut",
-    });
-    gsap.to(bars[1], {
-      opacity: 1,
-      duration: 0.3,
-      ease: "power1.in",
-    });
-    gsap.to(bars[2], {
-      y: 0,
-      rotate: 0,
-      duration: 0.6,
-      ease: "power3.inOut",
-    });
-  }
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   const buttonTop = document.querySelector(".button-top");
 
@@ -436,135 +436,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-document.addEventListener("DOMContentLoaded", () => {
-  const drawerLinks = document.querySelectorAll(".drawer__item-link");
-
-  drawerLinks.forEach((link) => {
-    const paths = link.querySelectorAll("svg path");
-
-    // 🌀 マウスエンター演出
-    link.addEventListener("mouseenter", () => {
-      gsap.to(link, {
-        y: -6,
-        scale: 1.08,
-        backgroundColor: "#ffffff1a",
-        color: "#1391E6",
-        boxShadow: "0 4px 15px rgba(19, 145, 230, 0.4)",
-        duration: 0.4,
-        ease: "back.out(1.7)",
-      });
-
-      paths.forEach((path) => {
-        gsap.to(path, {
-          fill: "#1391E6",
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      });
-    });
-
-    // 🎯 マウスリーブ演出
-    link.addEventListener("mouseleave", () => {
-      gsap.to(link, {
-        y: 0,
-        scale: 1,
-        backgroundColor: "transparent",
-        color: "#ffffff",
-        boxShadow: "0 0 0 rgba(0,0,0,0)",
-        duration: 0.5,
-        ease: "power3.out",
-      });
-
-      paths.forEach((path) => {
-        gsap.to(path, {
-          fill: "#ffffff",
-          duration: 0.4,
-          ease: "power2.inOut",
-        });
-      });
-    });
-  });
-});
-
-//   document.addEventListener('DOMContentLoaded', () => {
-//     const spBottomItems = document.querySelectorAll('.sp-bottom__item');
-
-//     if (spBottomItems.length < 2) return;
-
-//     const reserveItem = spBottomItems[1]; // 2番目（WEB予約）
-
-//     setTimeout(() => {
-//       gsap.to(reserveItem, {
-//         y: -8,
-//         scale: 1.1,
-//         duration: 0.6,
-//         ease: 'sine.inOut',
-//         yoyo: true,
-//         repeat: -1
-//       });
-//     }, 3000);
-//   });
-
-//   document.addEventListener("DOMContentLoaded", () => {
-//     const button = document.querySelector(".reserve__button");
-//     const icon = button.querySelector("svg");
-//     const text = button.querySelector(".reserve__text");
-
-//     // 🔁 背景色アニメーションを定義して保持
-//     const bgColorAnim = gsap.to(button, {
-//       keyframes: [
-//         { backgroundColor: "#007acc", duration: 0.2 },
-//         { backgroundColor: "#0060a0", duration: 0.2 }
-//       ],
-//       repeat: -1,
-//       ease: "power1.inOut",
-//       yoyo: true
-//     });
-
-//     // 🎯 ホバー時：色アニメ停止＋色固定＋スライド・スケール
-//     button.addEventListener("mouseenter", () => {
-//       // 色アニメーションを一時停止
-//       bgColorAnim.pause();
-
-//       // 色を強制的に #0060a0 に固定
-//       gsap.to(button, {
-//         backgroundColor: "#0060a0",
-//         duration: 0.2
-//       });
-
-//       // スライド
-//       gsap.fromTo(
-//         button,
-//         { y: 0 },
-//         {
-//           y: -10,
-//           duration: 0.3,
-//           yoyo: true,
-//           repeat: 1,
-//           ease: "power1.out"
-//         }
-//       );
-
-//       // スケール
-//       gsap.fromTo(
-//         [icon, text],
-//         { scale: 1 },
-//         {
-//           scale: 1.2,
-//           duration: 0.3,
-//           yoyo: true,
-//           repeat: 1,
-//           ease: "power1.out"
-//         }
-//       );
-//     });
-
-//     // 🛫 ホバー解除時：アニメーション再開
-//     button.addEventListener("mouseleave", () => {
-//       bgColorAnim.resume(); // 色アニメーションを再開
-//     });
-//   });
 
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -691,64 +562,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-// document.addEventListener('DOMContentLoaded', () => {
-
-// const footer = document.querySelector('.footer');
-// const waveMotion = { x: 0 }; // ← ダミーオブジェクト！
-
-//   gsap.to(waveMotion, {
-//     x: -50,
-//     duration: 4,
-//     ease: 'sine.inOut',
-//     repeat: -1,
-//     yoyo: true,
-//     onUpdate: () => {
-//       footer.style.setProperty('--wave-x', `${waveMotion.x}px`);
-//     }
-//   });
-// });
-//   gsap.registerPlugin(ScrollTrigger);
-
-//   // 🐟 1匹目
-//   gsap.fromTo('.footer__mr2',
-//     {
-//       x: -100,
-//       y: 0,
-//       opacity: 1
-//     },
-//     {
-//       x: () => window.innerWidth + 100,
-//       y: 300,
-//       duration: 0.5,
-//       ease: 'power2.inOut',
-//       scrollTrigger: {
-//         trigger: '.footer',
-//         start: 'top 40%',
-//         once: true,
-//         toggleActions: 'play none none none',
-//       }
-//     }
-//   );
-
-//   // 🐟 2匹目（0.4秒あとに出現）
-//   gsap.fromTo('.footer__mr',
-//     {
-//       x: -100,
-//       y: 100, // 少し下からスタートすると自然
-//       opacity: 1
-//     },
-//     {
-//       x: () => window.innerWidth + 100,
-//       y: -200,
-//       duration: 0.5,
-//       ease: 'power2.inOut',
-//       delay: 0.4, // 時間差ポイント！
-//       scrollTrigger: {
-//         trigger: '.footer',
-//         start: 'top 40%',
-//         once: true,
-//         toggleActions: 'play none none none'
-//       }
-//     }
-//   );
