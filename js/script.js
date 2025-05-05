@@ -363,7 +363,7 @@ document.querySelectorAll(".header__nav-link").forEach((link) => {
 //   });
 //==============================================================================
 
-const buttonTop = document.querySelector(".button-top");
+const buttonTop = document.querySelector(".c-button-top");
 
 buttonTop.addEventListener("click", (e) => {
   e.preventDefault();
@@ -374,7 +374,7 @@ buttonTop.addEventListener("click", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const topButton = document.querySelector(".button-top");
+  const topButton = document.querySelector(".c-button-top");
 
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
@@ -394,7 +394,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const buttonTop = document.querySelector(".button-top");
+  const buttonTop = document.querySelector(".c-button-top");
 
   if (!buttonTop) return;
 

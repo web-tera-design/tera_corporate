@@ -102,7 +102,7 @@ button {
   position: relative;
 }
 .c-footer::before {
-  background: url(../img/c-footer_bg-image.svg) no-repeat top center/cover;
+  background: url(../img/footer_bg-image.svg) no-repeat top center/cover;
   block-size: 32px;
   content: "";
   inline-size: 100%;
@@ -408,11 +408,11 @@ button {
   font-weight: 500;
 }
 
-.reserve__button {
+.c-reserve__button {
   display: none;
 }
 @media screen and (min-width: 1200px) {
-  .reserve__button {
+  .c-reserve__button {
     align-items: center;
     background: #1391E6;
     block-size: 7.5rem;
@@ -430,12 +430,12 @@ button {
   }
 }
 @media screen and (min-width: 1200px) and (any-hover: hover) {
-  .reserve__button:hover {
+  .c-reserve__button:hover {
     background: #0060A0;
   }
 }
 
-.reserve__text {
+.c-reserve__text {
   color: #FFFFFF;
   font-size: 14px;
   font-weight: 700;
@@ -443,7 +443,7 @@ button {
   margin-block-start: 0.875rem;
 }
 
-.button-top {
+.c-button-top {
   block-size: 3.25rem;
   inline-size: 3.25rem;
   inset-block-end: 6.0625rem;
@@ -454,12 +454,12 @@ button {
   visibility: hidden;
   z-index: 100;
 }
-.button-top.is-visible {
+.c-button-top.is-visible {
   opacity: 1;
   visibility: visible;
 }
 
-.sp-bottom {
+.c-sp-bottom {
   background: rgba(255, 255, 255, 0.85);
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   display: flex;
@@ -473,29 +473,29 @@ button {
   z-index: 100;
 }
 @media screen and (min-width: 1200px) {
-  .sp-bottom {
+  .c-sp-bottom {
     display: none;
   }
 }
 
-.sp-bottom__item {
+.c-sp-bottom__item {
   text-align: center;
 }
 
-.sp-bottom__label {
+.c-sp-bottom__label {
   color: #1391E6;
   font-size: 1.25rem;
   font-weight: 700;
 }
 
-.sp-bottom__time {
+.c-sp-bottom__time {
   font-size: 0.625rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
 
-.sp-bottom__link {
+.c-sp-bottom__link {
   align-items: center;
   background: #1391E6;
   border-radius: 0.5rem;
@@ -505,16 +505,16 @@ button {
   padding: 5px 21px 5px 15px;
 }
 
-.sp-bottom__text {
+.c-sp-bottom__text {
   display: flex;
   flex-direction: column;
 }
 
-.label2 {
+.c-sp-bottom__label--label2 {
   font-size: 16px;
 }
 
-.label2,.label3 {
+.c-sp-bottom__label--label2,.c-sp-bottom__label--label3 {
   color: #fff;
   font-family: "Rounded M+ 1c";
   font-style: normal;
@@ -523,7 +523,7 @@ button {
   text-align: center;
 }
 
-.label3 {
+.c-sp-bottom__label--label3 {
   font-size: 12px;
 }
 
