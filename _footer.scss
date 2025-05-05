@@ -1,6 +1,6 @@
 @use '../global' as *;
 
-.c-footer {
+.footer {
     padding-block-start: rclamp(13, 56, 375, 1280);
     padding-block-end: rem(60);
     margin-block-start: rclamp(132, 203, 375, 1280);
@@ -21,7 +21,7 @@
     }
   }
   
-  .c-footer__container {
+  .footer__container {
     background-color: #fff;
     margin-inline: auto;
     border-radius: rclamp(8, 20, 375, 1280);
@@ -35,7 +35,7 @@
     
   }
   
-  .c-footer-main {
+  .footer-info {
     padding-block-end: rem(20);
     padding-inline: rem(10);
     margin-inline: auto;
@@ -49,7 +49,7 @@
     }
   }
   
-  .c-footer__body {
+  .footer-info__body {
     padding-block-start: rclamp(32, 40, 375, 1280);
     text-align: center;
     @include mq(lg) {
@@ -58,7 +58,7 @@
   
   }
   
-  .c-footer__logo {
+  .footer-info__logo {
     inline-size: rem(310);
     margin-inline: auto;
   
@@ -68,20 +68,20 @@
     }
   }
   
-  .c-footer__address {
+  .footer-info__address {
     margin-block-start: rem(11);
   }
   
-  .c-footer__text {
+  .footer-info__address-text {
     font-size: 14px;
     font-weight: 500;
   }
   
-  .c-footer__tel {
+  .footer-info__address-tel {
     margin-block-start: rclamp(21, 17, 375, 1280);
   }
   
-  .c-footer__tel-link {
+  .footer-info__tel-link {
     color: $text-link;
     font-size: 32px;
     font-weight: 700;
@@ -89,14 +89,14 @@
     letter-spacing: -0.64px;
   }
   
-  .c-footer__tel-note {
+  .footer-info__address-note {
     margin-block-start: rclamp(3, 0, 375, 1280);
     color: $text-link;
     font-size: rem(12);
     font-weight: 500;
   }
   
-  .c-footer__buttons {
+  .footer-info__buttons {
     margin-block-start: rem(20);
     gap: rem(15);
     display: grid;
@@ -109,7 +109,7 @@
     }
   }
   
-  .c-footer__button {
+  .footer-info__button {
     inline-size: 100%;
     gap: rem(3);
     padding-inline-start: rem(25);
@@ -127,8 +127,12 @@
       }
     }
   }
-
-  .c-footer__button--sub {
+  
+  .button {
+  
+  }
+  
+  .footer-info__button--sub {
     inline-size: 100%;
     gap: rem(9);
     padding-inline: rem(20);
@@ -146,7 +150,7 @@
     }
   }
   
-  .c-footer__image {
+  .footer-info__image {
     margin-block-start: rem(20);
     border-radius: rem(12);
     background: #FFF;
@@ -158,7 +162,7 @@
     }
   }
   
-  .c-footer__map {
+  .footer-info__map {
     margin-block-start: rem(20);
     padding-inline: rem(10);
     inline-size: 100%;
@@ -170,7 +174,7 @@
     }
   }
   
-  .c-footer__map-frame {
+  .footer-info__map-frame {
     position: relative;
     aspect-ratio: 1;
     overflow: hidden;
@@ -183,7 +187,7 @@
     }
   }
   
-  .c-footer-nav {
+  .footer-nav {
     max-inline-size: rem(600);
     margin-inline: auto;
     display: grid;
@@ -206,26 +210,28 @@
     }
   }
   
-  .c-footer__group {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .c-footer__group--top {
+  .head {
     @include mq(md) {
       grid-area: head;
     }
-
+    
     @include mq(lg) {
       grid-area: unset;
     }
   }
-
-  .c-footer__list {
-
+  
+  
+  .footer-nav__group {
+    display: grid;
+    grid-template-columns: 1fr;
   }
-
-  .c-footer__item {
+  
+  .footer-nav__list {
+  
+  }
+  
+  
+  .footer-nav__item {
     margin-block-start: rem(18);
     position: relative;
     padding-inline-start: rem(12);
@@ -265,27 +271,27 @@
     }
   }
   
-  .c-footer__item--top {
+  .footer-nav__item--top {
     margin-block-start: 0;
   }
   
-  .c-footer__link {
+  .footer-nav__link {
     font-size: rem(16);
     font-weight: 700;
   }
   
-  .c-footer__title {
+  .footer-nav__title {
     font-size: rem(16);
     font-weight: 700;
   }
   
-  .c-footer__list--col2 {
+  .footer-nav__list--col2 {
       display: grid;
       grid-template-columns: repeat(2, max-content);
       column-gap: 20px;
   }
   
-  .c-footer__copy {
+  .footer__copy-light {
     padding-block-start: rem(18);
     padding-block-end: rem(73);
     background: $text-link;
@@ -297,13 +303,13 @@
     }
   }
   
-  .c-footer__cory-text {
+  .cory-light__text {
     color: #FFF;
     font-size: rem(14);
     font-weight: 500;
   }
   
-  .c-reserve__button {
+  .reserve__button {
     display: none;
     @include mq(xl) {
     position: fixed;
@@ -329,7 +335,7 @@
     }
   }
   
-  .c-reserve__text {
+  .reserve__text {
     margin-block-start: rem(14);
     color: $text-light;
     font-size: 14px;
@@ -337,7 +343,7 @@
     line-height: 130%; /* 18.2px */
   }
   
-  .c-button-top {
+  .button-top {
     position: fixed;
     z-index: 100;
     inline-size: rem(52);
@@ -354,7 +360,7 @@
     }
   }
   
-  .c-sp-bottom {
+  .sp-bottom {
     position: fixed;
     inset-block-end: 0;
     inset-inline-start: 0;
@@ -372,28 +378,28 @@
     }
   }
   
-  .c-sp-bottom__item {
+  .sp-bottom__item {
     text-align: center;
   }
   
-  .c-sp-bottom__tel {
+  .sp-bottom__tel {
   
   }
   
-  .c-sp-bottom__label {
+  .sp-bottom__label {
     color: $text-link;
     font-size: rem(20);
     font-weight: 700;
   }
   
-  .c-sp-bottom__time {
+  .sp-bottom__time {
     font-size: rem(10);
     font-style: normal;
     font-weight: 500;
     line-height: normal;
   }
   
-  .c-sp-bottom__link {
+  .sp-bottom__link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -403,12 +409,12 @@
     padding: 5px 21px 5px 15px
   }
   
-  .c-sp-bottom__text {
+  .sp-bottom__text {
     display: flex;
     flex-direction: column;
   }
   
-  .c-sp-bottom__label--label2 {
+  .label2 {
     color: #FFF;
     text-align: center;
     font-family: "Rounded M+ 1c";
@@ -418,7 +424,7 @@
     line-height: normal;
   }
   
-  .c-sp-bottom__label--label3 {
+  .label3 {
     color: #FFF;
     text-align: center;
     font-family: "Rounded M+ 1c";
