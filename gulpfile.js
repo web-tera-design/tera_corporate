@@ -20,23 +20,27 @@ const replace = require("gulp-replace");
 const { deleteAsync } = require("del");
 const watch = require("gulp-watch");
 const rename = require("gulp-rename");
-const scssDirs = ["layout", "component", "project", "utility", "foundation", "page"];
+const scssDirs = [
+  "layout",
+  "component",
+  "project",
+  "utility",
+  "foundation",
+  "page",
+];
 const baseDir = "./src/assets/sass/";
-const htmlBeautify = require('gulp-html-beautify'); // ここを上に追加！
+const htmlBeautify = require("gulp-html-beautify"); // ここを上に追加！
 const sharp = require("sharp"); // ← これを最初のインポートに追加！
-const changed = require('gulp-changed'); // これをインポートに追加！
-const isProduction = process.env.NODE_ENV === 'production';
-const dartSass = require('sass');  // dartSassをrequireでインポート
-
-
-
+const changed = require("gulp-changed"); // これをインポートに追加！
+const isProduction = process.env.NODE_ENV === "production";
+const dartSass = require("sass"); // dartSassをrequireでインポート
 
 //* ===============================================
 //# ブラウザSync動的対応
 //# ローカルサイトのURLを直接設定
 //=============================================== *
-const projectUrl = "http://teracorporate.local/";  // ローカルのPHPサーバーのURL
-const browserSyncInstance = browserSync;  // browserSyncのインスタンスを作成
+const projectUrl = "http://teracorporate.local/"; // ローカルのPHPサーバーのURL
+const browserSyncInstance = browserSync; // browserSyncのインスタンスを作成
 const sass = gulpSass(dartSass); //Sassコンパイルのための設定
 
 // ===============================================
@@ -44,10 +48,10 @@ const sass = gulpSass(dartSass); //Sassコンパイルのための設定
 // ===============================================
 function browserInit(done) {
   browserSync.init({
-    proxy: projectUrl,  // PHPのローカル開発環境のURL（例えばWordPressのURL）を設定
+    proxy: projectUrl, // PHPのローカル開発環境のURL（例えばWordPressのURL）を設定
     // port: process.env.PORT || 3000,   // ★PORT環境変数あればそれ、なければ3000
     notify: false,
-    open: true,          // ブラウザを自動で開く
+    open: true, // ブラウザを自動で開く
     // https: process.env.HTTPS === 'true' ? true : false // ★HTTPS環境変数 trueならhttps化
     injectChanges: true, // 変更をページに注入
     reloadOnRestart: true, // 再起動時にもリロード
@@ -60,76 +64,80 @@ function watchFiles() {
   // SCSSの変更時にリロード
   watch(
     [baseDir + "**/*.scss", "!" + baseDir + "**/index.scss"],
-    { events: ['add', 'change', 'unlink'] },
+    { events: ["add", "change", "unlink"] },
     gulp.series(generateIndexScss, compileSass)
-  ).on('change', function(path) {
-    console.log(`SCSS file changed: ${path}`);  // SCSSファイルが変更されたことをログで確認
-    browserSync.reload();  // SCSS変更後にブラウザをリロード
+  ).on("change", function (path) {
+    console.log(`SCSS file changed: ${path}`); // SCSSファイルが変更されたことをログで確認
+    browserSync.reload(); // SCSS変更後にブラウザをリロード
   });
   watch(
     "./src/assets/js/**/*.js",
-    { events: ['add', 'change', 'unlink'] },
+    { events: ["add", "change", "unlink"] },
     gulp.series(formatJS)
   );
   watch(
     "./src/assets/img/**/*",
-    { events: ['add', 'change', 'unlink'] },
+    { events: ["add", "change", "unlink"] },
     gulp.series(copyImage)
   );
-  watch(
-    "./**/*.php",
-    { events: ['add', 'change', 'unlink'] }
-  ).on("change", browserSync.reload); // PHPファイルの変更時にリロード
-  watch(
-    "./**/*.html",
-    { events: ['add', 'change', 'unlink'] }
-  ).on("change", browserSync.reload); // HTMLファイルの変更時にリロード
+  watch("./**/*.php", { events: ["add", "change", "unlink"] }).on(
+    "change",
+    browserSync.reload
+  ); // PHPファイルの変更時にリロード
+  watch("./**/*.html", { events: ["add", "change", "unlink"] }).on(
+    "change",
+    browserSync.reload
+  ); // HTMLファイルの変更時にリロード
 }
-
-
 
 // ===============================================
 // # Sassをコンパイル＆圧縮
 // ===============================================
 function compileSass() {
-  return gulp
-    .src(path.join(baseDir, "style.scss"), { base: baseDir })
-    .pipe(plumber({ errorHandler: notify.onError("Sass Error: <%= error.message %>") }))
-    .pipe(gulpSass())
-    .pipe(postcss([
-      autoprefixer(),
-      cssSorter(),
-      mergeRules()
-    ]))
-    // 通常版を出力
-    .pipe(gulp.dest("./css/"))
-    .pipe(cleanCSS(isProduction ? { level: 2 } : {}))
-    // ファイル名を変更してmin版を出力
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("./css/"))
-    .pipe(browserSync.stream())
-    // .pipe(notify({ message: "Sass compile and min.css created." }));
-
+  return (
+    gulp
+      .src(path.join(baseDir, "style.scss"), { base: baseDir })
+      .pipe(
+        plumber({
+          errorHandler: notify.onError("Sass Error: <%= error.message %>"),
+        })
+      )
+      .pipe(gulpSass())
+      .pipe(postcss([autoprefixer(), cssSorter(), mergeRules()]))
+      // 通常版を出力
+      .pipe(gulp.dest("./css/"))
+      .pipe(cleanCSS(isProduction ? { level: 2 } : {}))
+      // ファイル名を変更してmin版を出力
+      .pipe(rename({ suffix: ".min" }))
+      .pipe(gulp.dest("./css/"))
+      .pipe(browserSync.stream())
+  );
+  // .pipe(notify({ message: "Sass compile and min.css created." }));
 }
-
 
 // ===============================================
 // # JSを圧縮
 // ===============================================
 function formatJS() {
-  return gulp
-    .src("./src/assets/js/**/*.js")
-    .pipe(plumber({ errorHandler: notify.onError("JS Error: <%= error.message %>") }))
-    // まず通常版（そのまま）を出力
-    .pipe(gulp.dest("./js/"))
-    // 次にmin化する
-    .pipe(uglify())
-    // ファイル名に .min をつける
-    .pipe(rename({ suffix: ".min" }))
-    // min版を出力
-    .pipe(gulp.dest("./js/"))
-    .pipe(browserSync.stream())
-    // .pipe(notify({ message: "JS compile and min.js created." }));
+  return (
+    gulp
+      .src("./src/assets/js/**/*.js")
+      .pipe(
+        plumber({
+          errorHandler: notify.onError("JS Error: <%= error.message %>"),
+        })
+      )
+      // まず通常版（そのまま）を出力
+      .pipe(gulp.dest("./js/"))
+      // 次にmin化する
+      .pipe(uglify())
+      // ファイル名に .min をつける
+      .pipe(rename({ suffix: ".min" }))
+      // min版を出力
+      .pipe(gulp.dest("./js/"))
+      .pipe(browserSync.stream())
+  );
+  // .pipe(notify({ message: "JS compile and min.js created." }));
 }
 
 // ===============================================
@@ -218,9 +226,6 @@ async function copyImage() {
   }
 }
 
-
-
-
 // ===============================================
 // # SCSSパーシャル自動生成
 // ===============================================
@@ -230,24 +235,31 @@ function generateIndexScss(done) {
     if (fs.existsSync(fullPath) && fs.lstatSync(fullPath).isDirectory()) {
       let files = fs
         .readdirSync(fullPath)
-        .filter(file => file.endsWith(".scss") && file !== "index.scss") // index.scssは完全除外
+        .filter((file) => file.endsWith(".scss") && file !== "index.scss") // index.scssは完全除外
         .sort(); // ソートするのは純粋な子scssファイルだけ
 
-      // 新しく追加されたファイルに @use '../global' を追記
-      files.forEach(file => {
+      files.forEach((file) => {
         const filePath = path.join(fullPath, file);
-        let fileContent = fs.readFileSync(filePath, 'utf8');
+        let fileContent = fs.readFileSync(filePath, "utf8");
 
-        // _second.scss などが追加された場合に @use '../global' を追記
-        if (!fileContent.includes('@use \'../global\' as *;')) {
-          fileContent = `@use '../global' as *;\n${fileContent}`;
-          fs.writeFileSync(filePath, fileContent, 'utf8');
+        const importLine = "@use '../global' as *;";
+        const normalizedContent = fileContent.replace(/\s+/g, " ").trim();
+        const alreadyIncluded =
+          normalizedContent.includes("@use '../global' as *;") ||
+          normalizedContent.includes('@use "../global" as *;');
+
+        if (!alreadyIncluded) {
+          fileContent = `${importLine}\n${fileContent}`;
+          fs.writeFileSync(filePath, fileContent, "utf8");
         }
       });
 
-      const importStatements = files.length > 0
-        ? files.map(file => `@use "${file.replace(".scss", "")}";`).join("\n")
-        : '';
+      const importStatements =
+        files.length > 0
+          ? files
+              .map((file) => `@use "${file.replace(".scss", "")}";`)
+              .join("\n")
+          : "";
 
       fs.writeFileSync(
         path.join(fullPath, "index.scss"),
@@ -258,7 +270,6 @@ function generateIndexScss(done) {
   done();
 }
 
-
 // ===============================================
 // # 共通エラーハンドラ（ブラウザ通知対応版）
 // ===============================================
@@ -266,10 +277,9 @@ const errorHandler = (title) => {
   return plumber({
     errorHandler: (err) => {
       console.error(`${title}: ${err.message}`); // エラーメッセージをコンソールに出力
-    }
+    },
   });
 };
-
 
 // // ===============================================
 // // # HTML内の画像パスをWebPに置換
@@ -291,14 +301,16 @@ function beautifyHtml() {
   return gulp
     .src("./**/*.html")
     .pipe(plumber({ errorHandler }))
-    .pipe(htmlBeautify({
-      indent_size: 2,  // インデント幅（スペース2個）
-      indent_char: ' ', // スペースでインデント
-      max_preserve_newlines: 1, // 連続改行を最大1行まで許可
-      preserve_newlines: true,
-      end_with_newline: true // ファイルの最後を改行で終わらせる
-    }))
-    .pipe(gulp.dest("./"))
+    .pipe(
+      htmlBeautify({
+        indent_size: 2, // インデント幅（スペース2個）
+        indent_char: " ", // スペースでインデント
+        max_preserve_newlines: 1, // 連続改行を最大1行まで許可
+        preserve_newlines: true,
+        end_with_newline: true, // ファイルの最後を改行で終わらせる
+      })
+    )
+    .pipe(gulp.dest("./"));
 }
 
 // ===============================================
@@ -311,18 +323,9 @@ exports.copyImageTask = copyImage;
 // exports.updateHtmlTask = updateHtml;
 exports.beautifyHtmlTask = beautifyHtml;
 
-
-exports.dev = gulp.series(
-  browserInit,
-  watchFiles
-);
+exports.dev = gulp.series(browserInit, watchFiles);
 exports.build = gulp.series(
   gulp.parallel(formatJS, compileSass, copyImage),
   // updateHtml,
   beautifyHtml
 );
-
-
-
-
-

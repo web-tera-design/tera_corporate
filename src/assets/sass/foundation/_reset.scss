@@ -1,4 +1,5 @@
-@use '../global' as *;
+@use "../global" as *;
+
 /* ============================
    ✅ シンプルなリセットCSS
    ============================ */
@@ -27,15 +28,20 @@ table {
   border-spacing: 0;
 }
 
-
 /* 見出しタグのデフォルトのマージンやフォントのリセット */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-weight: normal;
 }
 
 /* リストのデフォルトスタイルのリセット */
-ul, ol {
+ul,
+ol {
   list-style: none;
   list-style-type: none;
 }
@@ -79,6 +85,3 @@ button {
   appearance: none;
   -webkit-appearance: none;
 }
-
-
-
