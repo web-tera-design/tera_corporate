@@ -175,12 +175,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const hasVisited = localStorage.getItem("visited"); // ✅ 初回アクセス判定用
 
   // ✅ Swiperスライド内のテキストを取得
-  const swiperTexts = document.querySelectorAll(".swiper-slide__text");
+  const swiperTexts = document.querySelectorAll(
+    ".p-index-mv-swiper-slide__text"
+  );
 
   // ✅ 一文字ずつ出現アニメーション
   function startTypingAnimation(target, delay = 0) {
     const headings = target.querySelectorAll(
-      ".swiper-slide__heading, .swiper-slide__sub"
+      ".p-index-mv-swiper-slide__heading, .p-index-mv-swiper-slide__sub"
     );
     const globalStartDelay = 1.5; // 全体のディレイを追加
 
@@ -201,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ✅ スライド画像のGSAPアニメーション
   function animateSlideImage() {
     const currentImg = document.querySelector(
-      ".swiper-slide-active .slide-img"
+      ".swiper-slide-active .p-index-mv-slide-img"
     );
     if (!currentImg) return;
 
@@ -223,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 初期ロード時にもテキストをタイプさせる
     swiperTexts.forEach((text) => startTypingAnimation(text));
 
-    const cardSwiper = new Swiper(".card__swiper", {
+    const cardSwiper = new Swiper(".p-index-mv-card__swiper", {
       speed: 1000,
       effect: "fade",
       loop: true,
@@ -242,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // ✅ 初期化時のテキスト/画像演出
         init: () => {
           const activeSlide = document.querySelector(
-            ".swiper-slide-active .swiper-slide__text"
+            ".swiper-slide-active .p-index-mv-swiper-slide__text"
           );
           if (activeSlide) startTypingAnimation(activeSlide);
           animateSlideImage();
@@ -250,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // ✅ スライド切り替え時の演出
         slideChangeTransitionStart: () => {
           const activeSlide = document.querySelector(
-            ".swiper-slide-active .swiper-slide__text"
+            ".swiper-slide-active .p-index-mv-swiper-slide__text"
           );
           if (activeSlide) startTypingAnimation(activeSlide);
           animateSlideImage();
