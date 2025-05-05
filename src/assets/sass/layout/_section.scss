@@ -1,0 +1,8 @@
+@use "../global" as *;
+
+.l-section__inner {
+  box-sizing: initial;
+  max-inline-size: calc($viewport-inner * 1px);
+  padding-inline: calc($horizontal-spacing-sp * 1px);
+  margin-inline: auto;
+}
