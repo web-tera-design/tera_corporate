@@ -1,10 +1,5 @@
 @use '../global' as *;
-
-body {
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    color: $text-primary;
-    background-color: $bg-primary;
-}
+@use "../global" as *;
 
 .mv {
   max-width: 1920px;
@@ -12,14 +7,14 @@ body {
 }
 
 .card {
- padding-block-start: rclamp(140, 160, 375, 1280);
- overflow: hidden;
+  padding-block-start: rclamp(140, 160, 375, 1280);
+  overflow: hidden;
 }
 .card__inner {
- padding-inline: rclamp(20, 60, 375, 1280);
- position: relative;
+  padding-inline: rclamp(20, 60, 375, 1280);
+  position: relative;
 }
-.card__swiper-container  {
+.card__swiper-container {
   position: relative;
   max-inline-size: 1920px;
   margin-inline: auto;
@@ -45,17 +40,17 @@ body {
   justify-content: center;
   height: 100%;
   width: 100%;
-  border-radius: rclamp(20, 20, 375, 1280);//imgのborder-radius
-  
-   @include mq(lg) {
+  border-radius: rclamp(20, 20, 375, 1280); //imgのborder-radius
+
+  @include mq(lg) {
     //  inline-size: calc(1160 / 1280 * 100%);
     inline-size: 100%;
-     aspect-ratio: 1160 / 520;
+    aspect-ratio: 1160 / 520;
     //  height: rem(520);
-   }
+  }
 
-   img {
-    border-radius: rclamp(20, 20, 375, 1280);//imgのborder-radius
+  img {
+    border-radius: rclamp(20, 20, 375, 1280); //imgのborder-radius
     display: block;
     inline-size: 100%;
     block-size: 100%;
@@ -65,7 +60,7 @@ body {
     // opacity: 0;
     // transform: translateY(-50%);
     // animation: none;
-   }
+  }
 }
 
 // .card__swiper-slide img.animate-in {
@@ -85,25 +80,25 @@ body {
 
 //画面内に文言入れる
 .swiper-slide__text {
-   display: block;
-   position: absolute;
-   bottom: 10%;
-   left: 5%;
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
 }
 
 .swiper-slide__heading,
 .swiper-slide__sub {
-   position: relative;
-   inline-size: fit-content;
-   color: #FFF;
-   text-shadow: 4px 6px 6px rgba(0, 0, 0, 0.20);
-   font-size: rclamp(20, 32, 375, 1280);
-   font-weight: 700;
-   letter-spacing: 2.56px;
+  position: relative;
+  inline-size: fit-content;
+  color: #fff;
+  text-shadow: 4px 6px 6px rgba(0, 0, 0, 0.2);
+  font-size: rclamp(20, 32, 375, 1280);
+  font-weight: 700;
+  letter-spacing: 2.56px;
 
-   @include mq(lg) {
-     font-size: rclamp(32, 40, 1280, 1920);
-   }
+  @include mq(lg) {
+    font-size: rclamp(32, 40, 1280, 1920);
+  }
 }
 
 /* ✅ 一文字ずつ出現のベース設定（バウンドエフェクト追加） */
@@ -133,7 +128,7 @@ body {
 
 .swiper-slide__heading::after,
 .swiper-slide__sub::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -5px; // ちょっと下げる
@@ -157,13 +152,11 @@ body {
   }
 }
 
-
 .swiper-slide__heading {
-
 }
 
 .swiper-slide__sub {
-   margin-block-start: rclamp(13, 17, 375, 1280);
+  margin-block-start: rclamp(13, 17, 375, 1280);
 }
 
 .card__swiper-bottom {
@@ -177,8 +170,8 @@ body {
 //位置のreset
 .swiper-button-prev,
 .swiper-button-next,
-.swiper-pagination-bullets.swiper-pagination-horizontal  {
-// position: relative;矢印・ページネーション・矢印にしたい時
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  // position: relative;矢印・ページネーション・矢印にしたい時
   inset-block-start: unset;
   inset-block-end: unset;
   inset-inline-start: unset;
@@ -197,24 +190,22 @@ body {
 //各ボタンのカスタマイズ
 .swiper-button-prev,
 .swiper-button-next {
-  inset-block-start: 50%;//左右両端配置の場合
+  inset-block-start: 50%; //左右両端配置の場合
   translate: 0 -50%;
   //bottom: calc(100% + 20px);画面右上配置の場合
   inline-size: rclamp(32, 48, 375, 1280);
   // block-size: rclamp(32, 48, 375, 1280);
   svg {
-       inline-size: 100%;
-       block-size: 100%;
+    inline-size: 100%;
+    block-size: 100%;
   }
 }
 .swiper-button-prev {
-   inset-inline-start: rem(-20);//左右両端配置の場合
-   //right: 54px;画面右上配置の場合
-
+  inset-inline-start: rem(-20); //左右両端配置の場合
+  //right: 54px;画面右上配置の場合
 }
 .swiper-button-next {
-   inset-inline-end: rem(-20);
-
+  inset-inline-end: rem(-20);
 }
 
 // =============================
@@ -229,7 +220,8 @@ body {
   //inline-size: fit-content;矢印・ページネーション・矢印用
 }
 //それぞれのページネーション
-.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet {
+.swiper-pagination-bullets.swiper-pagination-horizontal
+  .swiper-pagination-bullet {
   opacity: 1;
   inline-size: rclamp(6, 8, 375, 1280);
   block-size: auto;
@@ -238,14 +230,15 @@ body {
   background: #d9d9d9;
   margin-inline: calc(11px / 2);
   &:first-of-type {
-   margin-left: 0;
+    margin-left: 0;
   }
   // inline-size: 40px;円でなく横に伸びる棒状
   // block-size: 5px;
   // border-radius: 0;
 }
 //activeな部分
-.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet-active {
+.swiper-pagination-bullets.swiper-pagination-horizontal
+  .swiper-pagination-bullet-active {
   background: $btn-primary;
 }
 
@@ -254,11 +247,9 @@ body {
 // =============================
 //位置の設定と外枠
 .swiper-pagination-progressbar.swiper-pagination-horizontal {
-
 }
 //activeな部分
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-
 }
 
 .mv__info {
@@ -269,8 +260,7 @@ body {
     display: grid;
     gap: rclamp(10, 60, 768, 1280);
     grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-    "content image";
+    grid-template-areas: "content image";
     align-items: center;
   }
 }
@@ -282,13 +272,13 @@ body {
   inline-size: min(100%, rem(640));
   margin-inline: auto;
   border-radius: 12px;
-  background: #FFF;
+  background: #fff;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 
-   img {
+  img {
     inline-size: 100%;
     display: block;
-   }
+  }
   @include mq(lg) {
     inline-size: rclamp(336, 715, 900, 1920);
     // inline-size: 37%;
@@ -301,7 +291,7 @@ body {
   margin-block-start: rem(20);
   inline-size: min(100%, rem(640));
   margin-inline: auto;
-  
+
   @include mq(lg) {
     grid-area: content;
     // inline-size: min(100%, rem(740));
@@ -361,7 +351,9 @@ body {
   padding-block: rem(10);
   display: inline-block;
   color: $text-primary;
-  transition: color 0.3s ease, transform 0.3s ease,;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
   text-decoration: underline;
 
   @media (any-hover: hover) {
@@ -373,8 +365,6 @@ body {
     }
   }
 }
-
-
 
 .mv__info-news {
   position: relative;
@@ -401,8 +391,6 @@ body {
     }
   }
 }
-
-
 
 .mv__info-news-time {
   font-size: rem(12);
@@ -452,7 +440,6 @@ body {
 }
 
 .concept__heading-group {
-
 }
 
 .concept__subheading {
@@ -507,11 +494,10 @@ body {
   gap: rem(22);
   inline-size: fit-content;
 
-  svg{
+  svg {
     margin-inline-end: rem(-20);
     stroke: currentColor;
     transition: all 0.3s ease;
-
 
     @include mq(lg) {
     }
@@ -531,7 +517,7 @@ body {
 
 .concept__image {
   margin-block-start: rem(40);
-  inline-size: min(calc(335 / 375 * 100%),rem(770));
+  inline-size: min(calc(335 / 375 * 100%), rem(770));
 
   @include mq(lg) {
     inline-size: 100%;
@@ -540,8 +526,9 @@ body {
 
   img {
     border-radius: 0px 20px 20px 0px;
-    background: url(<path-to-image>) lightgray 361.924px -30.529px / -116.721% 112.999% no-repeat;
-    
+    background: url(<path-to-image>) lightgray 361.924px -30.529px / -116.721%
+      112.999% no-repeat;
+
     @include mq(lg) {
       margin-block-start: rem(180);
       block-size: rem(438);
@@ -561,7 +548,7 @@ body {
     width: 100%;
     height: auto;
   }
-  
+
   @include mq(lg) {
     inset-inline-start: 30%;
     inset-block-start: rclamp(50, 0, 1280, 2560);
@@ -584,7 +571,6 @@ body {
 
 .recommend__heading {
   // text-align: center;
-  
 }
 
 .recommend__heading-title {
@@ -601,7 +587,7 @@ body {
   place-items: center;
   justify-content: center;
   align-items: flex-start;
-  
+
   @include mq(md) {
     // grid-template-columns: repeat(auto-fit, minmax(rem(276), 1fr));
   }
@@ -641,7 +627,7 @@ body {
 }
 
 .text__accent {
-  color: #EE5A6D;
+  color: #ee5a6d;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
@@ -651,7 +637,7 @@ body {
   margin-block-start: rclamp(214, 335, 375, 1280);
   position: relative;
   padding-block-start: rclamp(29, 104, 375, 1280);
-  margin-inline: auto;;
+  margin-inline: auto;
   background: #dff1fd;
   z-index: 1;
   padding-block-end: rclamp(62, 83, 375, 1280);
@@ -672,7 +658,7 @@ body {
 
 .medical__bg-bottom {
   position: absolute;
-  z-index:-1;
+  z-index: -1;
   inset-inline: 0;
   // inset-block-end: -28px;
   inset-block-end: rclamp(-28, -97, 375, 1280);
@@ -730,17 +716,14 @@ body {
   }
 }
 
-
 .medical__heading {
-  
 }
 
 .medical__heading-title {
-  line-height: rclamp(1.4, 1.2, 375, 1280)
+  line-height: rclamp(1.4, 1.2, 375, 1280);
 }
 
 .--heading {
-  
 }
 
 .medical__container {
@@ -757,9 +740,8 @@ body {
   gap: rclamp(20, 80, 375, 1280);
   @include mq(md) {
     grid-template-columns: repeat(2, 1fr);
-}
   }
-
+}
 
 .medical__service {
   inline-size: 100%;
@@ -788,7 +770,7 @@ body {
     border-radius: rem(20);
     transform: scale(1);
     transition: transform 0.3s ease-out;
-    }
+  }
 
   &::after {
     content: "";
@@ -801,18 +783,17 @@ body {
     z-index: 0;
     transition: 0.4s ease-out;
   }
-
 }
 
 .--service1 {
   &::before {
-    background: url(../img/medical-image1.png) no-repeat center 40%/ cover;
+    background: url(../img/medical-image1.png) no-repeat center 40% / cover;
   }
 }
 
 .--service2 {
   &::before {
-    background: url(../img/medical__bg-image2.webp) no-repeat center 10%/ cover;
+    background: url(../img/medical__bg-image2.webp) no-repeat center 10% / cover;
   }
 }
 
@@ -825,7 +806,7 @@ body {
   z-index: 1;
   border: 3px solid transparent;
   transition: border-color 0.3s ease-out;
-  
+
   &:hover {
     border-color: #fff;
   }
@@ -880,7 +861,6 @@ body {
   padding-block-start: rclamp(18, 36, 375, 1280);
   padding-inline: rclamp(20, 40, 375, 1280);
   padding-block-end: rclamp(17, 35, 375, 1280);
-
 }
 .text__accent--medical {
   line-height: rclamp(24, 28, 375, 1280);
@@ -891,20 +871,17 @@ body {
 }
 
 .blog__heading {
-
 }
 
 .heading {
-
 }
 
 .blog__container {
   margin-block-start: rclamp(48, 80, 375, 1280);
   max-inline-size: rem(600);
-  margin-inline: auto;;
+  margin-inline: auto;
   @include mq(md) {
     max-inline-size: rem(1040);
-    
   }
 }
 
@@ -930,19 +907,18 @@ body {
   transition: all 0.3s ease;
   position: relative;
 
-
   @include mq(md) {
     gap: 0;
     grid-template-columns: 1fr;
     inline-size: rclamp(240, 300, 375, 1280);
     border-radius: rem(20);
     overflow: hidden;
-    background: #FFF;
+    background: #fff;
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   }
 
   &:hover {
-    .blog__image img{
+    .blog__image img {
       transform: scale(1.1);
     }
 
@@ -959,7 +935,7 @@ body {
   @include mq(md) {
     block-size: rem(188);
   }
-  
+
   img {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     inline-size: 100%;
@@ -992,7 +968,7 @@ body {
   font-size: rclamp(10, 11, 375, 1280);
   font-weight: 500;
   border-radius: rem(10);
-  background: #1391E6;
+  background: #1391e6;
 
   @include mq(md) {
     position: absolute;
@@ -1010,16 +986,13 @@ body {
   padding-inline-end: 8px;
 
   @include mq(md) {
-    
   }
-
 }
 
 .blog__datetime {
   color: #888;
   font-size: 11px;
   font-weight: 500;
-
 }
 
 .blog__link {
@@ -1035,28 +1008,28 @@ body {
   padding-inline-end: rem(12);
   padding-block-end: rclamp(10, 11, 375, 1280);
   padding-inline-start: rclamp(40, 46, 375, 1280);
-  color: #1391E6;//svgの色
+  color: #1391e6; //svgの色
   transition: all 0.3s ease;
 
-    svg {
-      inline-size: rem(12);
-      block-size: rem(12);
-      transition: 0.3s ease;
-  
-      path {
-        stroke: currentColor;
-        // fill: currentColor;
-        transition: stroke 0.3s ease;
-      }
-    }
-  
-    &:hover {
-      background-color: #1391E6;
-      color: #fff;
-      border-color: #1391E6;
+  svg {
+    inline-size: rem(12);
+    block-size: rem(12);
+    transition: 0.3s ease;
 
-      svg {
-        transform: translateX(rem(4))
-      }
+    path {
+      stroke: currentColor;
+      // fill: currentColor;
+      transition: stroke 0.3s ease;
     }
+  }
+
+  &:hover {
+    background-color: #1391e6;
+    color: #fff;
+    border-color: #1391e6;
+
+    svg {
+      transform: translateX(rem(4));
+    }
+  }
 }

@@ -1,0 +1,8 @@
+@use '../global' as *;
+@use "../global" as *;
+
+body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  color: $text-primary;
+  background-color: $bg-primary;
+}
