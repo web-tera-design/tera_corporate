@@ -1563,29 +1563,29 @@ button {
   line-height: clamp(1.5rem, 1.3964088398rem + 0.4419889503vw, 1.75rem);
 }
 
-.blog {
+.c-blog {
   margin-block-start: clamp(8rem, 7.2230662983rem + 3.3149171271vw, 9.875rem);
 }
 
-.blog__container {
+.c-blog__container {
   margin-block-start: clamp(3rem, 2.1712707182rem + 3.5359116022vw, 5rem);
   margin-inline: auto;
   max-inline-size: 37.5rem;
 }
 @media screen and (min-width: 768px) {
-  .blog__container {
+  .c-blog__container {
     max-inline-size: 65rem;
   }
 }
 
-.blog__cards {
+.c-blog__cards {
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr;
   padding-inline: 1.25rem;
 }
 @media screen and (min-width: 768px) {
-  .blog__cards {
+  .c-blog__cards {
     gap: clamp(1.25rem, -1.5625rem + 5.859375vw, 3.125rem);
     grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
     inline-size: 100%;
@@ -1594,7 +1594,7 @@ button {
   }
 }
 
-.blog__card {
+.c-blog__card {
   display: grid;
   gap: 10px;
   grid-template-columns: clamp(8.3125rem, 1.9312977099rem + 27.2264631043vw, 15rem) 1fr;
@@ -1602,7 +1602,7 @@ button {
   transition: all 0.3s ease;
 }
 @media screen and (min-width: 768px) {
-  .blog__card {
+  .c-blog__card {
     background: #fff;
     border-radius: 1.25rem;
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
@@ -1612,25 +1612,25 @@ button {
     overflow: hidden;
   }
 }
-.blog__card:hover .blog__image img {
+.c-blog__card:hover .c-blog__image img {
   transform: scale(1.1);
 }
-.blog__card:hover .blog__text {
+.c-blog__card:hover .c-blog__text {
   color: #1391E6;
 }
 
-.blog__image {
+.c-blog__image {
   -o-object-fit: cover;
   block-size: 6.25rem;
      object-fit: cover;
   overflow: hidden;
 }
 @media screen and (min-width: 768px) {
-  .blog__image {
+  .c-blog__image {
     block-size: 11.75rem;
   }
 }
-.blog__image img {
+.c-blog__image img {
   -o-object-fit: cover;
   block-size: 100%;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -1639,7 +1639,7 @@ button {
   transition: all 0.3s ease;
 }
 
-.blog__content {
+.c-blog__content {
   display: flex;
   flex-direction: column;
   gap: 0.375rem;
@@ -1647,14 +1647,14 @@ button {
   margin-block-start: 0.375rem;
 }
 @media screen and (min-width: 768px) {
-  .blog__content {
+  .c-blog__content {
     gap: 0.25rem;
     justify-content: start;
     padding: 24px 24px 12px 24px;
   }
 }
 
-.blog__label {
+.c-blog__label {
   background: #1391e6;
   border-radius: 0.625rem;
   color: #fff;
@@ -1666,7 +1666,7 @@ button {
   padding: 0.0625rem 0.5rem 0.0625rem;
 }
 @media screen and (min-width: 768px) {
-  .blog__label {
+  .c-blog__label {
     border-radius: 0.875rem;
     margin-block-start: -2.5rem;
     padding: 6.24px 12px 5.76px 12px;
@@ -1674,25 +1674,26 @@ button {
   }
 }
 
-.blog__text {
+.c-blog__text {
   color: #393939;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px; /* 142.857% */
   padding-inline-end: 8px;
 }
-.blog__datetime {
+.c-blog__datetime {
   color: #888;
   font-size: 11px;
   font-weight: 500;
 }
 
-.blog__link {
+.c-blog__link {
   display: flex;
+  justify-content: center;
   margin-block-start: clamp(2.5rem, 1.9820441989rem + 2.2099447514vw, 3.75rem);
 }
 
-.blog__button {
+.c-blog__button {
   color: #1391e6;
   gap: 1rem;
   padding-block-end: clamp(0.625rem, 0.5991022099rem + 0.1104972376vw, 0.6875rem);
@@ -1701,20 +1702,20 @@ button {
   padding-inline-start: clamp(2.5rem, 2.3446132597rem + 0.6629834254vw, 2.875rem);
   transition: all 0.3s ease;
 }
-.blog__button svg {
+.c-blog__button svg {
   block-size: 0.75rem;
   inline-size: 0.75rem;
   transition: 0.3s ease;
 }
-.blog__button svg path {
+.c-blog__button svg path {
   stroke: currentColor;
   transition: stroke 0.3s ease;
 }
-.blog__button:hover {
+.c-blog__button:hover {
   background-color: #1391e6;
   border-color: #1391e6;
   color: #fff;
 }
-.blog__button:hover svg {
+.c-blog__button:hover svg {
   transform: translateX(0.25rem);
 }

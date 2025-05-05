@@ -864,17 +864,17 @@
   line-height: rclamp(24, 28, 375, 1280);
 }
 
-.blog {
+.c-blog {
   margin-block-start: rclamp(128, 158, 375, 1280);
 }
 
-.blog__heading {
+.c-blog__heading {
 }
 
 .heading {
 }
 
-.blog__container {
+.c-blog__container {
   margin-block-start: rclamp(48, 80, 375, 1280);
   max-inline-size: rem(600);
   margin-inline: auto;
@@ -883,7 +883,7 @@
   }
 }
 
-.blog__cards {
+.c-blog__cards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -898,7 +898,7 @@
   }
 }
 
-.blog__card {
+.c-blog__card {
   display: grid;
   gap: 10px;
   grid-template-columns: rclamp(133, 240, 375, 768) 1fr;
@@ -916,17 +916,17 @@
   }
 
   &:hover {
-    .blog__image img {
+    .c-blog__image img {
       transform: scale(1.1);
     }
 
-    .blog__text {
+    .c-blog__text {
       color: $text-link;
     }
   }
 }
 
-.blog__image {
+.c-blog__image {
   block-size: rem(100);
   object-fit: cover;
   overflow: hidden;
@@ -943,7 +943,7 @@
   }
 }
 
-.blog__content {
+.c-blog__content {
   // display: grid;
   // grid-template-columns: 1fr;
   margin-block-start: rem(6);
@@ -958,7 +958,7 @@
   }
 }
 
-.blog__label {
+.c-blog__label {
   display: inline-block;
   padding: rem(1) rem(8) rem(1);
   inline-size: fit-content;
@@ -976,7 +976,7 @@
   }
 }
 
-.blog__text {
+.c-blog__text {
   color: $text-primary;
   font-size: 14px;
   font-weight: 500;
@@ -987,18 +987,19 @@
   }
 }
 
-.blog__datetime {
+.c-blog__datetime {
   color: #888;
   font-size: 11px;
   font-weight: 500;
 }
 
-.blog__link {
+.c-blog__link {
   margin-block-start: rclamp(40, 60, 375, 1280);
   display: flex;
+  justify-content: center;
 }
 
-.blog__button {
+.c-blog__button {
   //親もdisplay: flex;
   //htmlでpathの色削除
   gap: rem(16);
