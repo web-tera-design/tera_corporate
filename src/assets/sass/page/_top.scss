@@ -634,7 +634,7 @@
   line-height: 24px;
 }
 
-.medical {
+.p-index-medical {
   margin-block-start: rclamp(214, 335, 375, 1280);
   position: relative;
   padding-block-start: rclamp(29, 104, 375, 1280);
@@ -644,7 +644,7 @@
   padding-block-end: rclamp(62, 83, 375, 1280);
 }
 
-.medical__bg-top {
+.c-medical__bg-top {
   position: absolute;
   z-index: -1;
   inset-block-start: rclamp(-85, -201, 375, 1280);
@@ -657,7 +657,7 @@
   }
 }
 
-.medical__bg-bottom {
+.c-medical__bg-bottom {
   position: absolute;
   z-index: -1;
   inset-inline: 0;
@@ -717,23 +717,20 @@
   }
 }
 
-.medical__heading {
+.p-index-medical__heading {
 }
 
-.medical__heading-title {
+.p-index-medical__heading-title {
   line-height: rclamp(1.4, 1.2, 375, 1280);
 }
 
-.--heading {
-}
-
-.medical__container {
+.p-index-medical__container {
   inline-size: min(rem(1000), 100%);
   margin-inline: auto;
   padding-inline: rem(20);
 }
 
-.medical__services {
+.p-index-medical__services {
   display: grid;
   grid-template-columns: 1fr;
   margin-block-start: rem(40);
@@ -744,7 +741,7 @@
   }
 }
 
-.medical__service {
+.p-index-medical__service {
   inline-size: 100%;
   block-size: rclamp(210, 290, 375, 1280);
   position: relative;
@@ -786,19 +783,19 @@
   }
 }
 
-.--service1 {
+.p-index-medical--service1 {
   &::before {
     background: url(../img/medical-image1.png) no-repeat center 40% / cover;
   }
 }
 
-.--service2 {
+.p-index-medical--service2 {
   &::before {
     background: url(../img/medical__bg-image2.webp) no-repeat center 10% / cover;
   }
 }
 
-.medical__service-link-line {
+.p-index-medical__service-link-line {
   position: absolute;
   display: grid;
   place-items: center;
@@ -813,7 +810,7 @@
   }
 }
 
-.medical__link-container {
+.p-index-medical__link-container {
   text-align: center;
   z-index: 2;
   // top: 50%;
@@ -821,7 +818,7 @@
   // transform: translate(-50%, -50%);
 }
 
-.medical__service-title {
+.p-index-medical__service-title {
   font-size: rclamp(20, 28, 375, 1280);
   padding-bottom: 42px;
   position: relative;
@@ -842,7 +839,7 @@
   }
 }
 
-.medical__service-description {
+.p-index-medical__service-description {
   color: $btn-secondary;
   font-size: rclamp(12, 16, 375, 1280);
   font-weight: 700;
@@ -850,7 +847,7 @@
   margin-block-start: rem(20);
 }
 
-.medical__text {
+.p-index-medical__text {
   inline-size: 100%;
   margin-inline: auto;
   background: $btn-secondary;
@@ -863,7 +860,7 @@
   padding-inline: rclamp(20, 40, 375, 1280);
   padding-block-end: rclamp(17, 35, 375, 1280);
 }
-.text__accent--medical {
+.p-index-medical-text__accent--medical {
   line-height: rclamp(24, 28, 375, 1280);
 }
 
