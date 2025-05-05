@@ -843,10 +843,10 @@ button {
 }
 @media screen and (min-width: 900px) {
   .c-concept {
-    display: flex;
-    flex-direction: row-reverse;
+    display: grid;
     gap: 5.9375rem;
-    justify-content: start;
+    grid-template-areas: "image content";
+    grid-template-columns: 50% 32%;
     margin-block-start: 0;
     padding-block-end: 9.375rem;
     padding-block-start: 2.5rem;
@@ -855,7 +855,8 @@ button {
 
 @media screen and (min-width: 768px) {
   .c-concept--row {
-    flex-direction: row;
+    grid-template-areas: "content image";
+    grid-template-columns: 32% 50%;
     justify-content: end;
   }
 }
@@ -867,7 +868,7 @@ button {
 @media screen and (min-width: 900px) {
   .c-concept__content {
     align-self: center;
-    inline-size: 32%;
+    grid-area: content;
     padding-inline: 0;
   }
 }
@@ -954,7 +955,8 @@ button {
 }
 @media screen and (min-width: 900px) {
   .c-concept__image {
-    inline-size: 50%;
+    grid-area: image;
+    inline-size: 100%;
     margin-block-start: 0;
   }
 }

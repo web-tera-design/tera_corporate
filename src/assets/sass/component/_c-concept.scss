@@ -9,16 +9,17 @@
     margin-block-start: 0;
     padding-block-start: rem(40);
     padding-block-end: rem(150);
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: start;
     gap: rem(95);
+    display: grid;
+    grid-template-areas: "image content";
+    grid-template-columns: 50% 32%;
   }
 }
 
 .c-concept--row {
   @include mq(md) {
-    flex-direction: row;
+    grid-template-areas: "content image";
+    grid-template-columns: 32% 50%;
     justify-content: end;
   }
 }
@@ -30,7 +31,7 @@
   @include mq(lg) {
     padding-inline: 0;
     align-self: center;
-    inline-size: 32%;
+    grid-area: content;
   }
 }
 
@@ -118,8 +119,9 @@
   inline-size: min(calc(335 / 375 * 100%), rem(770));
 
   @include mq(lg) {
-    inline-size: 50%;
+    inline-size: 100%;
     margin-block-start: 0;
+    grid-area: image;
   }
 
   img {
