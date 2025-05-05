@@ -1169,13 +1169,13 @@ button {
   }
 }
 
-.concept {
+.c-concept {
   margin-block-start: clamp(3.75rem, 4.1919889503rem + -0.5524861878vw, 4.0625rem);
   overflow: hidden;
   position: relative;
 }
 @media screen and (min-width: 900px) {
-  .concept {
+  .c-concept {
     display: grid;
     gap: 5.625rem;
     grid-auto-flow: row-reverse;
@@ -1186,31 +1186,31 @@ button {
   }
 }
 
-.concept__content {
+.c-concept__content {
   padding-block-start: clamp(6.625rem, 4.7085635359rem + 8.1767955801vw, 11.25rem);
   padding-inline: 1.25rem;
 }
 @media screen and (min-width: 900px) {
-  .concept__content {
+  .c-concept__content {
     align-self: center;
     order: 2;
     padding-inline: 0;
   }
 }
 
-.concept__subheading {
+.c-concept__subheading {
   color: #1391E6;
   font-size: clamp(0.6875rem, 0.6098066298rem + 0.3314917127vw, 0.875rem);
   font-weight: 700;
   letter-spacing: clamp(0.06875rem, 0.060980663rem + 0.0331491713vw, 0.0875rem);
 }
 @media screen and (min-width: 900px) {
-  .concept__subheading {
+  .c-concept__subheading {
     font-size: clamp(0.875rem, -0.875rem + 2.1875vw, 1.75rem);
   }
 }
 
-.concept__heading {
+.c-concept__heading {
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: clamp(0.1rem, 0.0834254144rem + 0.070718232vw, 0.14rem);
@@ -1218,12 +1218,12 @@ button {
   margin-block-start: clamp(0.875rem, 0.6160220994rem + 1.1049723757vw, 1.5rem);
 }
 @media screen and (min-width: 900px) {
-  .concept__heading {
+  .c-concept__heading {
     font-size: clamp(1.5rem, -0.5rem + 2.5vw, 2.5rem);
   }
 }
 
-.concept__text {
+.c-concept__text {
   color: #393939;
   font-size: 0.875rem;
   font-weight: 500;
@@ -1231,62 +1231,64 @@ button {
   margin-block-start: clamp(1.6875rem, 1.4544198895rem + 0.9944751381vw, 2.25rem);
 }
 @media screen and (min-width: 900px) {
-  .concept__text {
+  .c-concept__text {
     font-size: clamp(0.875rem, -0.875rem + 2.1875vw, 1.75rem);
     line-height: 1.5;
   }
 }
 
-.concept__link {
+.c-concept__link {
   display: flex;
   justify-content: center;
   margin-block-start: 2.3125rem;
 }
 @media screen and (min-width: 900px) {
-  .concept__link {
+  .c-concept__link {
     justify-content: start;
   }
 }
 
-.concept__button {
+.c-concept__button {
   align-items: center;
+  color: #1391E6;
   display: flex;
   gap: 1.375rem;
   inline-size: -moz-fit-content;
   inline-size: fit-content;
+  padding-inline: clamp(2.5rem, 2.3446132597rem + 0.6629834254vw, 2.875rem);
   position: relative;
 }
-.concept__button svg {
+.c-concept__button svg {
   stroke: currentColor;
   margin-inline-end: -1.25rem;
   transition: all 0.3s ease;
 }
 @media (any-hover: hover) {
-  .concept__button:hover {
+  .c-concept__button:hover {
     background: #1391E6;
     color: #FFFFFF;
   }
-  .concept__button:hover svg {
+  .c-concept__button:hover svg {
     transform: translateX(10px);
   }
 }
 
-.concept__image {
+.c-concept__image {
   inline-size: min(89.3333333333%, 48.125rem);
   margin-block-start: 2.5rem;
 }
 @media screen and (min-width: 900px) {
-  .concept__image {
+  .c-concept__image {
     inline-size: 100%;
     margin-block-start: 0;
   }
 }
-.concept__image img {
+.c-concept__image img {
   background: url(<path-to-image>) lightgray 361.924px -30.529px/-116.721% 112.999% no-repeat;
   border-radius: 0px 20px 20px 0px;
 }
 @media screen and (min-width: 900px) {
-  .concept__image img {
+  .c-concept__image img {
     -o-object-fit: cover;
     block-size: 27.375rem;
     margin-block-start: 11.25rem;
@@ -1294,7 +1296,7 @@ button {
   }
 }
 
-.concept__bg-image {
+.c-concept__bg-image {
   inset-block-start: 0;
   inset-inline-start: 0;
   min-inline-size: 34.625rem;
@@ -1302,12 +1304,12 @@ button {
   position: absolute;
   z-index: -1;
 }
-.concept__bg-image img {
+.c-concept__bg-image img {
   height: auto;
   width: 100%;
 }
 @media screen and (min-width: 900px) {
-  .concept__bg-image {
+  .c-concept__bg-image {
     inset-block-start: clamp(0rem, 6.25rem + -3.90625vw, 3.125rem);
     inset-inline-start: 30%;
     min-inline-size: 80rem;

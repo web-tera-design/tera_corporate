@@ -411,7 +411,7 @@
   }
 }
 
-.concept {
+.c-concept {
   position: relative;
   margin-block-start: rclamp(65, 60, 375, 1280);
   overflow: hidden;
@@ -427,7 +427,7 @@
   }
 }
 
-.concept__content {
+.c-concept__content {
   padding-inline: rem(20);
   padding-block-start: rclamp(106, 180, 375, 1280);
 
@@ -438,10 +438,10 @@
   }
 }
 
-.concept__heading-group {
+.c-concept__heading-group {
 }
 
-.concept__subheading {
+.c-concept__subheading {
   color: $text-link;
   font-size: rclamp(11, 14, 375, 1280);
   font-weight: 700;
@@ -452,7 +452,7 @@
   }
 }
 
-.concept__heading {
+.c-concept__heading {
   margin-block-start: rclamp(14, 24, 375, 1280);
   font-size: rem(20);
   font-weight: 700;
@@ -464,7 +464,7 @@
   }
 }
 
-.concept__text {
+.c-concept__text {
   margin-block-start: rclamp(27, 36, 375, 1280);
   color: #393939;
   font-size: rem(14);
@@ -477,7 +477,7 @@
   }
 }
 
-.concept__link {
+.c-concept__link {
   margin-block-start: rem(37);
   display: flex;
   justify-content: center;
@@ -486,12 +486,14 @@
   }
 }
 
-.concept__button {
+.c-concept__button {
   position: relative;
   display: flex;
   align-items: center;
   gap: rem(22);
   inline-size: fit-content;
+  padding-inline: rclamp(40, 46, 375, 1280);
+  color: $text-link;
 
   svg {
     margin-inline-end: rem(-20);
@@ -514,7 +516,7 @@
   }
 }
 
-.concept__image {
+.c-concept__image {
   margin-block-start: rem(40);
   inline-size: min(calc(335 / 375 * 100%), rem(770));
 
@@ -536,7 +538,7 @@
   }
 }
 
-.concept__bg-image {
+.c-concept__bg-image {
   position: absolute;
   inset-block-start: 0;
   inset-inline-start: 0;
