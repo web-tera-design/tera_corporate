@@ -1,0 +1,74 @@
+@use "../global" as *;
+
+.c-medical__bg-top {
+  position: absolute;
+  z-index: -1;
+  inset-block-start: rclamp(-85, -201, 375, 1280);
+  inset-inline: 0;
+  block-size: rclamp(85, 201, 375, 1280);
+
+  img {
+    width: 100%;
+    block-size: 100%;
+  }
+}
+
+.c-medical__bg-bottom {
+  position: absolute;
+  z-index: -1;
+  inset-inline: 0;
+  // inset-block-end: -28px;
+  inset-block-end: rclamp(-28, -97, 375, 1280);
+  block-size: rclamp(28, 97, 375, 1280);
+  // block-size: 28px;
+  @include mq(md) {
+    // inset-block-end: -97px;
+    // block-size: 97px;
+  }
+
+  img {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    background: url(../img/deco-kirakira2-w.png) no-repeat center center / cover;
+    // inset-inline-start: 6px;
+    inset-inline-start: rclamp(6, 40, 375, 1280);
+    inset-block-start: rclamp(-40, -56, 375, 1280);
+    // inset-block-start: -40px;
+    inline-size: rclamp(24, 57, 375, 1280);
+    block-size: rclamp(25, 56, 375, 1280);
+    // inline-size: 24px;
+    // block-size: 25px;
+    @include mq(md) {
+      // inline-size: 57px;
+      // block-size: 56px;
+      // inset-inline-start: 40px;
+      // inset-block-start: -56px;
+    }
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    background: url(../img/deco-kirakira-w.png) no-repeat center center / cover;
+    // inline-size: 56px;
+    // block-size: 60px;
+    // inset-inline-end: 0px;
+    // inset-block-start: -60px;
+    inline-size: rclamp(56, 125, 375, 1280);
+    block-size: rclamp(60, 138, 375, 1280);
+    inset-inline-end: rclamp(0, 25, 375, 1280);
+    inset-block-start: rclamp(-60, -138, 375, 1280);
+
+    @include mq(md) {
+      // inline-size: 125px;
+      // block-size: 138px;
+      // inset-inline-end: 25px;
+      // inset-block-start: -138px;
+    }
+  }
+}
