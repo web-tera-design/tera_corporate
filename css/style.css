@@ -1316,24 +1316,24 @@ button {
   }
 }
 
-.recommend {
+.p-index-recommend {
   margin-block-start: clamp(6rem, 5.4561464088rem + 2.320441989vw, 7.3125rem);
 }
 
-.recommend__inner {
+.p-index-recommend__inner {
   margin-inline: auto;
   padding-inline: clamp(2.9375rem, 2.6008287293rem + 1.4364640884vw, 3.75rem);
   width: min(100%, 120rem);
 }
 
-.recommend__heading-title {
+.p-index-recommend__heading-title {
   font-size: clamp(1.25rem, 1.0428176796rem + 0.8839779006vw, 1.75rem);
   font-weight: 700;
   inline-size: 100%;
   letter-spacing: clamp(0.0725rem, 0.0445303867rem + 0.1193370166vw, 0.14rem);
 }
 
-.recommend__items {
+.p-index-recommend__items {
   align-items: flex-start;
   display: grid;
   gap: clamp(3.125rem, 3.125rem + 0vw, 3.125rem);
@@ -1342,31 +1342,31 @@ button {
   place-items: center;
 }
 @media screen and (min-width: 900px) {
-  .recommend__items {
+  .p-index-recommend__items {
     display: flex;
   }
 }
 
-.recommend__item:first-of-type img:first-of-type {
+.p-index-recommend__item:first-of-type img:first-of-type {
   inline-size: 11.0625rem;
 }
 
-.recommend__item {
+.p-index-recommend__item {
   display: grid;
   inline-size: clamp(16.9375rem, 0.8125rem + 20.15625vw, 25rem);
   place-items: center;
 }
-.recommend__item img {
+.p-index-recommend__item img {
   height: auto;
   inline-size: 100%;
 }
-.recommend__item img:first-of-type {
+.p-index-recommend__item img:first-of-type {
   height: auto;
   inline-size: 11.375rem;
   margin-block-end: clamp(0.75rem, 0.6723066298rem + 0.3314917127vw, 0.9375rem);
 }
 
-.recommend__text {
+.p-index-recommend__text {
   font-size: 0.875rem;
   font-weight: 500;
   inline-size: 100%;

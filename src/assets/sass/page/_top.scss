@@ -557,31 +557,31 @@
   }
 }
 
-.recommend {
+.p-index-recommend {
   margin-block-start: rclamp(96, 117, 375, 1280);
 }
 
-.recommend__inner {
+.p-index-recommend__inner {
   padding-inline: rclamp(47, 60, 375, 1280);
   margin-inline: auto;
   width: min(100%, rem(1920));
 }
 
-.recommend__heading-content {
+.p-index-recommend__heading-content {
 }
 
-.recommend__heading {
+.p-index-recommend__heading {
   // text-align: center;
 }
 
-.recommend__heading-title {
+.p-index-recommend__heading-title {
   inline-size: 100%;
   font-size: rclamp(20, 28, 375, 1280);
   font-weight: 700;
   letter-spacing: rclamp(1.16, 2.24, 375, 1280);
 }
 
-.recommend__items {
+.p-index-recommend__items {
   margin-block-start: rclamp(39, 60, 375, 1280);
   display: grid;
   gap: rclamp(50, 50, 375, 1280);
@@ -597,11 +597,11 @@
   }
 }
 
-.recommend__item:first-of-type img:first-of-type {
+.p-index-recommend__item:first-of-type img:first-of-type {
   inline-size: rem(177);
 }
 
-.recommend__item {
+.p-index-recommend__item {
   inline-size: rclamp(271, 400, 1280, 1920);
   display: grid;
   place-items: center;
@@ -618,7 +618,7 @@
   }
 }
 
-.recommend__text {
+.p-index-recommend__text {
   inline-size: 100%;
   margin-block-start: rclamp(20, 19, 375, 1280);
   text-align: left;
