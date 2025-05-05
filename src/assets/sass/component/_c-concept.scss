@@ -9,10 +9,17 @@
     margin-block-start: 0;
     padding-block-start: rem(40);
     padding-block-end: rem(150);
-    display: grid;
-    grid-template-columns: calc(640 / 1280 * 100%) calc(407 / 1280 * 100%);
-    grid-auto-flow: row-reverse;
-    gap: rem(90);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    gap: rem(95);
+  }
+}
+
+.c-concept--row {
+  @include mq(md) {
+    flex-direction: row;
+    justify-content: end;
   }
 }
 
@@ -22,8 +29,8 @@
 
   @include mq(lg) {
     padding-inline: 0;
-    order: 2;
     align-self: center;
+    inline-size: 32%;
   }
 }
 
@@ -111,20 +118,24 @@
   inline-size: min(calc(335 / 375 * 100%), rem(770));
 
   @include mq(lg) {
-    inline-size: 100%;
+    inline-size: 50%;
     margin-block-start: 0;
   }
 
   img {
     border-radius: 0px 20px 20px 0px;
-    background: url(<path-to-image>) lightgray 361.924px -30.529px / -116.721%
-      112.999% no-repeat;
 
     @include mq(lg) {
       margin-block-start: rem(180);
       block-size: rem(438);
       object-fit: cover;
     }
+  }
+}
+
+.c-concept__image--row {
+  img {
+    border-radius: 20px 0 0 20px;
   }
 }
 

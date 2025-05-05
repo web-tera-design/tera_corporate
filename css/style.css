@@ -843,13 +843,20 @@ button {
 }
 @media screen and (min-width: 900px) {
   .c-concept {
-    display: grid;
-    gap: 5.625rem;
-    grid-auto-flow: row-reverse;
-    grid-template-columns: 50% 31.796875%;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5.9375rem;
+    justify-content: start;
     margin-block-start: 0;
     padding-block-end: 9.375rem;
     padding-block-start: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .c-concept--row {
+    flex-direction: row;
+    justify-content: end;
   }
 }
 
@@ -860,7 +867,7 @@ button {
 @media screen and (min-width: 900px) {
   .c-concept__content {
     align-self: center;
-    order: 2;
+    inline-size: 32%;
     padding-inline: 0;
   }
 }
@@ -947,12 +954,11 @@ button {
 }
 @media screen and (min-width: 900px) {
   .c-concept__image {
-    inline-size: 100%;
+    inline-size: 50%;
     margin-block-start: 0;
   }
 }
 .c-concept__image img {
-  background: url(<path-to-image>) lightgray 361.924px -30.529px/-116.721% 112.999% no-repeat;
   border-radius: 0px 20px 20px 0px;
 }
 @media screen and (min-width: 900px) {
@@ -962,6 +968,10 @@ button {
     margin-block-start: 11.25rem;
        object-fit: cover;
   }
+}
+
+.c-concept__image--row img {
+  border-radius: 20px 0 0 20px;
 }
 
 .c-concept__bg-image {
@@ -1167,6 +1177,11 @@ button {
   z-index: -1;
 }
 /* Auto-generated index.scss for project */
+.p-about-concept {
+  display: grid;
+  grid-auto-flow: row-reverse !important;
+}
+
 .p-about__medical {
   padding-block-start: clamp(6.25rem, 3.6602209945rem + 11.0497237569vw, 12.5rem);
 }

@@ -1,0 +1,6 @@
+@use "../global" as *;
+
+.p-about-concept {
+  display: grid;
+  grid-auto-flow: row-reverse !important;
+}

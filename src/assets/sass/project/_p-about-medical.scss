@@ -12,14 +12,15 @@
 .p-about-medical__cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: rclamp(11, 24, 375, 1280);
+  padding-block-start: rclamp(40, 60, 375, 1280);
+
   @include mq(md) {
     grid-template-columns: repeat(
       auto-fit,
       minmax(rclamp(162, 317, 375, 1280), max-content)
     );
   }
-  gap: rclamp(11, 24, 375, 1280);
-  padding-block-start: rclamp(40, 60, 375, 1280);
 }
 
 .p-about-medical__card {
