@@ -34,9 +34,17 @@
 }
 
 .p-medical-general__main {
+  font-size: rclamp(20, 28, 375, 1280);
+  font-weight: 700;
+  line-height: rclamp(1.4, 1.5, 375, 1280); /* 140% */
+  letter-spacing: rclamp(1.6, 2.24, 375, 1280);
 }
 
 .p-medical-general__sub {
+  color: #1391e6;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.12px;
 }
 
 .p-medical-general__content {
@@ -46,9 +54,15 @@
 }
 
 .medical-general__text--main {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
 }
 
 .medical-general__text--sub {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
 }
 
 .p-medical-general__image {

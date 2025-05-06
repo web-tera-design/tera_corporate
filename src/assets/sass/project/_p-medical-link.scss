@@ -1,9 +1,13 @@
 @use "../global" as *;
 
 .p-medical {
+  padding-block-start: rclamp(60, 76, 375, 1280);
 }
 
 .p-medical__inner {
+  @include mq(md) {
+    padding-inline: 24px;
+  }
 }
 
 .l-section__inner {
@@ -15,20 +19,71 @@
 .p-medical-link__wrapper {
 }
 
+.p-medical-link__wrapper__rower {
+  margin-block-start: 84px;
+  @include mq(md) {
+    margin-block-start: 78px;
+  }
+}
+
 .p-medical-link__menu {
+  display: flex;
+  gap: 24px;
 }
 
 .p-medical-link__text {
+  font-size: rclamp(20, 28, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(1.6, 2.24, 375, 1280);
 }
 
 .p-medical-link__label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.12px;
+  border-radius: 24px;
+  background: #1391e6;
+  padding: 7px 12px;
+}
+
+.p-medical-link_label--red {
+  background: #ee5a6d;
 }
 
 .p-medical-link__items {
+  margin-block-start: 30px;
+  align-items: center;
+  text-align: center;
+  display: block;
+
+  @include mq(md) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-block-start: 34px;
+    gap: 16px;
+  }
 }
 
 .p-medical-link__item {
+  margin-block-end: 16px;
+  border-radius: 12px;
+  border: 2px solid #1391e6;
+  background: #fff;
+
+  @include mq(md) {
+    border: 2px solid #1391e6;
+  }
 }
 
 .p-medical-link {
+  display: block;
+  color: #1391e6;
+  font-size: rclamp(20, 24, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(1.6, 1.92, 375, 1280);
+  padding: 18px 0;
+  @include mq(md) {
+    padding: 22px 29px;
+  }
 }
