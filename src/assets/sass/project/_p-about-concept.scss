@@ -1,6 +1,4 @@
 @use "../global" as *;
-
 .p-about-concept {
-  display: grid;
-  grid-auto-flow: row-reverse !important;
+  padding-block-start: rclamp(60, 80, 375, 1280);
 }

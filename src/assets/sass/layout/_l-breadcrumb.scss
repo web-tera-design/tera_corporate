@@ -1,0 +1,29 @@
+@use "../global" as *;
+
+.l-breadcrumbs {
+}
+
+.l-breadcrumb__list {
+  display: flex;
+}
+
+.l-breadcrumb__item {
+  &:not(:last-child)::after {
+    content: "＞";
+    margin: 0 0.5em;
+    color: $text-primary;
+    font-size: 0.8em;
+  }
+}
+
+.l-breadcrumb__link {
+  color: #c2c2c2;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.l-breadcrumb__current {
+  color: $text-primary;
+  font-size: 12px;
+  font-weight: 500;
+}

@@ -654,6 +654,29 @@ button {
   text-align: center;
 }
 
+.l-breadcrumb__list {
+  display: flex;
+}
+
+.l-breadcrumb__item:not(:last-child)::after {
+  color: #393939;
+  content: "＞";
+  font-size: 0.8em;
+  margin: 0 0.5em;
+}
+
+.l-breadcrumb__link {
+  color: #c2c2c2;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.l-breadcrumb__current {
+  color: #393939;
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .l-section__inner {
   box-sizing: initial;
   margin-inline: auto;
@@ -837,19 +860,25 @@ button {
 }
 
 .c-concept {
-  margin-block-start: clamp(3.75rem, 4.1919889503rem + -0.5524861878vw, 4.0625rem);
+  margin-block-start: clamp(3.75rem, 3.2320441989rem + 2.2099447514vw, 5rem);
   overflow: hidden;
   position: relative;
 }
 @media screen and (min-width: 900px) {
   .c-concept {
+    padding-block-end: 9.375rem;
+  }
+}
+
+.c-concept__container {
+  padding-block-start: clamp(9.25rem, 5.9350828729rem + 14.1436464088vw, 17.25rem);
+}
+@media screen and (min-width: 900px) {
+  .c-concept__container {
     display: grid;
     gap: 5.9375rem;
     grid-template-areas: "image content";
     grid-template-columns: 50% 32%;
-    margin-block-start: 0;
-    padding-block-end: 9.375rem;
-    padding-block-start: 2.5rem;
   }
 }
 
@@ -862,7 +891,6 @@ button {
 }
 
 .c-concept__content {
-  padding-block-start: clamp(6.625rem, 4.7085635359rem + 8.1767955801vw, 11.25rem);
   padding-inline: 1.25rem;
 }
 @media screen and (min-width: 900px) {
@@ -952,6 +980,7 @@ button {
 .c-concept__image {
   inline-size: min(89.3333333333%, 48.125rem);
   margin-block-start: 2.5rem;
+  max-block-size: 27.375rem;
 }
 @media screen and (min-width: 900px) {
   .c-concept__image {
@@ -961,14 +990,14 @@ button {
   }
 }
 .c-concept__image img {
+  -o-object-fit: cover;
   border-radius: 0px 20px 20px 0px;
+  max-block-size: 27.375rem;
+     object-fit: cover;
 }
 @media screen and (min-width: 900px) {
   .c-concept__image img {
-    -o-object-fit: cover;
     block-size: 27.375rem;
-    margin-block-start: 11.25rem;
-       object-fit: cover;
   }
 }
 
@@ -977,7 +1006,7 @@ button {
 }
 
 .c-concept__bg-image {
-  inset-block-start: 0;
+  inset-block-start: 120px;
   inset-inline-start: 0;
   min-inline-size: 34.625rem;
   padding-inline-start: 0.625rem;
@@ -990,7 +1019,7 @@ button {
 }
 @media screen and (min-width: 900px) {
   .c-concept__bg-image {
-    inset-block-start: clamp(0rem, 6.25rem + -3.90625vw, 3.125rem);
+    inset-block-start: 200px;
     inset-inline-start: 30%;
     min-inline-size: 80rem;
   }
@@ -1178,14 +1207,57 @@ button {
   position: absolute;
   z-index: -1;
 }
-/* Auto-generated index.scss for project */
-.p-about-concept {
-  display: grid;
-  grid-auto-flow: row-reverse !important;
+.c-mv {
+  margin-block-start: clamp(5rem, 4.4820441989rem + 2.2099447514vw, 6.25rem);
 }
 
-.p-about__medical {
-  padding-block-start: clamp(6.25rem, 3.6602209945rem + 11.0497237569vw, 12.5rem);
+.c-mv__inner {
+  padding-inline: clamp(1.25rem, 0.2140883978rem + 4.4198895028vw, 3.75rem);
+}
+
+.c-mv__bg-image {
+  background: url(../img/about/mv/pc/about-mv-pc-03.webp) no-repeat center center/cover;
+  block-size: clamp(11.75rem, 7.8135359116rem + 16.7955801105vw, 21.25rem);
+  border-radius: 12px;
+  inline-size: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.c-mv__bg-image::before {
+  background: rgba(0, 0, 0, 0.2);
+  content: "";
+  height: 100%;
+}
+
+.c-mv__bg-image::before,.c-mv__bg-text {
+  inline-size: 100%;
+  position: absolute;
+}
+
+.c-mv__bg-text {
+  inset-block-start: 50%;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.c-mv__bg-text--main {
+  color: #fff;
+  font-size: clamp(1.5rem, 1.2928176796rem + 0.8839779006vw, 2rem);
+  font-weight: 700;
+  letter-spacing: clamp(0.2rem, 0.3414364641rem + -0.1767955801vw, 0.3rem);
+}
+
+.c-mv__bg-text--sub {
+  color: #fff;
+  font-size: clamp(0.75rem, 0.6982044199rem + 0.2209944751vw, 0.875rem);
+  font-weight: 700;
+  letter-spacing: clamp(0.075rem, 0.069820442rem + 0.0220994475vw, 0.0875rem);
+  margin-block-start: 20px;
+}
+
+/* Auto-generated index.scss for project */
+.p-about-concept {
+  padding-block-start: clamp(3.75rem, 3.2320441989rem + 2.2099447514vw, 5rem);
 }
 
 .p-about-medical__cards {

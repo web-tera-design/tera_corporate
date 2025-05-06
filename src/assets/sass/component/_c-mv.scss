@@ -1,0 +1,50 @@
+@use "../global" as *;
+
+.c-mv {
+  margin-block-start: rclamp(80, 100, 375, 1280);
+}
+
+.c-mv__inner {
+  padding-inline: rclamp(20, 60, 375, 1280);
+}
+
+.c-mv__bg-image {
+  position: relative;
+  background: url(../img/about/mv/pc/about-mv-pc-03.webp) no-repeat center
+    center / cover;
+  inline-size: 100%;
+  block-size: rclamp(188, 340, 375, 1280);
+  border-radius: 12px;
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    inline-size: 100%;
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.c-mv__bg-text {
+  position: absolute;
+  inline-size: 100%;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.c-mv__bg-text--main {
+  color: #fff;
+  font-size: rclamp(24, 32, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(4.8, 3.2, 375, 1280);
+}
+
+.c-mv__bg-text--sub {
+  margin-block-start: 20px;
+  color: #fff;
+  font-size: rclamp(12, 14, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(1.2, 1.4, 375, 1280);
+}

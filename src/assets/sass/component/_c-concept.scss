@@ -2,13 +2,23 @@
 
 .c-concept {
   position: relative;
-  margin-block-start: rclamp(65, 60, 375, 1280);
+  margin-block-start: rclamp(60, 80, 375, 1280);
   overflow: hidden;
 
   @include mq(lg) {
-    margin-block-start: 0;
-    padding-block-start: rem(40);
     padding-block-end: rem(150);
+  }
+}
+
+.c-concept__inner {
+}
+
+.c-concept__heading-content {
+}
+
+.c-concept__container {
+  padding-block-start: rclamp(148, 276, 375, 1280);
+  @include mq(lg) {
     gap: rem(95);
     display: grid;
     grid-template-areas: "image content";
@@ -26,7 +36,6 @@
 
 .c-concept__content {
   padding-inline: rem(20);
-  padding-block-start: rclamp(106, 180, 375, 1280);
 
   @include mq(lg) {
     padding-inline: 0;
@@ -117,6 +126,7 @@
 .c-concept__image {
   margin-block-start: rem(40);
   inline-size: min(calc(335 / 375 * 100%), rem(770));
+  max-block-size: rem(438);
 
   @include mq(lg) {
     inline-size: 100%;
@@ -126,11 +136,11 @@
 
   img {
     border-radius: 0px 20px 20px 0px;
+    max-block-size: rem(438);
+    object-fit: cover;
 
     @include mq(lg) {
-      margin-block-start: rem(180);
       block-size: rem(438);
-      object-fit: cover;
     }
   }
 }
@@ -143,7 +153,7 @@
 
 .c-concept__bg-image {
   position: absolute;
-  inset-block-start: 0;
+  inset-block-start: 120px;
   inset-inline-start: 0;
   z-index: -1;
   padding-inline-start: rem(10);
@@ -155,7 +165,7 @@
 
   @include mq(lg) {
     inset-inline-start: 30%;
-    inset-block-start: rclamp(50, 0, 1280, 2560);
+    inset-block-start: 200px;
     min-inline-size: rem(1280);
   }
 }
