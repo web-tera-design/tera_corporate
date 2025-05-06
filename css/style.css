@@ -1212,6 +1212,7 @@ button {
 }
 
 .c-mv__inner {
+  max-inline-size: 1920px;
   padding-inline: clamp(1.25rem, 0.2140883978rem + 4.4198895028vw, 3.75rem);
 }
 

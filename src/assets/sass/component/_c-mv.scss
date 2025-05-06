@@ -6,6 +6,7 @@
 
 .c-mv__inner {
   padding-inline: rclamp(20, 60, 375, 1280);
+  max-inline-size: 1920px;
 }
 
 .c-mv__bg-image {
