@@ -1,12 +1,21 @@
 @use "../global" as *;
 
 .p-medical-specialized {
+  margin-block-start: 240px;
+  position: relative;
+  background-color: #dff1fd;
+  padding-inline: 20px;
+  padding-bottom: 100px;
+  z-index: -2;
 }
 
 .c-medical__bg-top {
 }
 
 .c-medical__bg-bottom {
+}
+
+.p-medical-specialized__bg-bottom {
 }
 
 .p-index-medical__heading {
@@ -19,9 +28,14 @@
 }
 
 .p-medical-specialized__item {
+  padding: 30px 20px 20px;
+  background: #fff;
+  border-radius: 30px;
 }
 
 .p-medical-specialized__heading {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #c2c2c2;
 }
 
 .p-medical-specialized__main {
@@ -31,6 +45,7 @@
 }
 
 .p-medical-specialized__sub {
+  margin-block-start: 28px;
   color: #1391e6;
   font-size: 14px;
   font-weight: 700;
@@ -41,6 +56,7 @@
 }
 
 .p-medical-specialized__text {
+  margin-block-start: 16px;
 }
 
 .medical-specialized__text--main {
@@ -50,10 +66,12 @@
 }
 
 .medical-specialized__text--sub {
+  margin-block-start: 20px;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
 }
 
 .p-medical-specialized__image {
+  margin-block-start: 16px;
 }

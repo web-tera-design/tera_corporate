@@ -1823,6 +1823,33 @@ button {
   line-height: 24px;
 }
 
+.p-medical-detail {
+  margin-block-start: 215px;
+}
+
+.p-medical-general {
+  background-color: #dff1fd;
+  padding-bottom: 100px;
+  padding-inline: 20px;
+  position: relative;
+  z-index: -2;
+}
+
+.p-medical-general__items {
+  padding-block-start: 40px;
+}
+
+.p-medical-general__item {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 30px 20px 20px;
+}
+
+.p-medical-general__heading {
+  border-bottom: 1px solid #c2c2c2;
+  padding-bottom: 20px;
+}
+
 .p-medical-general__main {
   font-size: clamp(1.25rem, 1.0428176796rem + 0.8839779006vw, 1.75rem);
   font-weight: 700;
@@ -1835,15 +1862,28 @@ button {
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1.12px;
+  margin-block-start: 28px;
 }
 
-.medical-general__text--main { /* 171.429% */
+.p-medical-general__text {
+  margin-block-start: 16px;
 }
 
-.medical-general__text--main,.medical-general__text--sub {
+.medical-general__text--main {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+
+.medical-general__text--sub {
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
+  margin-block-start: 20px;
+}
+
+.p-medical-general__image {
+  margin-block-start: 16px;
 }
 
 .p-medical {
@@ -1931,6 +1971,26 @@ button {
   }
 }
 
+.p-medical-specialized {
+  background-color: #dff1fd;
+  margin-block-start: 240px;
+  padding-bottom: 100px;
+  padding-inline: 20px;
+  position: relative;
+  z-index: -2;
+}
+
+.p-medical-specialized__item {
+  background: #fff;
+  border-radius: 30px;
+  padding: 30px 20px 20px;
+}
+
+.p-medical-specialized__heading {
+  border-bottom: 1px solid #c2c2c2;
+  padding-bottom: 20px;
+}
+
 .p-medical-specialized__main {
   font-size: clamp(1.25rem, 1.0428176796rem + 0.8839779006vw, 1.75rem);
   font-weight: 700;
@@ -1942,15 +2002,28 @@ button {
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1.12px;
+  margin-block-start: 28px;
 }
 
-.medical-specialized__text--main { /* 171.429% */
+.p-medical-specialized__text {
+  margin-block-start: 16px;
 }
 
-.medical-specialized__text--main,.medical-specialized__text--sub {
+.medical-specialized__text--main {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+
+.medical-specialized__text--sub {
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
+  margin-block-start: 20px;
+}
+
+.p-medical-specialized__image {
+  margin-block-start: 16px;
 }
 
 /* Auto-generated index.scss for utility */
