@@ -10,9 +10,6 @@
   }
 }
 
-.l-section__inner {
-}
-
 .p-medical-link__container {
 }
 
@@ -83,7 +80,35 @@
   font-weight: 700;
   letter-spacing: rclamp(1.6, 1.92, 375, 1280);
   padding: 18px 0;
+  position: relative;
+  transition: all 0.3s ease;
+
   @include mq(md) {
     padding: 22px 29px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    border-left: 3px solid #1391e6;
+    border-bottom: 3px solid #1391e6;
+    transform: translateX(-50%) translateY(5px) rotate(-45deg);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      padding: 11px 29px 31px;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) rotate(-45deg);
+    }
   }
 }
