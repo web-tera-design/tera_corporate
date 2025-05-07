@@ -1,4 +1,14 @@
 @use "../global" as *;
+
+.p-concept__heading-content {
+  margin-block-start: rclamp(60, 80, 375, 1280);
+}
+
 .p-about-concept {
-  padding-block-start: rclamp(60, 80, 375, 1280);
+  padding-block-start: rclamp(110, 216, 375, 1280);
+  margin-block-start: rclamp(38, 60, 375, 1280);
+}
+
+.p-about-concept__container {
+  padding-block-start: 0;
 }

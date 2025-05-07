@@ -3,13 +3,15 @@
 .c-medical__bg-top {
   position: absolute;
   z-index: -1;
-  inset-block-start: rclamp(-85, -201, 375, 1280);
+  inset-block-start: -23vw;
   inset-inline: 0;
-  block-size: rclamp(85, 201, 375, 1280);
+  block-size: 23vw;
+  background: url(../img/bg-top-sp.png) no-repeat top center / cover;
 
-  img {
-    width: 100%;
-    block-size: 100%;
+  @include mq(md) {
+    inset-block-start: -16vw;
+    block-size: 16vw;
+    background: url(../img/bg-top.png) no-repeat center center / cover;
   }
 }
 
