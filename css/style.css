@@ -1017,7 +1017,6 @@ button {
 }
 @media screen and (min-width: 900px) {
   .c-concept__bg-image {
-    inset-block-start: 200px;
     inset-inline-start: 30%;
     min-inline-size: 80rem;
   }

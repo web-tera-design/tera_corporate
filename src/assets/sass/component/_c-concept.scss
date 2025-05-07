@@ -165,7 +165,6 @@
 
   @include mq(lg) {
     inset-inline-start: 30%;
-    inset-block-start: 200px;
     min-inline-size: rem(1280);
   }
 }
