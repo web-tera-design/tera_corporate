@@ -1162,52 +1162,73 @@ button {
 }
 
 .c-medical__bg-top {
-  background: url(../img/bg-top-sp.png) no-repeat top center/cover;
   block-size: 23vw;
-  inset-block-start: -23vw;
-  inset-inline: 0;
-  position: absolute;
+  position: relative;
+  width: 100%;
   z-index: -1;
 }
 @media screen and (min-width: 768px) {
   .c-medical__bg-top {
-    background: url(../img/bg-top.png) no-repeat center center/cover;
     block-size: 16vw;
-    inset-block-start: -16vw;
+  }
+}
+.c-medical__bg-top::before {
+  background: url(../img/bg-top-sp.png) no-repeat top center/cover;
+  block-size: 100%;
+  content: "";
+  inline-size: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  translate: -50%;
+  z-index: 1;
+}
+@media screen and (min-width: 768px) {
+  .c-medical__bg-top::before {
+    background: url(../img/bg-top.png) no-repeat center center/cover;
   }
 }
 
-.c-medical__bg-bottom {
-  block-size: clamp(1.75rem, -0.0369475138rem + 7.6243093923vw, 6.0625rem);
-  inset-block-end: clamp(-6.0625rem, 0.0369475138rem + -7.6243093923vw, -1.75rem);
-  inset-inline: 0;
+.c-medical__bg-bottom-main {
+  height: 7.6vw;
+  position: relative;
+  width: 100%;
+}
+.c-medical__bg-bottom-main::after {
+  background: url(../img/bg-bottom-pc1.png) no-repeat center center/cover;
+  content: "";
+  height: 100%;
+  left: 50%;
   position: absolute;
-  z-index: -1;
+  translate: -50%;
+  width: 100%;
+  z-index: 2;
 }
-.c-medical__bg-bottom img {
-  block-size: 100%;
-  inline-size: 100%;
+
+.c-medical__bg-bottom-sub {
+  position: relative;
 }
-.c-medical__bg-bottom::before {
+.c-medical__bg-bottom-sub::before {
   background: url(../img/deco-kirakira2-w.png) no-repeat center center/cover;
-  block-size: clamp(1.5625rem, 0.7596685083rem + 3.4254143646vw, 3.5rem);
+  bottom: 7.6vw;
   content: "";
-  inline-size: clamp(1.5rem, 0.6453729282rem + 3.6464088398vw, 3.5625rem);
-  inset-block-start: clamp(-3.5rem, -2.0856353591rem + -1.7679558011vw, -2.5rem);
-  inset-inline-start: clamp(0.375rem, -0.5055248619rem + 3.7569060773vw, 2.5rem);
+  height: 58px;
+  left: 42px;
   position: absolute;
-  z-index: -1;
+  width: 58px;
+  z-index: 2;
 }
-.c-medical__bg-bottom::after {
+.c-medical__bg-bottom-sub::after {
   background: url(../img/deco-kirakira-w.png) no-repeat center center/cover;
-  block-size: clamp(3.75rem, 1.7299723757rem + 8.6187845304vw, 8.625rem);
+  bottom: 5.8vw;
   content: "";
-  inline-size: clamp(3.5rem, 1.7130524862rem + 7.6243093923vw, 7.8125rem);
-  inset-block-start: clamp(-8.625rem, -1.7299723757rem + -8.6187845304vw, -3.75rem);
-  inset-inline-end: clamp(0rem, -0.6474447514rem + 2.7624309392vw, 1.5625rem);
+  height: 138px;
   position: absolute;
-  z-index: -1;
+  right: 20px;
+  width: 125px;
+  z-index: 2;
 }
+
 .c-mv {
   margin-block-start: clamp(5rem, 4.4820441989rem + 2.2099447514vw, 6.25rem);
 }
@@ -1284,23 +1305,26 @@ button {
 }
 
 .p-index-medical {
-  background: #dff1fd;
-  margin-block-start: clamp(13.375rem, 10.2413674033rem + 13.3701657459vw, 20.9375rem);
+  margin-block-start: clamp(5.9375rem, 4.8497928177rem + 4.6408839779vw, 8.5625rem);
   margin-inline: auto;
   padding-block-end: clamp(3.875rem, 3.3311464088rem + 2.320441989vw, 5.1875rem);
-  padding-block-start: clamp(1.8125rem, -0.1298342541rem + 8.2872928177vw, 6.5rem);
-  position: relative;
-  z-index: 1;
+  z-index: -10;
 }
 
 .p-index-medical__heading-title {
   line-height: clamp(0.075rem, 0.092679558rem + -0.0220994475vw, 0.0875rem);
 }
 
+.p-index-medical__inner {
+  background: #dff1fd;
+}
+
 .p-index-medical__container {
   inline-size: min(62.5rem, 100%);
   margin-inline: auto;
+  padding-bottom: 96px;
   padding-inline: 1.25rem;
+  z-index: -10;
 }
 
 .p-index-medical__services {

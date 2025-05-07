@@ -1,13 +1,11 @@
 @use "../global" as *;
 
 .p-index-medical {
-  margin-block-start: rclamp(214, 335, 375, 1280);
-  position: relative;
-  padding-block-start: rclamp(29, 104, 375, 1280);
+  margin-block-start: rclamp(95, 137, 375, 1280);
+  // padding-block-start: rclamp(29, 104, 375, 1280);
   margin-inline: auto;
-  background: #dff1fd;
-  z-index: 1;
   padding-block-end: rclamp(62, 83, 375, 1280);
+  z-index: -10;
 }
 
 .p-index-medical__heading {
@@ -17,10 +15,16 @@
   line-height: rclamp(1.4, 1.2, 375, 1280);
 }
 
+.p-index-medical__inner {
+  background: #dff1fd;
+}
+
 .p-index-medical__container {
+  z-index: -10;
   inline-size: min(rem(1000), 100%);
   margin-inline: auto;
   padding-inline: rem(20);
+  padding-bottom: 96px;
 }
 
 .p-index-medical__services {
