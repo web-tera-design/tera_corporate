@@ -1,46 +1,58 @@
 @use "../global" as *;
 
 .p-medical-specialized {
-  margin-block-start: 240px;
-  position: relative;
-  background-color: #dff1fd;
-  padding-inline: 20px;
-  padding-bottom: 100px;
-  z-index: -2;
+  margin-block-start: rclamp(95, 137, 375, 1280);
+  margin-inline: auto;
+  padding-block-end: rclamp(62, 83, 375, 1280);
+  z-index: -10;
 }
 
-.c-medical__bg-top {
+.p-medical-specialized__inner {
+  background: #dff1fd;
 }
 
-.c-medical__bg-bottom {
-}
-
-.p-medical-specialized__bg-bottom {
-}
-
-.p-index-medical__heading {
-}
-
-.c-heading {
+.p-medical-specialized__container {
+  z-index: -10;
+  inline-size: min(rem(1000), 100%);
+  margin-inline: auto;
+  padding-inline: rem(20);
+  padding-bottom: 96px;
 }
 
 .p-medical-specialized__items {
+  padding-block-start: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .p-medical-specialized__item {
+  position: relative;
   padding: 30px 20px 20px;
   background: #fff;
   border-radius: 30px;
+
+  @include mq(md) {
+    padding: 60px;
+  }
 }
 
 .p-medical-specialized__heading {
   padding-bottom: 20px;
   border-bottom: 1px solid #c2c2c2;
+
+  @include mq(md) {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    padding-bottom: 44px;
+  }
 }
 
 .p-medical-specialized__main {
   font-size: rclamp(20, 28, 375, 1280);
   font-weight: 700;
+  line-height: rclamp(1.4, 1.5, 375, 1280); /* 140% */
   letter-spacing: rclamp(1.6, 2.24, 375, 1280);
 }
 
@@ -50,13 +62,27 @@
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1.12px;
+
+  @include mq(md) {
+    margin-block-start: 0;
+  }
 }
 
 .p-medical-specialized__content {
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-block-start: 36px;
+  }
 }
 
 .p-medical-specialized__text {
   margin-block-start: 16px;
+
+  @include mq(md) {
+    margin-block-start: 0;
+  }
 }
 
 .medical-specialized__text--main {
@@ -74,4 +100,22 @@
 
 .p-medical-specialized__image {
   margin-block-start: 16px;
+
+  @include mq(md) {
+    margin-block-start: 0;
+  }
+}
+
+.p-medical-specialized__bg-image {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 80px;
+  height: 60px;
+
+  @include mq(md) {
+    right: 60px;
+    width: 100px;
+    height: 80px;
+  }
 }

@@ -11,38 +11,52 @@
 }
 
 .p-medical-general {
-  position: relative;
-  padding-inline: 20px;
+  margin-block-start: rclamp(95, 137, 375, 1280);
+  margin-inline: auto;
+  padding-block-end: rclamp(62, 83, 375, 1280);
+  z-index: -10;
+}
+
+.p-medical-general__inner {
   background-color: #dff1fd;
-  z-index: -2;
-  padding-bottom: 100px;
 }
 
-.c-medical__bg-top {
-}
-
-.c-medical__bg-bottom {
-}
-
-.p-index-medical__heading {
-}
-
-.c-heading {
+.p-medical-general__container {
+  z-index: -10;
+  inline-size: min(rem(1000), 100%);
+  margin-inline: auto;
+  padding-inline: rem(20);
+  padding-bottom: 96px;
 }
 
 .p-medical-general__items {
   padding-block-start: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .p-medical-general__item {
+  position: relative;
   padding: 30px 20px 20px;
   border-radius: 20px;
   background-color: #fff;
+
+  @include mq(md) {
+    padding: 60px;
+  }
 }
 
 .p-medical-general__heading {
   padding-bottom: 20px;
   border-bottom: 1px solid #c2c2c2;
+
+  @include mq(md) {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    padding-bottom: 44px;
+  }
 }
 
 .p-medical-general__main {
@@ -58,13 +72,27 @@
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1.12px;
+
+  @include mq(md) {
+    margin-block-start: 0;
+  }
 }
 
 .p-medical-general__content {
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-block-start: 36px;
+  }
 }
 
 .p-medical-general__text {
   margin-block-start: 16px;
+
+  @include mq(md) {
+    margin-block-start: 0;
+  }
 }
 
 .medical-general__text--main {
@@ -82,6 +110,23 @@
 
 .p-medical-general__image {
   margin-block-start: 16px;
+  @include mq(md) {
+    margin-block-start: 0;
+  }
+}
+
+.p-medical-general__bg-image {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 80px;
+  height: 60px;
+
+  @include mq(md) {
+    right: 60px;
+    width: 100px;
+    height: 80px;
+  }
 }
 
 .p-medical-deneral__heading {
