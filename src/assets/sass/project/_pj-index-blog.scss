@@ -1,0 +1,37 @@
+@use "../global" as *;
+
+.p-index-blog__cards {
+  @include mq(md) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+    place-content: center; // ← これで中央寄せ！
+    gap: rclamp(20, 50, 768, 1280);
+    margin-inline: auto;
+    inline-size: 100%;
+  }
+}
+
+.p-index-blog__card {
+  @include mq(md) {
+    gap: 0;
+    grid-template-columns: 1fr;
+    inline-size: rclamp(240, 300, 375, 1280);
+    border-radius: rem(20);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  }
+}
+.p-index-blog__image {
+  @include mq(md) {
+    block-size: rem(188);
+  }
+}
+
+.p-index-blog__label {
+  @include mq(md) {
+    position: absolute;
+    border-radius: rem(14);
+    margin-block-start: rem(-40);
+    padding: 6.24px 12px 5.76px 12px;
+  }
+}
