@@ -569,23 +569,23 @@ document.addEventListener("DOMContentLoaded", () => {
 const staffMessageSwiper2 = new Swiper(".p-staff-message__swiper.--swiper2", {
   //swiperの名前 変数末尾にも.--swiperと同等の数字
   //切り替えのモーション
-  speed: 1000, //表示切り替えのスピード
+  speed: 5000, //表示切り替えのスピード
   effect: "slide", //切り替えのmotion (※1)
-  allowTouchMove: true, // スワイプで表示の切り替えを有効に
+  allowTouchMove: false, // スワイプで表示の切り替えを有効に
 
   //最後→最初に戻るループ再生を有効に
   loop: true,
   //自動スライドについて
   autoplay: {
-    delay: 3000, //何秒ごとにスライドを動かすか
+    delay: 0, //何秒ごとにスライドを動かすか
     stopOnLastSlide: false, //最後のスライドで自動再生を終了させるか
     disableOnInteraction: false, //ユーザーの操作時に止める
     reverseDirection: false, //自動再生を逆向きにする
   },
 
   //表示について
-  centeredSlides: true, //中央寄せにする
-  slidesPerView: "auto", //スライド枚数指定
+  centeredSlides: false, //中央寄せにする
+  slidesPerView: "2", //スライド枚数指定
   spaceBetween: 30, //スライドの右側に余白px
 
   //ページネーション
@@ -607,17 +607,13 @@ const staffMessageSwiper2 = new Swiper(".p-staff-message__swiper.--swiper2", {
     draggable: true, //スクロールバーを直接表示できるようにする
   },
 
-  //ブレイクポイントによって変える
-  // breakpoints: {
-  //   768: {
-  //     slidesPerView: 1.2,
-  //     spaceBetween: 15,
-  //   },
-  //   1500: {
-  //     slidesPerView: 3,
-  //     spaceBetween: 40,
-  //   },
-  // }
+  // ブレイクポイントによって変える
+  breakpoints: {
+    768: {
+      slidesPerView: 4,
+      spaceBetween: 15,
+    },
+  },
 });
 
 /* =================================================== 

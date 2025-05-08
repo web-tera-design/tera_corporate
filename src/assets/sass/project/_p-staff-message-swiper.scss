@@ -20,17 +20,14 @@
 }
 
 .p-staff-message__swiper-wrapper {
+  transition-timing-function: linear;
 }
 
 .swiper-slide {
 }
 
 .p-staff-message__swiper-slide {
-  width: 200px;
-  height: 150px;
   @include mq(md) {
-    width: 305px;
-    height: 229px;
   }
 
   img {
