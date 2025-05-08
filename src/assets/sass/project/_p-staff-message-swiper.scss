@@ -1,6 +1,7 @@
 @use "../global" as *;
 
 .p-staff-message__swiper {
+  margin-block-start: rclamp(100, 160, 375, 1280);
 }
 
 .p-staff-message__swiper-inner {
@@ -25,6 +26,17 @@
 }
 
 .p-staff-message__swiper-slide {
+  width: 200px;
+  height: 150px;
+  @include mq(md) {
+    width: 305px;
+    height: 229px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .p-staff-message__swiper-bottom {

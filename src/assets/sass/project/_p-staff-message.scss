@@ -1,6 +1,7 @@
 @use "../global" as *;
 
 .p-staff-message {
+  margin-block-start: rclamp(60, 80, 375, 1280);
 }
 
 .p-staff-message__inner {
@@ -16,43 +17,85 @@
 }
 
 .p-staff-message__container {
+  margin-block-start: rclamp(36, 60, 375, 1280);
 }
 
 .p-staff-message__content {
 }
 
 .p-staff-message__heading-text {
+  font-size: rclamp(20, 28, 375, 1280);
+  font-weight: 700;
+  line-height: rclamp(32, 44, 375, 1280); /* 160% */
+  letter-spacing: rclamp(1.6, 2.24, 375, 1280);
 }
 
 .p-staff-message__text {
+  margin-block-start: rclamp(28, 36, 375, 1280);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
 }
 
 .p-staff-message__subtext {
+  margin-block-start: rclamp(28, 36, 375, 1280);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
 }
 
 .p-staff-message__credit {
+  margin-block-start: rclamp(34, 15, 375, 1280);
+  text-align: right;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
 }
 
 .p-staff-message__image {
+  margin-block-start: 40px;
+
+  @include mq(md) {
+    margin-block-start: 0;
+  }
 }
 
 .p-staff-message__profile {
+  margin-block-start: 40px;
+  @include mq(md) {
+  }
 }
 
 .p-staff-message__profile-content {
 }
 
 .p-staff-message__profile-heading {
+  padding-bottom: 6px;
+  border-bottom: 2px solid #000;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.p-staff-message__profile-subheading {
+  margin-block-start: rclamp(38, 30, 375, 1280);
 }
 
 .p-staff-message__profile-items {
+  margin-block-start: 15px;
 }
 
 .p-staff-message__profile-item {
+  margin-block-start: 13px;
+  display: flex;
+  gap: 15px;
 }
 
 .p-staff-message__profile-date {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .p-staff-message__profile-text {
+  font-size: 14px;
+  font-weight: 500;
 }

@@ -1,6 +1,7 @@
 @use "../global" as *;
 
 .c-staff-group {
+  margin-block-start: rclamp(100, 160, 375, 1280);
 }
 
 .c-staff-group__inner {
@@ -25,6 +26,9 @@
 }
 
 .c-staff-group__name {
+}
+
+.c-staff-group__subname {
 }
 
 .c-staff-group__content {
