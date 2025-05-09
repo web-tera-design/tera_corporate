@@ -1321,6 +1321,13 @@ button {
 }
 
 /* Auto-generated index.scss for project */
+.p-blog__text {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
 .p-concept__heading-content {
   margin-block-start: clamp(3.75rem, 3.2320441989rem + 2.2099447514vw, 5rem);
 }
