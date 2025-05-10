@@ -9,6 +9,9 @@
 }
 
 .c-sidebar__inner {
+  @include mq(md) {
+    padding-inline: 0;
+  }
 }
 
 .c-sidebar__container {
@@ -19,12 +22,16 @@
 
 .c-sidebar__heading {
   display: flex;
-  gap: 0;
+  align-items: center;
+  gap: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #888;
 }
 
 .c-sidebar__heading-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px; /* 125% */
 }
 
 .c-sidebar__clinic-image {
@@ -36,15 +43,25 @@
 
 .c-sidebar__clinic-subtitle {
   margin-block-start: 20px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .c-sidebar__clinic-subtext {
   margin-block-start: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
 }
 
 .c-sidebar__clinic-link {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-block-start: 10px;
+  color: #1391e6;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .c-sidebar__article {
@@ -57,6 +74,10 @@
   gap: 20px;
   padding-inline: rem(20);
   margin-block-start: 20px;
+
+  @include mq(md) {
+    padding-inline: 0;
+  }
 }
 
 .c-sidebar__article-card {
@@ -155,7 +176,14 @@
 
 .c-sidebar__category-list {
   margin-block-start: 12px;
+  margin-inline-start: 20px;
 }
 
 .c-sidebar__category-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 500;
 }
