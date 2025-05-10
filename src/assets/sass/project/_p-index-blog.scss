@@ -1,5 +1,18 @@
 @use "../global" as *;
 
+.p-index-blog {
+  margin-block-start: rclamp(128, 158, 375, 1280);
+}
+
+.p-index-blog__container {
+  margin-block-start: rclamp(48, 80, 375, 1280);
+  max-inline-size: rem(600);
+  margin-inline: auto;
+  @include mq(md) {
+    max-inline-size: rem(1040);
+  }
+}
+
 .p-index-blog__cards {
   @include mq(md) {
     grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
@@ -33,5 +46,14 @@
     border-radius: rem(14);
     margin-block-start: rem(-40);
     padding: 6.24px 12px 5.76px 12px;
+  }
+}
+
+.p-index-blog__text {
+  @include mq(md) {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; // ← ここで行数指定
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

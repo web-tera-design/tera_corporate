@@ -1,8 +1,8 @@
 @use "../global" as *;
 
-.p-blog__text {
-  display: -webkit-box;
-  -webkit-line-clamp: 2; // ← ここで行数指定
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.p-blog {
+  margin-block-start: rclamp(68, 90, 375, 1280);
+}
+
+.p-blog__container {
 }

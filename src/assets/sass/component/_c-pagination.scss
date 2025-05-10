@@ -1,0 +1,74 @@
+@use "../global" as *;
+
+.c-pagination-container {
+  margin-block-start: rclamp(60, 100, 375, 1280);
+}
+
+.c-pagination {
+}
+
+.c-pagination__list {
+  display: flex;
+  justify-content: center;
+  gap: rclamp(7, 10, 375, 1280);
+}
+
+.c-pagination__item {
+}
+
+.c-pagination__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 1em;
+  font-size: rem(14);
+  line-height: 1;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #007bff;
+  border-radius: rem(8);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  &--current {
+    background-color: #007bff;
+    color: #fff;
+    pointer-events: none;
+  }
+
+  &--dots {
+    color: #ccc;
+    // border-color: transparent;
+    pointer-events: none;
+  }
+
+  &--prev,
+  &--next {
+    padding-inline: 1.2em 1.5em;
+    gap: 0.5em;
+  }
+}
+
+.c-pagination__link--prev {
+}
+
+.c-pagination__icon {
+}
+
+.c-pagination__icon--prev {
+  margin-inline-end: 0.25em;
+}
+
+.c-pagination__link--current {
+}
+
+.c-pagination__link--dots {
+}
+
+.c-pagination__link--next {
+}
+
+.c-pagination__icon--next {
+  margin-inline-start: 0.25em;
+}

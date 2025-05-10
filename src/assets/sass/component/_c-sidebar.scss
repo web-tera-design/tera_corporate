@@ -1,0 +1,95 @@
+@use "../global" as *;
+
+.c-sidebar {
+  margin-block-start: 102px;
+
+  @include mq(md) {
+    margin-block-start: 0;
+  }
+}
+
+.c-sidebar__inner {
+}
+
+.c-sidebar__container {
+}
+
+.c-sidebar__clinic {
+}
+
+.c-sidebar__heading {
+  display: flex;
+  gap: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #888;
+}
+
+.c-sidebar__heading-title {
+}
+
+.c-sidebar__clinic-image {
+  margin-block-start: 20px;
+}
+
+.c-sidebar__clinic-text-items {
+}
+
+.c-sidebar__clinic-subtitle {
+  margin-block-start: 20px;
+}
+
+.c-sidebar__clinic-subtext {
+  margin-block-start: 10px;
+}
+
+.c-sidebar__clinic-link {
+  margin-block-start: 10px;
+}
+
+.c-sidebar__article {
+  margin-block-start: 60px;
+}
+
+.c-sidebar__article-cards {
+  //   margin-block-start: 20px;
+}
+
+.c-sidebar__article-card {
+  display: grid;
+  grid-template-columns: 133px 1fr;
+  margin-block-start: 20px;
+}
+
+.c-sidebar__article-image {
+  width: 133px;
+  aspect-ratio: 133 / 100;
+  overflow: hidden;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.c-sidebar__article-content {
+}
+
+.c-sidebar__article-category {
+}
+
+.c-sidebar__article-text {
+}
+
+.c-sidebar__article-date {
+}
+
+.c-sidebar__category {
+}
+
+.c-sidebar__category-lists {
+}
+
+.c-sidebar__category-list {
+}
+
+.c-sidebar__category-link {
+}

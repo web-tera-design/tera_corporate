@@ -685,21 +685,6 @@ button {
 }
 
 /* Auto-generated index.scss for component */
-.c-blog {
-  margin-block-start: clamp(8rem, 7.2230662983rem + 3.3149171271vw, 9.875rem);
-}
-
-.c-blog__container {
-  margin-block-start: clamp(3rem, 2.1712707182rem + 3.5359116022vw, 5rem);
-  margin-inline: auto;
-  max-inline-size: 37.5rem;
-}
-@media screen and (min-width: 768px) {
-  .c-blog__container {
-    max-inline-size: 65rem;
-  }
-}
-
 .c-blog__cards {
   display: grid;
   gap: 20px;
@@ -761,10 +746,14 @@ button {
 }
 
 .c-blog__text {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   color: #393939;
+  display: -webkit-box;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px; /* 142.857% */
+  overflow: hidden;
   padding-inline-end: 8px;
 }
 .c-blog__datetime {
@@ -1242,6 +1231,95 @@ button {
   margin-block-start: 20px;
 }
 
+.c-pagination-container {
+  margin-block-start: clamp(3.75rem, 2.7140883978rem + 4.4198895028vw, 6.25rem);
+}
+
+.c-pagination__list {
+  display: flex;
+  gap: clamp(0.4375rem, 0.3598066298rem + 0.3314917127vw, 0.625rem);
+  justify-content: center;
+}
+
+.c-pagination__link {
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 0.5rem;
+  color: #007bff;
+  display: inline-flex;
+  font-size: 0.875rem;
+  justify-content: center;
+  line-height: 1;
+  padding: 0.5em 1em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.c-pagination__link--current {
+  background-color: #007bff;
+  color: #fff;
+  pointer-events: none;
+}
+.c-pagination__link--dots {
+  color: #ccc;
+  pointer-events: none;
+}
+.c-pagination__link--prev, .c-pagination__link--next {
+  gap: 0.5em;
+  padding-inline: 1.2em 1.5em;
+}
+
+.c-pagination__icon--prev {
+  margin-inline-end: 0.25em;
+}
+
+.c-pagination__icon--next {
+  margin-inline-start: 0.25em;
+}
+
+.c-sidebar {
+  margin-block-start: 102px;
+}
+@media screen and (min-width: 768px) {
+  .c-sidebar {
+    margin-block-start: 0;
+  }
+}
+
+.c-sidebar__heading {
+  border-bottom: 1px solid #888;
+  display: flex;
+  gap: 0;
+  padding-bottom: 10px;
+}
+
+.c-sidebar__clinic-image,.c-sidebar__clinic-subtitle {
+  margin-block-start: 20px;
+}
+
+.c-sidebar__clinic-subtext,.c-sidebar__clinic-link {
+  margin-block-start: 10px;
+}
+
+.c-sidebar__article {
+  margin-block-start: 60px;
+}
+
+.c-sidebar__article-card {
+  display: grid;
+  grid-template-columns: 133px 1fr;
+  margin-block-start: 20px;
+}
+
+.c-sidebar__article-image {
+  aspect-ratio: 133/100;
+  overflow: hidden;
+  width: 133px;
+}
+.c-sidebar__article-image img {
+  height: 100%;
+  width: 100%;
+}
+
 .c-staff-group {
   margin-block-start: clamp(6.25rem, 4.6961325967rem + 6.6298342541vw, 10rem);
 }
@@ -1321,11 +1399,8 @@ button {
 }
 
 /* Auto-generated index.scss for project */
-.p-blog__text {
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  display: -webkit-box;
-  overflow: hidden;
+.p-blog {
+  margin-block-start: clamp(4.25rem, 3.6802486188rem + 2.4309392265vw, 5.625rem);
 }
 
 .p-concept__heading-content {
@@ -1351,6 +1426,67 @@ button {
   .p-about-medical__cards {
     grid-template-columns: repeat(auto-fit, minmax(clamp(10.125rem, 6.1108425414rem + 17.1270718232vw, 19.8125rem), max-content));
   }
+}
+
+.p-index-blog {
+  margin-block-start: clamp(8rem, 7.2230662983rem + 3.3149171271vw, 9.875rem);
+}
+
+.p-index-blog__container {
+  margin-block-start: clamp(3rem, 2.1712707182rem + 3.5359116022vw, 5rem);
+  margin-inline: auto;
+  max-inline-size: 37.5rem;
+}
+@media screen and (min-width: 768px) {
+  .p-index-blog__container {
+    max-inline-size: 65rem;
+  }
+  .p-index-blog__cards {
+    gap: clamp(1.25rem, -1.5625rem + 5.859375vw, 3.125rem);
+    grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+    inline-size: 100%;
+    margin-inline: auto;
+    place-content: center;
+  }
+  .p-index-blog__card {
+    background: #fff;
+    border-radius: 1.25rem;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    gap: 0;
+    grid-template-columns: 1fr;
+    inline-size: clamp(15rem, 13.4461325967rem + 6.6298342541vw, 18.75rem);
+    overflow: hidden;
+  }
+  .p-index-blog__image {
+    block-size: 11.75rem;
+  }
+  .p-index-blog__label {
+    border-radius: 0.875rem;
+    margin-block-start: -2.5rem;
+    padding: 6.24px 12px 5.76px 12px;
+    position: absolute;
+  }
+  .p-index-blog__text {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
 }
 
 .p-index-medical {
@@ -2385,43 +2521,6 @@ button {
 .p-staff-message__profile-date,.p-staff-message__profile-text {
   font-size: 14px;
   font-weight: 500;
-}
-
-@media screen and (min-width: 768px) {
-  .p-index-blog__cards {
-    gap: clamp(1.25rem, -1.5625rem + 5.859375vw, 3.125rem);
-    grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
-    inline-size: 100%;
-    margin-inline: auto;
-    place-content: center;
-  }
-  .p-index-blog__card {
-    background: #fff;
-    border-radius: 1.25rem;
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-    gap: 0;
-    grid-template-columns: 1fr;
-    inline-size: clamp(15rem, 13.4461325967rem + 6.6298342541vw, 18.75rem);
-    overflow: hidden;
-  }
-  .p-index-blog__image {
-    block-size: 11.75rem;
-  }
-  .p-index-blog__label {
-    border-radius: 0.875rem;
-    margin-block-start: -2.5rem;
-    padding: 6.24px 12px 5.76px 12px;
-    position: absolute;
-  }
-}
-
-@media screen and (min-width: 768px) {
-}
-
-@media screen and (min-width: 768px) {
-}
-
-@media screen and (min-width: 768px) {
 }
 
 /* Auto-generated index.scss for utility */
