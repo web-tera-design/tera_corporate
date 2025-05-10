@@ -43,6 +43,7 @@
 }
 
 .c-sidebar__clinic-link {
+  display: block;
   margin-block-start: 10px;
 }
 
@@ -51,44 +52,109 @@
 }
 
 .c-sidebar__article-cards {
-  //   margin-block-start: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding-inline: rem(20);
+  margin-block-start: 20px;
 }
 
 .c-sidebar__article-card {
   display: grid;
+  gap: 10px;
   grid-template-columns: 133px 1fr;
-  margin-block-start: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    .c-sidebar__article-image img {
+      transform: scale(1.1);
+    }
+
+    .c-sidebar__article-text {
+      color: $text-link;
+    }
+  }
 }
 
 .c-sidebar__article-image {
   width: 133px;
   aspect-ratio: 133 / 100;
+  object-fit: cover;
   overflow: hidden;
   img {
-    height: 100%;
-    width: 100%;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
   }
 }
 
 .c-sidebar__article-content {
+  // display: grid;
+  // grid-template-columns: 1fr;
+  margin-block-start: rem(6);
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  gap: rem(6);
+  @include mq(md) {
+    justify-content: start;
+    padding: 24px 24px 12px 24px;
+    gap: rem(4);
+  }
 }
 
 .c-sidebar__article-category {
+  display: inline-block;
+  padding: rem(1) rem(8) rem(1);
+  inline-size: fit-content;
+  color: #fff;
+  font-size: rclamp(10, 11, 375, 1280);
+  font-weight: 500;
+  border-radius: rem(10);
+  background: #1391e6;
+
+  // @include mq(md) {
+  //   position: absolute;
+  //   border-radius: rem(14);
+  //   margin-block-start: rem(-40);
+  //   padding: 6.24px 12px 5.76px 12px;
+  // }
 }
 
 .c-sidebar__article-text {
+  color: $text-primary;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  padding-inline-end: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // ← ここで行数指定
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  @include mq(md) {
+  }
 }
 
 .c-sidebar__article-date {
+  color: #888;
+  font-size: 11px;
+  font-weight: 500;
 }
 
 .c-sidebar__category {
+  margin-block-start: 60px;
 }
 
 .c-sidebar__category-lists {
+  margin-block-start: 16px;
 }
 
 .c-sidebar__category-list {
+  margin-block-start: 12px;
 }
 
 .c-sidebar__category-link {
