@@ -1,5 +1,10 @@
 @use "../global" as *;
 
+.p-blog-mv__bg-image {
+  background: url(../img/blog/archive/pc/blog-archive-pc-01.webp) no-repeat
+    center center / cover;
+}
+
 .p-blog {
   margin-block-start: rclamp(68, 90, 375, 1280);
 }

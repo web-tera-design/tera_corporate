@@ -1537,6 +1537,10 @@ button {
 }
 
 /* Auto-generated index.scss for project */
+.p-blog-mv__bg-image {
+  background: url(../img/blog/archive/pc/blog-archive-pc-01.webp) no-repeat center center/cover;
+}
+
 .p-blog {
   margin-block-start: clamp(4.25rem, 3.6802486188rem + 2.4309392265vw, 5.625rem);
 }
