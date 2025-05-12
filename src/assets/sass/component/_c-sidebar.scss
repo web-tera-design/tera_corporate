@@ -72,7 +72,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  padding-inline: rem(20);
+  // padding-inline: rem(20);
   margin-block-start: 20px;
 
   @include mq(md) {
