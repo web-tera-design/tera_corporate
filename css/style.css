@@ -1839,6 +1839,10 @@ button {
   transition: all 0.3s ease;
 }
 
+.p-contact-mv__bg-image {
+  background: url(../img/contact/mv/pc/contact-mv-pc-01.webp) no-repeat center center/cover;
+}
+
 .p-contact {
   margin-block-start: clamp(3.75rem, 3.2320441989rem + 2.2099447514vw, 5rem);
 }
@@ -2926,6 +2930,250 @@ button {
   }
 }
 
+.p-reservation {
+  margin-block-start: clamp(3.75rem, 3.2320441989rem + 2.2099447514vw, 5rem);
+}
+
+.p-reservation__inner {
+  max-inline-size: 728px;
+}
+
+.p-reservation__tel-heading {
+  font-size: clamp(1.25rem, 1.0428176796rem + 0.8839779006vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: clamp(0.1rem, 0.0834254144rem + 0.070718232vw, 0.14rem);
+}
+
+.p-reservation__tel-link {
+  align-items: center;
+  display: inline-block;
+  margin-block-start: clamp(1.5rem, 2.0303867403rem + -0.6629834254vw, 1.875rem);
+  text-align: center;
+}
+
+.p-reservation__tel-text {
+  color: #1391e6;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.64px;
+}
+
+.reservation__tel-info {
+  color: #1391e6;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.p-reservation__tel-message {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  margin-block-start: clamp(1.25rem, 1.1464088398rem + 0.4419889503vw, 1.5rem);
+}
+
+.p-reservation__mail {
+  margin-block-start: clamp(2.5rem, 3.3839779006rem + -1.1049723757vw, 3.125rem);
+}
+
+.p-reservation__mail-heading {
+  font-size: clamp(1.25rem, 1.0428176796rem + 0.8839779006vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: clamp(0.1rem, 0.0834254144rem + 0.070718232vw, 0.14rem);
+}
+
+.p-reservation__mail-message {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  margin-block-start: clamp(1.5625rem, 2.0044889503rem + -0.5524861878vw, 1.875rem);
+}
+
+.p-reservation__form-container {
+  margin-block-start: clamp(6.4375rem, 5.2203038674rem + 5.1933701657vw, 9.375rem);
+}
+
+.p-reservation__form {
+  border-top: 1px solid #ddd;
+  margin-block-start: 70px;
+}
+
+.p-reservation__row {
+  border-bottom: 1px solid #ddd;
+  padding-block: clamp(1.5rem, 1.3964088398rem + 0.4419889503vw, 1.75rem);
+}
+@media screen and (min-width: 768px) {
+  .p-reservation__row {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    justify-content: space-between;
+  }
+}
+
+.p-reservation__head {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.p-reservation__required {
+  background: #ee5a6d;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  margin-inline-start: clamp(0.75rem, 0.6464088398rem + 0.4419889503vw, 1rem);
+  padding: 3px 6px;
+}
+
+.p-reservation__data {
+  background: #f6f6f6;
+  border-radius: 4px;
+  color: #c2c2c2;
+  font-size: 16px;
+  margin-block-start: 12px;
+  padding: 12px 0 12px 16px;
+}
+@media screen and (min-width: 768px) {
+  .p-reservation__data {
+    margin-block-end: 0;
+    margin-block-start: 0;
+  }
+}
+.p-reservation__data textarea {
+  width: 100%;
+}
+
+.p-reservation__data input,
+.p-reservation__data textarea,
+.p-reservation__data select,
+.p-reservation__data .wpcf7-form-control {
+  background: #f6f6f6;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 12px;
+}
+
+.p-reservation__data select,
+.p-reservation__data .wpcf7-form-control.select {
+  width: 100%;
+}
+
+.p-reservation__data--select {
+  position: relative;
+}
+.p-reservation__data--select select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: #f6f6f6;
+  border: none;
+  border-radius: 4px;
+  color: #393939;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 40px 12px 16px;
+  width: 100%;
+}
+.p-reservation__data--select::after {
+  background: url("../img/reservation/form/pc/reservation-form-pc-02.svg") no-repeat center center/cover;
+  content: "";
+  height: 20px;
+  pointer-events: none;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.p-reservation__data--radio {
+  background: transparent;
+}
+.p-reservation__data--radio input {
+  color: #1391e6;
+}
+.p-reservation__data--radio label {
+  color: #393939;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.p-reservation__data--checkbox {
+  background: transparent;
+}
+.p-reservation__data--checkbox label {
+  color: #393939;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.p-reservation__submit {
+  display: block;
+  margin-block-start: clamp(4.375rem, 4.3232044199rem + 0.2209944751vw, 4.5rem);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.p-reservation__data--date {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.p-reservation__date-item {
+  position: relative;
+}
+.p-reservation__date-item input[type=date] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: #f6f6f6;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 12px 40px 12px 16px;
+  width: 100%;
+}
+.p-reservation__date-item::after {
+  background: url(../img/reservation/form/pc/reservation-form-pc-01.svg) no-repeat center center/cover;
+  content: "";
+  height: 20px;
+  pointer-events: none;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+}
+
+.p-reservation__button {
+  color: #1391e6;
+  font-size: clamp(0.875rem, 0.8232044199rem + 0.2209944751vw, 1rem);
+  font-weight: 500;
+  inline-size: 273px;
+  letter-spacing: 1.12px;
+  padding-block: 8px 9px;
+}
+@media screen and (min-width: 768px) {
+  .p-reservation__button {
+    inline-size: 360px;
+    padding-block: 16px;
+  }
+}
+@media (any-hover: hover) {
+  .p-reservation__button:hover {
+    background: #1391e6;
+    color: #fff;
+  }
+}
+
 .p-staff-message__swiper {
   margin-block-start: clamp(6.25rem, 4.6961325967rem + 6.6298342541vw, 10rem);
 }
@@ -3036,6 +3284,10 @@ button {
 .p-staff-message__profile-date,.p-staff-message__profile-text {
   font-size: 14px;
   font-weight: 500;
+}
+
+.p-staff-mv__bg-image {
+  background: url(../img/staff/message/pc/staff-message-pc-02.webp) no-repeat center center/cover;
 }
 
 /* Auto-generated index.scss for utility */

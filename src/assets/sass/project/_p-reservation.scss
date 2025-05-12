@@ -1,0 +1,257 @@
+@use "../global" as *;
+
+.p-reservation {
+  margin-block-start: rclamp(60, 80, 375, 1280);
+}
+
+.p-reservation__inner {
+  max-inline-size: 728px;
+}
+
+.p-reservation__container {
+}
+
+.p-reservation__content {
+}
+
+.p-reservation__tel {
+}
+
+.p-reservation__tel-heading {
+  font-size: rclamp(20, 28, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(1.6, 2.24, 375, 1280);
+}
+
+.p-reservation__tel-link {
+  margin-block-start: rclamp(30, 24, 375, 1280);
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+}
+
+.p-reservation__tel-text {
+  color: #1391e6;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.64px;
+}
+
+.reservation__tel-info {
+  color: #1391e6;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.p-reservation__tel-message {
+  margin-block-start: rclamp(20, 24, 375, 1280);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+
+.p-reservation__mail {
+  margin-block-start: rclamp(50, 40, 375, 1280);
+}
+
+.p-reservation__mail-heading {
+  font-size: rclamp(20, 28, 375, 1280);
+  font-weight: 700;
+  letter-spacing: rclamp(1.6, 2.24, 375, 1280);
+}
+
+.p-reservation__mail-message {
+  margin-block-start: rclamp(30, 25, 375, 1280);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+
+.p-reservation__form-container {
+  margin-block-start: rclamp(103, 150, 375, 1280);
+}
+
+.p-reservation__form {
+  margin-block-start: 70px;
+  border-top: 1px solid #ddd;
+}
+
+.p-reservation__row {
+  padding-block: rclamp(24, 28, 375, 1280);
+  border-bottom: 1px solid #ddd;
+
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.p-reservation__head {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.p-reservation__required {
+  padding: 3px 6px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  background: #ee5a6d;
+  margin-inline-start: rclamp(12, 16, 375, 1280);
+}
+
+.p-reservation__data {
+  color: #c2c2c2;
+  font-size: 16px;
+  border-radius: 4px;
+  background: #f6f6f6;
+  margin-block-start: 12px;
+  padding: 12px 0 12px 16px;
+
+  @include mq(md) {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+  textarea {
+    width: 100%;
+  }
+}
+
+.p-reservation__data input,
+.p-reservation__data textarea,
+.p-reservation__data select,
+.p-reservation__data .wpcf7-form-control {
+  padding: 12px;
+  background: #f6f6f6;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
+
+.p-reservation__data select,
+.p-reservation__data .wpcf7-form-control.select {
+  width: 100%;
+}
+
+.p-reservation__data--select {
+  position: relative;
+
+  select {
+    appearance: none;
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    background: #f6f6f6;
+    border: none;
+    border-radius: 4px;
+    color: #393939;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 20px;
+    height: 20px;
+    background: url("../img/reservation/form/pc/reservation-form-pc-02.svg")
+      no-repeat center center / cover;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.p-reservation__data--radio {
+  background: transparent;
+
+  input {
+    color: #1391e6;
+  }
+
+  label {
+    color: #393939;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.p-reservation__data--checkbox {
+  background: transparent;
+
+  label {
+    color: $text-primary;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+.p-reservation__submit {
+  margin-block-start: rclamp(70, 72, 375, 1280);
+  margin-inline: auto;
+  text-align: center;
+  display: block;
+}
+
+.p-reservation__data--date {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: transparent;
+}
+
+.p-reservation__date-item {
+  position: relative;
+
+  input[type="date"] {
+    appearance: none;
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    background: #f6f6f6;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 20px;
+    height: 20px;
+    background: url(../img/reservation/form/pc/reservation-form-pc-01.svg)
+      no-repeat center center / cover;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
+.p-reservation__button {
+  inline-size: 273px;
+  padding-block: 8px 9px;
+  color: #1391e6;
+  font-size: rclamp(14, 16, 375, 1280);
+  font-weight: 500;
+  letter-spacing: 1.12px;
+
+  @include mq(md) {
+    inline-size: 360px;
+    padding-block: 16px;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: #fff;
+      background: #1391e6;
+    }
+  }
+}
