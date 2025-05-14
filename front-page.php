@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
- <section class="p-index-mv">
+  <section class="p-index-mv">
       <div class="p-index-mv-card">
         <div class="p-index-mv-card__inner">
           <div class="p-index-mv-card__swiper-container">
@@ -422,4 +422,4 @@
       </div>
     </section>
 
-    <?php get_footer(); ?>
+<?php get_footer(); ?>
