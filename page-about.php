@@ -21,7 +21,7 @@
       </div>
     </section>
 
-    <div class="c-concept__heading-content p-concept__heading-content">
+    <div class="c-concept__heading-content p-concept__heading-content" id="policy">
       <h2 class="c-heading">ポリシーと特徴</h2>
     </div>
     <section class="c-concept p-about-concept">
@@ -87,7 +87,7 @@
       </div>
     </section>
 
-    <section class="p-about__medical">
+    <section class="p-about__medical" id="gallery">
       <div class="p-about-medical__inner l-section__inner">
         <div class="p-about-medical-headnig">
           <h2 class="c-heading">院内の様子</h2>

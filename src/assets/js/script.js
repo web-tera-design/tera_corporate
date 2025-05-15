@@ -638,3 +638,15 @@ progressbar：スライドの進捗に応じてプログレスバーが伸びる
 custom：自由にカスタマイズ
 
 =====================================================*/
+
+document.addEventListener("DOMContentLoaded", function () {
+  const hash = window.location.hash;
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: "smooth" });
+      }, 300); // アニメーション後にスクロール
+    }
+  }
+});

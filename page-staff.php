@@ -21,7 +21,7 @@
       </div>
     </section>
 
-    <section class="p-staff-message">
+    <section class="p-staff-message" id="message">
       <div class="p-staff-message__inner l-section__inner">
         <div class="p-staff-message__heading">
           <h2 class="c-heading">院長のあいさつ</h2>
@@ -155,7 +155,7 @@
       </div>
     </section>
 
-    <section class="c-staff-group">
+    <section class="c-staff-group" id="members">
       <div class="c-staff-group__inner l-section__inner">
         <h2 class="c-heading">スタッフ紹介</h2>
         <div class="c-staff-group__contaner">

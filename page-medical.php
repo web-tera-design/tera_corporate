@@ -73,7 +73,7 @@
     <section class="p-medical-detail">
       <div class="p-medical-detail__inner">
         <div class="p-medical-detail__container">
-          <div class="p-medical-general">
+          <div class="p-medical-general" id="general">
             <div class="c-medical__bg-top"></div>
             <div class="p-medical-general__inner">
               <div class="p-medical-general__container">
@@ -81,7 +81,7 @@
                   <h2 class="c-heading">一般診療</h2>
                 </div>
                 <div class="p-medical-general__items">
-                  <div class="p-medical-general__item">
+                  <div class="p-medical-general__item" id="general2">
                     <div class="p-medical-general__heading">
                       <h2 class="p-medical-general__main">一般歯科</h2>
                       <p class="p-medical-general__sub">
@@ -115,7 +115,7 @@
                       />
                     </div>
                   </div>
-                  <div class="p-medical-general__item">
+                  <div class="p-medical-general__item" id="pediatric">
                     <div class="p-medical-general__heading">
                       <h2 class="p-medical-general__main">小児歯科</h2>
                       <p class="p-medical-general__sub">
@@ -148,7 +148,7 @@
                       />
                     </div>
                   </div>
-                  <div class="p-medical-general__item">
+                  <div class="p-medical-general__item" id="preventive">
                     <div class="p-medical-general__heading">
                       <h2 class="p-medical-general__main">予防歯科</h2>
                       <p class="p-medical-general__sub">口腔内のケア全般</p>
@@ -186,7 +186,7 @@
             <div class="c-medical__bg-bottom-sub"></div>
           </div>
 
-          <div class="p-medical-specialized">
+          <div class="p-medical-specialized" id="specialized">
             <div class="c-medical__bg-top"></div>
             <div class="p-medical-specialized__inner">
               <div class="p-medical-specialized__container">
@@ -194,7 +194,7 @@
                   <h2 class="c-heading">特殊診療</h2>
                 </div>
                 <div class="p-medical-specialized__items">
-                  <div class="p-medical-specialized__item">
+                  <div class="p-medical-specialized__item" id="dentures">
                     <hgroup class="p-medical-specialized__heading">
                       <h2 class="p-medical-specialized__main">入れ歯</h2>
                       <p class="p-medical-specialized__sub">
@@ -227,7 +227,7 @@
                       />
                     </div>
                   </div>
-                  <div class="p-medical-specialized__item">
+                  <div class="p-medical-specialized__item" id="orthodontics">
                     <hgroup class="p-medical-specialized__heading">
                       <h2 class="p-medical-specialized__main">矯正歯科</h2>
                       <p class="p-medical-specialized__sub">歯並びが気になる</p>
@@ -258,7 +258,7 @@
                       />
                     </div>
                   </div>
-                  <div class="p-medical-specialized__item">
+                  <div class="p-medical-specialized__item" id="whitening">
                     <hgroup class="p-medical-specialized__heading">
                       <h2 class="p-medical-specialized__main">
                         ホワイトニング
@@ -291,7 +291,7 @@
                       />
                     </div>
                   </div>
-                  <div class="p-medical-specialized__item">
+                  <div class="p-medical-specialized__item" id="surgery">
                     <hgroup class="p-medical-specialized__heading">
                       <h2 class="p-medical-specialized__main">口腔外科</h2>
                       <p class="p-medical-specialized__sub">
@@ -324,7 +324,7 @@
                       />
                     </div>
                   </div>
-                  <div class="p-medical-specialized__item">
+                  <div class="p-medical-specialized__item" id="laser">
                     <hgroup class="p-medical-specialized__heading">
                       <h2 class="p-medical-specialized__main">レーザー治療</h2>
                       <p class="p-medical-specialized__sub">口内炎を治したい</p>

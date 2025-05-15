@@ -91,7 +91,7 @@
               </p>
             </address>
             <div class="l-footer-info__buttons">
-              <a href="#" class="c-button l-footer-info__button">
+              <a href="<?php echo get_permalink( get_page_by_path('reservation') ); ?>" class="c-button l-footer-info__button">
                 <svg width="35" height="20" viewBox="0 0 35 20" fill="none">
                   <path
                     d="M28.989 6.36255H24.0424C23.4572 6.36255 22.9824 6.83733 22.9824 7.42253V16.609C22.9824 17.1942 23.4572 17.669 24.0424 17.669H28.989C29.5742 17.669 30.049 17.1942 30.049 16.609V7.42253C30.049 6.83733 29.5742 6.36255 28.989 6.36255ZM26.5157 16.9624C26.1248 16.9624 25.809 16.6466 25.809 16.2557C25.809 15.8649 26.1248 15.5491 26.5157 15.5491C26.9066 15.5491 27.2224 15.8649 27.2224 16.2557C27.2224 16.6466 26.9066 16.9624 26.5157 16.9624ZM28.989 14.5774C28.989 14.7232 28.8698 14.8424 28.724 14.8424H24.3074C24.1617 14.8424 24.0424 14.7232 24.0424 14.5774V7.68753C24.0424 7.54178 24.1617 7.42253 24.3074 7.42253H28.724C28.8698 7.42253 28.989 7.54178 28.989 7.68753V14.5774Z"
@@ -104,7 +104,7 @@
                 </svg>
                 WEB予約
               </a>
-              <a href="#" class="c-button l-footer-info__button--sub">
+              <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>" class="c-button l-footer-info__button--sub">
                 <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
                   <path
                     d="M2.83464 2.83398H14.168C14.9471 2.83398 15.5846 3.47148 15.5846 4.25065V12.7507C15.5846 13.5298 14.9471 14.1673 14.168 14.1673H2.83464C2.05547 14.1673 1.41797 13.5298 1.41797 12.7507V4.25065C1.41797 3.47148 2.05547 2.83398 2.83464 2.83398Z"
@@ -160,41 +160,41 @@
         <div class="l-footer-nav__group">
           <h3 class="l-footer-nav__title">当院について</h3>
           <ul class="l-footer-nav__list">
-            <li class="l-footer-nav__item"><a href="#">ポリシーと特徴</a></li>
-            <li class="l-footer-nav__item"><a href="#">当院の様子</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/about/#policy'); ?>">ポリシーと特徴</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/about/#gallery'); ?>">当院の様子</a></li>
           </ul>
         </div>
         <div class="l-footer-nav__group">
           <h3 class="l-footer-nav__title">スタッフ紹介</h3>
           <ul class="l-footer-nav__list">
-            <li class="l-footer-nav__item"><a href="#">院長のあいさつ</a></li>
-            <li class="l-footer-nav__item"><a href="#">スタッフ</a></li>
-            <li class="l-footer-nav__item"><a href="#">スタッフブログ</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/staff/#message'); ?>">院長のあいさつ</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/staff/#members'); ?>">スタッフ</a></li>
+            <li class="l-footer-nav__item"><a href="	<?php echo get_post_type_archive_link('blog'); ?>">スタッフブログ</a></li>
           </ul>
         </div>
         <div class="l-footer-nav__group right2">
           <h3 class="l-footer-nav__title">診療内容</h3>
           <ul class="l-footer-nav__list footer-nav__list--col2">
-            <li class="l-footer-nav__item"><a href="#">一般歯科</a></li>
-            <li class="l-footer-nav__item"><a href="#">矯正歯科</a></li>
-            <li class="l-footer-nav__item"><a href="#">小児歯科</a></li>
-            <li class="l-footer-nav__item"><a href="#">ホワイトニング</a></li>
-            <li class="l-footer-nav__item"><a href="#">予防歯科</a></li>
-            <li class="l-footer-nav__item"><a href="#">口腔外科</a></li>
-            <li class="l-footer-nav__item"><a href="#">入れ歯</a></li>
-            <li class="l-footer-nav__item"><a href="#">レーザー治療</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/medical/#general2'); ?>">一般歯科</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/medical/#orthodontics'); ?>">矯正歯科</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/medical/#pediatric'); ?>">小児歯科</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/medical/#whitening'); ?>">ホワイトニング</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/medical/#preventive'); ?>">予防歯科</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/medical/#surgery'); ?>">口腔外科</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/medical/#dentures'); ?>">入れ歯</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo home_url('/medical/#laser'); ?>">レーザー治療</a></li>
           </ul>
         </div>
         <div class="l-footer-nav__group left2">
           <h3 class="l-footer-nav__title">お問い合わせ</h3>
           <ul class="l-footer-nav__list">
             <li class="l-footer-nav__item">
-              <a href="#">お問い合わせフォーム</a>
+              <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>">お問い合わせフォーム</a>
             </li>
-            <li class="l-footer-nav__item"><a href="#">WEB予約</a></li>
+            <li class="l-footer-nav__item"><a href="<?php echo get_permalink( get_page_by_path('reservation') ); ?>">WEB予約</a></li>
           </ul>
         </div>
-      </div>
+      </div>s
     </footer>
     <div class="l-footer__copy-light">
       <small class="l-footer-cory-light__text"
@@ -202,7 +202,7 @@
       >
     </div>
 
-    <a href="" class="c-reserve__button">
+    <a href="<?php echo get_permalink( get_page_by_path('reservation') ); ?>" class="c-reserve__button">
       <svg width="52" height="32" viewBox="0 0 52 32" fill="none">
         <path
           d="M47.7904 7.55811H38.1418C37.0003 7.55811 36.0742 8.4842 36.0742 9.62566V27.5444C36.0742 28.6859 37.0003 29.612 38.1418 29.612H47.7904C48.9318 29.612 49.8579 28.6859 49.8579 27.5444V9.62566C49.8579 8.4842 48.9318 7.55811 47.7904 7.55811ZM42.9661 28.2336C42.2037 28.2336 41.5877 27.6176 41.5877 26.8552C41.5877 26.0928 42.2037 25.4769 42.9661 25.4769C43.7285 25.4769 44.3444 26.0928 44.3444 26.8552C44.3444 27.6176 43.7285 28.2336 42.9661 28.2336ZM47.7904 23.5816C47.7904 23.8659 47.5578 24.0985 47.2735 24.0985H38.6587C38.3744 24.0985 38.1418 23.8659 38.1418 23.5816V10.1425C38.1418 9.85825 38.3744 9.62566 38.6587 9.62566H47.2735C47.5578 9.62566 47.7904 9.85825 47.7904 10.1425V23.5816Z"
@@ -256,7 +256,7 @@
         <p class="c-sp-bottom__time">(年中無休 AM9:00〜PM22:00)</p>
       </div>
       <div class="c-sp-bottom__item">
-        <a href="#" class="c-sp-bottom__link">
+        <a href="<?php echo get_permalink( get_page_by_path('reservation') ); ?>" class="c-sp-bottom__link">
           <svg width="46" height="28" viewBox="0 0 46 28" fill="none">
             <path
               d="M42.6329 6.83838H34.0469C33.0311 6.83838 32.207 7.66277 32.207 8.67887V24.6298C32.207 25.6459 33.0311 26.4703 34.0469 26.4703H42.6329C43.6487 26.4703 44.4728 25.6459 44.4728 24.6298V8.67887C44.4728 7.66277 43.6487 6.83838 42.6329 6.83838ZM38.3399 25.2433C37.6615 25.2433 37.1133 24.695 37.1133 24.0163C37.1133 23.3377 37.6615 22.7893 38.3399 22.7893C39.0184 22.7893 39.5665 23.3377 39.5665 24.0163C39.5665 24.695 39.0184 25.2433 38.3399 25.2433ZM42.6329 21.1022C42.6329 21.3553 42.4259 21.5623 42.173 21.5623H34.5069C34.2539 21.5623 34.0469 21.3553 34.0469 21.1022V9.139C34.0469 8.88593 34.2539 8.67887 34.5069 8.67887H42.173C42.4259 8.67887 42.6329 8.88593 42.6329 9.139V21.1022Z"

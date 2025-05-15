@@ -24,18 +24,33 @@ function allow_webp_avif_upload( $mime_types ) {
 }
 add_filter( 'upload_mimes', 'allow_webp_avif_upload' );
 
-/**
-* 画像タイトルを自動的にALTに入れる
-*/
-// function custom_auto_alt($response, $attachment) {
-// 	// 代替テキストを自動入力
-// 	if (empty($response['alt'])) {
-// 		$response['alt'] = $response['title'];
-// 	}
-// 	$response['caption'] = '';
-// 	return $response;
-// }
-// add_filter('wp_prepare_attachment_for_js', 'custom_auto_alt', 10, 2);
+// スタッフブログ（カスタム投稿タイプ）の登録
+function register_custom_post_type_blog() {
+    register_post_type('blog', array(
+        'label' => 'スタッフブログ',
+        'public' => true,
+        'has_archive' => true,
+        'menu_position' => 5,
+        'show_in_rest' => true, // ブロックエディタ対応
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'rewrite' => array('slug' => 'blog'),
+    ));
+}
+add_action('init', 'register_custom_post_type_blog');
+
+
+// blog_category というカスタムタクソノミーを追加
+function register_blog_taxonomy() {
+  register_taxonomy('blog_category', 'blog', array(
+    'label' => 'ブログカテゴリー',
+    'hierarchical' => true,
+    'public' => true,
+    'show_in_rest' => true,
+    'rewrite' => array('slug' => 'blog-category')
+  ));
+}
+add_action('init', 'register_blog_taxonomy');
+
 
 ?>
 
