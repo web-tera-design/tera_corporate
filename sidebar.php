@@ -4,14 +4,14 @@
               <div class="c-sidebar__clinic">
                 <div class="c-sidebar__heading">
                   <img
-                    src="img/blog/sidebaer/pc/blog-sidebaer-pc-03.svg"
+                    src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-03.svg"
                     alt=""
                   />
                   <h2 class="c-sidebar__heading-title">クリニックの紹介</h2>
                 </div>
                 <div class="c-sidebar__clinic-image">
                   <img
-                    src="img/blog/sidebaer/pc/blog-sidebaer-pc-02.webp"
+                    src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-02.webp"
                     alt=""
                     width="670"
                     height="420"
@@ -45,7 +45,7 @@
               <div class="c-sidebar__article">
                 <div class="c-sidebar__heading">
                   <img
-                    src="img/blog/sidebaer/pc/blog-sidebaer-pc-04.svg"
+                    src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-04.svg"
                     alt=""
                   />
                   <h2 class="c-sidebar__heading-title">新着記事</h2>
@@ -54,7 +54,7 @@
                   <a href="" class="c-sidebar__article-card">
                     <div class="c-sidebar__article-image">
                       <img
-                        src="img/blog/sidebaer/pc/blog-sidebaer-pc-01.webp"
+                        src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-01.webp"
                         alt=""
                       />
                     </div>
@@ -73,7 +73,7 @@
                   <a href="" class="c-sidebar__article-card">
                     <div class="c-sidebar__article-image">
                       <img
-                        src="img/blog/sidebaer/pc/blog-sidebaer-pc-01.webp"
+                        src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-01.webp"
                         alt=""
                       />
                     </div>
@@ -92,7 +92,7 @@
                   <a href="" class="c-sidebar__article-card">
                     <div class="c-sidebar__article-image">
                       <img
-                        src="img/blog/sidebaer/pc/blog-sidebaer-pc-01.webp"
+                        src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-01.webp"
                         alt=""
                       />
                     </div>
@@ -111,7 +111,7 @@
                   <a href="" class="c-sidebar__article-card">
                     <div class="c-sidebar__article-image">
                       <img
-                        src="img/blog/sidebaer/pc/blog-sidebaer-pc-01.webp"
+                        src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-01.webp"
                         alt=""
                       />
                     </div>
@@ -130,7 +130,7 @@
                   <a href="" class="c-sidebar__article-card">
                     <div class="c-sidebar__article-image">
                       <img
-                        src="img/blog/sidebaer/pc/blog-sidebaer-pc-01.webp"
+                        src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-01.webp"
                         alt=""
                       />
                     </div>
@@ -151,7 +151,7 @@
               <div class="c-sidebar__category">
                 <div class="c-sidebar__heading">
                   <img
-                    src="img/blog/sidebaer/pc/blog-sidebaer-pc-05.svg"
+                    src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-05.svg"
                     alt=""
                   />
                   <h2 class="c-sidebar__heading-title">カテゴリー</h2>

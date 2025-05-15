@@ -44,7 +44,7 @@
           </div>
           <div class="c-concept__image">
             <img
-              src="img/concept_img.webp"
+              src="<?php echo get_template_directory_uri(); ?>/img/concept_img.webp"
               alt="治療中の画像"
               width="1280"
               height="876"
@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="c-concept__bg-image">
-          <img src="img/concept-bg.svg" alt="" width="1310" height="726" />
+          <img src="<?php echo get_template_directory_uri(); ?>/img/concept-bg.svg" alt="" width="1310" height="726" />
         </div>
       </div>
     </section>
@@ -77,7 +77,7 @@
           </div>
           <div class="c-concept__image c-concept__image--row">
             <img
-              src="img/concept_img.webp"
+              src="<?php echo get_template_directory_uri(); ?>/img/concept_img.webp"
               alt="治療中の画像"
               width="1280"
               height="876"
@@ -96,7 +96,7 @@
           <div class="p-about-medical__card">
             <div class="p-about-medical__image">
               <img
-                src="img/about/medical/pc/about-medical-pc-01.webp"
+                src="<?php echo get_template_directory_uri(); ?>/img/about/medical/pc/about-medical-pc-01.webp"
                 alt="院内の様子"
                 width="634"
                 height="634"
@@ -106,7 +106,7 @@
           <div class="p-about-medical__card">
             <div class="p-about-medical__image">
               <img
-                src="img/about/medical/pc/about-medical-pc-02.webp"
+                src="<?php echo get_template_directory_uri(); ?>/img/about/medical/pc/about-medical-pc-02.webp"
                 alt="院内の様子"
                 width="634"
                 height="634"
@@ -116,7 +116,7 @@
           <div class="p-about-medical__card">
             <div class="p-about-medical__image">
               <img
-                src="img/about/medical/pc/about-medical-pc-03.webp"
+                src="<?php echo get_template_directory_uri(); ?>/img/about/medical/pc/about-medical-pc-03.webp"
                 alt="院内の様子"
                 width="634"
                 height="634"
@@ -126,7 +126,7 @@
           <div class="p-about-medical__card">
             <div class="p-about-medical__image">
               <img
-                src="img/about/medical/pc/about-medical-pc-04.webp"
+                src="<?php echo get_template_directory_uri(); ?>/img/about/medical/pc/about-medical-pc-04.webp"
                 alt="院内の様子"
                 width="634"
                 height="634"
@@ -136,7 +136,7 @@
           <div class="p-about-medical__card">
             <div class="p-about-medical__image">
               <img
-                src="img/about/medical/pc/about-medical-pc-05.webp"
+                src="<?php echo get_template_directory_uri(); ?>/img/about/medical/pc/about-medical-pc-05.webp"
                 alt="院内の様子"
                 width="634"
                 height="634"
@@ -146,7 +146,7 @@
           <div class="p-about-medical__card">
             <div class="p-about-medical__image">
               <img
-                src="img/about/medical/pc/about-medical-pc-06.webp"
+                src="<?php echo get_template_directory_uri(); ?>/img/about/medical/pc/about-medical-pc-06.webp"
                 alt="院内の様子"
                 width="634"
                 height="634"

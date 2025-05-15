@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="p-staff-message__image">
-            <img src="img/staff/message/pc/staff-message-pc-01.webp" alt="" />
+            <img src="<?php echo get_template_directory_uri(); ?>/img/staff/message/pc/staff-message-pc-01.webp" alt="" />
           </div>
           <div class="p-staff-message__profile">
             <div class="p-staff-message__profile-content">
@@ -105,7 +105,7 @@
               <div class="swiper-wrapper p-staff-message__swiper-wrapper">
                 <div class="swiper-slide p-staff-message__swiper-slide">
                   <img
-                    src="img/staff/message/pc/staff-message-pc-03.webp"
+                    src="<?php echo get_template_directory_uri(); ?>/img/staff/message/pc/staff-message-pc-03.webp"
                     alt=""
                     width="610"
                     height="458"
@@ -113,7 +113,7 @@
                 </div>
                 <div class="swiper-slide p-staff-message__swiper-slide">
                   <img
-                    src="img/staff/message/pc/staff-message-pc-04.webp"
+                    src="<?php echo get_template_directory_uri(); ?>/img/staff/message/pc/staff-message-pc-04.webp"
                     alt=""
                     width="610"
                     height="458"
@@ -121,7 +121,7 @@
                 </div>
                 <div class="swiper-slide p-staff-message__swiper-slide">
                   <img
-                    src="img/staff/message/pc/staff-message-pc-05.webp"
+                    src="<?php echo get_template_directory_uri(); ?>/img/staff/message/pc/staff-message-pc-05.webp"
                     alt=""
                     width="610"
                     height="458"
@@ -129,7 +129,7 @@
                 </div>
                 <div class="swiper-slide p-staff-message__swiper-slide">
                   <img
-                    src="img/staff/message/pc/staff-message-pc-06.webp"
+                    src="<?php echo get_template_directory_uri(); ?>/img/staff/message/pc/staff-message-pc-06.webp"
                     alt=""
                     width="610"
                     height="458"
@@ -137,7 +137,7 @@
                 </div>
                 <div class="swiper-slide p-staff-message__swiper-slide">
                   <img
-                    src="img/staff/message/pc/staff-message-pc-07.webp"
+                    src="<?php echo get_template_directory_uri(); ?>/img/staff/message/pc/staff-message-pc-07.webp"
                     alt=""
                     width="610"
                     height="458"
@@ -164,7 +164,7 @@
             <div class="c-staff-group__item">
               <div class="c-staff-group__image">
                 <img
-                  src="img/staff/group/pc/staff-group-pc-01.webp"
+                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-01.webp"
                   alt=""
                   width="670"
                   height="672"
@@ -191,7 +191,7 @@
             <div class="c-staff-group__item">
               <div class="c-staff-group__image">
                 <img
-                  src="img/staff/group/pc/staff-group-pc-02.webp"
+                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-02.webp"
                   alt=""
                   width="670"
                   height="672"
@@ -224,7 +224,7 @@
             <div class="c-staff-group__item">
               <div class="c-staff-group__image">
                 <img
-                  src="img/staff/group/pc/staff-group-pc-03.webp"
+                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-03.webp"
                   alt=""
                   width="670"
                   height="672"
@@ -251,7 +251,7 @@
             <div class="c-staff-group__item">
               <div class="c-staff-group__image">
                 <img
-                  src="img/staff/group/pc/staff-group-pc-04.webp"
+                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-04.webp"
                   alt=""
                   width="670"
                   height="672"
@@ -278,7 +278,7 @@
             <div class="c-staff-group__item">
               <div class="c-staff-group__image">
                 <img
-                  src="img/staff/group/pc/staff-group-pc-05.webp"
+                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-05.webp"
                   alt=""
                   width="670"
                   height="672"
@@ -305,7 +305,7 @@
             <div class="c-staff-group__item">
               <div class="c-staff-group__image">
                 <img
-                  src="img/staff/group/pc/staff-group-pc-06.webp"
+                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-06.webp"
                   alt=""
                   width="560"
                   height="560"
@@ -332,7 +332,7 @@
             <div class="c-staff-group__item">
               <div class="c-staff-group__image">
                 <img
-                  src="img/staff/group/pc/staff-group-pc-07.webp"
+                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-07.webp"
                   alt=""
                   width="560"
                   height="560"

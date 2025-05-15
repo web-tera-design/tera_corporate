@@ -99,7 +99,7 @@
                       </div>
                       <div class="p-medical-general__image">
                         <img
-                          src="img/medical/general/pc/medical-general-pc-01.webp"
+                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-01.webp"
                           alt=""
                           loading="lazy"
                           width="840"
@@ -108,7 +108,7 @@
                       </div>
                       <img
                         class="p-medical-general__bg-image"
-                        src="img/medical/general/pc/medical-general-pc-11.svg"
+                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-11.svg"
                         alt=""
                         width="100"
                         height="80"
@@ -133,7 +133,7 @@
                       </div>
                       <div class="p-medical-general__image">
                         <img
-                          src="img/medical/general/pc/medical-general-pc-02.webp"
+                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-02.webp"
                           alt=""
                           width="840"
                           height="630"
@@ -141,7 +141,7 @@
                       </div>
                       <img
                         class="p-medical-general__bg-image"
-                        src="img/medical/general/pc/medical-general-pc-11.svg"
+                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-11.svg"
                         alt=""
                         width="100"
                         height="80"
@@ -164,7 +164,7 @@
                       </div>
                       <div class="p-medical-general__image">
                         <img
-                          src="img/medical/general/pc/medical-general-pc-03.webp"
+                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-03.webp"
                           alt=""
                           width="840"
                           height="630"
@@ -172,7 +172,7 @@
                       </div>
                       <img
                         class="p-medical-general__bg-image"
-                        src="img/medical/general/pc/medical-general-pc-11.svg"
+                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-11.svg"
                         alt=""
                         width="100"
                         height="80"
@@ -212,7 +212,7 @@
                       </div>
                       <div class="p-medical-specialized__image">
                         <img
-                          src="img/medical/general/pc/medical-general-pc-04.webp"
+                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-04.webp"
                           alt=""
                           width="840"
                           height="632"
@@ -220,7 +220,7 @@
                       </div>
                       <img
                         class="p-medical-specialized__bg-image"
-                        src="img/medical/general/pc/medical-general-pc-09.svg"
+                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-09.svg"
                         alt=""
                         width="100"
                         height="80"
@@ -243,7 +243,7 @@
                       </div>
                       <div class="p-medical-specialized__image">
                         <img
-                          src="img/medical/general/pc/medical-general-pc-05.webp"
+                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-05.webp"
                           alt=""
                           width="840"
                           height="630"
@@ -251,7 +251,7 @@
                       </div>
                       <img
                         class="p-medical-specialized__bg-image"
-                        src="img/medical/general/pc/medical-general-pc-09.svg"
+                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-09.svg"
                         alt=""
                         width="100"
                         height="80"
@@ -276,7 +276,7 @@
                       </div>
                       <div class="p-medical-specialized__image">
                         <img
-                          src="img/medical/general/pc/medical-general-pc-06.webp"
+                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-06.webp"
                           alt=""
                           width="840"
                           height="630"
@@ -284,7 +284,7 @@
                       </div>
                       <img
                         class="p-medical-specialized__bg-image"
-                        src="img/medical/general/pc/medical-general-pc-09.svg"
+                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-09.svg"
                         alt=""
                         width="100"
                         height="80"
@@ -309,7 +309,7 @@
                       </div>
                       <div class="p-medical-specialized__image">
                         <img
-                          src="img/medical/general/pc/medical-general-pc-07.webp"
+                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-07.webp"
                           alt=""
                           width="840"
                           height="630"
@@ -317,7 +317,7 @@
                       </div>
                       <img
                         class="p-medical-specialized__bg-image"
-                        src="img/medical/general/pc/medical-general-pc-09.svg"
+                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-09.svg"
                         alt=""
                         width="100"
                         height="80"
@@ -340,7 +340,7 @@
                       </div>
                       <div class="p-medical-specialized__image">
                         <img
-                          src="img/medical/general/pc/medical-general-pc-08.webp"
+                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-08.webp"
                           alt=""
                           width="840"
                           height="630"
@@ -348,7 +348,7 @@
                       </div>
                       <img
                         class="p-medical-specialized__bg-image"
-                        src="img/medical/general/pc/medical-general-pc-09.svg"
+                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-09.svg"
                         alt=""
                         width="100"
                         height="80"
