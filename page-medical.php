@@ -73,294 +73,69 @@
     <section class="p-medical-detail">
       <div class="p-medical-detail__inner">
         <div class="p-medical-detail__container">
-          <div class="p-medical-general" id="general">
-            <div class="c-medical__bg-top"></div>
-            <div class="p-medical-general__inner">
-              <div class="p-medical-general__container">
-                <div class="p-index-medical__heading">
-                  <h2 class="c-heading">一般診療</h2>
-                </div>
-                <div class="p-medical-general__items">
-                  <div class="p-medical-general__item" id="general2">
-                    <div class="p-medical-general__heading">
-                      <h2 class="p-medical-general__main">一般歯科</h2>
-                      <p class="p-medical-general__sub">
-                        虫歯治療、歯茎がしみるなど
-                      </p>
-                    </div>
-                    <div class="p-medical-general__content">
-                      <div class="p-medical-general__text">
-                        <p class="medical-general__text--main">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                        <p class="medical-general__text--sub">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                      </div>
-                      <div class="p-medical-general__image">
-                        <img
-                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-01.webp"
-                          alt=""
-                          loading="lazy"
-                          width="840"
-                          height="630"
-                        />
-                      </div>
-                      <img
-                        class="p-medical-general__bg-image"
-                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-11.svg"
-                        alt=""
-                        width="100"
-                        height="80"
-                      />
-                    </div>
-                  </div>
-                  <div class="p-medical-general__item" id="pediatric">
-                    <div class="p-medical-general__heading">
-                      <h2 class="p-medical-general__main">小児歯科</h2>
-                      <p class="p-medical-general__sub">
-                        小さいお子様の歯の治療
-                      </p>
-                    </div>
-                    <div class="p-medical-general__content">
-                      <div class="p-medical-general__text">
-                        <p class="medical-general__text--main">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                        <p class="medical-general__text--sub">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                      </div>
-                      <div class="p-medical-general__image">
-                        <img
-                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-02.webp"
-                          alt=""
-                          width="840"
-                          height="630"
-                        />
-                      </div>
-                      <img
-                        class="p-medical-general__bg-image"
-                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-11.svg"
-                        alt=""
-                        width="100"
-                        height="80"
-                      />
-                    </div>
-                  </div>
-                  <div class="p-medical-general__item" id="preventive">
-                    <div class="p-medical-general__heading">
-                      <h2 class="p-medical-general__main">予防歯科</h2>
-                      <p class="p-medical-general__sub">口腔内のケア全般</p>
-                    </div>
-                    <div class="p-medical-general__content">
-                      <div class="p-medical-general__text">
-                        <p class="medical-general__text--main">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                        <p class="medical-general__text--sub">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                      </div>
-                      <div class="p-medical-general__image">
-                        <img
-                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-03.webp"
-                          alt=""
-                          width="840"
-                          height="630"
-                        />
-                      </div>
-                      <img
-                        class="p-medical-general__bg-image"
-                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-11.svg"
-                        alt=""
-                        width="100"
-                        height="80"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="c-medical__bg-bottom-main"></div>
-            <div class="c-medical__bg-bottom-sub"></div>
-          </div>
+          <?php
+            $terms = [
+              'general' => ['title' => '一般診療', 'class' => 'p-medical-general', 'bg' => 'medical-general-pc-11.svg'],
+              'special' => ['title' => '特殊診療', 'class' => 'p-medical-specialized', 'bg' => 'medical-general-pc-09.svg'],
+            ];
 
-          <div class="p-medical-specialized" id="specialized">
-            <div class="c-medical__bg-top"></div>
-            <div class="p-medical-specialized__inner">
-              <div class="p-medical-specialized__container">
-                <div class="p-index-medical__heading">
-                  <h2 class="c-heading">特殊診療</h2>
-                </div>
-                <div class="p-medical-specialized__items">
-                  <div class="p-medical-specialized__item" id="dentures">
-                    <hgroup class="p-medical-specialized__heading">
-                      <h2 class="p-medical-specialized__main">入れ歯</h2>
-                      <p class="p-medical-specialized__sub">
-                        入れ歯を作りたい、調整したい
-                      </p>
-                    </hgroup>
-                    <div class="p-medical-specialized__content">
-                      <div class="p-medical-specialized__text">
-                        <p class="medical-specialized__text--main">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                        <p class="medical-specialized__text--sub">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                      </div>
-                      <div class="p-medical-specialized__image">
-                        <img
-                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-04.webp"
-                          alt=""
-                          width="840"
-                          height="632"
-                        />
-                      </div>
-                      <img
-                        class="p-medical-specialized__bg-image"
-                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-09.svg"
-                        alt=""
-                        width="100"
-                        height="80"
-                      />
-                    </div>
+            foreach ($terms as $slug => $config) :
+              $args = [
+                'post_type' => 'plan',
+                'posts_per_page' => -1,
+                'tax_query' => [[
+                  'taxonomy' => 'plan_category',
+                  'field' => 'slug',
+                  'terms' => $slug
+                ]]
+              ];
+              $query = new WP_Query($args);
+              if ($query->have_posts()) :
+            ?>
+            <section class="<?php echo $config['class']; ?>" id="<?php echo $slug; ?>">
+              <div class="c-medical__bg-top"></div>
+              <div class="<?php echo $config['class']; ?>__inner">
+                <div class="<?php echo $config['class']; ?>__container">
+                  <div class="p-index-medical__heading">
+                    <h2 class="c-heading"><?php echo $config['title']; ?></h2>
                   </div>
-                  <div class="p-medical-specialized__item" id="orthodontics">
-                    <hgroup class="p-medical-specialized__heading">
-                      <h2 class="p-medical-specialized__main">矯正歯科</h2>
-                      <p class="p-medical-specialized__sub">歯並びが気になる</p>
-                    </hgroup>
-                    <div class="p-medical-specialized__content">
-                      <div class="p-medical-specialized__text">
-                        <p class="medical-specialized__text--main">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                        <p class="medical-specialized__text--sub">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
+                  <div class="<?php echo $config['class']; ?>__items">
+                    <?php while ($query->have_posts()) : $query->the_post(); ?>
+                    <div class="<?php echo $config['class']; ?>__item">
+                      <hgroup class="<?php echo $config['class']; ?>__heading">
+                        <h2 class="<?php echo $config['class']; ?>__main"><?php the_title(); ?></h2>
+                        <p class="<?php echo $config['class']; ?>__sub"><?php the_field('trouble'); ?></p>
+                      </hgroup>
+                      <div class="<?php echo $config['class']; ?>__content">
+                        <div class="<?php echo $config['class']; ?>__text">
+                          <p class="<?php echo str_replace('p-', '', $config['class']); ?>__text--main">
+                            <?php the_field('description'); ?>
+                          </p>
+                          <p class="<?php echo str_replace('p-', '', $config['class']); ?>__text--sub">
+                            <?php the_field('description_sub'); ?>
+                          </p>
+                        </div>
+
+                        <div class="<?php echo $config['class']; ?>__image">
+                          <?php if (has_post_thumbnail()) : ?>
+                            <?php the_post_thumbnail('full', ['width' => 840, 'height' => 630]); ?>
+                          <?php else : ?>
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/common/noimg.jpg" alt="代替画像" width="840" height="630" />
+                          <?php endif; ?>
+                        </div>
+                        <img class="<?php echo $config['class']; ?>__bg-image"
+                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/<?php echo $config['bg']; ?>" alt=""
+                          width="100" height="80" />
                       </div>
-                      <div class="p-medical-specialized__image">
-                        <img
-                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-05.webp"
-                          alt=""
-                          width="840"
-                          height="630"
-                        />
-                      </div>
-                      <img
-                        class="p-medical-specialized__bg-image"
-                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-09.svg"
-                        alt=""
-                        width="100"
-                        height="80"
-                      />
                     </div>
-                  </div>
-                  <div class="p-medical-specialized__item" id="whitening">
-                    <hgroup class="p-medical-specialized__heading">
-                      <h2 class="p-medical-specialized__main">
-                        ホワイトニング
-                      </h2>
-                      <p class="p-medical-specialized__sub">歯を白くしたい</p>
-                    </hgroup>
-                    <div class="p-medical-specialized__content">
-                      <div class="p-medical-specialized__text">
-                        <p class="medical-specialized__text--main">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                        <p class="medical-specialized__text--sub">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                      </div>
-                      <div class="p-medical-specialized__image">
-                        <img
-                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-06.webp"
-                          alt=""
-                          width="840"
-                          height="630"
-                        />
-                      </div>
-                      <img
-                        class="p-medical-specialized__bg-image"
-                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-09.svg"
-                        alt=""
-                        width="100"
-                        height="80"
-                      />
-                    </div>
-                  </div>
-                  <div class="p-medical-specialized__item" id="surgery">
-                    <hgroup class="p-medical-specialized__heading">
-                      <h2 class="p-medical-specialized__main">口腔外科</h2>
-                      <p class="p-medical-specialized__sub">
-                        インプラント、親知らずの抜歯
-                      </p>
-                    </hgroup>
-                    <div class="p-medical-specialized__content">
-                      <div class="p-medical-specialized__text">
-                        <p class="medical-specialized__text--main">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                        <p class="medical-specialized__text--sub">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                      </div>
-                      <div class="p-medical-specialized__image">
-                        <img
-                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-07.webp"
-                          alt=""
-                          width="840"
-                          height="630"
-                        />
-                      </div>
-                      <img
-                        class="p-medical-specialized__bg-image"
-                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-09.svg"
-                        alt=""
-                        width="100"
-                        height="80"
-                      />
-                    </div>
-                  </div>
-                  <div class="p-medical-specialized__item" id="laser">
-                    <hgroup class="p-medical-specialized__heading">
-                      <h2 class="p-medical-specialized__main">レーザー治療</h2>
-                      <p class="p-medical-specialized__sub">口内炎を治したい</p>
-                    </hgroup>
-                    <div class="p-medical-specialized__content">
-                      <div class="p-medical-specialized__text">
-                        <p class="medical-specialized__text--main">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                        <p class="medical-specialized__text--sub">
-                          テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-                        </p>
-                      </div>
-                      <div class="p-medical-specialized__image">
-                        <img
-                          src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-08.webp"
-                          alt=""
-                          width="840"
-                          height="630"
-                        />
-                      </div>
-                      <img
-                        class="p-medical-specialized__bg-image"
-                        src="<?php echo get_template_directory_uri(); ?>/img/medical/general/pc/medical-general-pc-09.svg"
-                        alt=""
-                        width="100"
-                        height="80"
-                      />
-                    </div>
+                    <?php endwhile; ?>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="c-medical__bg-bottom-main"></div>
-            <div class="c-medical__bg-bottom-sub"></div>
-          </div>
+              <div class="c-medical__bg-bottom-main"></div>
+              <div class="c-medical__bg-bottom-sub"></div>
+            </section>
+            <?php endif; wp_reset_postdata(); endforeach; ?>
         </div>
       </div>
     </section>

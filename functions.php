@@ -49,8 +49,6 @@ function register_blog_taxonomy() {
     'rewrite' => array('slug' => 'blog-category')
   ));
 }
-add_action('init', 'register_blog_taxonomy');
-
 
 ?>
 
