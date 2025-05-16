@@ -156,71 +156,75 @@
     </section>
 
 
-      <?php
-          $terms = [
-            'dental-hygienist' => '歯科衛生士',
-            'dental-assistant' => '歯科助手',
-          ];
-          ?>
+    <?php
+    $terms = [
+      'dental-hygienist' => '歯科衛生士',
+      'dental-assistant' => '歯科助手',
+    ];
+    ?>
+
     <section class="c-staff-group" id="members">
       <div class="c-staff-group__inner l-section__inner">
         <h2 class="c-heading">スタッフ紹介</h2>
-          <?php foreach ($terms as $slug => $label) :
-            $args = array(
-              'post_type' => 'staffs',
-              'posts_per_page' => -1,
-              'orderby' => 'menu_order',
-              'order' => 'ASC',
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'staff_category',
-                  'field' => 'slug',
-                  'terms' => $slug,
-                ),
+
+        <?php foreach ($terms as $slug => $label) :
+          $args = array(
+            'post_type' => 'staffs',
+            'posts_per_page' => -1,
+            'orderby' => 'menu_order',
+            'order' => 'ASC',
+            'tax_query' => array(
+              array(
+                'taxonomy' => 'staff_category',
+                'field'    => 'slug',
+                'terms'    => $slug,
               ),
-            );
-            $staff_query = new WP_Query($args);
-          ?>
-      <?php if ($staff_query->have_posts()) : ?>
-        <div class="c-staff-group__container">
-          <p class="c-staff-group__heading"><?php echo esc_html($label); ?></p>
-          <div class="c-staff-group__items">
-            <?php while ($staff_query->have_posts()) : $staff_query->the_post(); ?>
-              <div class="c-staff-group__item" itemscope itemtype="https://schema.org/Person">
-                <div class="c-staff-group__image">
-                  <?php the_post_thumbnail('medium', ['alt' => get_the_title(), 'itemprop' => 'image']); ?>
-                </div>
-                <p class="c-staff-group__name">
-                  <?php echo esc_html($label); ?><span class="c-staff-group__subname" itemprop="name"><?php the_title(); ?></span>
-                </p>
-                <div class="c-staff-group__content">
-                  <div class="c-p-staff-group__texts">
-                    <p class="c-staff-group__text">出身地</p>
-                    <p class="c-staff-group__subtext"><?php the_field('hometown'); ?></p>
+            ),
+          );
+          $staff_query = new WP_Query($args);
+        ?>
+
+          <?php if ($staff_query->have_posts()) : ?>
+            <div class="c-staff-group__container">
+              <p class="c-staff-group__heading"><?php echo esc_html($label); ?></p>
+              <div class="c-staff-group__items">
+                <?php while ($staff_query->have_posts()) : $staff_query->the_post(); ?>
+                  <div class="c-staff-group__item" itemscope itemtype="https://schema.org/Person">
+                    <div class="c-staff-group__image">
+                      <?php the_post_thumbnail('medium', ['alt' => get_the_title(), 'itemprop' => 'image']); ?>
+                    </div>
+                    <p class="c-staff-group__name">
+                      <?php echo esc_html($label); ?>
+                      <span class="c-staff-group__subname" itemprop="name"><?php the_title(); ?></span>
+                    </p>
+                    <div class="c-staff-group__content">
+                      <div class="c-p-staff-group__texts">
+                        <p class="c-staff-group__text">出身地</p>
+                        <p class="c-staff-group__subtext"><?php the_field('hometown'); ?></p>
+                      </div>
+                      <div class="c-p-staff-group__texts">
+                        <p class="c-staff-group__text">趣味</p>
+                        <p class="c-staff-group__subtext"><?php the_field('hobby'); ?></p>
+                      </div>
+                      <div class="c-p-staff-group__texts">
+                        <p class="c-staff-group__text">好きな食べ物</p>
+                        <p class="c-staff-group__subtext"><?php the_field('favorite_food'); ?></p>
+                      </div>
+                    </div>
                   </div>
-                  <div class="c-p-staff-group__texts">
-                    <p class="c-staff-group__text">趣味</p>
-                    <p class="c-staff-group__subtext"><?php the_field('hobby'); ?></p>
-                  </div>
-                  <div class="c-p-staff-group__texts">
-                    <p class="c-staff-group__text">好きな食べ物</p>
-                    <p class="c-staff-group__subtext"><?php the_field('favorite_food'); ?></p>
-                  </div>
-                </div>
+                <?php endwhile; ?>
               </div>
-            <?php endwhile; ?>
-          </div>
-        </div>
-        <?php wp_reset_postdata(); ?>
+            </div>
+            <?php wp_reset_postdata(); ?>
+          <?php endif; ?>
+
+        <?php endforeach; ?>
+      </div>
+
+      <!-- noindex制御は以下をhead内または専用テンプレートで設定 -->
+      <?php if (is_singular('staffs')) : ?>
+        <meta name="robots" content="noindex, nofollow">
       <?php endif; ?>
-
-      <?php endforeach; ?>
-    </div>
-
-    <!-- noindex制御は以下をhead内または専用テンプレートで設定 -->
-    <?php if (is_singular('staffs')) : ?>
-      <meta name="robots" content="noindex, nofollow">
-    <?php endif; ?>
     </section>
 
 <?php get_footer(); ?>
