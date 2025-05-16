@@ -5,3 +5,7 @@ body {
   color: $text-primary;
   background-color: $bg-primary;
 }
+
+html {
+  scroll-behavior: smooth;
+}

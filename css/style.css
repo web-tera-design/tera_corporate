@@ -6,6 +6,10 @@ body {
   font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ============================
    ✅ シンプルなリセットCSS
    ============================ */
@@ -2603,6 +2607,15 @@ button {
   }
 }
 
+.p-medical-general__item[id] {
+  scroll-margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  .p-medical-general__item[id] {
+    scroll-margin-top: 50px;
+  }
+}
+
 .p-medical-general__heading {
   border-bottom: 1px solid #c2c2c2;
   padding-bottom: 20px;
@@ -2839,6 +2852,15 @@ button {
 @media screen and (min-width: 768px) {
   .p-medical-specialized__item {
     padding: 60px;
+  }
+}
+
+.p-medical-specialized__item[id] {
+  scroll-margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  .p-medical-specialized__item[id] {
+    scroll-margin-top: 50px;
   }
 }
 

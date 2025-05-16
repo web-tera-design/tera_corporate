@@ -24,47 +24,63 @@
     <section class="p-medical">
       <div class="p-medical__inner l-section__inner">
         <div class="p-medical-link__container">
-          <div class="p-medical-link__wrapper">
-            <div class="p-medical-link__menu">
-              <h2 class="p-medical-link__text">一般診療</h2>
-              <span class="p-medical-link__label">保険対象</span>
+          <div class="p-medical-link__container">
+            <?php
+              // 診療区分（親カテゴリ）を定義
+              $parents = [
+                'general' => [ // スラッグ（カテゴリ識別子）
+                  'title' => '一般診療',         // 見出しタイトル
+                  'label' => '保険対象',         // 小ラベル
+                  'class' => ''                  // 特別なclassなし
+                ],
+                'special' => [
+                  'title' => '特殊診療',
+                  'label' => '実費',
+                  'class' => 'p-medical-link__wrapper__rower' // 特殊診療だけ見た目用クラスを追加
+                ]
+              ];
+
+              // 各診療区分（general / special）をループ
+              foreach ($parents as $parent_slug => $info) :
+
+                // 親ターム（診療区分）の情報を取得（タクソノミー：plan_category）
+                $parent_term = get_term_by('slug', $parent_slug, 'plan_category');
+
+                // 親タームが存在しない場合はスキップ
+                if (!$parent_term) continue;
+
+                // 子ターム（一般歯科、小児歯科など）を取得
+                $children = get_terms([
+                  'taxonomy' => 'plan_category',            // 対象のタクソノミー
+                  'parent' => $parent_term->term_id,        // 親タームIDで絞る
+                  'hide_empty' => false                     // 投稿がなくても出力（trueにすると投稿があるカテゴリのみ）
+                ]);
+            ?>
+
+            <!-- ラッパー：一般診療／特殊診療ごとに分かれる -->
+            <div class="p-medical-link__wrapper <?php echo $info['class']; ?>">
+              <div class="p-medical-link__menu">
+                <!-- 見出し（例：一般診療） -->
+                <h2 class="p-medical-link__text"><?php echo esc_html($info['title']); ?></h2>
+                
+                <!-- ラベル（例：保険対象／実費） -->
+                <span class="p-medical-link__label<?php echo ($parent_slug === 'special') ? ' p-medical-link_label--red' : ''; ?>">
+                  <?php echo esc_html($info['label']); ?>
+                </span>
+              </div>
+
+              <div class="p-medical-link__items">
+                <?php foreach ($children as $child) : ?>
+                  <div class="p-medical-link__item">
+                    <!-- /medical ページ内のセクションID（子カテゴリのスラッグ）にリンク -->
+                    <a href="<?php echo esc_url(home_url('/medical/#' . $child->slug)); ?>" class="p-medical-link">
+                      <?php echo esc_html($child->name); ?> <!-- 表示名（例：小児歯科） -->
+                    </a>
+                  </div>
+                <?php endforeach; ?>
+              </div>
             </div>
-            <div class="p-medical-link__items">
-              <div class="p-medical-link__item">
-                <a href="" class="p-medical-link">一般歯科</a>
-              </div>
-              <div class="p-medical-link__item">
-                <a href="" class="p-medical-link">小児歯科</a>
-              </div>
-              <div class="p-medical-link__item">
-                <a href="" class="p-medical-link">予防歯科</a>
-              </div>
-            </div>
-          </div>
-          <div class="p-medical-link__wrapper p-medical-link__wrapper__rower">
-            <div class="p-medical-link__menu">
-              <h2 class="p-medical-link__text">特殊診療</h2>
-              <span class="p-medical-link__label p-medical-link_label--red"
-                >実費</span
-              >
-            </div>
-            <div class="p-medical-link__items">
-              <div class="p-medical-link__item">
-                <a href="" class="p-medical-link">入れ歯</a>
-              </div>
-              <div class="p-medical-link__item">
-                <a href="" class="p-medical-link">矯正歯科</a>
-              </div>
-              <div class="p-medical-link__item">
-                <a href="" class="p-medical-link">ホワイトニング</a>
-              </div>
-              <div class="p-medical-link__item">
-                <a href="" class="p-medical-link">口腔外科</a>
-              </div>
-              <div class="p-medical-link__item">
-                <a href="" class="p-medical-link">レーザー治療</a>
-              </div>
-            </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
@@ -101,7 +117,7 @@
                   </div>
                   <div class="<?php echo $config['class']; ?>__items">
                     <?php while ($query->have_posts()) : $query->the_post(); ?>
-                    <div class="<?php echo $config['class']; ?>__item">
+                    <div class="<?php echo $config['class']; ?>__item" id="<?php echo esc_attr(get_post_field('post_name', get_the_ID())); ?>">
                       <hgroup class="<?php echo $config['class']; ?>__heading">
                         <h2 class="<?php echo $config['class']; ?>__main"><?php the_title(); ?></h2>
                         <p class="<?php echo $config['class']; ?>__sub"><?php the_field('trouble'); ?></p>

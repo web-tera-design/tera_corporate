@@ -47,6 +47,14 @@
   }
 }
 
+.p-medical-general__item[id] {
+  scroll-margin-top: 20px;
+
+  @include mq(md) {
+    scroll-margin-top: 50px;
+  }
+}
+
 .p-medical-general__heading {
   padding-bottom: 20px;
   border-bottom: 1px solid #c2c2c2;
