@@ -294,26 +294,44 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// /* ===================================================
-// ※1 effectについて
-// slide：左から次のスライドが流れてくる
-// fade：次のスライドがふわっと表示
-//   → fadeEffect: { crossFade: true } を加えると滑らか
-// cube：スライドが立方体になり、3D回転を繰り返す
-// coverFlow：写真やアルバムジャケットをめくるような動き
-// flip：平面が回転するような動き
-// cards：カードを順番に見ていくような動き
-// creative：カスタマイズしたアニメーション
+document.addEventListener("DOMContentLoaded", () => {
+  const staffMessageSwiper2 = new Swiper(".p-staff-message__swiper.--swiper2", {
+    speed: 5000,
+    effect: "slide",
+    allowTouchMove: false,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      stopOnLastSlide: false,
+      disableOnInteraction: false,
+      reverseDirection: false,
+    },
+    centeredSlides: false,
+    slidesPerView: "2",
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination.--swiper2",
+      clickable: true,
+      type: "bullets",
+    },
+    navigation: {
+      prevEl: ".swiper-button-prev.--swiper2",
+      nextEl: ".swiper-button-next.--swiper2",
+    },
+    scrollbar: {
+      el: ".swiper-scrollbar",
+      hide: true,
+      draggable: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 15,
+      },
+    },
+  });
+});
 
-// =======================================================
-// ※2 paginationのタイプ
-// bullets：ドットで表示
-// fraction：分数表示（例：1 / 3）
-// progressbar：進捗バー形式で表示
-// custom：HTMLやJSで自由にカスタマイズ
-
-// ================header__nav-link
-// ✅ SVGパスの長さを自動セット
 document.querySelectorAll(".header__nav-link-icon path").forEach((path) => {
   const length = path.getTotalLength(); // パスの長さを取得
   path.style.strokeDasharray = length; // ✅ 線の長さをセット
@@ -564,80 +582,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-//swiper
-const staffMessageSwiper2 = new Swiper(".p-staff-message__swiper.--swiper2", {
-  //swiperの名前 変数末尾にも.--swiperと同等の数字
-  //切り替えのモーション
-  speed: 5000, //表示切り替えのスピード
-  effect: "slide", //切り替えのmotion (※1)
-  allowTouchMove: false, // スワイプで表示の切り替えを有効に
-
-  //最後→最初に戻るループ再生を有効に
-  loop: true,
-  //自動スライドについて
-  autoplay: {
-    delay: 0, //何秒ごとにスライドを動かすか
-    stopOnLastSlide: false, //最後のスライドで自動再生を終了させるか
-    disableOnInteraction: false, //ユーザーの操作時に止める
-    reverseDirection: false, //自動再生を逆向きにする
-  },
-
-  //表示について
-  centeredSlides: false, //中央寄せにする
-  slidesPerView: "2", //スライド枚数指定
-  spaceBetween: 30, //スライドの右側に余白px
-
-  //ページネーション
-  pagination: {
-    el: ".swiper-pagination.--swiper2", //paginationのclass
-    clickable: true, //クリックでの切り替えを有効に
-    type: "bullets", //paginationのタイプ (※2)
-  },
-  //ナビゲーション
-  navigation: {
-    prevEl: ".swiper-button-prev.--swiper2", //戻るボタンのclass
-    nextEl: ".swiper-button-next.--swiper2", //進むボタンのclass
-  },
-  //スクロールバー
-  scrollbar: {
-    //スクロールバーを表示したいとき
-    el: ".swiper-scrollbar", //スクロールバーのclass
-    hide: true, //操作時のときのみ表示
-    draggable: true, //スクロールバーを直接表示できるようにする
-  },
-
-  // ブレイクポイントによって変える
-  breakpoints: {
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 15,
-    },
-  },
-});
-
-/* =================================================== 
-※1 effectについて
-slide：左から次のスライドが流れてくる
-fade：次のスライドがふわっと表示
-■ fadeの場合は下記を記述
-  fadeEffect: {
-    crossFade: true
-  },
-cube：スライドが立方体になり、3D回転を繰り返す
-coverflow：写真やアルバムジャケットをめくるようなアニメーション
-flip：平面が回転するようなアニメーション
-cards：カードを順番にみていくようなアニメーション
-creative：カスタマイズしたアニメーションを使うときに使用します
-
-=======================================================
-※2 paginationのタイプ
-bullets：スライド枚数と同じ数のドットが表示
-fraction：分数で表示（例：1 / 3）
-progressbar：スライドの進捗に応じてプログレスバーが伸びる
-custom：自由にカスタマイズ
-
-=====================================================*/
 
 document.addEventListener("DOMContentLoaded", function () {
   const hash = window.location.hash;

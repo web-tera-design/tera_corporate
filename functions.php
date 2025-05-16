@@ -10,10 +10,13 @@ function my_setup() {
 
 function my_script_init() {
     wp_enqueue_style("fot-awesome", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css", array(), "6.7.2", "all");
+    wp_enqueue_style("swiper", "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"); // ← 追加①
     wp_enqueue_style("my", get_template_directory_uri() . "/css/style.css", array(), filemtime(get_theme_file_path('css/style.css')), "all");
-    wp_enqueue_script("my", get_template_directory_uri() . "/js/script.js", array("jquery"), filemtime(get_theme_file_path('js/script.js')), true);
+    wp_enqueue_script("swiper", "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js", array(), null, true); // ← 追加②
+    wp_enqueue_script("my", get_template_directory_uri() . "/js/script.js", array("jquery", "swiper"), filemtime(get_theme_file_path('js/script.js')), true); // ← Swiperを依存に含める
 }
 add_action("wp_enqueue_scripts", "my_script_init");
+
 
 // WebPとAVIFのMIMEタイプを許可
 function allow_webp_avif_upload( $mime_types ) {
