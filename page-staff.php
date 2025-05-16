@@ -155,210 +155,72 @@
       </div>
     </section>
 
+
+      <?php
+          $terms = [
+            'dental-hygienist' => '歯科衛生士',
+            'dental-assistant' => '歯科助手',
+          ];
+          ?>
     <section class="c-staff-group" id="members">
       <div class="c-staff-group__inner l-section__inner">
         <h2 class="c-heading">スタッフ紹介</h2>
-        <div class="c-staff-group__contaner">
-          <p class="c-staff-group__heading">歯科衛生士</p>
+          <?php foreach ($terms as $slug => $label) :
+            $args = array(
+              'post_type' => 'staffs',
+              'posts_per_page' => -1,
+              'orderby' => 'menu_order',
+              'order' => 'ASC',
+              'tax_query' => array(
+                array(
+                  'taxonomy' => 'staff_category',
+                  'field' => 'slug',
+                  'terms' => $slug,
+                ),
+              ),
+            );
+            $staff_query = new WP_Query($args);
+          ?>
+      <?php if ($staff_query->have_posts()) : ?>
+        <div class="c-staff-group__container">
+          <p class="c-staff-group__heading"><?php echo esc_html($label); ?></p>
           <div class="c-staff-group__items">
-            <div class="c-staff-group__item">
-              <div class="c-staff-group__image">
-                <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-01.webp"
-                  alt=""
-                  width="670"
-                  height="672"
-                />
-              </div>
-              <p class="c-staff-group__name">
-                歯科衛生士<span class="c-staff-group__subname">鈴木 太郎</span>
-              </p>
-              <div class="c-staff-group__content">
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">出身地</p>
-                  <p class="c-staff-group__subtext">北海道</p>
+            <?php while ($staff_query->have_posts()) : $staff_query->the_post(); ?>
+              <div class="c-staff-group__item" itemscope itemtype="https://schema.org/Person">
+                <div class="c-staff-group__image">
+                  <?php the_post_thumbnail('medium', ['alt' => get_the_title(), 'itemprop' => 'image']); ?>
                 </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">趣味</p>
-                  <p class="c-staff-group__subtext">スキー、料理</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">好きな食べ物</p>
-                  <p class="c-staff-group__subtext">お寿司、うなぎ</p>
+                <p class="c-staff-group__name">
+                  <?php echo esc_html($label); ?><span class="c-staff-group__subname" itemprop="name"><?php the_title(); ?></span>
+                </p>
+                <div class="c-staff-group__content">
+                  <div class="c-p-staff-group__texts">
+                    <p class="c-staff-group__text">出身地</p>
+                    <p class="c-staff-group__subtext"><?php the_field('hometown'); ?></p>
+                  </div>
+                  <div class="c-p-staff-group__texts">
+                    <p class="c-staff-group__text">趣味</p>
+                    <p class="c-staff-group__subtext"><?php the_field('hobby'); ?></p>
+                  </div>
+                  <div class="c-p-staff-group__texts">
+                    <p class="c-staff-group__text">好きな食べ物</p>
+                    <p class="c-staff-group__subtext"><?php the_field('favorite_food'); ?></p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="c-staff-group__item">
-              <div class="c-staff-group__image">
-                <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-02.webp"
-                  alt=""
-                  width="670"
-                  height="672"
-                />
-              </div>
-              <p class="c-staff-group__name">
-                歯科衛生士<span class="c-staff-group__subname">山田 花子</span>
-              </p>
-              <div class="c-staff-group__content">
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">出身地</p>
-                  <p class="c-staff-group__subtext">北海道</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">趣味</p>
-                  <p class="c-staff-group__subtext">スキー、料理</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">好きな食べ物</p>
-                  <p class="c-staff-group__subtext">お寿司、うなぎ</p>
-                </div>
-              </div>
-            </div>
+            <?php endwhile; ?>
           </div>
         </div>
+        <?php wp_reset_postdata(); ?>
+      <?php endif; ?>
 
-        <div class="c-staff-group__contaner">
-          <p class="c-staff-group__heading">歯科助手</p>
-          <div class="c-staff-group__items">
-            <div class="c-staff-group__item">
-              <div class="c-staff-group__image">
-                <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-03.webp"
-                  alt=""
-                  width="670"
-                  height="672"
-                />
-              </div>
-              <p class="c-staff-group__name">
-                歯科衛生士<span class="c-staff-group__subname">山田 花子</span>
-              </p>
-              <div class="c-staff-group__content">
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">出身地</p>
-                  <p class="c-staff-group__subtext">北海道</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">趣味</p>
-                  <p class="c-staff-group__subtext">スキー</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">好きな食べ物</p>
-                  <p class="c-staff-group__subtext">お寿司、うなぎ</p>
-                </div>
-              </div>
-            </div>
-            <div class="c-staff-group__item">
-              <div class="c-staff-group__image">
-                <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-04.webp"
-                  alt=""
-                  width="670"
-                  height="672"
-                />
-              </div>
-              <p class="c-staff-group__name">
-                歯科衛生士<span class="c-staff-group__subname">山田 花子</span>
-              </p>
-              <div class="c-staff-group__content">
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">出身地</p>
-                  <p class="c-staff-group__subtext">北海道</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">趣味</p>
-                  <p class="c-staff-group__subtext">スキー、料理</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">好きな食べ物</p>
-                  <p class="c-staff-group__subtext">お寿司、うなぎ</p>
-                </div>
-              </div>
-            </div>
-            <div class="c-staff-group__item">
-              <div class="c-staff-group__image">
-                <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-05.webp"
-                  alt=""
-                  width="670"
-                  height="672"
-                />
-              </div>
-              <p class="c-staff-group__name">
-                歯科衛生士<span class="c-staff-group__subname">山田 花子</span>
-              </p>
-              <div class="c-staff-group__content">
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">出身地</p>
-                  <p class="c-staff-group__subtext">北海道</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">趣味</p>
-                  <p class="c-staff-group__subtext">スキー、料理</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">好きな食べ物</p>
-                  <p class="c-staff-group__subtext">お寿司、うなぎ</p>
-                </div>
-              </div>
-            </div>
-            <div class="c-staff-group__item">
-              <div class="c-staff-group__image">
-                <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-06.webp"
-                  alt=""
-                  width="560"
-                  height="560"
-                />
-              </div>
-              <p class="c-staff-group__name">
-                歯科衛生士<span class="c-staff-group__subname">山田 花子</span>
-              </p>
-              <div class="c-staff-group__content">
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">出身地</p>
-                  <p class="c-staff-group__subtext">北海道</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">趣味</p>
-                  <p class="c-staff-group__subtext">スキー、料理</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">好きな食べ物</p>
-                  <p class="c-staff-group__subtext">お寿司、うなぎ</p>
-                </div>
-              </div>
-            </div>
-            <div class="c-staff-group__item">
-              <div class="c-staff-group__image">
-                <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/staff/group/pc/staff-group-pc-07.webp"
-                  alt=""
-                  width="560"
-                  height="560"
-                />
-              </div>
-              <p class="c-staff-group__name">
-                歯科衛生士<span class="c-staff-group__subname">山田 花子</span>
-              </p>
-              <div class="c-staff-group__content">
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">出身地</p>
-                  <p class="c-staff-group__subtext">北海道</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">趣味</p>
-                  <p class="c-staff-group__subtext">スキー</p>
-                </div>
-                <div class="c-p-staff-group__texts">
-                  <p class="c-staff-group__text">好きな食べ物</p>
-                  <p class="c-staff-group__subtext">お寿司、うなぎ</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- noindex制御は以下をhead内または専用テンプレートで設定 -->
+    <?php if (is_singular('staffs')) : ?>
+      <meta name="robots" content="noindex, nofollow">
+    <?php endif; ?>
     </section>
 
 <?php get_footer(); ?>
