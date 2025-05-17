@@ -55,6 +55,12 @@
 }
 
 .c-blog__card-new-badge {
+  position: absolute;
+  z-index: 10;
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
 }
 
 .c-blog__content {

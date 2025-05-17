@@ -52,7 +52,7 @@
         <nav class="l-header__nav">
           <ul class="l-header__list">
             <li>
-              <a href="<?php echo home_url('/'); ?>" class="l-header__link">
+              <a href="<?php echo home_url('/'); ?>" class="l-header__link  <?php if (is_front_page()) echo 'is-active'; ?>">
                 <svg
                   class="l-header__icon"
                   width="19"
@@ -67,7 +67,7 @@
               </a>
             </li>
             <li>
-              <a href="<?php echo get_permalink( get_page_by_path('about') ); ?>" class="l-header__link">
+              <a href="<?php echo get_permalink( get_page_by_path('about') ); ?>" class="l-header__link <?php if (is_page('about')) echo 'is-active'; ?>">
                 <svg
                   class="l-header__icon"
                   width="24"
@@ -82,7 +82,7 @@
               </a>
             </li>
             <li>
-              <a href="<?php echo get_permalink( get_page_by_path('medical') ); ?>" class="l-header__link">
+              <a href="<?php echo get_permalink( get_page_by_path('medical') ); ?>" class="l-header__link <?php if (is_page('medical')) echo 'is-active'; ?>">
                 <svg
                   class="l-header__icon"
                   width="24"
@@ -103,7 +103,7 @@
               </a>
             </li>
             <li>
-              <a href="<?php echo get_permalink( get_page_by_path('staff') ); ?>" class="l-header__link">
+              <a href="<?php echo get_permalink( get_page_by_path('staff') ); ?>" class="l-header__link <?php if (is_page('staff')) echo 'is-active'; ?>">
                 <svg
                   class="l-header__icon"
                   width="24"
@@ -124,7 +124,7 @@
               </a>
             </li>
             <li>
-              <a href="<?php echo get_post_type_archive_link('blog'); ?>" class="l-header__link">
+              <a href="<?php echo get_post_type_archive_link('staff_blog'); ?>" class="l-header__link <?php if (is_post_type_archive('staff_blog')) echo 'is-active'; ?>">
                 <svg
                   class="l-header__-icon"
                   width="25"
@@ -139,7 +139,7 @@
               </a>
             </li>
             <li>
-              <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>" class="l-header__link">
+              <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>" class="l-header__link <?php if (is_page('contact')) echo 'is-active'; ?>">
                 <svg
                   class="l-header__icon"
                   width="24"
@@ -323,7 +323,7 @@
             </a>
           </li>
           <li class="c-drawer-item">
-            <a href="<?php echo get_post_type_archive_link('blog'); ?>" class="c-drawer__link">
+            <a href="<?php echo get_post_type_archive_link('staff_blog'); ?>" class="c-drawer__link">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M19.4003 7.3401L16.6603 4.6001C15.92 3.90476 14.7761 3.87466 14.0003 4.5301L5.0003 13.5301C4.67707 13.8561 4.47581 14.2833 4.4303 14.7401L4.0003 18.9101C3.97303 19.2066 4.07934 19.4999 4.2903 19.7101C4.47902 19.8973 4.7345 20.0016 5.0003 20.0001H5.0903L9.2603 19.6201C9.7171 19.5746 10.1443 19.3733 10.4703 19.0501L19.4703 10.0501C20.1976 9.28177 20.1663 8.06987 19.4003 7.34011L19.4003 7.3401ZM9.0803 17.6201L6.0803 17.9001L6.3503 14.9001L12.0003 9.3201L14.7003 12.0201L9.0803 17.6201ZM16.0003 10.6801L13.3203 8.0001L15.2703 6.0001L18.0003 8.7301L16.0003 10.6801Z"
