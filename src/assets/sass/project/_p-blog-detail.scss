@@ -85,7 +85,7 @@
 .p-blog-detail__content2-heading {
 }
 
-.p-blog-detail__content2-haading-title {
+.p-blog-detail__content2-heading-title {
   color: #1391e6;
   font-size: rclamp(18, 24, 375, 1280);
   font-weight: 700;
@@ -94,6 +94,10 @@
 
 .p-blog-detail__content2-image {
   margin-block-start: rclamp(26, 28, 375, 1280);
+  img {
+    aspect-ratio: 1.6;
+    object-fit: cover;
+  }
 }
 
 .p-blog-detail__content3 {
@@ -142,14 +146,15 @@
 
 .p-blog-detail__content__items {
   margin-block-start: rclamp(12, 21, 375, 1280);
+  list-style-type: disc; /* ← ul に指定 */
+  margin-inline-start: 30px;
+
 }
 
 .p-blog-detail___content__item {
-  margin-inline-start: 30px;
   font-size: 16px;
   font-weight: 500;
   line-height: 30px; /* 187.5% */
-  list-style: disc;
 }
 
 .p-blog-detail-pagination-container {

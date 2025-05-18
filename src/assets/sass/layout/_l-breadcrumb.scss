@@ -5,6 +5,8 @@
 
 .l-breadcrumb__list {
   display: flex;
+  flex-wrap: wrap; // ← 長い場合に折り返し
+  list-style: none; // ← 黒ポチ消す
 }
 
 .l-breadcrumb__item {

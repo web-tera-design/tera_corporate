@@ -660,6 +660,8 @@ button {
 
 .l-breadcrumb__list {
   display: flex;
+  flex-wrap: wrap;
+  list-style: none;
 }
 
 .l-breadcrumb__item:not(:last-child)::after {
@@ -1709,7 +1711,7 @@ button {
   margin-block-start: clamp(3.9375rem, 3.8080110497rem + 0.5524861878vw, 4.25rem);
 }
 
-.p-blog-detail__content2-haading-title {
+.p-blog-detail__content2-heading-title {
   color: #1391e6;
   font-size: clamp(1.125rem, 0.9696132597rem + 0.6629834254vw, 1.5rem);
   font-weight: 700;
@@ -1718,6 +1720,11 @@ button {
 
 .p-blog-detail__content2-image {
   margin-block-start: clamp(1.625rem, 1.5732044199rem + 0.2209944751vw, 1.75rem);
+}
+.p-blog-detail__content2-image img {
+  -o-object-fit: cover;
+  aspect-ratio: 1.6;
+     object-fit: cover;
 }
 
 .p-blog-detail__content3 {
@@ -1762,15 +1769,15 @@ button {
 }
 
 .p-blog-detail__content__items {
+  list-style-type: disc; /* ← ul に指定 */
   margin-block-start: clamp(0.75rem, 0.5169198895rem + 0.9944751381vw, 1.3125rem);
+  margin-inline-start: 30px;
 }
 
 .p-blog-detail___content__item {
   font-size: 16px;
   font-weight: 500;
   line-height: 30px; /* 187.5% */
-  list-style: disc;
-  margin-inline-start: 30px;
 }
 
 .p-blog-detail-pagination-container {
