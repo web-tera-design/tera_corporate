@@ -24,16 +24,20 @@
     <div class="c-blog__archive">
       <div class="c-blog__cards p-blog__cards">
         <?php if (have_posts()) : ?>
+          <?php
+          $taxonomy = get_queried_object()->taxonomy; // ← 動的にタクソノミーを取得
+          ?>
           <?php while (have_posts()) : the_post(); ?>
             <?php
             $date = get_the_date('U');
             $now = current_time('timestamp');
             $is_new = ($now - $date) < 86400 * 3; // 3日以内
-            $terms = get_the_terms(get_the_ID(), 'news_category');
+
+            // 投稿に紐づくカテゴリ名（現在のタクソノミー）を取得
+            $terms = get_the_terms(get_the_ID(), $taxonomy);
             $category = $terms && !is_wp_error($terms) ? $terms[0]->name : '';
             ?>
             <a href="<?php the_permalink(); ?>" class="c-blog__card p-blog__card">
-
               <div class="c-blog__image p-blog__image">
                 <?php if (has_post_thumbnail()) : ?>
                   <?php the_post_thumbnail('medium', ['width' => 266, 'height' => 202]); ?>
@@ -54,6 +58,7 @@
           <p>記事が見つかりませんでした。</p>
         <?php endif; ?>
       </div>
+
 
       <div class="c-pagination-container">
         <nav class="c-pagination" role="navigation" aria-label="ページ送り">

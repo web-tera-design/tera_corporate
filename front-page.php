@@ -257,7 +257,7 @@
 
       <?php
       $args = array(
-        'post_type' => 'blog',         // カスタム投稿タイプ「blog」
+        'post_type' => 'staff_blog',         // カスタム投稿タイプ「blog」
         'posts_per_page' => 6          // 最新6件を取得
       );
       $blog_query = new WP_Query($args);
