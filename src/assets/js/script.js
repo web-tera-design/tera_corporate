@@ -650,3 +650,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+document.addEventListener(
+  "wpcf7mailsent",
+  function (event) {
+    location.href = "/contact-thanks/";
+  },
+  false
+);

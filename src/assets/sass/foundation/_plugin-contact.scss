@@ -1,0 +1,13 @@
+@use '../global' as *;
+
+.wpcf7-not-valid-tip {
+   margin-top: 10px;
+}
+
+.wpcf7-spinner {
+    display: block;
+}
+
+.wpcf7-form input[type="submit"] {
+    cursor: pointer;
+}
