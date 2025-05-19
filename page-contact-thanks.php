@@ -21,12 +21,11 @@
   <div class="p-contact__inner l-section__inner">
     <div class="p-contact__container">
       <div class="p-contact__content">
-        <p class="p-contact__message">
-          お問い合わせありがとうございました。<br />
-          3営業日以内に返信いたしますので、しばらくお待ちいただけますと幸いです。<br />
-          <span class="p-contact__message--accent">※3営業日以内に当院からの返信がない場合には、お電話(TEL
-            03-1234-5678)にてお問い合わせ下さい。</span>
-        </p>
+        <?php if (get_field('contact_message')) : ?>
+          <div class="p-contact__message">
+            <?php the_field('contact_message'); ?>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>
