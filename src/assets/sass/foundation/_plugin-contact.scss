@@ -11,3 +11,21 @@
 .wpcf7-form input[type="submit"] {
     cursor: pointer;
 }
+
+.wpcf7-list-item label {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 10px;
+}
+
+
+.p-reservation__data--radio .wpcf7-list-item input {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+
+
+
