@@ -12,6 +12,10 @@
     cursor: pointer;
 }
 
+.wpcf7-list-item {
+    margin: 0;
+}
+
 .wpcf7-list-item label {
     display: inline-flex;
     align-items: center;
@@ -19,11 +23,6 @@
     gap: 10px;
 }
 
-
-.p-reservation__data--radio .wpcf7-list-item input {
-  display: inline-flex;
-  align-items: center;
-}
 
 
 

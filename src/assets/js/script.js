@@ -651,10 +651,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+//ContactForm7を使った時の、Thanks.phpへの遷移設定
 document.addEventListener(
   "wpcf7mailsent",
   function (event) {
-    location.href = "/contact-thanks/";
+    if (event.detail.contactFormId == 573) {
+      // 123 ← 予約フォームのID（数字）に置き換える
+      location.href = "/reservation-thanks/";
+    } else if (event.detail.contactFormId == 561) {
+      // 456 ← お問い合わせフォームのID（数字）に置き換える
+      location.href = "/contact-thanks/";
+    }
   },
   false
 );
