@@ -1267,6 +1267,7 @@ button {
   font-weight: 700;
   letter-spacing: clamp(0.075rem, 0.069820442rem + 0.0220994475vw, 0.0875rem);
   margin-block-start: 20px;
+  text-transform: uppercase;
 }
 
 .c-pagination-container {
@@ -3180,6 +3181,11 @@ input[type=radio]:checked + .wpcf7-list-item-label::after {
   opacity: 1;
 }
 
+input[type=radio]:focus-visible + .wpcf7-list-item-label {
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
 .wpcf7-checkbox {
   display: flex;
   flex-wrap: wrap;
@@ -3220,6 +3226,11 @@ input[type=radio]:checked + .wpcf7-list-item-label::after {
 }
 
 input[type=checkbox]:checked + .wpcf7-list-item-label::after {
+  opacity: 1;
+}
+
+input[type=checkbox]:focus-visible + .wpcf7-list-item-label {
+  background: rgba(0, 0, 0, 0.2);
   opacity: 1;
 }
 

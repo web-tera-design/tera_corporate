@@ -3,8 +3,8 @@
   <div class="c-mv__inner l-section__inner">
     <div class="c-mv__bg-image p-contact-mv__bg-image">
       <hgroup class="c-mv__bg-text">
-        <h2 class="c-mv__bg-text--main">スタッフ紹介</h2>
-        <p class="c-mv__bg-text--sub">STAFF</p>
+        <h2 class="c-mv__bg-text--main">WEB予約</h2>
+        <p class="c-mv__bg-text--sub">Reserve</p>
       </hgroup>
     </div>
     <nav class="l-breadcrumbs" aria-label="パンくずリスト">

@@ -191,6 +191,11 @@ input[type="radio"]:checked + .wpcf7-list-item-label::after {
   opacity: 1;
 }
 
+input[type="radio"]:focus-visible + .wpcf7-list-item-label {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+}
+
 // チェックボックス
 .wpcf7-checkbox {
     display: flex;
@@ -231,6 +236,10 @@ input[type="checkbox"]:checked + .wpcf7-list-item-label::after {
   opacity: 1;
 }
 
+input[type="checkbox"]:focus-visible + .wpcf7-list-item-label {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+}
 
 // セレクトボックス
 .p-reservation__data--select {
