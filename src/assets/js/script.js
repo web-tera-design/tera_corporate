@@ -769,3 +769,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// ピクパ画像の表示切り替え
+document.addEventListener("keydown", function (e) {
+  const pc = document.querySelector(".overlay--pc");
+  const sp = document.querySelector(".overlay--sp");
+
+  if (!pc || !sp) return;
+
+  switch (e.key) {
+    case "p": // PC用表示
+      pc.style.display = "block";
+      sp.style.display = "none";
+      break;
+    case "s": // SP用表示
+      pc.style.display = "none";
+      sp.style.display = "block";
+      break;
+    case "o": // トグル（表示/非表示の切替）
+      [pc, sp].forEach((img) => {
+        if (img) {
+          img.style.display = img.style.display === "none" ? "block" : "none";
+        }
+      });
+      break;
+    case "c": // 完全非表示
+      pc.style.display = "none";
+      sp.style.display = "none";
+      break;
+  }
+});

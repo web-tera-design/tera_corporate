@@ -42,7 +42,7 @@
 .l-header__list {
   display: flex;
   gap: rclamp(12, 24, 768, 1280);
-  padding-block: rclamp(12, 18, 375, 1280);
+  padding-block: rclamp(12, 16, 375, 1280);
 
   @include mq(xl) {
   }
