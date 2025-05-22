@@ -8,8 +8,8 @@
           <div class="swiper-wrapper p-index-mv-card__swiper-wrapper">
             <div class="swiper-slide p-index-mv-card__swiper-slide">
               <picture>
-                <source srcset="<?php echo get_template_directory_uri(); ?>/img/img2.webp" media="(min-width: 768px)">
-                <img class="p-index-mv-slide-img" src="<?php echo get_template_directory_uri(); ?>/img/index/mv/sp/index-mv-sp-02.webp" alt="診療チェアの画像" loading="lazy">
+                <source srcset="<?php echo get_template_directory_uri(); ?>/img/img.webp" media="(min-width: 768px)">
+                <img class="p-index-mv-slide-img" src="<?php echo get_template_directory_uri(); ?>/img/index/mv/sp/index-mv-sp-03.webp" alt="診療チェアの画像" loading="lazy">
               </picture>
               <!-- <img
                 src="<?php echo get_template_directory_uri(); ?>/img/img.webp"
@@ -28,8 +28,8 @@
             </div>
             <div class="swiper-slide p-index-mv-card__swiper-slide">
               <picture>
-                <source srcset="<?php echo get_template_directory_uri(); ?>/img/img2.webp" media="(min-width: 768px)">
-                <img class="p-index-mv-slide-img" src="<?php echo get_template_directory_uri(); ?>/img/index/mv/sp/index-mv-sp-02.webp" alt="診療チェアの画像" loading="lazy">
+                <source srcset="<?php echo get_template_directory_uri(); ?>/img/img1.webp" media="(min-width: 768px)">
+                <img class="p-index-mv-slide-img" src="<?php echo get_template_directory_uri(); ?>/img/index/mv/sp/index-mv-sp-04.webp" alt="診療チェアの画像" loading="lazy">
               </picture>
               <!-- <img
                 src="<?php echo get_template_directory_uri(); ?>/img/img1.webp"
@@ -49,7 +49,7 @@
             <div class="swiper-slide p-index-mv-card__swiper-slide">
               <picture>
                 <source srcset="<?php echo get_template_directory_uri(); ?>/img/img2.webp" media="(min-width: 768px)">
-                <img class="p-index-mv-slide-img" src="<?php echo get_template_directory_uri(); ?>/img/index/mv/sp/index-mv-sp-02.webp" alt="診療チェアの画像" loading="lazy">
+                <img class="p-index-mv-slide-img" src="<?php echo get_template_directory_uri(); ?>/img/index/mv/sp/index-mv-sp-05.webp" alt="診療チェアの画像" loading="lazy">
               </picture>
 
               <!-- <img

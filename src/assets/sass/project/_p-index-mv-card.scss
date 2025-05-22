@@ -6,7 +6,7 @@
 }
 
 .p-index-mv-card {
-  padding-block-start: rclamp(76, 160, 375, 1280);
+  padding-block-start: rclamp(76, 120, 375, 1280);
   overflow: hidden;
 }
 .p-index-mv-card__inner {
@@ -96,6 +96,10 @@
   position: absolute;
   bottom: 10%;
   left: 5%;
+
+  @include mq(md) {
+    bottom: 12%;
+  }
 }
 
 .p-index-mv-swiper-slide__heading,
@@ -205,7 +209,7 @@
   inset-block-start: 50%; //左右両端配置の場合
   translate: 0 -50%;
   //bottom: calc(100% + 20px);画面右上配置の場合
-  inline-size: rclamp(32, 48, 375, 1280);
+  inline-size: rclamp(38, 66, 375, 1280);
   // block-size: rclamp(32, 48, 375, 1280);
   svg {
     inline-size: 100%;
@@ -213,11 +217,18 @@
   }
 }
 .swiper-button-prev {
-  inset-inline-start: rem(-20); //左右両端配置の場合
+  inset-inline-start: rem(-20); 
+  @include mq(md) {
+    inset-inline-start: rem(-36);
+  }//左右両端配置の場合
   //right: 54px;画面右上配置の場合
 }
 .swiper-button-next {
   inset-inline-end: rem(-20);
+
+    @include mq(md) {
+    inset-inline-end: rem(-36);
+  }
 }
 
 // =============================

@@ -33,11 +33,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-
-  <div class="overlay">
-    <img src="<?php echo get_template_directory_uri(); ?>/img/perfectpixel/hp/sp/perfectpixel-hp-sp-01.webp" class="overlay overlay--sp" alt="会社ロゴ" />
-    <img src="<?php echo get_template_directory_uri(); ?>/img/perfectpixel/hp/pc/perfectpixel-hp-pc-01.webp" class="overlay overlay--pc" alt="会社ロゴ" />
-  </div>
   <!-- ✅ 最初の白背景 -->
   <header class="l-header">
     <div class="l-header__inner">

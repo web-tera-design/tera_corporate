@@ -7,15 +7,16 @@
   background-color: $btn-secondary-hover;
   position: relative;
   padding-inline: rem(10);
-
+  
   &::before {
     content: "";
     position: absolute;
     inset-block-start: -32px;
-    inset-inline-start: -60px;
+    inset-inline-start: 0px;
     block-size: 32px;
-    inline-size: 120%;
-    background: url(../img/footer_bg-image.svg) no-repeat top center / cover;
+    inline-size: 100%;
+    background: url(../img/index/mv/sp/index-mv-sp-01.webp) no-repeat top center / cover;
+    background-position: top left -62px;
     transform: translateX(var(--wave-x));
   }
 }

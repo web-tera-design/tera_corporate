@@ -224,8 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function initSwiper() {
     // 初期ロード時にもテキストをタイプさせる
     swiperTexts.forEach((text) => startTypingAnimation(text));
-
-    const cardSwiper = new Swiper(".p-index-mv-card__swiper", {
+    const cardSwiper = new Swiper(".p-index-mv-card__swiper.--swiper1", {
       speed: 1000,
       effect: "fade",
       loop: true,
@@ -233,12 +232,12 @@ document.addEventListener("DOMContentLoaded", () => {
         delay: 6000,
       },
       pagination: {
-        el: ".swiper-pagination",
+        el: ".swiper-pagination.--swiper1",
         clickable: true,
       },
       navigation: {
-        prevEl: ".swiper-button-prev",
-        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev.--swiper1",
+        nextEl: ".swiper-button-next.--swiper1",
       },
       on: {
         // ✅ 初期化時のテキスト/画像演出
@@ -263,33 +262,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ 初回アクセスの場合（ローディング表示）
   if (!hasVisited) {
-    localStorage.setItem("visited", "true"); // 初回アクセスを記録
+    localStorage.setItem("visited", "true");
 
-    setTimeout(() => {
-      overlay.style.transition = "opacity 4s ease-in-out";
-      overlay.style.opacity = "0";
+    // overlay が存在するかチェック
+    if (overlay) {
+      setTimeout(() => {
+        overlay.style.transition = "opacity 4s ease-in-out";
+        overlay.style.opacity = "0";
 
-      // ✅ フェードアウト完了後、overlayを非表示
-      overlay.addEventListener("transitionend", () => {
-        overlay.style.display = "none";
-        console.log("✅ オーバーレイが非表示になりました");
+        overlay.addEventListener("transitionend", () => {
+          overlay.style.display = "none";
+          console.log("✅ オーバーレイが非表示になりました");
 
-        if (siteContent) {
-          siteContent.style.display = "block";
-        }
+          if (siteContent) {
+            siteContent.style.display = "block";
+          }
 
-        // ✅ Swiperアニメーション開始
-        initSwiper();
-      });
-    }, 5000); // ローディング演出時間
-  } else {
-    // ✅ 2回目以降は即表示＆ローディングスキップ
-    overlay.style.display = "none";
-    if (siteContent) {
-      siteContent.style.display = "block";
+          initSwiper();
+        });
+      }, 5000);
+    } else {
+      // overlayがない場合でもSwiperは動かす
+      if (siteContent) siteContent.style.display = "block";
+      initSwiper();
     }
-
-    // ✅ Swiperアニメーション開始
+  } else {
+    if (overlay) overlay.style.display = "none";
+    if (siteContent) siteContent.style.display = "block";
     initSwiper();
   }
 });
@@ -311,6 +310,80 @@ document.addEventListener("DOMContentLoaded", () => {
 // fraction：分数表示（例：1 / 3）
 // progressbar：進捗バー形式で表示
 // custom：HTMLやJSで自由にカスタマイズ
+
+//swiper
+const staffMessageSwiper2 = new Swiper(".p-staff-message__swiper.--swiper2", {
+  //swiperの名前 変数末尾にも.--swiperと同等の数字
+  //切り替えのモーション
+  speed: 5000, //表示切り替えのスピード
+  effect: "slide", //切り替えのmotion (※1)
+  allowTouchMove: false, // スワイプで表示の切り替えを有効に
+
+  //最後→最初に戻るループ再生を有効に
+  loop: true,
+  //自動スライドについて
+  autoplay: {
+    delay: 0, //何秒ごとにスライドを動かすか
+    stopOnLastSlide: false, //最後のスライドで自動再生を終了させるか
+    disableOnInteraction: false, //ユーザーの操作時に止める
+    reverseDirection: false, //自動再生を逆向きにする
+  },
+
+  //表示について
+  centeredSlides: false, //中央寄せにする
+  slidesPerView: "2", //スライド枚数指定
+  spaceBetween: 30, //スライドの右側に余白px
+
+  //ページネーション
+  pagination: {
+    el: ".swiper-pagination.--swiper2", //paginationのclass
+    clickable: true, //クリックでの切り替えを有効に
+    type: "bullets", //paginationのタイプ (※2)
+  },
+  //ナビゲーション
+  navigation: {
+    prevEl: ".swiper-button-prev.--swiper2", //戻るボタンのclass
+    nextEl: ".swiper-button-next.--swiper2", //進むボタンのclass
+  },
+  //スクロールバー
+  scrollbar: {
+    //スクロールバーを表示したいとき
+    el: ".swiper-scrollbar", //スクロールバーのclass
+    hide: true, //操作時のときのみ表示
+    draggable: true, //スクロールバーを直接表示できるようにする
+  },
+
+  // ブレイクポイントによって変える
+  breakpoints: {
+    768: {
+      slidesPerView: 4,
+      spaceBetween: 15,
+    },
+  },
+});
+
+/* =================================================== 
+※1 effectについて
+slide：左から次のスライドが流れてくる
+fade：次のスライドがふわっと表示
+■ fadeの場合は下記を記述
+  fadeEffect: {
+    crossFade: true
+  },
+cube：スライドが立方体になり、3D回転を繰り返す
+coverflow：写真やアルバムジャケットをめくるようなアニメーション
+flip：平面が回転するようなアニメーション
+cards：カードを順番にみていくようなアニメーション
+creative：カスタマイズしたアニメーションを使うときに使用します
+
+=======================================================
+※2 paginationのタイプ
+bullets：スライド枚数と同じ数のドットが表示
+fraction：分数で表示（例：1 / 3）
+progressbar：スライドの進捗に応じてプログレスバーが伸びる
+custom：自由にカスタマイズ
+
+=====================================================*/
 
 // ================header__nav-link
 // ✅ SVGパスの長さを自動セット
@@ -565,80 +638,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//swiper
-const staffMessageSwiper2 = new Swiper(".p-staff-message__swiper.--swiper2", {
-  //swiperの名前 変数末尾にも.--swiperと同等の数字
-  //切り替えのモーション
-  speed: 5000, //表示切り替えのスピード
-  effect: "slide", //切り替えのmotion (※1)
-  allowTouchMove: false, // スワイプで表示の切り替えを有効に
-
-  //最後→最初に戻るループ再生を有効に
-  loop: true,
-  //自動スライドについて
-  autoplay: {
-    delay: 0, //何秒ごとにスライドを動かすか
-    stopOnLastSlide: false, //最後のスライドで自動再生を終了させるか
-    disableOnInteraction: false, //ユーザーの操作時に止める
-    reverseDirection: false, //自動再生を逆向きにする
-  },
-
-  //表示について
-  centeredSlides: false, //中央寄せにする
-  slidesPerView: "2", //スライド枚数指定
-  spaceBetween: 30, //スライドの右側に余白px
-
-  //ページネーション
-  pagination: {
-    el: ".swiper-pagination.--swiper2", //paginationのclass
-    clickable: true, //クリックでの切り替えを有効に
-    type: "bullets", //paginationのタイプ (※2)
-  },
-  //ナビゲーション
-  navigation: {
-    prevEl: ".swiper-button-prev.--swiper2", //戻るボタンのclass
-    nextEl: ".swiper-button-next.--swiper2", //進むボタンのclass
-  },
-  //スクロールバー
-  scrollbar: {
-    //スクロールバーを表示したいとき
-    el: ".swiper-scrollbar", //スクロールバーのclass
-    hide: true, //操作時のときのみ表示
-    draggable: true, //スクロールバーを直接表示できるようにする
-  },
-
-  // ブレイクポイントによって変える
-  breakpoints: {
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 15,
-    },
-  },
-});
-
-/* =================================================== 
-※1 effectについて
-slide：左から次のスライドが流れてくる
-fade：次のスライドがふわっと表示
-■ fadeの場合は下記を記述
-  fadeEffect: {
-    crossFade: true
-  },
-cube：スライドが立方体になり、3D回転を繰り返す
-coverflow：写真やアルバムジャケットをめくるようなアニメーション
-flip：平面が回転するようなアニメーション
-cards：カードを順番にみていくようなアニメーション
-creative：カスタマイズしたアニメーションを使うときに使用します
-
-=======================================================
-※2 paginationのタイプ
-bullets：スライド枚数と同じ数のドットが表示
-fraction：分数で表示（例：1 / 3）
-progressbar：スライドの進捗に応じてプログレスバーが伸びる
-custom：自由にカスタマイズ
-
-=====================================================*/
-
 document.addEventListener("DOMContentLoaded", function () {
   const hash = window.location.hash;
   if (hash) {
@@ -768,34 +767,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-});
-
-// ピクパ画像の表示切り替え
-document.addEventListener("keydown", function (e) {
-  const pc = document.querySelector(".overlay--pc");
-  const sp = document.querySelector(".overlay--sp");
-
-  if (!pc || !sp) return;
-
-  switch (e.key) {
-    case "p": // PC用表示
-      pc.style.display = "block";
-      sp.style.display = "none";
-      break;
-    case "s": // SP用表示
-      pc.style.display = "none";
-      sp.style.display = "block";
-      break;
-    case "o": // トグル（表示/非表示の切替）
-      [pc, sp].forEach((img) => {
-        if (img) {
-          img.style.display = img.style.display === "none" ? "block" : "none";
-        }
-      });
-      break;
-    case "c": // 完全非表示
-      pc.style.display = "none";
-      sp.style.display = "none";
-      break;
-  }
 });

@@ -164,12 +164,13 @@ button {
   position: relative;
 }
 .l-footer::before {
-  background: url(../img/footer_bg-image.svg) no-repeat top center/cover;
+  background: url(../img/index/mv/sp/index-mv-sp-01.webp) no-repeat top center/cover;
+  background-position: top left -62px;
   block-size: 32px;
   content: "";
-  inline-size: 120%;
+  inline-size: 100%;
   inset-block-start: -32px;
-  inset-inline-start: -60px;
+  inset-inline-start: 0px;
   position: absolute;
   transform: translateX(var(--wave-x));
 }
@@ -815,7 +816,7 @@ button {
   .c-blog__content {
     gap: 0.25rem;
     justify-content: start;
-    padding: 24px 24px 12px 24px;
+    padding: 22px 24px 8px 24px;
   }
 }
 
@@ -959,7 +960,7 @@ button {
 }
 @media screen and (min-width: 900px) {
   .c-concept__heading {
-    font-size: clamp(1.5rem, -0.5rem + 2.5vw, 2.5rem);
+    font-size: clamp(1.75rem, 0.25rem + 1.875vw, 2.5rem);
   }
 }
 
@@ -973,7 +974,6 @@ button {
 @media screen and (min-width: 900px) {
   .c-concept__text {
     font-size: clamp(0.875rem, -0.875rem + 2.1875vw, 1.75rem);
-    line-height: 1.5;
   }
 }
 
@@ -996,12 +996,16 @@ button {
   gap: 1.125rem;
   inline-size: -moz-fit-content;
   inline-size: fit-content;
-  padding-inline: clamp(2.25rem, 1.9910220994rem + 1.1049723757vw, 2.875rem);
+  padding-inline: 2.25rem;
   position: relative;
+}
+@media screen and (min-width: 900px) {
+  .c-concept__button {
+    padding-inline: 46px 12px;
+  }
 }
 .c-concept__button svg {
   stroke: currentColor;
-  margin-inline-end: -1.25rem;
   transition: all 0.3s ease;
 }
 @media (any-hover: hover) {
@@ -1056,8 +1060,8 @@ button {
 }
 @media screen and (min-width: 900px) {
   .c-concept__bg-image {
-    inset-inline-start: 30%;
-    min-inline-size: 80rem;
+    inset-inline-start: 32%;
+    min-inline-size: 82.875rem;
   }
 }
 
@@ -1191,7 +1195,7 @@ button {
   background: url(../img/recommend__heading.svg) no-repeat center center/cover;
   block-size: clamp(0.8125rem, 0.6312154696rem + 0.773480663vw, 1.25rem);
   content: "";
-  inline-size: clamp(3.0625rem, 2.4409530387rem + 2.6519337017vw, 4.5625rem);
+  inline-size: clamp(3.0625rem, 2.596339779rem + 1.9889502762vw, 4.1875rem);
 }
 .c-heading::before {
   margin-inline-end: clamp(1rem, 0.6892265193rem + 1.3259668508vw, 1.75rem);
@@ -1229,7 +1233,7 @@ button {
 }
 
 .c-medical__bg-bottom-main {
-  height: 7.6vw;
+  height: 8.6vw;
   position: relative;
   width: 100%;
 }
@@ -1260,7 +1264,9 @@ button {
 @media screen and (min-width: 768px) {
   .c-medical__bg-bottom-sub::before {
     background: url(../img/deco-kirakira2-w.png) no-repeat center center/cover;
+    bottom: 7.1vw;
     height: 58px;
+    left: 36px;
     width: 58px;
   }
 }
@@ -2063,11 +2069,11 @@ button {
 }
 
 .p-index-blog {
-  margin-block-start: clamp(2.5rem, -0.5559392265rem + 13.0386740331vw, 9.875rem);
+  margin-block-start: clamp(2.5rem, 1.3087016575rem + 5.0828729282vw, 5.375rem);
 }
 
 .p-index-blog__container {
-  margin-block-start: clamp(3rem, 2.1712707182rem + 3.5359116022vw, 5rem);
+  margin-block-start: clamp(3rem, 2.2230662983rem + 3.3149171271vw, 4.875rem);
   margin-inline: auto;
   max-inline-size: 37.5rem;
 }
@@ -2076,11 +2082,13 @@ button {
     max-inline-size: 65rem;
   }
   .p-index-blog__cards {
-    gap: clamp(1.375rem, -1.25rem + 5.46875vw, 3.125rem);
+    -moz-column-gap: clamp(1.375rem, -1.25rem + 5.46875vw, 3.125rem);
+         column-gap: clamp(1.375rem, -1.25rem + 5.46875vw, 3.125rem);
     grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
     inline-size: 100%;
     margin-inline: auto;
     place-content: center;
+    row-gap: clamp(1.375rem, -2rem + 7.03125vw, 3.625rem);
   }
   .p-index-blog__card {
     background: #fff;
@@ -2115,6 +2123,9 @@ button {
 }
 
 .p-index-blog__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
   margin-top: 4px;
 }
 @media screen and (min-width: 768px) {
@@ -2122,6 +2133,8 @@ button {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     display: -webkit-box;
+    font-size: 16px;
+    line-height: 24px; /* 150% */
     margin-top: 0;
     overflow: hidden;
   }
@@ -2157,6 +2170,7 @@ button {
 }
 @media screen and (min-width: 768px) {
   .p-index-medical__container {
+    padding-inline: 0;
     padding-top: 0;
   }
 }
@@ -2171,6 +2185,7 @@ button {
 @media screen and (min-width: 768px) {
   .p-index-medical__services {
     grid-template-columns: repeat(2, 1fr);
+    margin-block-start: 4.5rem;
   }
 }
 
@@ -2253,6 +2268,12 @@ button {
   transform: translateX(-50%);
   width: 30px;
 }
+@media screen and (min-width: 768px) {
+  .p-index-medical__service-title::after {
+    bottom: 22px;
+    width: 40px;
+  }
+}
 
 .p-index-medical__service-description {
   color: #ffffff;
@@ -2285,7 +2306,7 @@ button {
 
 .p-index-mv-card {
   overflow: hidden;
-  padding-block-start: clamp(4.75rem, 2.5745856354rem + 9.2817679558vw, 10rem);
+  padding-block-start: clamp(4.75rem, 3.6104972376rem + 4.861878453vw, 7.5rem);
 }
 
 .p-index-mv-card__inner {
@@ -2346,6 +2367,11 @@ button {
   display: block;
   left: 5%;
   position: absolute;
+}
+@media screen and (min-width: 768px) {
+  .p-index-mv-swiper-slide__text {
+    bottom: 12%;
+  }
 }
 
 .p-index-mv-swiper-slide__heading,
@@ -2434,7 +2460,7 @@ button {
 
 .swiper-button-prev,
 .swiper-button-next {
-  inline-size: clamp(2rem, 1.5856353591rem + 1.7679558011vw, 3rem);
+  inline-size: clamp(2.375rem, 1.6498618785rem + 3.0939226519vw, 4.125rem);
   inset-block-start: 50%;
   translate: 0 -50%;
 }
@@ -2447,9 +2473,19 @@ button {
 .swiper-button-prev {
   inset-inline-start: -1.25rem;
 }
+@media screen and (min-width: 768px) {
+  .swiper-button-prev {
+    inset-inline-start: -2.25rem;
+  }
+}
 
 .swiper-button-next {
   inset-inline-end: -1.25rem;
+}
+@media screen and (min-width: 768px) {
+  .swiper-button-next {
+    inset-inline-end: -2.25rem;
+  }
 }
 
 .swiper-pagination-bullets.swiper-pagination-horizontal {
@@ -2508,6 +2544,7 @@ button {
     grid-area: image;
     inline-size: clamp(21rem, 0.0992647059rem + 37.1568627451vw, 44.6875rem);
     inset-inline-end: 0;
+    margin-block-start: -2.125rem;
   }
 }
 
@@ -2520,6 +2557,7 @@ button {
   .p-index-mv__info-content {
     grid-area: content;
     inline-size: clamp(23.75rem, 0.0367647059rem + 42.1568627451vw, 50.625rem);
+    margin-block-start: -1.125rem;
   }
 }
 
@@ -2536,6 +2574,11 @@ button {
   display: flex;
   gap: 1rem;
   margin-left: 16px;
+}
+@media screen and (min-width: 900px) {
+  .p-index-mv__info-title-container {
+    gap: 0.75rem;
+  }
 }
 
 .p-index-mv__info-title {
@@ -2596,9 +2639,9 @@ button {
   position: absolute;
   transition: all 0.3s ease;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
   .p-index-mv__info-news {
-    padding-left: 0;
+    padding-left: 0.625rem;
   }
 }
 @media (any-hover: hover) {
@@ -2633,7 +2676,7 @@ button {
 }
 
 .p-index-recommend {
-  margin-block-start: clamp(6.125rem, 5.632941989rem + 2.0994475138vw, 7.3125rem);
+  margin-block-start: clamp(4.75rem, 6.6947513812rem + -2.4309392265vw, 6.125rem);
 }
 
 .p-index-recommend__inner {
@@ -2652,7 +2695,7 @@ button {
 .p-index-recommend__items {
   align-items: flex-start;
   display: grid;
-  gap: clamp(3.125rem, 4.0089779006rem + -1.1049723757vw, 3.75rem);
+  gap: clamp(3.75rem, 3.5946132597rem + 0.6629834254vw, 4.125rem);
   justify-content: center;
   margin-block-start: clamp(2.5rem, 1.9820441989rem + 2.2099447514vw, 3.75rem);
   place-items: center;
@@ -2668,8 +2711,9 @@ button {
 }
 
 .p-index-recommend__item {
+  align-self: start;
   display: grid;
-  inline-size: clamp(16.9375rem, 0.8125rem + 20.15625vw, 25rem);
+  inline-size: clamp(17.25rem, 1.75rem + 19.375vw, 25rem);
   place-items: center;
 }
 .p-index-recommend__item img {

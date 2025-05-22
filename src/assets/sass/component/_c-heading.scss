@@ -12,7 +12,7 @@
   &::before,
   &::after {
     content: "";
-    inline-size: rclamp(49, 73, 375, 1280);
+    inline-size: rclamp(49, 67, 375, 1280);
     block-size: rclamp(13, 20, 375, 1280);
     background: url(../img/recommend__heading.svg) no-repeat center center /
       cover;

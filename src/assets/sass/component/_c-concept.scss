@@ -66,7 +66,7 @@
   letter-spacing: rclamp(1.6, 2.24, 375, 1280);
 
   @include mq(lg) {
-    font-size: rclamp(24, 40, 1280, 1920);
+    font-size: rclamp(28, 40, 1280, 1920);
   }
 }
 
@@ -79,7 +79,6 @@
 
   @include mq(lg) {
     font-size: rclamp(14, 28, 1280, 1920);
-    line-height: 1.5;
   }
 }
 
@@ -98,17 +97,18 @@
   align-items: center;
   gap: rem(18);
   inline-size: fit-content;
-  padding-inline: rclamp(36, 46, 375, 1280);
+  padding-inline: rem(36);
   color: $text-link;
   background: $text-light;
-
+  
+  @include mq(lg) {
+    padding-inline: 46px 12px;
+ }
   svg {
-    margin-inline-end: rem(-20);
+    // margin-inline-end: rem(20);
     stroke: currentColor;
     transition: all 0.3s ease;
 
-    @include mq(lg) {
-    }
   }
 
   @media (any-hover: hover) {
@@ -164,7 +164,7 @@
   }
 
   @include mq(lg) {
-    inset-inline-start: 30%;
-    min-inline-size: rem(1280);
+    inset-inline-start: 32%;
+    min-inline-size: rem(1326);
   }
 }
