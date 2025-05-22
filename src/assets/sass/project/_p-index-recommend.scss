@@ -1,7 +1,7 @@
 @use "../global" as *;
 
 .p-index-recommend {
-  margin-block-start: rclamp(96, 117, 375, 1280);
+  margin-block-start: rclamp(98, 117, 375, 1280);
 }
 
 .p-index-recommend__inner {
@@ -25,9 +25,9 @@
 }
 
 .p-index-recommend__items {
-  margin-block-start: rclamp(39, 60, 375, 1280);
+  margin-block-start: rclamp(40, 60, 375, 1280);
   display: grid;
-  gap: rclamp(50, 50, 375, 1280);
+  gap: rclamp(60, 50, 375, 1280);
   place-items: center;
   justify-content: center;
   align-items: flex-start;
@@ -63,7 +63,7 @@
 
 .p-index-recommend__text {
   inline-size: 100%;
-  margin-block-start: rclamp(20, 19, 375, 1280);
+  margin-block-start: rclamp(22, 19, 375, 1280);
   text-align: left;
   font-size: rem(14);
   font-weight: 500;

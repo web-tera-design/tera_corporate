@@ -2,7 +2,7 @@
 
 .c-concept {
   position: relative;
-  padding-block-start: rclamp(106, 180, 375, 1280);
+  padding-block-start: rclamp(110, 180, 375, 1280);
   margin-block-start: 60px;
   overflow: hidden;
 
@@ -96,9 +96,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: rem(22);
+  gap: rem(18);
   inline-size: fit-content;
-  padding-inline: rclamp(40, 46, 375, 1280);
+  padding-inline: rclamp(36, 46, 375, 1280);
   color: $text-link;
   background: $text-light;
 

@@ -23,13 +23,19 @@
   inline-size: min(rem(1000), 100%);
   margin-inline: auto;
   padding-inline: rem(20);
-  padding-bottom: 96px;
+  // padding-bottom: 96px;
+  padding-bottom: 64px;
+  padding-top: 40px;
+
+  @include mq(md) {
+    padding-top: 0;
+  }
 }
 
 .p-index-medical__services {
   display: grid;
   grid-template-columns: 1fr;
-  margin-block-start: rem(40);
+  margin-block-start: rem(44);
   margin-inline: auto;
   gap: rclamp(20, 80, 375, 1280);
   @include mq(md) {
@@ -140,7 +146,7 @@
   font-size: rclamp(12, 16, 375, 1280);
   font-weight: 700;
   letter-spacing: rclamp(0.96, 1.28, 375, 1280);
-  margin-block-start: rem(20);
+  // margin-block-start: rem(20);
 }
 
 .p-index-medical__text {

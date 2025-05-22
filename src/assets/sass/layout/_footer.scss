@@ -1,7 +1,7 @@
 @use "../global" as *;
 
 .l-footer {
-  padding-block-start: rclamp(13, 56, 375, 1280);
+  padding-block-start: rclamp(12, 56, 375, 1280);
   padding-block-end: rem(60);
   margin-block-start: rclamp(132, 203, 375, 1280);
   background-color: $btn-secondary-hover;
@@ -12,9 +12,9 @@
     content: "";
     position: absolute;
     inset-block-start: -32px;
-    inset-inline-start: 0;
+    inset-inline-start: -60px;
     block-size: 32px;
-    inline-size: 100%;
+    inline-size: 120%;
     background: url(../img/footer_bg-image.svg) no-repeat top center / cover;
     transform: translateX(var(--wave-x));
   }
@@ -66,7 +66,7 @@
 }
 
 .l-footer-info__address {
-  margin-block-start: rem(11);
+  margin-block-start: rem(6);
 }
 
 .l-footer-info__address-text {
@@ -75,7 +75,7 @@
 }
 
 .l-footer-info__address-tel {
-  margin-block-start: rclamp(21, 17, 375, 1280);
+  margin-block-start: rclamp(15, 17, 375, 1280);
 }
 
 .l-footer-info__tel-link {
@@ -87,14 +87,13 @@
 }
 
 .l-footer-info__address-note {
-  margin-block-start: rclamp(3, 0, 375, 1280);
   color: $text-link;
   font-size: rem(12);
   font-weight: 500;
 }
 
 .l-footer-info__buttons {
-  margin-block-start: rem(20);
+  margin-block-start: rem(18);
   gap: rem(15);
   display: grid;
   grid-template-columns: auto auto;
@@ -168,7 +167,7 @@
 }
 
 .l-footer-info__image {
-  margin-block-start: rem(20);
+  margin-block-start: rem(18);
   border-radius: rem(12);
   background: #fff;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
@@ -211,13 +210,16 @@
   grid-template-columns: 1fr;
   gap: rem(40);
   margin-block-start: rclamp(60, 43, 375, 1280);
+  padding-inline: 10px;
 
   @include mq(md) {
+    padding-inline: 0;
     grid-auto-columns: 1fr;
     grid-template-areas: "head head";
   }
 
   @include mq(lg) {
+    padding-inline: 0;
     display: grid;
     grid-template-columns: repeat(5, max-content);
     gap: rem(40);
@@ -236,12 +238,24 @@
   }
 }
 
+.l-footer-nav__group--top .l-footer-nav__item a::before {
+  display: none;
+}
+
+.l-footer-nav__group--top .l-footer-nav__item {
+  padding-inline: 0;
+}
+
 .l-footer-nav__group {
   display: grid;
   grid-template-columns: 1fr;
 }
 
 .l-footer-nav__list {
+}
+
+.l-footer-nav__list--col2 .l-footer-nav__item {
+  margin-block-start: 20px;
 }
 
 .l-footer-nav__item {
@@ -254,6 +268,7 @@
     display: inline-block;
     background-color: transparent;
     transition: all 0.3s ease;
+
     &::before {
       content: "";
       position: absolute;
@@ -303,6 +318,8 @@
   grid-template-columns: repeat(2, max-content);
   column-gap: 20px;
 }
+
+
 
 .l-footer__copy-light {
   padding-block-start: rem(18);

@@ -7,12 +7,16 @@
         <div class="swiper p-index-mv-card__swiper --swiper1">
           <div class="swiper-wrapper p-index-mv-card__swiper-wrapper">
             <div class="swiper-slide p-index-mv-card__swiper-slide">
-              <img
+              <picture>
+                <source srcset="<?php echo get_template_directory_uri(); ?>/img/img2.webp" media="(min-width: 768px)">
+                <img class="p-index-mv-slide-img" src="<?php echo get_template_directory_uri(); ?>/img/index/mv/sp/index-mv-sp-02.webp" alt="診療チェアの画像" loading="lazy">
+              </picture>
+              <!-- <img
                 src="<?php echo get_template_directory_uri(); ?>/img/img.webp"
                 alt=""
                 width="670"
                 height="894"
-                class="p-index-mv-slide-img" />
+                class="p-index-mv-slide-img" /> -->
               <div class="p-index-mv-swiper-slide__text">
                 <h2 class="p-index-mv-swiper-slide__heading">
                   街の皆さまの笑顔を守る
@@ -23,12 +27,16 @@
               </div>
             </div>
             <div class="swiper-slide p-index-mv-card__swiper-slide">
-              <img
+              <picture>
+                <source srcset="<?php echo get_template_directory_uri(); ?>/img/img2.webp" media="(min-width: 768px)">
+                <img class="p-index-mv-slide-img" src="<?php echo get_template_directory_uri(); ?>/img/index/mv/sp/index-mv-sp-02.webp" alt="診療チェアの画像" loading="lazy">
+              </picture>
+              <!-- <img
                 src="<?php echo get_template_directory_uri(); ?>/img/img1.webp"
                 alt=""
                 width="670"
                 height="894"
-                class="p-index-mv-slide-img" />
+                class="p-index-mv-slide-img" /> -->
               <div class="p-index-mv-swiper-slide__text">
                 <h2 class="p-index-mv-swiper-slide__heading">
                   街の皆さまの笑顔を守る
@@ -39,12 +47,17 @@
               </div>
             </div>
             <div class="swiper-slide p-index-mv-card__swiper-slide">
-              <img
+              <picture>
+                <source srcset="<?php echo get_template_directory_uri(); ?>/img/img2.webp" media="(min-width: 768px)">
+                <img class="p-index-mv-slide-img" src="<?php echo get_template_directory_uri(); ?>/img/index/mv/sp/index-mv-sp-02.webp" alt="診療チェアの画像" loading="lazy">
+              </picture>
+
+              <!-- <img
                 src="<?php echo get_template_directory_uri(); ?>/img/img2.webp"
                 alt=""
                 width="670"
                 height="894"
-                class="p-index-mv-slide-img" />
+                class="p-index-mv-slide-img" /> -->
               <div class="p-index-mv-swiper-slide__text">
                 <h2 class="p-index-mv-swiper-slide__heading">
                   街の皆さまの笑顔を守る
@@ -91,14 +104,14 @@
 
       <?php
       $args = array(
-        'post_type' => 'post', // 投稿
-        'posts_per_page' => 1, // 最新1件
+        'post_type' => 'news', // ← 投稿タイプを明示
+        'posts_per_page' => 1,
+        'post_status' => 'publish',
       );
       $news_query = new WP_Query($args);
-      ?>
-
-      <?php if ($news_query->have_posts()) : ?>
-        <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
+      if ($news_query->have_posts()) :
+        while ($news_query->have_posts()) : $news_query->the_post(); ?>
+          <!-- 最新記事の表示 -->
           <a href="<?php the_permalink(); ?>" class="p-index-mv__info-news">
             <time class="p-index-mv__info-news-time" datetime="<?php the_time('Y-m-d'); ?>">
               <?php the_time('Y/m/d'); ?>
@@ -109,9 +122,12 @@
               <path d="M8.39453 1L15.0001 8L8.39453 15" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-        <?php endwhile; ?>
-        <?php wp_reset_postdata(); ?>
-      <?php endif; ?>
+      <?php endwhile;
+        wp_reset_postdata();
+      endif;
+      ?>
+
+
     </div>
   </div>
 </section>
@@ -285,7 +301,7 @@
                 ?>
               </span>
               <p class="c-blog__text p-index-blog__text"><?php the_title(); ?></p>
-              <time class="c-blog__datetime entry-date published" datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished">
+              <time class="c-blog__datetime p-index-blog__datetime entry-date published" datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished">
                 <?php the_time('Y/m/d'); ?>
               </time>
             </div>

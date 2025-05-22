@@ -6,7 +6,7 @@
 }
 
 .p-index-mv-card {
-  padding-block-start: rclamp(140, 160, 375, 1280);
+  padding-block-start: rclamp(76, 160, 375, 1280);
   overflow: hidden;
 }
 .p-index-mv-card__inner {
@@ -39,7 +39,7 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  border-radius: rclamp(20, 20, 375, 1280); //imgのborder-radius
+  border-radius: rclamp(8, 20, 375, 1280); //imgのborder-radius
 
   @include mq(lg) {
     //  inline-size: calc(1160 / 1280 * 100%);
@@ -48,18 +48,31 @@
     //  height: rem(520);
   }
 
-  img {
-    border-radius: rclamp(20, 20, 375, 1280); //imgのborder-radius
+  // img {
+  //   border-radius: rclamp(8, 20, 375, 1280); //imgのborder-radius
+  //   display: block;
+  //   inline-size: 100%;
+  //   block-size: 100%;
+  //   object-fit: cover;
+  //   object-position: left 80%;
+  //   // //アニメーション用
+  //   // opacity: 0;
+  //   // transform: translateY(-50%);
+  //   // animation: none;
+  // }
+}
+
+.p-index-mv-slide-img {
+    border-radius: rclamp(8, 20, 375, 1280); //imgのborder-radius
     display: block;
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
-    object-position: left;
-    // //アニメーション用
-    // opacity: 0;
-    // transform: translateY(-50%);
-    // animation: none;
-  }
+    object-position: left 80%;
+      //   // //アニメーション用
+  //   // opacity: 0;
+  //   // transform: translateY(-50%);
+  //   // animation: none;
 }
 
 // .card__swiper-slide img.animate-in {

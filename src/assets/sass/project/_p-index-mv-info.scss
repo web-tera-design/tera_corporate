@@ -2,7 +2,7 @@
 
 .p-index-mv__info {
   // max-width: 1440px;
-  margin: 0 auto;
+  margin-inline: auto;
   padding-inline: rclamp(20, 100, 375, 1280);
   @include mq(lg) {
     display: grid;
@@ -16,7 +16,7 @@
 .p-index-mv__info-image {
   position: relative;
   z-index: 2;
-  margin-block-start: rem(-20);
+  margin-block-start: rem(-24);
   inline-size: min(100%, rem(640));
   margin-inline: auto;
   border-radius: 12px;
@@ -36,7 +36,7 @@
 }
 
 .p-index-mv__info-content {
-  margin-block-start: rem(20);
+  margin-block-start: rem(38);
   inline-size: min(100%, rem(640));
   margin-inline: auto;
 
@@ -57,6 +57,7 @@
 }
 
 .p-index-mv__info-title-container {
+  margin-left: 16px;
   display: flex;
   align-items: center;
   gap: rem(16);
@@ -66,7 +67,7 @@
   font-size: rem(20);
   font-weight: 700;
   letter-spacing: rclamp(1.6, 2, 375, 1280);
-  padding-block-end: rclamp(6, 7, 375, 1280);
+  padding-block-end: rclamp(4, 7, 375, 1280);
 
   @include mq(lg) {
     font-size: rclamp(20, 40, 1280, 1920);
@@ -121,12 +122,17 @@
   gap: rem(23);
   border-block-end: 1px solid $text-primary;
   transition: all 0.3s ease;
+  padding-left: 6px;
 
   svg {
     position: absolute;
-    inset-inline-end: rem(10);
+    inset-inline-end: rem(6);
     transition: all 0.3s ease;
     stroke: currentColor;
+  }
+
+  @include mq(md) {
+    padding-left: 0;
   }
 
   @media (any-hover: hover) {
@@ -151,7 +157,7 @@
 
 .p-index-mv__info-news-text {
   padding-block-start: rclamp(13, 10, 375, 1280);
-  padding-block-end: rclamp(12, 10, 375, 1280);
+  padding-block-end: rclamp(10, 10, 375, 1280);
   font-size: rem(14);
   font-weight: 500;
 
