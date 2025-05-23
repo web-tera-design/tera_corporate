@@ -27,7 +27,7 @@
 .p-index-recommend__items {
   margin-block-start: rclamp(40, 60, 375, 1280);
   display: grid;
-  gap: rclamp(60, 66, 375, 1280);
+  gap: rclamp(56, 66, 375, 1280);
   place-items: center;
   justify-content: center;
   align-items: flex-start;
@@ -64,7 +64,7 @@
 
 .p-index-recommend__text {
   inline-size: 100%;
-  margin-block-start: rclamp(22, 19, 375, 1280);
+  margin-block-start: rclamp(18, 19, 375, 1280);
   text-align: left;
   font-size: rem(14);
   font-weight: 500;

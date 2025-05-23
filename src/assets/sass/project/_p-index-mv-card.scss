@@ -237,10 +237,15 @@
 //位置の設定 (枠組み)
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   // inset-block-start: calc(100% + 20px);//画面下に中央配置
-  inset-block-end: 3%;
-  inset-inline-start: -51%;
+  inset-block-end: 4.4%;
+  inset-inline-start: -52%;
   transform: rotate(90deg);
   //inline-size: fit-content;矢印・ページネーション・矢印用
+
+  @include mq(md) {
+    inset-block-end: 3%;
+    inset-inline-start: -51.5%;
+  }
 }
 //それぞれのページネーション
 .swiper-pagination-bullets.swiper-pagination-horizontal

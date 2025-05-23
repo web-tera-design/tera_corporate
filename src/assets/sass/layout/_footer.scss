@@ -3,7 +3,7 @@
 .l-footer {
   padding-block-start: rclamp(12, 56, 375, 1280);
   padding-block-end: rem(60);
-  margin-block-start: rclamp(132, 203, 375, 1280);
+  margin-block-start: rclamp(132, 190, 375, 1280);
   background-color: $btn-secondary-hover;
   position: relative;
   padding-inline: rem(10);
@@ -18,6 +18,11 @@
     background: url(../img/index/mv/sp/index-mv-sp-01.webp) no-repeat top center / cover;
     background-position: top left -62px;
     transform: translateX(var(--wave-x));
+
+    @include mq(md) {
+      background-position: top left;
+
+    }
   }
 }
 
@@ -45,6 +50,7 @@
     place-items: center;
     gap: rem(40);
     padding-block-end: 0;
+    padding-inline: 0;
   }
 }
 
@@ -60,6 +66,9 @@
   inline-size: rem(310);
   margin-inline: auto;
 
+  @include mq(lg) {
+    inline-size: rem(410);
+  }
   svg {
     inline-size: 100%;
     block-size: 100%;
@@ -67,23 +76,30 @@
 }
 
 .l-footer-info__address {
-  margin-block-start: rem(6);
+  margin-block-start: rem(12);
+  @include mq(lg) {
+    margin-block-start: rem(10);
+  }
 }
 
 .l-footer-info__address-text {
   font-size: 14px;
   font-weight: 500;
+
+  span {
+    margin-left: 10px;
+  }
 }
 
 .l-footer-info__address-tel {
-  margin-block-start: rclamp(15, 17, 375, 1280);
+  margin-block-start: rclamp(20, 20, 375, 1280);
 }
 
 .l-footer-info__tel-link {
   color: $text-link;
   font-size: 32px;
   font-weight: 700;
-  // line-height: 36px; /* 112.5% */
+  line-height: 36px; /* 112.5% */
   letter-spacing: -0.64px;
 }
 
@@ -91,6 +107,10 @@
   color: $text-link;
   font-size: rem(12);
   font-weight: 500;
+  margin-block-start: rem(6);
+  @include mq(md) {
+    margin-block-start: 0;
+  }
 }
 
 .l-footer-info__buttons {
@@ -101,6 +121,8 @@
   place-content: center;
 
   @include mq(lg) {
+    margin-block-start: rem(20);
+    padding-inline: rem(10);
     gap: rclamp(15, 20, 768, 1280);
     grid-template-columns: repeat(2, 1fr);
   }
@@ -120,9 +142,8 @@
 
   @include mq(lg) {
     height: 56px;
-    font-size: 16px;
+    font-size: 16px !important;
     color: #fff;
-    font-size: 16px;
     font-weight: 500;
   }
 
@@ -151,9 +172,8 @@
 
   @include mq(lg) {
     height: 56px;
-    font-size: 16px;
+    font-size: 16px !important;
     color: #1391e6;
-    font-size: 16px;
     font-weight: 500;
   }
 
@@ -176,6 +196,9 @@
   img {
     inline-size: 100%;
     block-size: 100%;
+  }
+  @include mq(lg) {
+    margin-block-start: rem(22);
   }
 }
 
@@ -210,7 +233,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: rem(40);
-  margin-block-start: rclamp(60, 43, 375, 1280);
+  margin-block-start: rclamp(64, 43, 375, 1280);
   padding-inline: 10px;
 
   @include mq(md) {
@@ -379,8 +402,8 @@
   z-index: 100;
   inline-size: rem(52);
   block-size: rem(52);
-  inset-inline-end: rem(20);
-  inset-block-end: rem(97);
+  inset-inline-end: rem(16);
+  inset-block-end: rem(100);
   opacity: 0;
   visibility: hidden;
   transition:
@@ -390,6 +413,11 @@
   &.is-visible {
     opacity: 1;
     visibility: visible;
+  }
+
+  @include mq(md) {
+    inset-inline-end: rem(20);
+    inset-block-end: rem(48);
   }
 }
 
