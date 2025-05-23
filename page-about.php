@@ -8,7 +8,7 @@
         <p class="c-mv__bg-text--sub">ABOUT OUR CLINIC</p>
       </hgroup>
     </div>
-    <nav class="l-breadcrumbs" aria-label="パンくずリスト">
+    <nav class="l-breadcrumbs c-breadcrumbs" aria-label="パンくずリスト">
       <ol class="l-breadcrumb__list">
         <?php if (function_exists('bcn_display')) {
           bcn_display();
@@ -24,24 +24,24 @@
 <section class="c-concept p-about-concept">
   <div class="c-concept__inner">
     <div class="c-concept__container p-about-concept__container">
-      <div class="c-concept__content">
+      <div class="c-concept__content p-about-concept__content">
         <hgroup class="c-concept__heading-group">
           <p class="c-concept__subheading">POLICY</p>
           <h2 class="c-concept__heading">
             コミュニケーションから始まる最適な医療提供
           </h2>
         </hgroup>
-        <p class="c-concept__text">
+        <p class="c-concept__text p-about-concept__text">
           当院ではまず患者様から詳しくお話を伺います。<br />
           難しい言葉は使わず、実際に感じている小さな違和感からあらゆる可能性を考え、最適な治療方法をご提案いたします。
         </p>
-        <p class="c-concept__text">
+        <p class="c-concept__text p-about-concept__text">
           「どこよりも本音で話せる歯医者さん」を目指し、スタッフ一同、「人間力の向上」にも勤めております。
         </p>
       </div>
-      <div class="c-concept__image">
+      <div class="c-concept__image p-about-concept__image">
         <img
-          src="<?php echo get_template_directory_uri(); ?>/img/concept_img.webp"
+          src="<?php echo get_template_directory_uri(); ?>/img/about/mv/pc/about-mv-pc-01.webp"
           alt="治療中の画像"
           width="1280"
           height="876" />
@@ -53,7 +53,7 @@
   </div>
 </section>
 
-<section class="c-concept">
+<section class="c-concept p-about-concept--lower">
   <div class="c-concept__inner">
     <div class="c-concept__container c-concept--row">
       <div class="c-concept__content">
@@ -64,16 +64,16 @@
           </h2>
         </hgroup>
         <p class="c-concept__text">
-          歯の治療において、小さな違和感は大きなストレスにつながります。私たちは常に快適な歯科医療技術の研究を行っております。
+          歯の治療において、小さな違和感は大きなストレスにつながります。私たちは常に快適な歯科医療技術の研究を行っております。<br>
           また、「通いやすさ」も医院選びの重要なポイントと考え、2019年のリニューアルを期に更に駅の近くへ場所を移しました。
         </p>
-        <p class="c-concept__text">
+        <p class="c-concept__text p-about-concept__text--lower">
           朝から夜までお仕事をされている方のために診療時間を見直し、平日でもご利用いただけるようにいたしました。
         </p>
       </div>
-      <div class="c-concept__image c-concept__image--row">
+      <div class=" c-concept__image c-concept__image--row">
         <img
-          src="<?php echo get_template_directory_uri(); ?>/img/concept_img.webp"
+          src="<?php echo get_template_directory_uri(); ?>/img/about/mv/pc/about-mv-pc-02.webp"
           alt="治療中の画像"
           width="1280"
           height="876" />

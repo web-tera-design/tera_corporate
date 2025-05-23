@@ -1,7 +1,7 @@
 @use "../global" as *;
 
 .c-mv {
-  margin-block-start: rclamp(80, 100, 375, 1280);
+  margin-block-start: rclamp(80, 120, 375, 1280);
 }
 
 .c-mv__inner {
@@ -33,6 +33,10 @@
   inset-block-start: 50%;
   transform: translateY(-50%);
   text-align: center;
+
+  @include mq(md) {
+    inset-block-start: 50%;
+  }
 }
 
 .c-mv__bg-text--main {
@@ -43,10 +47,21 @@
 }
 
 .c-mv__bg-text--sub {
-  margin-block-start: 20px;
+  margin-block-start: 14px;
   color: #fff;
   font-size: rclamp(12, 14, 375, 1280);
   font-weight: 700;
   letter-spacing: rclamp(1.2, 1.4, 375, 1280);
   text-transform: uppercase;
+
+  @include mq(md) {
+    margin-block-start: 20px;
+  }
+}
+
+.c-breadcrumbs {
+  @include mq(md) {
+    margin-block-start: rem(10);
+    padding-inline-start: rem(24);
+  }
 }

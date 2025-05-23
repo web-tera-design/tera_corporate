@@ -5,10 +5,42 @@
 }
 
 .p-about-concept {
-  padding-block-start: rclamp(110, 216, 375, 1280);
+  padding-block-start: rclamp(110, 180, 375, 1280);
   margin-block-start: rclamp(38, 60, 375, 1280);
 }
 
 .p-about-concept__container {
   padding-block-start: 0;
+}
+
+.p-about-concept__content {
+  @include mq(md) {
+    margin-top: -100px;
+  }
+
+  .p-about-concept__text:nth-of-type(2) {
+    @include mq(md) {
+      margin-top: 20px;
+      
+    }
+  }
+}
+
+.p-about-concept__text {
+  margin-block-start: rclamp(26, 36, 375, 1280);
+}
+
+.p-about-concept__image {
+  margin-block-start: rem(38);
+}
+
+.p-about-concept--lower {
+  margin-block-start: rem(-14);
+  @include mq(md) {
+    padding-block-start: rem(52);
+  }
+}
+
+.p-about-concept__text--lower {
+  margin-block-start: rem(23);
 }

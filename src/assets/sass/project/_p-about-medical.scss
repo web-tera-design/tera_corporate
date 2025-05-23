@@ -1,5 +1,10 @@
 @use "../global" as *;
 .p-about__medical {
+  margin-block-start: 100px;
+
+  @include mq(md) {
+    margin-block-start: 50px;
+  }
 }
 
 .p-about-medical__inner {
@@ -27,4 +32,6 @@
 
 .p-about-medical__image {
   //   inline-size: rclamp(162, 317, 375, 1280);
+  border-radius: 20px;
+  overflow: hidden;
 }

@@ -768,6 +768,10 @@ button {
   text-align: center;
 }
 
+.l-breadcrumbs {
+  margin-block-start: 6px;
+}
+
 .l-breadcrumb__list {
   display: flex;
   flex-wrap: wrap;
@@ -1079,6 +1083,9 @@ button {
   }
 }
 
+.c-concept__image--row {
+  justify-self: end;
+}
 .c-concept__image--row img {
   border-radius: 20px 0 0 20px;
 }
@@ -1327,7 +1334,7 @@ button {
 }
 
 .c-mv {
-  margin-block-start: clamp(5rem, 4.4820441989rem + 2.2099447514vw, 6.25rem);
+  margin-block-start: clamp(5rem, 3.9640883978rem + 4.4198895028vw, 7.5rem);
 }
 
 .c-mv__inner {
@@ -1359,6 +1366,11 @@ button {
   text-align: center;
   transform: translateY(-50%);
 }
+@media screen and (min-width: 768px) {
+  .c-mv__bg-text {
+    inset-block-start: 50%;
+  }
+}
 
 .c-mv__bg-text--main {
   color: #fff;
@@ -1372,8 +1384,20 @@ button {
   font-size: clamp(0.75rem, 0.6982044199rem + 0.2209944751vw, 0.875rem);
   font-weight: 700;
   letter-spacing: clamp(0.075rem, 0.069820442rem + 0.0220994475vw, 0.0875rem);
-  margin-block-start: 20px;
+  margin-block-start: 14px;
   text-transform: uppercase;
+}
+@media screen and (min-width: 768px) {
+  .c-mv__bg-text--sub {
+    margin-block-start: 20px;
+  }
+  .c-breadcrumbs {
+    margin-block-start: 0.625rem;
+    padding-inline-start: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
 }
 
 .c-pagination-container {
@@ -1749,11 +1773,52 @@ button {
 
 .p-about-concept {
   margin-block-start: clamp(2.375rem, 1.8052486188rem + 2.4309392265vw, 3.75rem);
-  padding-block-start: clamp(6.875rem, 4.1298342541rem + 11.7127071823vw, 13.5rem);
+  padding-block-start: clamp(6.875rem, 5.0621546961rem + 7.7348066298vw, 11.25rem);
 }
 
 .p-about-concept__container {
   padding-block-start: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .p-about-concept__content {
+    margin-top: -100px;
+  }
+  .p-about-concept__content .p-about-concept__text:nth-of-type(2) {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 768px) {
+}
+
+.p-about-concept__text {
+  margin-block-start: clamp(1.625rem, 1.3660220994rem + 1.1049723757vw, 2.25rem);
+}
+
+.p-about-concept__image {
+  margin-block-start: 2.375rem;
+}
+
+.p-about-concept--lower {
+  margin-block-start: -0.875rem;
+}
+@media screen and (min-width: 768px) {
+  .p-about-concept--lower {
+    padding-block-start: 3.25rem;
+  }
+}
+
+.p-about-concept__text--lower {
+  margin-block-start: 1.4375rem;
+}
+
+.p-about__medical {
+  margin-block-start: 100px;
+}
+@media screen and (min-width: 768px) {
+  .p-about__medical {
+    margin-block-start: 50px;
+  }
 }
 
 .p-about-medical__cards {
@@ -1766,6 +1831,11 @@ button {
   .p-about-medical__cards {
     grid-template-columns: repeat(auto-fit, minmax(clamp(10.125rem, 6.1108425414rem + 17.1270718232vw, 19.8125rem), max-content));
   }
+}
+
+.p-about-medical__image {
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .p-blog-detail {
