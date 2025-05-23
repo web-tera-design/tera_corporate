@@ -1,12 +1,13 @@
 @use "../global" as *;
 
 .p-medical {
-  padding-block-start: rclamp(60, 76, 375, 1280);
+  padding-block-start: rclamp(60, 82, 375, 1280);
 }
 
 .p-medical__inner {
   @include mq(md) {
-    padding-inline: 24px;
+    padding-inline: 60px;
+    margin-inline: 0;
   }
 }
 
@@ -17,9 +18,9 @@
 }
 
 .p-medical-link__wrapper__rower {
-  margin-block-start: 84px;
+  margin-block-start: 78px;
   @include mq(md) {
-    margin-block-start: 78px;
+    margin-block-start: 64px;
   }
 }
 
@@ -49,7 +50,7 @@
 }
 
 .p-medical-link__items {
-  margin-block-start: 30px;
+  margin-block-start: 32px;
   align-items: center;
   text-align: center;
   display: block;
@@ -57,7 +58,7 @@
   @include mq(md) {
     display: flex;
     flex-wrap: wrap;
-    margin-block-start: 34px;
+    margin-block-start: 32px;
     gap: 16px;
   }
 }
@@ -79,12 +80,12 @@
   font-size: rclamp(20, 24, 375, 1280);
   font-weight: 700;
   letter-spacing: rclamp(1.6, 1.92, 375, 1280);
-  padding: 18px 0;
+  padding: 15px 0;
   position: relative;
   transition: all 0.3s ease;
 
   @include mq(md) {
-    padding: 22px 29px;
+    padding: 15px 29px;
   }
 
   &::after {

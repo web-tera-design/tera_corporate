@@ -58,10 +58,3 @@
     margin-block-start: 20px;
   }
 }
-
-.c-breadcrumbs {
-  @include mq(md) {
-    margin-block-start: rem(10);
-    padding-inline-start: rem(24);
-  }
-}

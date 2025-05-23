@@ -1,5 +1,8 @@
 @use "../global" as *;
 
+body {
+  outline: 2px solid red;
+}
 .c-blog {
 }
 
@@ -15,7 +18,7 @@
 .c-blog__cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 21px;
   padding-inline: rem(20);
 }
 
@@ -35,8 +38,8 @@
       color: $text-link;
     }
   }
-}
 
+}
 .c-blog__image {
   block-size: rem(100);
   object-fit: cover;
@@ -57,8 +60,8 @@
 .c-blog__card-new-badge {
   position: absolute;
   z-index: 10;
-  top: -20px;
-  left: -20px;
+  top: -10px;
+  left: -10px;
   width: 40px;
   height: 40px;
 }

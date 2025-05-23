@@ -1,0 +1,8 @@
+@use '../global' as *;
+
+.c-breadcrumbs {
+    @include mq(md) {
+     margin-block-start: 10px;
+     padding-inline-start: 32px;
+    }
+}

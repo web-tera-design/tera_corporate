@@ -4,7 +4,7 @@
       <div class="c-sidebar__clinic">
         <div class="c-sidebar__heading">
           <img
-            src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-03.svg"
+            src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-07.svg"
             alt="" />
           <h2 class="c-sidebar__heading-title">クリニックの紹介</h2>
         </div>
@@ -100,7 +100,7 @@
       <div class="c-sidebar__category">
         <div class="c-sidebar__heading">
           <img
-            src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-05.svg"
+            src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-02.svg"
             alt="" />
           <h2 class="c-sidebar__heading-title">カテゴリー</h2>
         </div>

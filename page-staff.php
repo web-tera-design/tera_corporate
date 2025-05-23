@@ -8,7 +8,7 @@
         <p class="c-mv__bg-text--sub">STAFF</p>
       </hgroup>
     </div>
-    <nav class="l-breadcrumbs" aria-label="パンくずリスト">
+    <nav class="l-breadcrumbs c-breadcrumbs" aria-label="パンくずリスト">
       <ol class="l-breadcrumb__list">
         <?php if (function_exists('bcn_display')) {
           bcn_display();
@@ -27,7 +27,7 @@
       <div class="p-staff-message__content">
         <div class="p-staff-message__heading">
           <h3 class="p-staff-message__heading-text">
-            気軽に相談できる 街の歯医者さんでありたい。
+            気軽に相談できる<br> 街の歯医者さんでありたい。
           </h3>
           <p class="p-staff-message__text">
             当院は治療はもちろん、予防歯科にも力を入れておりますので、お口に関する相談だけでもお越しいただきたいと考えております。
@@ -53,13 +53,13 @@
                 東京医科歯科大学歯学部 卒業
               </p>
             </div>
-            <div class="p-staff-message__profile-item">
+            <div class="p-staff-message__profile-item ut-mt16">
               <p class="p-staff-message__profile-date">2008年</p>
               <p class="p-staff-message__profile-text">
                 東京歯科大学歯学研究科大学院修了<br />博士(歯学)取得
               </p>
             </div>
-            <div class="p-staff-message__profile-item">
+            <div class="p-staff-message__profile-item ut-mt16">
               <p class="p-staff-message__profile-date">2012年</p>
               <p class="p-staff-message__profile-text">
                 みなみ歯科クリニック 開院
@@ -92,12 +92,10 @@
 </section>
 
 <section class="p-staff-message__swiper">
-  <!-- クラス名・ESC・TAB・swiper数字・TABで推移 -->
   <div class="p-staff-message__swiper">
     <div class="p-staff-message__swiper-inner">
       <div class="p-staff-message__swiper-container">
         <div class="swiper p-staff-message__swiper --swiper2">
-          <!-- スライド止まらないループはswiper-wrapperにtransition-timing-function: linear; */ -->
           <div class="swiper-wrapper p-staff-message__swiper-wrapper">
             <div class="swiper-slide p-staff-message__swiper-slide">
               <img

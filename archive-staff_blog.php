@@ -8,7 +8,7 @@
         <p class="c-mv__bg-text--sub">STAFF BLOG</p>
       </hgroup>
     </div>
-    <nav class="l-breadcrumbs" aria-label="パンくずリスト">
+    <nav class="l-breadcrumbs c-breadcrumbs" aria-label="パンくずリスト">
       <ol class="l-breadcrumb__list">
         <?php if (function_exists('bcn_display')) {
           bcn_display();
@@ -21,7 +21,7 @@
 
 <section class="c-blog p-blog">
   <div class="c-blog__container p-blog__container">
-    <div class="c-blog__archive">
+    <div class="c-blog__archive p-blob__archive">
       <div class="c-blog__cards p-blog__cards">
         <?php if (have_posts()) : ?>
           <?php while (have_posts()) : the_post(); ?>
@@ -44,7 +44,7 @@
                 <?php endif; ?>
               </div>
               <div class="c-blog__content p-blog__content">
-                <span class="c-blog__label"><?php echo esc_html($category); ?></span>
+                <span class="c-blog__label p-blog__label"><?php echo esc_html($category); ?></span>
                 <p class="c-blog__text p-blog__text"><?php the_title(); ?></p>
                 <time class="c-blog__datetime p-blog__datetime entry-date published" datetime="<?php echo get_the_date('Y-m-d'); ?>" itemprop="datePublished">
                   <?php echo get_the_date('Y/m/d'); ?>
@@ -76,7 +76,7 @@
 
             <?php
             $pagination_links = paginate_links([
-              'mid_size' => 2,
+              'mid_size' => 1,
               'type' => 'array',
               'prev_next' => false, // ここが大事：前へ／次へを出さない
             ]);

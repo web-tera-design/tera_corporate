@@ -1,10 +1,10 @@
 @use "../global" as *;
 
 .c-sidebar {
-  margin-block-start: 102px;
+  margin-block-start: 98px;
 
   @include mq(md) {
-    margin-block-start: 0;
+    margin-block-start: 102;
   }
 }
 
@@ -24,8 +24,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   border-bottom: 1px solid #888;
+
+  @include mq(md) {
+    padding-bottom: 10px;
+  }
 }
 
 .c-sidebar__heading-title {
@@ -71,7 +75,7 @@
 .c-sidebar__article-cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 21px;
   // padding-inline: rem(20);
   margin-block-start: 20px;
 
@@ -113,7 +117,7 @@
 }
 
 .c-sidebar__article-content {
-  margin-block-start: rem(6);
+  margin-block-start: rem(0);
   gap: rem(6);
   @include mq(md) {
     justify-content: start;
@@ -150,8 +154,10 @@
   -webkit-line-clamp: 2; // ← ここで行数指定
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin-block-start: 8px;
 
   @include mq(md) {
+  margin-block-start: 8px;
   }
 }
 
@@ -162,11 +168,19 @@
 }
 
 .c-sidebar__category {
-  margin-block-start: 60px;
+  margin-block-start: 64px;
+
+  @include mq(md) {
+    margin-block-start: 60px;
+  }
 }
 
 .c-sidebar__category-lists {
-  margin-block-start: 16px;
+  margin-block-start: 18px;
+  
+  @include mq(md) {
+    margin-block-start: 16px;
+  }
 }
 
 .c-sidebar__category-list {

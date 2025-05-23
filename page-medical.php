@@ -145,8 +145,8 @@
                 </div>
               </div>
             </div>
-            <div class="c-medical__bg-bottom-main"></div>
-            <div class="c-medical__bg-bottom-sub"></div>
+            <div class="c-medical__bg-bottom-main p-medical__bg-bottom-main"></div>
+            <div class="c-medical__bg-bottom-sub p-medical__bg-bottom-sub"></div>
           </section>
       <?php endif;
         wp_reset_postdata();

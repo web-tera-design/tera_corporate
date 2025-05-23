@@ -20,7 +20,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 11px;
+  min-width: 30px;
+  padding-block: 6px;
   color: #1391e6;
   font-size: 12px;
   font-weight: 500;
@@ -38,11 +39,13 @@
     color: #ccc;
     // border-color: transparent;
     pointer-events: none;
+    // padding: 6px 9px;
   }
+
 
   &--prev,
   &--next {
-    padding-inline: 7px 16px;
+    padding-inline: 16px 15px;
     gap: 4px;
     color: #fff;
     font-size: 11px;
@@ -54,6 +57,7 @@
       display: inline-block;
     }
   }
+  
 
   @media (any-hover: hover) {
     &:hover {

@@ -1,16 +1,22 @@
 @use "../global" as *;
 
 .p-staff-message__swiper {
-  margin-block-start: rclamp(100, 160, 375, 1280);
+  margin-block-start: rclamp(50, 82, 375, 1280);
 }
 
 .p-staff-message__swiper-inner {
+  // position: relative;
+  overflow: hidden;
 }
 
 .p-staff-message__swiper-container {
+  position: relative;
+  max-inline-size: 1920px;
+  margin-inline: auto;
 }
 
 .swiper {
+  
 }
 
 .--swiper2 {
@@ -31,8 +37,8 @@
   }
 
   img {
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
   }
 }
 
