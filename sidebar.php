@@ -1,5 +1,5 @@
 <aside class="c-sidebar">
-  <div class="c-sidebar__inner l-section__inner">
+  <div class="c-sidebar__inner">
     <div class="c-sidebar__container">
       <div class="c-sidebar__clinic">
         <div class="c-sidebar__heading">

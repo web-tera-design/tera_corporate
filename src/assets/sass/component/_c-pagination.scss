@@ -7,11 +7,32 @@
 .c-pagination {
 }
 
-.c-pagination__list {
+.c-pagination__list--sp {
   display: flex;
   justify-content: center;
   gap: rclamp(7, 10, 375, 1280);
+
+  @include mq(lg) {
+    display: none;
+  }
 }
+
+.c-pagination__list--pc {
+  display: none;
+
+  @include mq(lg) {
+    display: flex;
+    justify-content: center;
+    gap: rclamp(7, 10, 375, 1280);
+  }
+}
+
+
+// .c-pagination__list {
+//   display: flex;
+//   justify-content: center;
+//   gap: rclamp(7, 10, 375, 1280);
+// }
 
 .c-pagination__item {
 }
@@ -29,6 +50,12 @@
   border: 1px solid #1391e6;
   transition: all 0.3s ease;
 
+  @include mq(md) {
+    min-width: 34px;
+    min-height: 36px;
+    font-size: 14px;
+  }
+
   &--current {
     background-color: #1391e6;
     color: #fff;
@@ -45,14 +72,19 @@
 
   &--prev,
   &--next {
-    padding-inline: 16px 15px;
+    padding-inline: 15px 14px;
     gap: 4px;
     color: #fff;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 500;
     border-radius: 4px;
     background: #1391e6;
     transition: all 0.3s ease;
+
+    @include mq(md) {
+      padding-inline: 17px;
+    }
+
     svg {
       display: inline-block;
     }

@@ -1,20 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
-  function scaleContent() {
-    const minWidth = 375;
-    const width = Math.min(window.innerWidth, screen.width); // ✅ innerWidthとscreen幅の小さい方を見る
-    if (width < minWidth) {
-      const scale = width / minWidth;
-      document.body.style.transform = `scale(${scale})`;
-      document.body.style.transformOrigin = "top left";
-      document.body.style.width = `${minWidth}px`;
-    } else {
-      document.body.style.transform = "";
-      document.body.style.width = "";
+// レスポンシブの375px未満のviewport画面幅を固定
+!(function () {
+  const viewport = document.querySelector('meta[name="viewport"]');
+  function switchViewport() {
+    const value =
+      window.outerWidth > 375
+        ? "width=device-width,initial-scale=1"
+        : "width=375";
+    if (viewport.getAttribute("content") !== value) {
+      viewport.setAttribute("content", value);
     }
   }
-  scaleContent();
-  window.addEventListener("resize", scaleContent);
-});
+  addEventListener("resize", switchViewport, false);
+  switchViewport();
+})();
 
 // document.addEventListener("DOMContentLoaded", () => {
 //   const links = document.querySelectorAll(".l-header__link");
@@ -852,24 +850,6 @@ function initActiveLinks() {
       link.setAttribute("aria-current", "page");
     }
   });
-}
-
-function initScaling() {
-  const minWidth = 375;
-  const scaleContent = () => {
-    const width = Math.min(window.innerWidth, screen.width);
-    if (width < minWidth) {
-      const scale = width / minWidth;
-      document.body.style.transform = `scale(${scale})`;
-      document.body.style.transformOrigin = "top left";
-      document.body.style.width = `${minWidth}px`;
-    } else {
-      document.body.style.transform = "";
-      document.body.style.width = "";
-    }
-  };
-  scaleContent();
-  window.addEventListener("resize", scaleContent);
 }
 
 function initTopButton() {

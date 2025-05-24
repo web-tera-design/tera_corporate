@@ -10,27 +10,26 @@
 }
 
 .p-blog__container {
+  padding-inline: rem(20);
+  margin-inline: auto;
+  max-inline-size: 500px;
   @include mq(md) {
     display: grid;
     grid-template-columns: 1fr 300px;
     max-inline-size: 1040px;
-    margin-inline: auto;
-    padding-inline: 20px;
     gap: 30px;
   }
 }
 
 .p-blog__image {
-  @include mq(md) {
-    block-size: 153px;
-    img {
-      aspect-ratio: 245 / 153;
-      block-size: 100%;
-    }
-  }
+
+  
+
+
 }
 
 .p-blog__cards {
+  
   @include mq(md) {
     padding-inline: 0;
   }
@@ -44,12 +43,15 @@
 .p-blog__content {
   @include mq(md) {
     margin-block-start: 0;
-    padding: 19px 0 14px 20px;
+    padding: 14px 0 14px 20px;
   }
 }
 
 .p-blog__label {
-  margin-block-start: 7px;
+  margin-block-start: 4px;
+  @include mq(md) {
+    margin-block-start: 0;
+  }
 }
 
 .p-blog__text {
@@ -57,6 +59,7 @@
   @include mq(md) {
     margin-block-start: 12px;
     padding-inline-end: 0;
+    font-size: 16px;
   }
 }
 

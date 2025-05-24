@@ -1,8 +1,5 @@
 @use "../global" as *;
 
-body {
-  outline: 2px solid red;
-}
 .c-blog {
 }
 
@@ -13,21 +10,28 @@ body {
 }
 
 .c-blog__container {
+ 
 }
 
 .c-blog__cards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 21px;
-  padding-inline: rem(20);
+  @include mq(md) {
+    gap: 20px;
+  }
 }
 
 .c-blog__card {
-  display: grid;
   gap: 10px;
-  grid-template-columns: rclamp(133, 240, 375, 768) 1fr;
+  display: grid;
+  grid-template-columns: 133px 1fr;
   transition: all 0.3s ease;
   position: relative;
+
+  @include mq(md) {
+    grid-template-columns: 244px 1fr;
+  }
 
   &:hover {
     .c-blog__image img {
@@ -41,19 +45,23 @@ body {
 
 }
 .c-blog__image {
-  block-size: rem(100);
-  object-fit: cover;
   overflow: hidden;
-  // @include mq(md) {
-  //   block-size: rem(188);
-  // }
-
+  inline-size: 133px;
+  @include mq(md) {
+    inline-size: 244px;
+    aspect-ratio: 244 / 153;
+  }
   img {
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     inline-size: 100%;
     block-size: 100%;
+    aspect-ratio:  133 / 100;
     object-fit: cover;
+    object-position: center 20%;
     transition: all 0.3s ease;
+
+    @include mq(md) {
+      aspect-ratio: 244 / 153;
+    }
   }
 }
 
@@ -83,7 +91,7 @@ body {
 
 .c-blog__label {
   display: inline-block;
-  padding: rem(1) rem(8) rem(1);
+  padding: rem(2) rem(8) rem(1);
   inline-size: fit-content;
   color: #fff;
   font-size: rclamp(10, 11, 375, 1280);
@@ -91,12 +99,10 @@ body {
   border-radius: rem(10);
   background: #1391e6;
 
-  // @include mq(md) {
-  //   position: absolute;
-  //   border-radius: rem(14);
-  //   margin-block-start: rem(-40);
-  //   padding: 6.24px 12px 5.76px 12px;
-  // }
+  @include mq(md) {
+    border-radius: rem(12);
+    padding: 6px 12px;
+  }
 }
 
 .c-blog__text {
@@ -111,13 +117,19 @@ body {
   overflow: hidden;
 
   @include mq(md) {
-  }
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px; /* 150% */  }
 }
 
 .c-blog__datetime {
   color: #888;
   font-size: 11px;
   font-weight: 500;
+
+  @include mq(md) {
+    font-size: 12px;
+  }
 }
 
 .c-blog__link {

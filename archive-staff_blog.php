@@ -59,8 +59,7 @@
 
       <div class="c-pagination-container">
         <nav class="c-pagination" role="navigation" aria-label="ページ送り">
-          <ul class="c-pagination__list">
-
+          <ul class="c-pagination__list c-pagination__list--pc">
             <?php if (get_previous_posts_link()) : ?>
               <li class="c-pagination__item">
                 <a href="<?php echo esc_url(get_previous_posts_page_link()); ?>"
@@ -73,25 +72,31 @@
                 </a>
               </li>
             <?php endif; ?>
-
             <?php
-            $pagination_links = paginate_links([
-              'mid_size' => 1,
-              'type' => 'array',
-              'prev_next' => false, // ここが大事：前へ／次へを出さない
-            ]);
-
-            if ($pagination_links) :
-              foreach ($pagination_links as $link) :
-                // class名の置き換え
-                $link = str_replace('page-numbers current', 'c-pagination__link c-pagination__link--current', $link);
-                $link = str_replace('page-numbers dots', 'c-pagination__link c-pagination__link--dots', $link);
-                $link = str_replace('page-numbers', 'c-pagination__link', $link);
-                echo '<li class="c-pagination__item">' . $link . '</li>';
-              endforeach;
-            endif;
+            global $wp_query;
+            $total = $wp_query->max_num_pages;
+            $current = max(1, get_query_var('paged'));
+            $pages = [];
+            // 1～6ページ
+            for ($i = 1; $i <= min(6, $total); $i++) {
+              $pages[] = $i;
+            }
+            // ドット
+            if ($total > 7) {
+              $pages[] = '...';
+              $pages[] = $total;
+            }
+            // 出力
+            foreach ($pages as $p) {
+              if ($p === '...') {
+                echo '<li class="c-pagination__item"><span class="c-pagination__link c-pagination__link--dots">…</span></li>';
+              } else {
+                $class = 'c-pagination__link';
+                if ($p == $current) $class .= ' c-pagination__link--current';
+                echo '<li class="c-pagination__item"><a href="' . esc_url(get_pagenum_link($p)) . '" class="' . $class . '">' . $p . '</a></li>';
+              }
+            }
             ?>
-
             <?php if (get_next_posts_link()) : ?>
               <li class="c-pagination__item">
                 <a href="<?php echo esc_url(get_next_posts_page_link()); ?>"
@@ -106,8 +111,51 @@
                 </a>
               </li>
             <?php endif; ?>
-
           </ul>
+
+          <ul class="c-pagination__list c-pagination__list--sp">
+            <?php if (get_previous_posts_link()) : ?>
+              <li class="c-pagination__item">
+                <a href="<?php echo esc_url(get_previous_posts_page_link()); ?>"
+                  class="c-pagination__link c-pagination__link--prev"
+                  aria-label="前のページ">
+                  <!-- SVG省略 -->
+                  前へ
+                </a>
+              </li>
+            <?php endif; ?>
+            <?php
+            // 1, 2, 3, ..., total
+            $sp_pages = [];
+            for ($i = 1; $i <= min(3, $total); $i++) $sp_pages[] = $i;
+            if ($total > 4) {
+              $sp_pages[] = '...';
+              $sp_pages[] = $total;
+            } elseif ($total == 4) {
+              $sp_pages[] = 4;
+            }
+            foreach ($sp_pages as $p) {
+              if ($p === '...') {
+                echo '<li class="c-pagination__item"><span class="c-pagination__link c-pagination__link--dots">…</span></li>';
+              } else {
+                $class = 'c-pagination__link';
+                if ($p == $current) $class .= ' c-pagination__link--current';
+                echo '<li class="c-pagination__item"><a href="' . esc_url(get_pagenum_link($p)) . '" class="' . $class . '">' . $p . '</a></li>';
+              }
+            }
+            ?>
+            <?php if (get_next_posts_link()) : ?>
+              <li class="c-pagination__item">
+                <a href="<?php echo esc_url(get_next_posts_page_link()); ?>"
+                  class="c-pagination__link c-pagination__link--next"
+                  aria-label="次のページ">
+                  次へ
+                  <!-- SVG省略 -->
+                </a>
+              </li>
+            <?php endif; ?>
+          </ul>
+
         </nav>
       </div>
 
