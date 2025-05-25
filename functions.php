@@ -40,41 +40,18 @@ function allow_webp_avif_upload($mime_types)
 }
 add_filter('upload_mimes', 'allow_webp_avif_upload');
 
-// // スタッフブログ（カスタム投稿タイプ）の登録
-// function register_custom_post_type_blog() {
-//     register_post_type('blog', array(
-//         'label' => 'スタッフブログ',
-//         'public' => true,
-//         'has_archive' => true,
-//         'menu_position' => 5,
-//         'show_in_rest' => true, // ブロックエディタ対応
-//         'supports' => array('title', 'editor', 'thumbnail'),
-//         'rewrite' => array('slug' => 'blog'),
-//     ));
-// }
-// add_action('init', 'register_custom_post_type_blog');
 
-
-// blog_category というカスタムタクソノミーを追加
-// function register_blog_taxonomy() {
-//   register_taxonomy('blog_category', 'blog', array(
-//     'label' => 'ブログカテゴリー',
-//     'hierarchical' => true,
-//     'public' => true,
-//     'show_in_rest' => true,
-//     'rewrite' => array('slug' => 'blog-category')
-//   ));
-// }
-
-
+// パンくず：記事タイトルを削除（news, staff_blog）
 function remove_last_breadcrumb_on_specific_singles($trail)
 {
-  // 'news' と 'staff_blog' のシングルページだけ
   if (is_singular('news') || is_singular('staff_blog')) {
-    array_shift($trail->trail); // 最後のパンくずを削除
+    array_shift($trail->trail);
   }
 }
 add_action('bcn_after_fill', 'remove_last_breadcrumb_on_specific_singles');
+
+
+
 
 
 // function custom_breadcrumb_trail_items($trail)
@@ -145,7 +122,7 @@ function my_cf7_redirect_js()
       "wpcf7mailsent",
       function(event) {
         if (event.detail.contactFormId == 573) {
-          location.href = "/reservation-thanks/";
+          location.href = "/thanks/";
         } else if (event.detail.contactFormId == 561) {
           location.href = "/thanks/";
         }
@@ -157,37 +134,27 @@ function my_cf7_redirect_js()
 }
 add_action('wp_footer', 'my_cf7_redirect_js');
 
-// add_filter('bcn_after_fill', function ($trail) {
-//   // 予約完了ページの場合
-//   if (is_page('reservation-thanks')) {
-//     $reservation_page = get_page_by_path('reservation');
-//     if ($reservation_page) {
-//       $reservation_breadcrumb = new bcn_breadcrumb(
-//         '',
-//         null,
-//         array('page'),
-//         get_permalink($reservation_page->ID),
-//         null,
-//         true
-//       );
-//       // HOMEの次（2番目）に挿入
-//       array_splice($trail->trail, 1, 0, [$reservation_breadcrumb]);
-//     }
-//   }
-//   // お問い合わせ完了ページの場合
-//   if (is_page('contact-thanks')) {
-//     $contact_page = get_page_by_path('contact');
-//     if ($contact_page) {
-//       $contact_breadcrumb = new bcn_breadcrumb(
-//         '',
-//         null,
-//         array('page'),
-//         get_permalink($contact_page->ID),
-//         null,
-//         true
-//       );
-//       array_splice($trail->trail, 1, 0, [$contact_breadcrumb]);
-//     }
-//   }
-//   return $trail;
-// });
+
+// functions.php の最後に追加
+
+add_action('wp_footer', 'add_origin_thanks_page');
+
+function add_origin_thanks_page()
+{
+  $contact = home_url('/contact/thanks');
+  $reservation = home_url('/reservation/thanks');
+  echo <<<EOC
+<script>
+  var thanksPage = {
+    561: "{$contact}",
+    573: "{$reservation}"
+  };
+  document.addEventListener('wpcf7mailsent', function(event) {
+    var formId = event.detail.contactFormId;
+    if (thanksPage[formId]) {
+      location.href = thanksPage[formId];
+    }
+  }, false);
+</script>
+EOC;
+}

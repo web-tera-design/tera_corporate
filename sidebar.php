@@ -1,7 +1,7 @@
-<aside class="c-sidebar">
+<aside class="c-sidebar p-blog-sidebar">
   <div class="c-sidebar__inner">
     <div class="c-sidebar__container">
-      <div class="c-sidebar__clinic">
+      <div class="c-sidebar__clinic p-blog-sidebar__clinic">
         <div class="c-sidebar__heading">
           <img
             src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-07.svg"

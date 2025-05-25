@@ -8,13 +8,11 @@
         <p class="c-mv__bg-text--sub">STAFF BLOG</p>
       </hgroup>
     </div>
-    <nav class="l-breadcrumbs" aria-label="パンくずリスト">
-      <ol class="l-breadcrumb__list">
-        <?php if (function_exists('bcn_display')) {
-          bcn_display();
-        } ?>
-      </ol>
-    </nav>
+    <div class="l-breadcrumbs" aria-label="パンくずリスト">
+      <?php if (function_exists('bcn_display')) {
+        bcn_display();
+      } ?>
+    </div>
   </div>
 </section>
 

@@ -1,0 +1,12 @@
+@use '../global' as *;
+
+.p-blog-sidebar {
+    margin-block-start: 78px;
+}
+
+.p-blog-sidebar__clinic {
+
+    @include mq(md) {
+      margin-block-start: -80px;
+    }
+}

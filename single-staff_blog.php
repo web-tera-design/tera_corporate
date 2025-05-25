@@ -8,7 +8,7 @@
         <p class="c-mv__bg-text--sub">STAFF BLOG</p>
       </hgroup>
     </div>
-    <div class="l-breadcrumbs" aria-label="パンくずリスト">
+    <div class="l-breadcrumbs c-breadcrumbs" aria-label="パンくずリスト">
       <?php if (function_exists('bcn_display')) {
         bcn_display();
       } ?>

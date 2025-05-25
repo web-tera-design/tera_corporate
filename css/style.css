@@ -2062,10 +2062,12 @@ button {
 }
 
 .p-blog-detail__content2-heading-title {
+  border-left: 6px solid #1391e6;
   color: #1391e6;
   font-size: clamp(1.125rem, 0.9696132597rem + 0.6629834254vw, 1.5rem);
   font-weight: 700;
   letter-spacing: clamp(0.09rem, 0.0775690608rem + 0.053038674vw, 0.12rem);
+  padding-left: 16px;
 }
 
 .p-blog-detail__content2-image {
@@ -2079,6 +2081,11 @@ button {
 
 .p-blog-detail__content3 {
   margin-block-start: 40px;
+}
+@media screen and (min-width: 768px) {
+  .p-blog-detail__content3 {
+    margin-block-start: 60px;
+  }
 }
 
 .p-blog-detail__content3-heading {
@@ -2119,8 +2126,11 @@ button {
 }
 
 .p-blog-detail__content__items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   list-style-type: disc; /* ← ul に指定 */
-  margin-block-start: clamp(0.75rem, 0.5169198895rem + 0.9944751381vw, 1.3125rem);
+  margin-block-start: clamp(1.125rem, 1.0473066298rem + 0.3314917127vw, 1.3125rem);
   margin-inline-start: 30px;
 }
 
@@ -2131,7 +2141,7 @@ button {
 }
 
 .p-blog-detail-pagination-container {
-  margin-block-start: clamp(2.875rem, 1.942679558rem + 3.9779005525vw, 5.125rem);
+  margin-block-start: clamp(2.5rem, 1.4122928177rem + 4.6408839779vw, 5.125rem);
 }
 
 .p-blog-detail-pagination__list {
@@ -2154,7 +2164,7 @@ button {
   font-size: 14px;
   font-weight: 500;
   gap: 6px;
-  padding: 10px 17px;
+  padding: 10px 18px;
   transition: all 0.3s ease;
 }
 @media screen and (min-width: 768px) {
@@ -2207,6 +2217,16 @@ button {
 
 .p-blog-detail-pagination__icon--next {
   transition: all 0.3s ease;
+}
+
+.p-blog-sidebar {
+  margin-block-start: 78px;
+}
+
+@media screen and (min-width: 768px) {
+  .p-blog-sidebar__clinic {
+    margin-block-start: -80px;
+  }
 }
 
 .p-contact-mv__bg-image {
