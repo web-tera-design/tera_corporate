@@ -8,7 +8,7 @@
         <p class="c-mv__bg-text--sub">NEWS</p>
       </hgroup>
     </div>
-    <div class="l-breadcrumbs" aria-label="パンくずリスト">
+    <div class="l-breadcrumbs c-breadcrumbs" aria-label="パンくずリスト">
       <?php if (function_exists('bcn_display')) {
         bcn_display();
       } ?>
@@ -77,8 +77,8 @@
 
 
         <?php if (get_field('heading3')) : ?>
-          <div class="p-blog-detail__content3">
-            <div class="p-blog-detail__content3-heading">
+          <div class="p-blog-detail__content3 p-single-news-blog-detail__content3">
+            <div class="p-blog-detail__content3-heading p-single-news-blog-detail__content3-heading">
               <h3 class="p-blog-detail__content3-heading-title p-single-news-blog-detail__content3-heading-title">
                 <?php the_field('heading3'); ?>
               </h3>
@@ -92,14 +92,14 @@
         <?php endif; ?>
 
         <?php if (get_field('heading4')) : ?>
-          <div class="p-blog-detail__content4">
+          <div class="p-blog-detail__content4 p-single-news-blog-detail__content4">
             <div class="p-blog-detail__content4-heading">
               <h4 class="p-blog-detail__content4-heading-title">
                 <?php the_field('heading4'); ?>
               </h4>
             </div>
             <?php if (get_field('heading4_text')) : ?>
-              <p class="p-blog-detail__content4-text">
+              <p class="p-blog-detail__content4-text p-single-news-blog-detail__content4-text">
                 <?php echo nl2br(get_field('heading4_text')); ?>
               </p>
             <?php endif; ?>
@@ -187,7 +187,7 @@
         <div class="c-sidebar__inner">
           <div class="c-sidebar__container">
             <div class="c-sidebar__clinic">
-              <div class="c-sidebar__heading">
+              <div class="c-sidebar__heading p-single-news-sidebar__heading">
                 <img
                   src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-07.svg"
                   alt="" />
@@ -229,7 +229,7 @@
                   alt="" />
                 <h2 class="c-sidebar__heading-title">新着記事</h2>
               </div>
-              <div class="c-sidebar__article-cards">
+              <div class="c-sidebar__article-cards p-single-news-sidebar__article-cards">
                 <?php
                 // 最新の blog 投稿を5件取得するクエリを作成
                 $recent_posts = new WP_Query([
@@ -259,12 +259,12 @@
                         <?php endif; ?>
                       </div>
 
-                      <div class="c-sidebar__article-content">
+                      <div class="c-sidebar__article-content p-single-news-sidebar__article-content">
                         <!-- カテゴリー名を表示 -->
                         <span class="c-sidebar__article-category c-single-news-sidebar__article-category"><?php echo esc_html($category); ?></span>
 
                         <!-- 記事タイトルを表示 -->
-                        <p class="c-sidebar__article-text"><?php the_title(); ?></p>
+                        <p class="c-sidebar__article-text p-single-news-sidebar__article-text"><?php the_title(); ?></p>
 
                         <!-- 投稿日（マークアップ的にも適切に） -->
                         <time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="c-sidebar__article-date">
@@ -284,7 +284,7 @@
             </div>
 
             <div class="c-sidebar__category">
-              <div class="c-sidebar__heading">
+              <div class="c-sidebar__heading p-single-news-sidebar__heading2">
                 <img
                   src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-02.svg"
                   alt="" />

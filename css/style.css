@@ -3841,12 +3841,41 @@ input[type=checkbox]:focus-visible + .wpcf7-list-item-label {
   margin-block-start: 22px;
 }
 
+@media screen and (min-width: 768px) {
+  .p-single-news-blog-detail__content3 {
+    margin-block-start: 36px;
+  }
+  .p-single-news-blog-detail__content3-heading {
+    padding-bottom: 2px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
 .p-single-news-blog-detail__content3-heading-title {
   line-height: 1.6;
 }
 
+@media screen and (min-width: 768px) {
+  .p-single-news-blog-detail__content4 {
+    margin-block-start: 50px;
+  }
+  .p-single-news-blog-detail__content4-text {
+    margin-block-start: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
 .p-single-news-blog-detail-pagination-container {
   margin-block-start: 46px;
+}
+@media screen and (min-width: 768px) {
+  .p-single-news-blog-detail-pagination-container {
+    margin-block-start: 103px;
+  }
 }
 
 .p-single-news-blog-detail-pagination__link,.p-single-news-blog-detail-pagination__link--prev,.p-single-news-blog-detail-pagination__link--next {
@@ -3856,9 +3885,49 @@ input[type=checkbox]:focus-visible + .wpcf7-list-item-label {
 .p-single-news-sidebar {
   margin-block-start: 80px;
 }
+@media screen and (min-width: 768px) {
+  .p-single-news-sidebar {
+    margin-block-start: 0;
+  }
+  .p-single-news-sidebar__article-cards {
+    gap: 22px;
+  }
+  .p-single-news-sidebar__article-content {
+    margin-block-start: -4px;
+  }
+  .p-single-news-sidebar__article-text {
+    margin-block-start: 4px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
+}
 
 .c-single-news-sidebar__article-category {
   margin-block-start: 10px;
+}
+@media screen and (min-width: 768px) {
+  .c-single-news-sidebar__article-category {
+    margin-block-start: 0;
+  }
+  .p-single-news-sidebar__heading {
+    padding-bottom: 6px;
+  }
+  .p-single-news-sidebar__heading2 {
+    padding-bottom: 9px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
 }
 
 .p-staff-message__swiper {
