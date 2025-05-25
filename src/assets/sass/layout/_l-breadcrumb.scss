@@ -4,13 +4,9 @@
   margin-block-start: 6px;
 }
 
-.l-breadcrumb__list {
-  display: flex;
-  flex-wrap: wrap; // ← 長い場合に折り返し
-  list-style: none; // ← 黒ポチ消す
-}
-
 .l-breadcrumb__item {
+  min-width: 0;
+
   &:not(:last-child)::after {
     content: "＞";
     margin: 0 0.4em;
@@ -23,14 +19,27 @@
   }
 }
 
+.l-breadcrumb__item:empty::after {
+  display: none;
+  content: "";
+}
+
+
 .l-breadcrumb__link {
   color: #c2c2c2;
   font-size: 12px;
   font-weight: 500;
+  overflow-wrap: break-word;
+  white-space: normal;        // 折り返しを許可
+  word-break: break-all;
 }
 
 .l-breadcrumb__current {
   color: $text-primary;
   font-size: 12px;
   font-weight: 500;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
+

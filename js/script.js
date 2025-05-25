@@ -663,109 +663,109 @@ document.addEventListener("DOMContentLoaded", function () {
 //   false
 // );
 
-// // // お問い合わせページに入ったら、最初の項目にフォーカスされる
-// document.addEventListener("DOMContentLoaded", function () {
-//   // 最初のinput（例: name属性が your-name）の要素を取得
-//   var nameInput = document.querySelector('input[name="your-name"]');
-//   if (nameInput) {
-//     nameInput.focus();
-//   }
-// });
+// // お問い合わせページに入ったら、最初の項目にフォーカスされる
+document.addEventListener("DOMContentLoaded", function () {
+  // 最初のinput（例: name属性が your-name）の要素を取得
+  var nameInput = document.querySelector('input[name="your-name"]');
+  if (nameInput) {
+    nameInput.focus();
+  }
+});
 
-// // // お問い合わせフォームの電話番号バリデーションエラー
-// // // ハイフンなし10桁・11桁、またはハイフン区切りを許可
-// // // 電話番号：全角→半角変換（ハイフンはそのまま）
-// document.addEventListener("DOMContentLoaded", function () {
-//   var telInputs = document.querySelectorAll('input[name="your-tel"]');
-//   telInputs.forEach(function (telInput) {
-//     telInput.addEventListener("input", function () {
-//       // 全角数字を半角に変換
-//       var val = this.value.replace(/[０-９]/g, function (s) {
-//         return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
-//       });
-//       // 全角ハイフン類を半角ハイフンに変換
-//       val = val.replace(/[ー−―‐〜～]/g, "-");
-//       this.value = val;
-//     });
-//   });
+// // お問い合わせフォームの電話番号バリデーションエラー
+// // ハイフンなし10桁・11桁、またはハイフン区切りを許可
+// // 電話番号：全角→半角変換（ハイフンはそのまま）
+document.addEventListener("DOMContentLoaded", function () {
+  var telInputs = document.querySelectorAll('input[name="your-tel"]');
+  telInputs.forEach(function (telInput) {
+    telInput.addEventListener("input", function () {
+      // 全角数字を半角に変換
+      var val = this.value.replace(/[０-９]/g, function (s) {
+        return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
+      });
+      // 全角ハイフン類を半角ハイフンに変換
+      val = val.replace(/[ー−―‐〜～]/g, "-");
+      this.value = val;
+    });
+  });
 
-//   //   // 複数フォーム対応：電話番号バリデーション
-//   var forms = document.querySelectorAll("form.wpcf7-form"); // 静的サイトの場合は、formタグのクラスを指定
-//   forms.forEach(function (form) {
-//     form.addEventListener("submit", function (e) {
-//       var oldTelError = form.querySelector(".tel-error");
-//       if (oldTelError) oldTelError.remove();
-//       var telInput = form.querySelector('input[name="your-tel"]');
-//       if (telInput) {
-//         var telValue = telInput.value.trim();
-//         var telPattern = /^(\d{10}|\d{11}|\d{2,4}-\d{2,4}-\d{3,4})$/;
-//         if (!telPattern.test(telValue)) {
-//           e.preventDefault();
-//           var telError = document.createElement("span");
-//           telError.className = "tel-error";
-//           telError.style.color = "red";
-//           telError.style.display = "block";
-//           telError.style.marginTop = "4px";
-//           telError.textContent = "電話番号の形式が正しくありません。";
-//           telInput.parentNode.insertBefore(telError, telInput.nextSibling);
-//           telInput.focus();
-//         }
-//       }
-//     });
-//   });
-// });
+  //   // 複数フォーム対応：電話番号バリデーション
+  var forms = document.querySelectorAll("form.wpcf7-form"); // 静的サイトの場合は、formタグのクラスを指定
+  forms.forEach(function (form) {
+    form.addEventListener("submit", function (e) {
+      var oldTelError = form.querySelector(".tel-error");
+      if (oldTelError) oldTelError.remove();
+      var telInput = form.querySelector('input[name="your-tel"]');
+      if (telInput) {
+        var telValue = telInput.value.trim();
+        var telPattern = /^(\d{10}|\d{11}|\d{2,4}-\d{2,4}-\d{3,4})$/;
+        if (!telPattern.test(telValue)) {
+          e.preventDefault();
+          var telError = document.createElement("span");
+          telError.className = "tel-error";
+          telError.style.color = "red";
+          telError.style.display = "block";
+          telError.style.marginTop = "4px";
+          telError.textContent = "電話番号の形式が正しくありません。";
+          telInput.parentNode.insertBefore(telError, telInput.nextSibling);
+          telInput.focus();
+        }
+      }
+    });
+  });
+});
 
-// // // お問い合わせフォームのフリガナバリデーションエラー
-// // // カタカナ以外はエラー
-// // // フリガナ：ひらがな→カタカナ自動変換
-// document.addEventListener("DOMContentLoaded", function () {
-//   var kanaInputs = document.querySelectorAll('input[name="your-kana"]');
-//   kanaInputs.forEach(function (kanaInput) {
-//     kanaInput.addEventListener("input", function () {
-//       this.value = this.value.replace(/[\u3041-\u3096]/g, function (s) {
-//         return String.fromCharCode(s.charCodeAt(0) + 0x60);
-//       });
-//     });
-//   });
+// // お問い合わせフォームのフリガナバリデーションエラー
+// // カタカナ以外はエラー
+// // フリガナ：ひらがな→カタカナ自動変換
+document.addEventListener("DOMContentLoaded", function () {
+  var kanaInputs = document.querySelectorAll('input[name="your-kana"]');
+  kanaInputs.forEach(function (kanaInput) {
+    kanaInput.addEventListener("input", function () {
+      this.value = this.value.replace(/[\u3041-\u3096]/g, function (s) {
+        return String.fromCharCode(s.charCodeAt(0) + 0x60);
+      });
+    });
+  });
 
-//   //   // 複数フォーム対応：カタカナバリデーション
-//   var forms = document.querySelectorAll("form.wpcf7-form"); // 静的サイトの場合は、formタグのクラスを指定
-//   forms.forEach(function (form) {
-//     form.addEventListener("submit", function (e) {
-//       var oldKanaError = form.querySelector(".kana-error");
-//       if (oldKanaError) oldKanaError.remove();
-//       var kanaInput = form.querySelector('input[name="your-kana"]');
-//       if (kanaInput) {
-//         var kanaValue = kanaInput.value.trim();
-//         var kanaPattern = /^[ァ-ヶー　\s]+$/;
-//         if (!kanaPattern.test(kanaValue)) {
-//           e.preventDefault();
-//           var kanaError = document.createElement("span");
-//           kanaError.className = "kana-error";
-//           kanaError.style.color = "red";
-//           kanaError.style.display = "block";
-//           kanaError.style.marginTop = "4px";
-//           kanaError.textContent = "フリガナは全角カタカナで入力してください。";
-//           kanaInput.parentNode.insertBefore(kanaError, kanaInput.nextSibling);
-//           kanaInput.focus();
-//         }
-//       }
-//     });
-//   });
-// });
+  //   // 複数フォーム対応：カタカナバリデーション
+  var forms = document.querySelectorAll("form.wpcf7-form"); // 静的サイトの場合は、formタグのクラスを指定
+  forms.forEach(function (form) {
+    form.addEventListener("submit", function (e) {
+      var oldKanaError = form.querySelector(".kana-error");
+      if (oldKanaError) oldKanaError.remove();
+      var kanaInput = form.querySelector('input[name="your-kana"]');
+      if (kanaInput) {
+        var kanaValue = kanaInput.value.trim();
+        var kanaPattern = /^[ァ-ヶー　\s]+$/;
+        if (!kanaPattern.test(kanaValue)) {
+          e.preventDefault();
+          var kanaError = document.createElement("span");
+          kanaError.className = "kana-error";
+          kanaError.style.color = "red";
+          kanaError.style.display = "block";
+          kanaError.style.marginTop = "4px";
+          kanaError.textContent = "フリガナは全角カタカナで入力してください。";
+          kanaInput.parentNode.insertBefore(kanaError, kanaInput.nextSibling);
+          kanaInput.focus();
+        }
+      }
+    });
+  });
+});
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const emailInputs = document.querySelectorAll('input[type="email"]');
+document.addEventListener("DOMContentLoaded", function () {
+  const emailInputs = document.querySelectorAll('input[type="email"]');
 
-//   emailInputs.forEach(function (input) {
-//     input.addEventListener("input", function () {
-//       // 全角英数字 → 半角変換
-//       this.value = this.value.replace(/[Ａ-Ｚａ-ｚ０-９！-～]/g, function (s) {
-//         return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
-//       });
-//     });
-//   });
-// });
+  emailInputs.forEach(function (input) {
+    input.addEventListener("input", function () {
+      // 全角英数字 → 半角変換
+      this.value = this.value.replace(/[Ａ-Ｚａ-ｚ０-９！-～]/g, function (s) {
+        return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
+      });
+    });
+  });
+});
 
 // 開発中コード
 // ✅ 改善ポイント：DOMContentLoaded のイベント登録が多すぎる
