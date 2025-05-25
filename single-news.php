@@ -59,7 +59,7 @@
         <?php if (get_field('heading2')) : ?>
           <div class="p-blog-detail__content2">
             <div class="p-blog-detail__content2-heading">
-              <h3 class="p-blog-detail__content2-heading-title">
+              <h3 class="p-blog-detail__content2-heading-title p-single-news-blog-detail__content2-heading-title">
                 <?php the_field('heading2'); ?>
               </h3>
 
@@ -67,7 +67,7 @@
               $image = get_field('heading2_image');
               if ($image) :
               ?>
-                <div class="p-blog-detail__content2-image">
+                <div class="p-blog-detail__content2-image p-single-news-blog-detail__content2-image">
                   <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
                 </div>
               <?php endif; ?>
@@ -79,7 +79,7 @@
         <?php if (get_field('heading3')) : ?>
           <div class="p-blog-detail__content3">
             <div class="p-blog-detail__content3-heading">
-              <h3 class="p-blog-detail__content3-heading-title">
+              <h3 class="p-blog-detail__content3-heading-title p-single-news-blog-detail__content3-heading-title">
                 <?php the_field('heading3'); ?>
               </h3>
             </div>
@@ -119,7 +119,7 @@
             <?php endforeach; ?>
           </ul>
         <?php endif; ?>
-        <div class="p-blog-detail-pagination-container">
+        <div class="p-blog-detail-pagination-container p-single-news-blog-detail-pagination-container">
           <nav
             class="p-blog-detail-pagination"
             role="navigation"
@@ -133,7 +133,7 @@
                 ?>
                   <a
                     href="<?php echo esc_url($prev_url); ?>"
-                    class="p-blog-detail-pagination__link p-blog-detail-pagination__link--prev"
+                    class="p-blog-detail-pagination__link p-blog-detail-pagination__link--prev p-single-news-blog-detail-pagination__link--prev"
                     aria-label="前のページ">
                     <svg
                       class="p-blog-detail-pagination__icon p-blog-detail-pagination__icon--prev"
@@ -151,7 +151,7 @@
               </li>
 
               <li class="p-blog-detail-pagination__item">
-                <a href="<?php echo esc_url(get_post_type_archive_link('staff_blog')); ?>" class="p-blog-detail-pagination__link">記事一覧</a>
+                <a href="<?php echo esc_url(get_post_type_archive_link('staff_blog')); ?>" class="p-blog-detail-pagination__link p-single-news-blog-detail-pagination__link">記事一覧</a>
               </li>
 
               <li class="p-blog-detail-pagination__item">
@@ -162,7 +162,7 @@
                 ?>
                   <a
                     href="<?php echo esc_url($next_url); ?>"
-                    class="p-blog-detail-pagination__link p-blog-detail-pagination__link--next"
+                    class="p-blog-detail-pagination__link p-blog-detail-pagination__link--next p-single-news-blog-detail-pagination__link--next"
                     aria-label="次のページ">
                     次の記事
                     <svg
@@ -182,13 +182,14 @@
           </nav>
         </div>
       </div>
-      <aside class="c-sidebar">
-        <div class="c-sidebar__inner l-section__inner">
+
+      <aside class="c-sidebar p-single-news-sidebar">
+        <div class="c-sidebar__inner">
           <div class="c-sidebar__container">
             <div class="c-sidebar__clinic">
               <div class="c-sidebar__heading">
                 <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-03.svg"
+                  src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-07.svg"
                   alt="" />
                 <h2 class="c-sidebar__heading-title">クリニックの紹介</h2>
               </div>
@@ -224,7 +225,7 @@
             <div class="c-sidebar__article">
               <div class="c-sidebar__heading">
                 <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-04.svg"
+                  src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-06.svg"
                   alt="" />
                 <h2 class="c-sidebar__heading-title">新着記事</h2>
               </div>
@@ -260,7 +261,7 @@
 
                       <div class="c-sidebar__article-content">
                         <!-- カテゴリー名を表示 -->
-                        <span class="c-sidebar__article-category"><?php echo esc_html($category); ?></span>
+                        <span class="c-sidebar__article-category c-single-news-sidebar__article-category"><?php echo esc_html($category); ?></span>
 
                         <!-- 記事タイトルを表示 -->
                         <p class="c-sidebar__article-text"><?php the_title(); ?></p>
@@ -281,10 +282,11 @@
                 <?php endif; ?>
               </div>
             </div>
+
             <div class="c-sidebar__category">
               <div class="c-sidebar__heading">
                 <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-05.svg"
+                  src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-02.svg"
                   alt="" />
                 <h2 class="c-sidebar__heading-title">カテゴリー</h2>
               </div>

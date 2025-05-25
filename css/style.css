@@ -3832,6 +3832,35 @@ input[type=checkbox]:focus-visible + .wpcf7-list-item-label {
   display: inline-flex;
 }
 
+.p-single-news-blog-detail__content2-heading-title {
+  margin-block-start: -5px;
+  padding-block: 8px;
+}
+
+.p-single-news-blog-detail__content2-image {
+  margin-block-start: 22px;
+}
+
+.p-single-news-blog-detail__content3-heading-title {
+  line-height: 1.6;
+}
+
+.p-single-news-blog-detail-pagination-container {
+  margin-block-start: 46px;
+}
+
+.p-single-news-blog-detail-pagination__link,.p-single-news-blog-detail-pagination__link--prev,.p-single-news-blog-detail-pagination__link--next {
+  padding-block: 7.5px;
+}
+
+.p-single-news-sidebar {
+  margin-block-start: 80px;
+}
+
+.c-single-news-sidebar__article-category {
+  margin-block-start: 10px;
+}
+
 .p-staff-message__swiper {
   margin-block-start: clamp(3.125rem, 2.2962707182rem + 3.5359116022vw, 5.125rem);
 }
