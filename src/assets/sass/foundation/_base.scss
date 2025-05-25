@@ -39,3 +39,17 @@ html {
     display: none;
   }
 }
+
+.hidden--sp {
+  display: none;
+  @include mq(md) {
+    display: block;
+  }
+}
+
+.hidden--pc {
+  display: block;
+  @include mq(md) {
+    display: none;
+  }
+}

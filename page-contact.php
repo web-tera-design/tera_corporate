@@ -30,7 +30,7 @@
 
       </div>
       <div class="p-contact__form-body">
-        <h2 class="c-heading p-contact-heading">お問い合わせ<br>フォーム</h2>
+        <h2 class="c-heading p-contact-heading">お問い合わせ<br class="hidden--pc">フォーム</h2>
         <div class="p-contact__form-container">
           <?php echo do_shortcode('[contact-form-7 id="cfecc61" title="無題"]'); ?>
         </div>
