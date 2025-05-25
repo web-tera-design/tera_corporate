@@ -2281,8 +2281,12 @@ button {
   color: #ee5a6d;
 }
 
-.p-contact__form-container {
+.p-contact__form-body {
   margin-block-start: clamp(6.25rem, 4.9551104972rem + 5.5248618785vw, 9.375rem);
+}
+
+.p-contact-heading {
+  text-align: center;
 }
 
 .p-contact__form {
@@ -2370,6 +2374,10 @@ button {
     background: #1391e6;
     color: #fff;
   }
+}
+
+.p-contact-footer {
+  margin-block-start: 110px;
 }
 
 .p-index-blog {

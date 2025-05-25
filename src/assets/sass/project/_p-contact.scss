@@ -27,8 +27,12 @@
   line-height: 24px;
 }
 
-.p-contact__form-container {
+.p-contact__form-body {
   margin-block-start: rclamp(100, 150, 375, 1280);
+}
+
+.p-contact-heading {
+  text-align: center;
 }
 
 .p-contact__form {
@@ -118,4 +122,8 @@
       background: #1391e6;
     }
   }
+}
+
+.p-contact-footer {
+  margin-block-start: 110px;
 }

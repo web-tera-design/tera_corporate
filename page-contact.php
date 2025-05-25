@@ -8,7 +8,7 @@
         <p class="c-mv__bg-text--sub">contact</p>
       </hgroup>
     </div>
-    <nav class="l-breadcrumbs" aria-label="パンくずリスト">
+    <nav class="l-breadcrumbs c-breadcrumbs" aria-label="パンくずリスト">
       <ol class="l-breadcrumb__list">
         <?php if (function_exists('bcn_display')) {
           bcn_display();
@@ -29,8 +29,8 @@
         <?php endif; ?>
 
       </div>
-      <div class="p-contact__form-container">
-        <h2 class="c-heading">お問い合わせ フォーム</h2>
+      <div class="p-contact__form-body">
+        <h2 class="c-heading p-contact-heading">お問い合わせ<br>フォーム</h2>
         <div class="p-contact__form-container">
           <?php echo do_shortcode('[contact-form-7 id="cfecc61" title="無題"]'); ?>
         </div>

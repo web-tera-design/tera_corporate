@@ -1,4 +1,4 @@
- <footer class="l-footer">
+ <footer class="l-footer p-contact-footer">
    <div class="l-footer__container">
      <div class="l-footer-info">
        <div class="l-footer-info__body">
