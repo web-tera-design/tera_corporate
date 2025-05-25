@@ -4,11 +4,11 @@
   <div class="c-mv__inner l-section__inner">
     <div class="c-mv__bg-image p-blog-mv__bg-image">
       <hgroup class="c-mv__bg-text">
-        <h2 class="c-mv__bg-text--main">スタッフブログ</h2>
-        <p class="c-mv__bg-text--sub">STAFF BLOG</p>
+        <h2 class="c-mv__bg-text--main">お知らせ一覧</h2>
+        <p class="c-mv__bg-text--sub">NEWS</p>
       </hgroup>
     </div>
-    <nav class="l-breadcrumbs" aria-label="パンくずリスト">
+    <nav class="l-breadcrumbs c-breadcrumbs" aria-label="パンくずリスト">
       <ol class="l-breadcrumb__list">
         <?php if (function_exists('bcn_display')) {
           bcn_display();
@@ -19,10 +19,10 @@
   </div>
 </section>
 
-<section class="c-blog p-blog">
+<section class="c-blog p-blog p-news-blog">
   <div class="c-blog__container p-blog__container">
     <div class="c-blog__archive">
-      <div class="c-blog__cards p-blog__cards">
+      <div class="c-blog__cards p-blog__cards p-news-blog__cards">
         <?php if (have_posts()) : ?>
           <?php while (have_posts()) : the_post(); ?>
             <?php
@@ -44,7 +44,7 @@
               <div class="c-blog__content p-blog__content">
                 <span class="c-blog__label"><?php echo esc_html($category); ?></span>
                 <p class="c-blog__text p-blog__text"><?php the_title(); ?></p>
-                <time class="c-blog__datetime p-blog__datetime entry-date published" datetime="<?php echo get_the_date('Y-m-d'); ?>" itemprop="datePublished">
+                <time class="c-blog__datetime p-blog__datetime p-archive-news-blog__datetime entry-date published" datetime="<?php echo get_the_date('Y-m-d'); ?>" itemprop="datePublished">
                   <?php echo get_the_date('Y/m/d'); ?>
                 </time>
               </div>
@@ -55,9 +55,9 @@
         <?php endif; ?>
       </div>
 
-      <div class="c-pagination-container">
+      <div class="c-pagination-container p-archive-news-pagination-container">
         <nav class="c-pagination" role="navigation" aria-label="ページ送り">
-          <ul class="c-pagination__list">
+          <ul class="c-pagination__list p-archive-news-pagination">
 
             <?php if (get_previous_posts_link()) : ?>
               <li class="c-pagination__item">
@@ -113,12 +113,12 @@
     </div>
 
     <aside class="c-sidebar">
-      <div class="c-sidebar__inner l-section__inner">
+      <div class="c-sidebar__inner">
         <div class="c-sidebar__container">
           <div class="c-sidebar__clinic">
             <div class="c-sidebar__heading">
               <img
-                src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-03.svg"
+                src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-07.svg"
                 alt="" />
               <h2 class="c-sidebar__heading-title">クリニックの紹介</h2>
             </div>
@@ -152,13 +152,13 @@
           </div>
 
           <div class="c-sidebar__article">
-            <div class="c-sidebar__heading">
+            <div class="c-sidebar__heading p-archive-news-sidebar__heading">
               <img
-                src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-04.svg"
+                src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-06.svg"
                 alt="" />
               <h2 class="c-sidebar__heading-title">新着記事</h2>
             </div>
-            <div class="c-sidebar__article-cards">
+            <div class="c-sidebar__article-cards p-archive-news-sidebar__reticle-cards">
               <?php
               // 最新の blog 投稿を5件取得するクエリを作成
               $recent_posts = new WP_Query([
@@ -211,7 +211,7 @@
               <?php endif; ?>
             </div>
           </div>
-          <div class="c-sidebar__category">
+          <div class="c-sidebar__category p-archive-news-sidebar__category">
             <div class="c-sidebar__heading">
               <img
                 src="<?php echo get_template_directory_uri(); ?>/img/blog/sidebaer/pc/blog-sidebaer-pc-05.svg"

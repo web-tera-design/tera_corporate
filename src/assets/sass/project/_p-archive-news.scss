@@ -1,0 +1,29 @@
+@use '../global' as *;
+
+.p-archive-news-pagination-container {
+    margin-block-start: rclamp(58, 100, 375, 1280);
+
+}
+
+.p-archive-news-blog__datetime {
+    margin-block-start: 40px;
+}
+
+.p-archive-news-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.p-archive-news-sidebar__heading {
+    border-bottom: none;
+}
+
+.p-archive-news-sidebar__reticle-cards {
+    gap: 22px;
+}
+
+.p-archive-news-sidebar__category {
+    margin-block-start: 58px;
+}

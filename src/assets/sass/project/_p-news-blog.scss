@@ -1,0 +1,12 @@
+@use '../global' as *;
+
+.p-news-blog {
+    margin-block-start: 60px;
+    @include mq(md) {
+      margin-block-start: 89px;
+    }
+}
+
+.p-news-blog__cards {
+    gap: 20px;
+}

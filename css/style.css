@@ -779,7 +779,7 @@ button {
   color: #393939;
   content: "＞";
   font-size: 0.8em;
-  margin: 0 0.4em;
+  margin: 0 0.3em;
 }
 @media screen and (min-width: 768px) {
   .l-breadcrumb__item:not(:last-child)::after {
@@ -1986,6 +1986,33 @@ button {
 .p-about-medical__image {
   border-radius: 20px;
   overflow: hidden;
+}
+
+.p-archive-news-pagination-container {
+  margin-block-start: clamp(3.625rem, 2.5372928177rem + 4.6408839779vw, 6.25rem);
+}
+
+.p-archive-news-blog__datetime {
+  margin-block-start: 40px;
+}
+
+.p-archive-news-pagination {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.p-archive-news-sidebar__heading {
+  border-bottom: none;
+}
+
+.p-archive-news-sidebar__reticle-cards {
+  gap: 22px;
+}
+
+.p-archive-news-sidebar__category {
+  margin-block-start: 58px;
 }
 
 .p-blog-detail {
@@ -3468,6 +3495,19 @@ button {
     right: 60px;
     width: 100px;
   }
+}
+
+.p-news-blog {
+  margin-block-start: 60px;
+}
+@media screen and (min-width: 768px) {
+  .p-news-blog {
+    margin-block-start: 89px;
+  }
+}
+
+.p-news-blog__cards {
+  gap: 20px;
 }
 
 .p-reservation {
