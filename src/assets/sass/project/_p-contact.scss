@@ -126,4 +126,8 @@
 
 .p-contact-footer {
   margin-block-start: 110px;
+
+  @include mq(md) {
+    margin-block-start: 166px;
+  }
 }

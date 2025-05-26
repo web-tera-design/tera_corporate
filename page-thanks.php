@@ -13,12 +13,12 @@ $parent_slug = $parent_id ? get_post_field('post_name', $parent_id) : '';
           <h2 class="c-mv__bg-text--main">WEB予約</h2>
           <p class="c-mv__bg-text--sub">Reserve</p>
         <?php else : ?>
-          <h2 class="c-mv__bg-text--main">Contact</h2>
-          <p class="c-mv__bg-text--sub">お問い合わせ</p>
+          <h2 class="c-mv__bg-text--main">お問い合わせ</h2>
+          <p class="c-mv__bg-text--sub">Contact</p>
         <?php endif; ?>
       </hgroup>
     </div>
-    <nav class="l-breadcrumbs" aria-label="パンくずリスト">
+    <nav class="l-breadcrumbs c-breadcrumbs" aria-label="パンくずリスト">
       <ol class="l-breadcrumb__list">
         <?php if (function_exists('bcn_display')) bcn_display(); ?>
       </ol>

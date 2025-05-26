@@ -1,0 +1,9 @@
+@use '../global' as *;
+
+.p-thanks-footer {
+    margin-block-start: 160px;
+
+    @include mq(md) {
+      margin-block-start: 190px;
+    }
+}
