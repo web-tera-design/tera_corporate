@@ -4182,12 +4182,14 @@ input[type=checkbox]:focus-visible + .wpcf7-list-item-label {
   background: url(../img/staff/message/pc/staff-message-pc-02.webp) no-repeat center center/cover;
 }
 
-.p-thanks-footer {
-  margin-block-start: 160px;
+.p-thanks-contact {
+  margin-block-start: 8px;
+  padding-block-end: 10px;
 }
 @media screen and (min-width: 768px) {
-  .p-thanks-footer {
-    margin-block-start: 190px;
+  .p-thanks-contact {
+    margin-block-end: -30px;
+    margin-block-start: 30px;
   }
 }
 

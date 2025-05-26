@@ -26,7 +26,7 @@ $parent_slug = $parent_id ? get_post_field('post_name', $parent_id) : '';
   </div>
 </section>
 
-<section class="p-contact">
+<section class="p-contact p-thanks-contact">
   <div class="p-contact__inner l-section__inner">
     <div class="p-contact__container">
       <div class="p-contact__content">
