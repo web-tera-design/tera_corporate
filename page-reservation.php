@@ -7,7 +7,7 @@
         <p class="c-mv__bg-text--sub">RESERVE</p>
       </hgroup>
     </div>
-    <nav class="l-breadcrumbs" aria-label="パンくずリスト">
+    <nav class="l-breadcrumbs c-breadcrumbs" aria-label="パンくずリスト">
       <ol class="l-breadcrumb__list">
         <?php if (function_exists('bcn_display')) {
           bcn_display();
@@ -51,7 +51,7 @@
       </div>
 
       <div class="p-reservation__form-container">
-        <h2 class="c-heading">お問い合わせ フォーム</h2>
+        <h2 class="c-heading">予約フォーム</h2>
         <div class="p-reservation__form">
           <?php echo do_shortcode('[contact-form-7 id="399be11" title="Web予約"]'); ?>
         </div>

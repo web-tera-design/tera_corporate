@@ -3558,7 +3558,7 @@ button {
 .p-reservation__tel-link {
   align-items: center;
   display: inline-block;
-  margin-block-start: clamp(1.5rem, 2.0303867403rem + -0.6629834254vw, 1.875rem);
+  margin-block-start: clamp(1.25rem, 1.1464088398rem + 0.4419889503vw, 1.5rem);
   text-align: center;
 }
 
@@ -3574,16 +3574,21 @@ button {
   font-size: 12px;
   font-weight: 500;
 }
+@media screen and (min-width: 768px) {
+  .reservation__tel-info {
+    margin-block-start: -6px;
+  }
+}
 
 .p-reservation__tel-message {
   font-size: 14px;
   font-weight: 500;
   line-height: 24px; /* 171.429% */
-  margin-block-start: clamp(1.25rem, 1.1464088398rem + 0.4419889503vw, 1.5rem);
+  margin-block-start: clamp(1rem, 0.7928176796rem + 0.8839779006vw, 1.5rem);
 }
 
 .p-reservation__mail {
-  margin-block-start: clamp(2.5rem, 3.3839779006rem + -1.1049723757vw, 3.125rem);
+  margin-block-start: clamp(2.5rem, 2.5rem + 0vw, 2.5rem);
 }
 
 .p-reservation__mail-heading {
@@ -3596,11 +3601,11 @@ button {
   font-size: 14px;
   font-weight: 500;
   line-height: 24px; /* 171.429% */
-  margin-block-start: clamp(1.5625rem, 2.0044889503rem + -0.5524861878vw, 1.875rem);
+  margin-block-start: clamp(1.125rem, 0.9437154696rem + 0.773480663vw, 1.5625rem);
 }
 
 .p-reservation__form-container {
-  margin-block-start: clamp(6.4375rem, 5.2203038674rem + 5.1933701657vw, 9.375rem);
+  margin-block-start: clamp(7.25rem, 6.3694751381rem + 3.7569060773vw, 9.375rem);
 }
 
 .p-reservation__form {
@@ -3610,7 +3615,7 @@ button {
 
 .p-reservation__row {
   border-bottom: 1px solid #ddd;
-  padding-block: clamp(1.5rem, 1.3964088398rem + 0.4419889503vw, 1.75rem);
+  padding-block: 24px;
 }
 @media screen and (min-width: 768px) {
   .p-reservation__row {
@@ -3618,12 +3623,38 @@ button {
     display: grid;
     grid-template-columns: 240px 1fr;
     justify-content: space-between;
+    margin-block-start: 2px;
+    padding-block: 0;
   }
+  .p-reservation__row:nth-of-type(5),
+  .p-reservation__row:nth-of-type(6) {
+    margin-block-start: 0;
+  }
+  .p-reservation__row:nth-of-type(7) {
+    margin-block-start: 4px;
+  }
+  .p-reservation__row:nth-of-type(8) {
+    margin-block-start: 5px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
 }
 
 .p-reservation__head {
   font-size: 16px;
   font-weight: 500;
+}
+@media screen and (min-width: 768px) {
+  .p-reservation__head {
+    padding-block: 40px 40px;
+  }
 }
 
 .p-reservation__required {
@@ -3640,11 +3671,13 @@ button {
   border-radius: 4px;
   color: #000;
   font-size: 16px;
+  margin-block-start: 11px;
 }
 @media screen and (min-width: 768px) {
   .p-reservation__data {
     margin-block-end: 0;
     margin-block-start: 0;
+    padding-block: 24px;
   }
 }
 .p-reservation__data textarea,
@@ -3668,8 +3701,13 @@ button {
   border: 2px solid #1391e6;
 }
 .p-reservation__data textarea {
-  min-height: 100px;
+  height: 160px;
   resize: vertical;
+}
+@media screen and (min-width: 768px) {
+  .p-reservation__data textarea {
+    height: 200px;
+  }
 }
 
 input[type=radio],
@@ -3680,7 +3718,21 @@ input[type=checkbox] {
 
 .wpcf7-radio {
   display: flex;
-  gap: 24px;
+  gap: 40px;
+}
+@media screen and (min-width: 768px) {
+  .wpcf7-radio {
+    gap: 32px;
+  }
+}
+
+.p-reservation__data--radio {
+  margin-block-start: 21px;
+}
+@media screen and (min-width: 768px) {
+  .p-reservation__data--radio {
+    margin-block-start: 0;
+  }
 }
 
 .p-reservation__data--radio .wpcf7-list-item-label {
@@ -3697,19 +3749,19 @@ input[type=checkbox] {
   border: 2px solid #1391e6;
   border-radius: 50%;
   content: "";
-  height: 20px;
+  height: 24px;
   left: 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 20px;
+  width: 24px;
 }
 .p-reservation__data--radio .wpcf7-list-item-label::after {
   background: #1391e6;
   border-radius: 50%;
   content: "";
   height: 12px;
-  left: 4px;
+  left: 6px;
   opacity: 0;
   position: absolute;
   top: 50%;
@@ -3730,7 +3782,22 @@ input[type=radio]:focus-visible + .wpcf7-list-item-label {
 .wpcf7-checkbox {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px 32px;
+  gap: 16px 24px;
+}
+@media screen and (min-width: 768px) {
+  .wpcf7-checkbox {
+    gap: 16px 32px;
+  }
+}
+
+.p-reservation__data--checkbox {
+  margin-block-start: 16px;
+}
+@media screen and (min-width: 768px) {
+  .p-reservation__data--checkbox {
+    margin-block-start: 0;
+    padding-block: 20px;
+  }
 }
 
 .p-reservation__data--checkbox .wpcf7-list-item-label {
@@ -3756,14 +3823,14 @@ input[type=radio]:focus-visible + .wpcf7-list-item-label {
 .p-reservation__data--checkbox .wpcf7-list-item-label::after {
   background: url(../img/contact/mv/pc/contact-mv-pc-01.svg) no-repeat center center/cover;
   content: "";
-  height: 24px;
+  height: 14px;
   left: 4px;
   opacity: 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   transition: opacity 0.2s;
-  width: 24px;
+  width: 14px;
 }
 
 input[type=checkbox]:checked + .wpcf7-list-item-label::after {
@@ -3776,7 +3843,14 @@ input[type=checkbox]:focus-visible + .wpcf7-list-item-label {
 }
 
 .p-reservation__data--select {
+  margin-block-start: 14px;
   position: relative;
+}
+@media screen and (min-width: 768px) {
+  .p-reservation__data--select {
+    margin-block-start: 0;
+    padding-block: 26px;
+  }
 }
 .p-reservation__data--select select {
   -webkit-appearance: none;
@@ -3790,7 +3864,7 @@ input[type=checkbox]:focus-visible + .wpcf7-list-item-label {
   height: 20px;
   pointer-events: none;
   position: absolute;
-  right: 16px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
@@ -3800,6 +3874,11 @@ input[type=checkbox]:focus-visible + .wpcf7-list-item-label {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+@media screen and (min-width: 768px) {
+  .p-reservation__data--date {
+    padding-block: 26px;
+  }
 }
 
 .p-reservation__data--date .p-reservation__date-item {
@@ -3819,7 +3898,7 @@ input[type=checkbox]:focus-visible + .wpcf7-list-item-label {
   height: 20px;
   pointer-events: none;
   position: absolute;
-  right: 16px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
@@ -3861,6 +3940,15 @@ input[type=checkbox]:focus-visible + .wpcf7-list-item-label {
 .p-reservation__data--radio .wpcf7-list-item input {
   align-items: center;
   display: inline-flex;
+}
+
+.p-reservation-footer {
+  margin-block-start: 110px !important;
+}
+@media screen and (min-width: 768px) {
+  .p-reservation-footer {
+    margin-block-start: 170px !important;
+  }
 }
 
 .p-single-news-blog-detail__content2-heading-title {
