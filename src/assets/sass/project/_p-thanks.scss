@@ -1,11 +1,9 @@
 @use '../global' as *;
 
 .p-thanks-contact {
-  margin-block-start: 8px;
-  padding-block-end: 10px;
+  margin-block-start: 60px;
   
   @include mq(md) {
-    margin-block-start: 30px;
-    margin-block-end: -30px;
+    margin-block-start: 80px;
   }
 }

@@ -1,0 +1,8 @@
+@use '../global' as *;
+
+.p-archive-staff-blog-sidebar {
+    margin-block-start: 94px;
+    @include mq(md) {
+        margin-block-start: 68px;
+    }
+}

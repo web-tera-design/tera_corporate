@@ -32,15 +32,11 @@ $parent_slug = $parent_id ? get_post_field('post_name', $parent_id) : '';
       <div class="p-contact__content">
         <?php if ($parent_slug === 'reservation') : ?>
           <?php if (get_field('reservation_thanks')) : ?>
-            <p class="p-contact__message">
-              <?php echo nl2br(get_field('reservation_thanks')); ?>
-            </p>
+            <?php the_field('reservation_thanks'); ?>
           <?php endif; ?>
         <?php else : ?>
           <?php if (get_field('contact_message')) : ?>
-            <div class="p-contact__message">
-              <?php the_field('contact_message'); ?>
-            </div>
+            <?php the_field('contact_message'); ?>
           <?php endif; ?>
         <?php endif; ?>
       </div>

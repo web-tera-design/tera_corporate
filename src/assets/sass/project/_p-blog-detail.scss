@@ -2,6 +2,9 @@
 
 .p-blog-detail {
   margin-block-start: rclamp(60, 80, 375, 1280);
+  @include mq(md) {
+    margin-block-end: -20px;
+  }
 }
 
 .p-blog-detail__container {

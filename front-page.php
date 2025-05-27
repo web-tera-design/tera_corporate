@@ -281,7 +281,16 @@
 
       <?php if ($blog_query->have_posts()) : ?>
         <?php while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
+          <?php
+          // 投稿日と現在日時の差（日数）
+          $post_date = get_the_date('U');
+          $now = current_time('timestamp');
+          $days_diff = ($now - $post_date) / 86400;
+          ?>
           <a href="<?php the_permalink(); ?>" class="c-blog__card p-index-blog__card">
+            <?php if ($days_diff <= 3) : ?>
+              <img src="<?php echo get_template_directory_uri(); ?>/img/blog/archive/pc/blog-archive-pc-02.svg" class="c-blog__card-new-badge" alt="NEW">
+            <?php endif; ?>
             <div class="c-blog__image p-index-blog__image">
               <?php if (has_post_thumbnail()) : ?>
                 <?php the_post_thumbnail('medium'); ?>
