@@ -1,6 +1,12 @@
 @use "../global" as *;
 
 .p-staff-mv__bg-image {
-  background: url(../img/staff/message/pc/staff-message-pc-02.webp) no-repeat
-    center center / cover;
+  background: url(../img/staff/group/pc/staff-group-pc-08.webp) no-repeat center center / cover;
+
+  @include mq(md) {
+    background: url(../img/staff/message/pc/staff-message-pc-02.webp) no-repeat
+      center center / cover;
+  }
+
+
 }

@@ -1,5 +1,9 @@
 @use '../global' as *;
 .p-contact-mv__bg-image {
-  background: url(../img/contact/mv/pc/contact-mv-pc-01.webp) no-repeat center
-    center / cover;
+  background: url(../img/contact/mv/pc/contact-mv-pc-02.webp) no-repeat center center / cover;
+
+  @include mq(md) {
+    background: url(../img/contact/mv/pc/contact-mv-pc-01.webp) no-repeat center
+      center / cover;
+  }
 }

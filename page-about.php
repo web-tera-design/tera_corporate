@@ -91,6 +91,15 @@
       <div class="p-about-medical__card">
         <div class="p-about-medical__image">
           <img
+            src="<?php echo get_template_directory_uri(); ?>/img/about/medical/pc/about-medical-pc-06.webp"
+            alt="院内の様子"
+            width="634"
+            height="634" />
+        </div>
+      </div>
+      <div class="p-about-medical__card">
+        <div class="p-about-medical__image">
+          <img
             src="<?php echo get_template_directory_uri(); ?>/img/about/medical/pc/about-medical-pc-01.webp"
             alt="院内の様子"
             width="634"
@@ -128,15 +137,6 @@
         <div class="p-about-medical__image">
           <img
             src="<?php echo get_template_directory_uri(); ?>/img/about/medical/pc/about-medical-pc-05.webp"
-            alt="院内の様子"
-            width="634"
-            height="634" />
-        </div>
-      </div>
-      <div class="p-about-medical__card">
-        <div class="p-about-medical__image">
-          <img
-            src="<?php echo get_template_directory_uri(); ?>/img/about/medical/pc/about-medical-pc-06.webp"
             alt="院内の様子"
             width="634"
             height="634" />

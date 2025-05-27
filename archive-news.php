@@ -2,7 +2,7 @@
 
 <section class="c-mv">
   <div class="c-mv__inner l-section__inner">
-    <div class="c-mv__bg-image p-blog-mv__bg-image">
+    <div class="c-mv__bg-image p-archive-news-mv__bg-image">
       <hgroup class="c-mv__bg-text">
         <h2 class="c-mv__bg-text--main">お知らせ一覧</h2>
         <p class="c-mv__bg-text--sub">NEWS</p>

@@ -1,8 +1,12 @@
 @use "../global" as *;
 
 .p-blog-mv__bg-image {
-  background: url(../img/blog/archive/pc/blog-archive-pc-01.webp) no-repeat
-    center center / cover;
+  background: url(../img/blog/archive/pc/blog-archive-pc-02.webp) no-repeat center center / cover;
+
+  @include mq(md) {
+    background: url(../img/blog/archive/pc/blog-archive-pc-01.webp) no-repeat
+      center center / cover;
+  }
 }
 
 .p-blog {

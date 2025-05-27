@@ -2,6 +2,7 @@
 
 .p-thanks-contact {
   margin-block-start: 60px;
+  margin-block-end: 0;
   
   @include mq(md) {
     margin-block-start: 80px;

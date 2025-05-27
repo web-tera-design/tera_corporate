@@ -1,0 +1,28 @@
+@use '../global' as *;
+
+.p-error {
+
+}
+
+.p-error__title {
+    font-size: 20px;
+    line-height: 1.6;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+
+    @include mq(md) {
+      font-size: 28px;
+      line-height: 1.42857;
+    }
+}
+
+.p-error__message {
+    margin-block-start: 56px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.7143;
+    @include mq(md) {
+      margin-block-start: 54px;
+    }
+}
+

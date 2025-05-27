@@ -899,6 +899,13 @@ button {
   width: 40px;
   z-index: 10;
 }
+@media screen and (min-width: 768px) {
+  .c-blog__card-new-badge {
+    height: 60px;
+    top: -20px;
+    width: 60px;
+  }
+}
 
 .c-blog__content {
   gap: 0.375rem;
@@ -1428,6 +1435,7 @@ button {
 }
 .c-mv__bg-image::before {
   background: rgba(0, 0, 0, 0.2);
+  background-position: center;
   content: "";
   height: 100%;
 }
@@ -1865,7 +1873,12 @@ button {
 
 /* Auto-generated index.scss for project */
 .p-blog-mv__bg-image {
-  background: url(../img/blog/archive/pc/blog-archive-pc-01.webp) no-repeat center center/cover;
+  background: url(../img/blog/archive/pc/blog-archive-pc-02.webp) no-repeat center center/cover;
+}
+@media screen and (min-width: 768px) {
+  .p-blog-mv__bg-image {
+    background: url(../img/blog/archive/pc/blog-archive-pc-01.webp) no-repeat center center/cover;
+  }
 }
 
 .p-blog {
@@ -2004,6 +2017,15 @@ button {
 .p-about-medical__image {
   border-radius: 20px;
   overflow: hidden;
+}
+
+.p-archive-news-mv__bg-image {
+  background: url(../img/blog/archive/pc/blog-archive-pc-02.webp) no-repeat center center/cover;
+}
+@media screen and (min-width: 768px) {
+  .p-archive-news-mv__bg-image {
+    background: url(../img/blog/archive/pc/blog-archive-pc-01.webp) no-repeat center center/cover;
+  }
 }
 
 .p-archive-news-pagination-container {
@@ -2289,10 +2311,16 @@ button {
 }
 
 .p-contact-mv__bg-image {
-  background: url(../img/contact/mv/pc/contact-mv-pc-01.webp) no-repeat center center/cover;
+  background: url(../img/contact/mv/pc/contact-mv-pc-02.webp) no-repeat center center/cover;
+}
+@media screen and (min-width: 768px) {
+  .p-contact-mv__bg-image {
+    background: url(../img/contact/mv/pc/contact-mv-pc-01.webp) no-repeat center center/cover;
+  }
 }
 
 .p-contact {
+  margin-block-end: -22px;
   margin-block-start: clamp(3.75rem, 3.2320441989rem + 2.2099447514vw, 5rem);
 }
 
@@ -2377,7 +2405,12 @@ button {
 }
 
 .p-contact__textarea {
-  height: 200px;
+  height: 160px;
+}
+@media screen and (min-width: 768px) {
+  .p-contact__textarea {
+    height: 200px;
+  }
 }
 
 .p-contact__submit {
@@ -2414,6 +2447,31 @@ button {
 @media screen and (min-width: 768px) {
   .p-contact-footer {
     margin-block-start: 166px;
+  }
+}
+
+.p-error__title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+}
+@media screen and (min-width: 768px) {
+  .p-error__title {
+    font-size: 28px;
+    line-height: 1.42857;
+  }
+}
+
+.p-error__message {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7143;
+  margin-block-start: 56px;
+}
+@media screen and (min-width: 768px) {
+  .p-error__message {
+    margin-block-start: 54px;
   }
 }
 
@@ -3392,7 +3450,12 @@ button {
 }
 
 .p-medical-mv__bg-image {
-  background: url(../img/medical/general/pc/medical-general-pc-09.webp) no-repeat center center/cover;
+  background: url(../img/medical/general/sp/medical-general-sp-01.webp) no-repeat center center/cover;
+}
+@media screen and (min-width: 768px) {
+  .p-medical-mv__bg-image {
+    background: url(../img/medical/general/pc/medical-general-pc-09.webp) no-repeat center center/cover;
+  }
 }
 
 .p-medical-specialized {
@@ -3564,7 +3627,13 @@ button {
 }
 
 .p-reservation {
+  margin-block-end: -22px;
   margin-block-start: clamp(3.75rem, 3.2320441989rem + 2.2099447514vw, 5rem);
+}
+@media screen and (min-width: 768px) {
+  .p-reservation {
+    margin-block-end: -20px;
+  }
 }
 
 .p-reservation__inner {
@@ -4201,10 +4270,16 @@ input[type=checkbox]:focus-visible + .wpcf7-list-item-label {
 }
 
 .p-staff-mv__bg-image {
-  background: url(../img/staff/message/pc/staff-message-pc-02.webp) no-repeat center center/cover;
+  background: url(../img/staff/group/pc/staff-group-pc-08.webp) no-repeat center center/cover;
+}
+@media screen and (min-width: 768px) {
+  .p-staff-mv__bg-image {
+    background: url(../img/staff/message/pc/staff-message-pc-02.webp) no-repeat center center/cover;
+  }
 }
 
 .p-thanks-contact {
+  margin-block-end: 0;
   margin-block-start: 60px;
 }
 @media screen and (min-width: 768px) {

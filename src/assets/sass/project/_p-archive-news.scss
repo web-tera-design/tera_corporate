@@ -1,5 +1,14 @@
 @use '../global' as *;
 
+.p-archive-news-mv__bg-image {
+    background: url(../img/blog/archive/pc/blog-archive-pc-02.webp) no-repeat center center / cover;
+
+    @include mq(md) {
+      background: url(../img/blog/archive/pc/blog-archive-pc-01.webp) no-repeat
+        center center / cover;
+    }
+}
+
 .p-archive-news-pagination-container {
     margin-block-start: rclamp(58, 100, 375, 1280);
 

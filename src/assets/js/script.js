@@ -355,7 +355,7 @@ const staffMessageSwiper2 = new Swiper(".p-staff-message__swiper.--swiper2", {
   breakpoints: {
     768: {
       slidesPerView: 4,
-      spaceBetween: 15,
+      spaceBetween: 20,
     },
   },
 });

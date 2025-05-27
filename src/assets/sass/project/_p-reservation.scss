@@ -2,6 +2,10 @@
 
 .p-reservation {
   margin-block-start: rclamp(60, 80, 375, 1280);
+  margin-block-end: -22px;
+  @include mq(md) {
+    margin-block-end: -20px;
+  }
 }
 
 .p-reservation__inner {
