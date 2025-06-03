@@ -42,8 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!drawer || !drawerIcon) return;
 
   // 初期状態（非表示）
-  drawer.style.opacity = "0";
-  drawer.style.visibility = "hidden";
   drawer.style.transform = "translateX(100%)"; // 上からスライド
   drawer.style.overflow = "hidden";
   drawer.style.transition = "all 0.7s ease-out";
@@ -52,8 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
     isMenuOpen = true;
     drawer.classList.add("js-show");
     drawerIcon.classList.add("js-show"); // 追加
-    drawer.style.opacity = "1";
-    drawer.style.visibility = "visible";
     drawer.style.transform = "translateX(0)";
     body.style.overflow = "hidden"; // スクロールを防止
     drawerIcon.setAttribute("aria-expanded", "true"); // アクセシビリティ対応
@@ -63,8 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
     isMenuOpen = false;
     drawer.classList.remove("js-show");
     drawerIcon.classList.remove("js-show"); // 追加
-    drawer.style.opacity = "0";
-    drawer.style.visibility = "hidden";
     drawer.style.transform = "translateX(100%)";
     body.style.overflow = ""; // スクロール解除
     drawerIcon.setAttribute("aria-expanded", "false"); // アクセシビリティ対応
@@ -166,130 +160,130 @@ document.addEventListener("DOMContentLoaded", () => {
 //   }
 // });
 
-// // // // サイト表示までのロゴとswiper=================================
-// // document.addEventListener("DOMContentLoaded", () => {
-// //   const overlay = document.getElementById("overlay");
-// //   const siteContent = document.getElementById("siteContent");
-// //   const hasVisited = localStorage.getItem("visited"); // ✅ 初回アクセス判定用
+// // サイト表示までのロゴとswiper=================================
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById("overlay");
+  const siteContent = document.getElementById("siteContent");
+  const hasVisited = localStorage.getItem("visited"); // ✅ 初回アクセス判定用
 
-// //   // ✅ Swiperスライド内のテキストを取得
-// //   const swiperTexts = document.querySelectorAll(
-// //     ".p-index-mv-swiper-slide__text"
-// //   );
+  // ✅ Swiperスライド内のテキストを取得
+  const swiperTexts = document.querySelectorAll(
+    ".p-index-mv-swiper-slide__text"
+  );
 
-// //   // ✅ 一文字ずつ出現アニメーション
-// //   function startTypingAnimation(target, delay = 0) {
-// //     const headings = target.querySelectorAll(
-// //       ".p-index-mv-swiper-slide__heading, .p-index-mv-swiper-slide__sub"
-// //     );
-// //     const globalStartDelay = 1.5; // 全体のディレイを追加
+  // ✅ 一文字ずつ出現アニメーション
+  function startTypingAnimation(target, delay = 0) {
+    const headings = target.querySelectorAll(
+      ".p-index-mv-swiper-slide__heading, .p-index-mv-swiper-slide__sub"
+    );
+    const globalStartDelay = 1.5; // 全体のディレイを追加
 
-// //     headings.forEach((heading, index) => {
-// //       const text = heading.innerText;
-// //       heading.innerHTML = "";
-// //       text.split("").forEach((char, charIndex) => {
-// //         const span = document.createElement("span");
-// //         span.innerText = char;
+    headings.forEach((heading, index) => {
+      const text = heading.innerText;
+      heading.innerHTML = "";
+      text.split("").forEach((char, charIndex) => {
+        const span = document.createElement("span");
+        span.innerText = char;
 
-// //         const extraDelay = index === 1 ? 1.5 : 0; // サブテキストにさらに遅延
-// //         span.style.animationDelay = `${charIndex * 0.15 + extraDelay + globalStartDelay}s`;
-// //         heading.appendChild(span);
-// //       });
-// //     });
-// //   }
+        const extraDelay = index === 1 ? 1.5 : 0; // サブテキストにさらに遅延
+        span.style.animationDelay = `${charIndex * 0.15 + extraDelay + globalStartDelay}s`;
+        heading.appendChild(span);
+      });
+    });
+  }
 
-// //   // ✅ スライド画像のGSAPアニメーション
-// //   function animateSlideImage() {
-// //     const currentImg = document.querySelector(
-// //       ".swiper-slide-active .p-index-mv-slide-img"
-// //     );
-// //     if (!currentImg) return;
+  // ✅ スライド画像のGSAPアニメーション
+  function animateSlideImage() {
+    const currentImg = document.querySelector(
+      ".swiper-slide-active .p-index-mv-slide-img"
+    );
+    if (!currentImg) return;
 
-// //     gsap.set(currentImg, {
-// //       xPercent: -100,
-// //       opacity: 1,
-// //     });
+    gsap.set(currentImg, {
+      xPercent: -100,
+      opacity: 1,
+    });
 
-// //     gsap.to(currentImg, {
-// //       xPercent: 0,
-// //       opacity: 1,
-// //       duration: 3.0,
-// //       ease: "power2.out",
-// //     });
-// //   }
+    gsap.to(currentImg, {
+      xPercent: 0,
+      opacity: 1,
+      duration: 3.0,
+      ease: "power2.out",
+    });
+  }
 
-// //   // ✅ Swiperを初期化（共通処理化）
-// //   function initSwiper() {
-// //     // 初期ロード時にもテキストをタイプさせる
-// //     swiperTexts.forEach((text) => startTypingAnimation(text));
-// //     const cardSwiper = new Swiper(".p-index-mv-card__swiper.--swiper1", {
-// //       speed: 1000,
-// //       effect: "fade",
-// //       loop: true,
-// //       autoplay: {
-// //         delay: 6000,
-// //       },
-// //       pagination: {
-// //         el: ".swiper-pagination.--swiper1",
-// //         clickable: true,
-// //       },
-// //       navigation: {
-// //         prevEl: ".swiper-button-prev.--swiper1",
-// //         nextEl: ".swiper-button-next.--swiper1",
-// //       },
-// //       on: {
-// //         // ✅ 初期化時のテキスト/画像演出
-// //         init: () => {
-// //           const activeSlide = document.querySelector(
-// //             ".swiper-slide-active .p-index-mv-swiper-slide__text"
-// //           );
-// //           if (activeSlide) startTypingAnimation(activeSlide);
-// //           animateSlideImage();
-// //         },
-// //         // ✅ スライド切り替え時の演出
-// //         slideChangeTransitionStart: () => {
-// //           const activeSlide = document.querySelector(
-// //             ".swiper-slide-active .p-index-mv-swiper-slide__text"
-// //           );
-// //           if (activeSlide) startTypingAnimation(activeSlide);
-// //           animateSlideImage();
-// //         },
-// //       },
-// //     });
-// //   }
+  // ✅ Swiperを初期化（共通処理化）
+  function initSwiper() {
+    // 初期ロード時にもテキストをタイプさせる
+    swiperTexts.forEach((text) => startTypingAnimation(text));
+    const cardSwiper = new Swiper(".p-index-mv-card__swiper.--swiper1", {
+      speed: 1000,
+      effect: "fade",
+      loop: true,
+      autoplay: {
+        delay: 6000,
+      },
+      pagination: {
+        el: ".swiper-pagination.--swiper1",
+        clickable: true,
+      },
+      navigation: {
+        prevEl: ".swiper-button-prev.--swiper1",
+        nextEl: ".swiper-button-next.--swiper1",
+      },
+      on: {
+        // ✅ 初期化時のテキスト/画像演出
+        init: () => {
+          const activeSlide = document.querySelector(
+            ".swiper-slide-active .p-index-mv-swiper-slide__text"
+          );
+          if (activeSlide) startTypingAnimation(activeSlide);
+          animateSlideImage();
+        },
+        // ✅ スライド切り替え時の演出
+        slideChangeTransitionStart: () => {
+          const activeSlide = document.querySelector(
+            ".swiper-slide-active .p-index-mv-swiper-slide__text"
+          );
+          if (activeSlide) startTypingAnimation(activeSlide);
+          animateSlideImage();
+        },
+      },
+    });
+  }
 
-// //   // ✅ 初回アクセスの場合（ローディング表示）
-// //   if (!hasVisited) {
-// //     localStorage.setItem("visited", "true");
+  // ✅ 初回アクセスの場合（ローディング表示）
+  if (!hasVisited) {
+    localStorage.setItem("visited", "true");
 
-// //     // overlay が存在するかチェック
-// //     if (overlay) {
-// //       setTimeout(() => {
-// //         overlay.style.transition = "opacity 4s ease-in-out";
-// //         overlay.style.opacity = "0";
+    // overlay が存在するかチェック
+    if (overlay) {
+      setTimeout(() => {
+        overlay.style.transition = "opacity 4s ease-in-out";
+        overlay.style.opacity = "0";
 
-// //         overlay.addEventListener("transitionend", () => {
-// //           overlay.style.display = "none";
-// //           console.log("✅ オーバーレイが非表示になりました");
+        overlay.addEventListener("transitionend", () => {
+          overlay.style.display = "none";
+          console.log("✅ オーバーレイが非表示になりました");
 
-// //           if (siteContent) {
-// //             siteContent.style.display = "block";
-// //           }
+          if (siteContent) {
+            siteContent.style.display = "block";
+          }
 
-// //           initSwiper();
-// //         });
-// //       }, 5000);
-// //     } else {
-// //       // overlayがない場合でもSwiperは動かす
-// //       if (siteContent) siteContent.style.display = "block";
-// //       initSwiper();
-// //     }
-// //   } else {
-// //     if (overlay) overlay.style.display = "none";
-// //     if (siteContent) siteContent.style.display = "block";
-// //     initSwiper();
-// //   }
-// // });
+          initSwiper();
+        });
+      }, 5000);
+    } else {
+      // overlayがない場合でもSwiperは動かす
+      if (siteContent) siteContent.style.display = "block";
+      initSwiper();
+    }
+  } else {
+    if (overlay) overlay.style.display = "none";
+    if (siteContent) siteContent.style.display = "block";
+    initSwiper();
+  }
+});
 
 // // /* ===================================================
 // // ※1 effectについて

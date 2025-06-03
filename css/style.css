@@ -1069,11 +1069,6 @@ button {
   font-weight: 700;
   letter-spacing: clamp(0.06875rem, 0.060980663rem + 0.0331491713vw, 0.0875rem);
 }
-@media screen and (min-width: 900px) {
-  .c-concept__subheading {
-    font-size: clamp(0.875rem, -0.875rem + 2.1875vw, 1.75rem);
-  }
-}
 
 .c-concept__heading {
   font-size: 1.25rem;
@@ -1082,11 +1077,6 @@ button {
   line-height: clamp(2rem, 1.6892265193rem + 1.3259668508vw, 2.75rem); /* 160% */
   margin-block-start: clamp(0.875rem, 0.6160220994rem + 1.1049723757vw, 1.5rem);
 }
-@media screen and (min-width: 900px) {
-  .c-concept__heading {
-    font-size: clamp(1.75rem, 0.25rem + 1.875vw, 2.5rem);
-  }
-}
 
 .c-concept__text {
   color: #393939;
@@ -1094,11 +1084,6 @@ button {
   font-weight: 500;
   line-height: 1.5rem; /* 171.429% */
   margin-block-start: clamp(1.6875rem, 1.4544198895rem + 0.9944751381vw, 2.25rem);
-}
-@media screen and (min-width: 900px) {
-  .c-concept__text {
-    font-size: clamp(0.875rem, -0.875rem + 2.1875vw, 1.75rem);
-  }
 }
 
 .c-concept__link {

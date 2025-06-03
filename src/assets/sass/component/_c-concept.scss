@@ -53,9 +53,6 @@
   font-weight: 700;
   letter-spacing: rclamp(1.1, 1.4, 375, 1280);
 
-  @include mq(lg) {
-    font-size: rclamp(14, 28, 1280, 1920);
-  }
 }
 
 .c-concept__heading {
@@ -64,10 +61,6 @@
   font-weight: 700;
   line-height: rclamp(32, 44, 375, 1280); /* 160% */
   letter-spacing: rclamp(1.6, 2.24, 375, 1280);
-
-  @include mq(lg) {
-    font-size: rclamp(28, 40, 1280, 1920);
-  }
 }
 
 .c-concept__text {
@@ -77,9 +70,6 @@
   font-weight: 500;
   line-height: rem(24); /* 171.429% */
 
-  @include mq(lg) {
-    font-size: rclamp(14, 28, 1280, 1920);
-  }
 }
 
 .c-concept__link {
