@@ -2,10 +2,7 @@
 !(function () {
   const viewport = document.querySelector('meta[name="viewport"]');
   function switchViewport() {
-    const value =
-      window.outerWidth > 375
-        ? "width=device-width,initial-scale=1"
-        : "width=375";
+    const value = window.outerWidth > 375 ? "width=device-width,initial-scale=1" : "width=375";
     if (viewport.getAttribute("content") !== value) {
       viewport.setAttribute("content", value);
     }
@@ -87,11 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // メニュー外クリックで閉じる
   document.addEventListener("click", (event) => {
-    if (
-      !drawer.contains(event.target) &&
-      !drawerIcon.contains(event.target) &&
-      isMenuOpen
-    ) {
+    if (!drawer.contains(event.target) && !drawerIcon.contains(event.target) && isMenuOpen) {
       closeMenu();
     }
   });
@@ -115,56 +108,56 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// const drawerBtn = document.querySelector(".c-drawer-icon");
-// const bars = drawerBtn.querySelectorAll(".c-drawer-icon__bar");
+const drawerBtn = document.querySelector(".c-drawer-icon");
+const bars = drawerBtn.querySelectorAll(".c-drawer-icon__bar");
 
-// let isOpen = false;
+let isOpen = false;
 
-// drawerBtn.addEventListener("click", () => {
-//   isOpen = !isOpen;
+drawerBtn.addEventListener("click", () => {
+  isOpen = !isOpen;
 
-//   if (isOpen) {
-//     // 🌀くるっと回転しながら交差
-//     gsap.to(bars[0], {
-//       y: 7,
-//       rotate: 405, // ← 360 + 45度くるっと！
-//       transformOrigin: "center",
-//       duration: 0.6,
-//       ease: "power3.out",
-//     });
-//     gsap.to(bars[1], {
-//       opacity: 0,
-//       duration: 0.3,
-//       ease: "power1.out",
-//     });
-//     gsap.to(bars[2], {
-//       y: -7,
-//       rotate: -405, // ← マイナス方向にもくるん！
-//       transformOrigin: "center",
-//       duration: 0.6,
-//       ease: "power3.out",
-//     });
-//   } else {
-//     // 元に戻るときもスムーズに回転戻す
-//     gsap.to(bars[0], {
-//       y: 0,
-//       rotate: 0,
-//       duration: 0.6,
-//       ease: "power3.inOut",
-//     });
-//     gsap.to(bars[1], {
-//       opacity: 1,
-//       duration: 0.3,
-//       ease: "power1.in",
-//     });
-//     gsap.to(bars[2], {
-//       y: 0,
-//       rotate: 0,
-//       duration: 0.6,
-//       ease: "power3.inOut",
-//     });
-//   }
-// });
+  if (isOpen) {
+    // 🌀くるっと回転しながら交差
+    gsap.to(bars[0], {
+      y: 7,
+      rotate: 405, // ← 360 + 45度くるっと！
+      transformOrigin: "center",
+      duration: 0.6,
+      ease: "power3.out",
+    });
+    gsap.to(bars[1], {
+      opacity: 0,
+      duration: 0.3,
+      ease: "power1.out",
+    });
+    gsap.to(bars[2], {
+      y: -7,
+      rotate: -405, // ← マイナス方向にもくるん！
+      transformOrigin: "center",
+      duration: 0.6,
+      ease: "power3.out",
+    });
+  } else {
+    // 元に戻るときもスムーズに回転戻す
+    gsap.to(bars[0], {
+      y: 0,
+      rotate: 0,
+      duration: 0.6,
+      ease: "power3.inOut",
+    });
+    gsap.to(bars[1], {
+      opacity: 1,
+      duration: 0.3,
+      ease: "power1.in",
+    });
+    gsap.to(bars[2], {
+      y: 0,
+      rotate: 0,
+      duration: 0.6,
+      ease: "power3.inOut",
+    });
+  }
+});
 
 // // // // サイト表示までのロゴとswiper=================================
 // // document.addEventListener("DOMContentLoaded", () => {
@@ -807,21 +800,14 @@ function initDrawer() {
     drawerBtn.setAttribute("aria-expanded", "false");
   };
 
-  drawerBtn.addEventListener("click", () =>
-    isMenuOpen ? closeMenu() : openMenu()
-  );
+  drawerBtn.addEventListener("click", () => (isMenuOpen ? closeMenu() : openMenu()));
 
   window.addEventListener("resize", () => {
     if (window.innerWidth > 900 && isMenuOpen) closeMenu();
   });
 
   document.addEventListener("click", (e) => {
-    if (
-      !drawer.contains(e.target) &&
-      !drawerBtn.contains(e.target) &&
-      isMenuOpen
-    )
-      closeMenu();
+    if (!drawer.contains(e.target) && !drawerBtn.contains(e.target) && isMenuOpen) closeMenu();
   });
 
   document.addEventListener("keydown", (e) => {
