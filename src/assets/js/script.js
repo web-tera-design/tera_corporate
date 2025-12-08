@@ -752,10 +752,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   emailInputs.forEach(function (input) {
     input.addEventListener("input", function () {
-      // 全角英数字 → 半角変換
-      this.value = this.value.replace(/[Ａ-Ｚａ-ｚ０-９！-～]/g, function (s) {
-        return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
-      });
+      // 全角英数字・記号 → 半角に変換
+      this.value = this.value
+        .replace(/[Ａ-Ｚａ-ｚ０-９！-～]/g, function (s) {
+          return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
+        })
+        .replace(/[＠]/g, "@")
+        .replace(/[．]/g, ".")
+        .replace(/[＿]/g, "_");
+
+      // ❌ ひらがな・カタカナ（全角含む）を削除
+      this.value = this.value.replace(/[ぁ-ゖァ-ヾー]/g, "");
     });
   });
 });
